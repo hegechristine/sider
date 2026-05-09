@@ -577,187 +577,6 @@
     }
   }
 
-  /* ============== KONTAKT-MODAL ============== */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(46, 50, 48, 0.55);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
-    z-index: 100;
-    padding: 60px 16px 16px;
-    overflow-y: auto;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  .modal-overlay.is-open {
-    display: flex;
-    opacity: 1;
-  }
-
-  .modal-card {
-    background: var(--olive);
-    color: var(--cream-light);
-    border-radius: 6px;
-    box-shadow: 6px 6px 0 var(--ink);
-    padding: 32px 28px 28px;
-    max-width: 520px;
-    width: 100%;
-    position: relative;
-    transform: translateY(-12px);
-    transition: transform 0.2s ease;
-  }
-
-  .modal-overlay.is-open .modal-card {
-    transform: translateY(0);
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0, 0, 0, 0.18);
-    color: var(--cream-light);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.15s ease;
-    font-family: 'Archivo', sans-serif;
-    font-size: 1.4rem;
-    line-height: 1;
-    padding: 0;
-  }
-
-  .modal-close:hover {
-    background: var(--rust);
-  }
-
-  .modal-kicker {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.68rem;
-    color: var(--sand);
-    margin-bottom: 12px;
-  }
-
-  .modal-kicker::before {
-    content: '— ';
-  }
-
-  .modal-title {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 1.45rem;
-    line-height: 1.15;
-    color: var(--cream-light);
-    margin-bottom: 18px;
-  }
-
-  .modal-title .italic {
-    color: var(--cream-light);
-    font-weight: 400;
-  }
-
-  .hc-contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
-
-  .hc-contact-form input[type="text"],
-  .hc-contact-form input[type="email"],
-  .hc-contact-form textarea {
-    background: var(--cream-light);
-    border: 1px solid rgba(46, 50, 48, 0.18);
-    color: var(--ink);
-    padding: 12px 14px;
-    border-radius: 3px;
-    font-family: 'Archivo', sans-serif;
-    font-size: 0.92rem;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.18s ease, background 0.18s ease;
-  }
-
-  .hc-contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
-  .hc-contact-form input::placeholder,
-  .hc-contact-form textarea::placeholder {
-    color: rgba(46, 50, 48, 0.45);
-  }
-
-  .hc-contact-form input:focus,
-  .hc-contact-form textarea:focus {
-    outline: none;
-    border-color: var(--rust);
-    background: #fff;
-  }
-
-  .hc-contact-form button[type="submit"] {
-    background: var(--rust);
-    color: var(--cream-light);
-    border: none;
-    padding: 13px;
-    border-radius: 3px;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    cursor: pointer;
-    margin-top: 4px;
-    transition: background 0.18s ease;
-  }
-
-  .hc-contact-form button[type="submit"]:hover {
-    background: var(--rust-deep);
-  }
-
-  .modal-foot {
-    margin-top: 14px;
-    color: rgba(245, 236, 214, 0.55);
-    font-size: 0.66rem;
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .modal-success {
-    display: none;
-    text-align: center;
-    padding: 16px 0 8px;
-  }
-
-  .modal-success.is-shown {
-    display: block;
-  }
-
-  .modal-success.is-shown ~ .hc-contact-form,
-  .modal-success.is-shown ~ .modal-foot {
-    display: none;
-  }
-
-  .modal-success p {
-    font-family: 'Newsreader', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    line-height: 1.45;
-    color: rgba(245, 236, 214, 0.95);
-  }
-
   /* ============== AFFILIATE NOTE ============== */
   .affiliate-note {
     background: var(--cream-light);
@@ -899,17 +718,6 @@
       </div>
       <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
-
-    <a href="https://www.hegechristine.no/resource_redirect/offers/ckpVyXrx" class="card card-sage" target="_blank" rel="noopener">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      </div>
-      <div class="card-body">
-        <span class="card-kicker">BOOK · 90 MIN</span>
-        <span class="card-title">Strategisamtale med Hege <span class="italic">Christine</span></span>
-      </div>
-      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
   </section>
 
   <!-- ===== FELLESSKAP ===== -->
@@ -964,39 +772,17 @@
       <span class="section-num kicker">04 / 04</span>
     </div>
 
-    <a href="mailto:hegechristine@hegechristine.no" class="card card-dashed" id="contact-trigger">
+    <a href="mailto:hegechristine@hegechristine.no" class="card card-dashed">
       <div class="card-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </div>
       <div class="card-body">
-        <span class="card-kicker">E-POST · SVAR INNEN 2 DAGER</span>
-        <span class="card-title">Send meg en melding</span>
+        <span class="card-kicker">HEGECHRISTINE@HEGECHRISTINE.NO</span>
+        <span class="card-title">Send meg en <span class="italic">e-post</span></span>
       </div>
       <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </section>
-
-  <!-- ===== KONTAKT-MODAL ===== -->
-  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close" type="button" aria-label="Lukk" data-modal-close>×</button>
-      <div class="modal-kicker">KONTAKT</div>
-      <h2 class="modal-title" id="contact-modal-title">Send meg en <span class="italic">melding</span></h2>
-
-      <div class="modal-success" id="contact-success" aria-live="polite">
-        <p>Din e-postklient åpner seg nå med meldingen klargjort. Klikk <strong>Send</strong> der for å fullføre.</p>
-      </div>
-
-      <form id="contact-form" class="hc-contact-form" novalidate>
-        <input type="text" name="name" placeholder="Navn" required autocomplete="name">
-        <input type="email" name="email" placeholder="Din e-post" required autocomplete="email">
-        <textarea name="message" placeholder="Hva vil du snakke om?" required autocomplete="off"></textarea>
-        <button type="submit">Send melding →</button>
-      </form>
-
-      <div class="modal-foot">SVAR INNEN 2 DAGER</div>
-    </div>
-  </div>
 
   <!-- ===== NEWSLETTER ===== -->
   <section class="newsletter">
@@ -1106,71 +892,6 @@
           button.disabled = false;
           button.textContent = 'Ja, takk! →';
         }
-      });
-    })();
-  </script>
-
-  <!-- ===== KONTAKT-MODAL JS ===== -->
-  <script>
-    (function() {
-      const trigger = document.getElementById('contact-trigger');
-      const modal = document.getElementById('contact-modal');
-      if (!trigger || !modal) return;
-
-      const form = document.getElementById('contact-form');
-      const success = document.getElementById('contact-success');
-      const recipient = 'hegechristine@hegechristine.no';
-      let lastFocused = null;
-
-      function openModal(e) {
-        if (e) e.preventDefault();
-        lastFocused = document.activeElement;
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        const firstInput = form.querySelector('input, textarea');
-        if (firstInput) setTimeout(function(){ firstInput.focus(); }, 50);
-      }
-
-      function closeModal() {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        success.classList.remove('is-shown');
-        form.reset();
-        if (lastFocused) lastFocused.focus();
-      }
-
-      trigger.addEventListener('click', openModal);
-
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal || e.target.hasAttribute('data-modal-close')) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-          closeModal();
-        }
-      });
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = form.querySelector('input[name="name"]').value.trim();
-        const email = form.querySelector('input[name="email"]').value.trim();
-        const message = form.querySelector('textarea[name="message"]').value.trim();
-
-        if (!name || !email || !message) return;
-
-        const subject = 'Henvendelse fra ' + name;
-        const body = message + '\n\n—\nFra: ' + name + ' <' + email + '>';
-        const mailto = 'mailto:' + recipient
-          + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent(body);
-
-        window.location.href = mailto;
-        success.classList.add('is-shown');
       });
     })();
   </script>
