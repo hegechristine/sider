@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hege Christine — Lenker</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Newsreader:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============== FONTS ============== */
+  @font-face {
+    font-family: 'Archivo';
+    src: url('https://hegechristine.mykajabi.com/resource_redirect/downloads/file-uploads/sites/98926/themes/2150280600/downloads/e65dfbf-bd8c-5ca5-1b01-64a31c7e1c8e_archivo-regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Archivo';
+    src: url('https://www.hegechristine.no/resource_redirect/downloads/file-uploads/sites/98926/themes/2150280600/downloads/e65dfbf-bd8c-5ca5-1b01-64a31c7e1c8e_archivo-regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Archivo Black';
+    src: url('https://hegechristine.mykajabi.com/resource_redirect/downloads/file-uploads/sites/98926/themes/2150280600/downloads/51c5ba3-24-5f02-2d6-50223eaec1c_archivo-black.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Archivo Black';
+    src: url('https://www.hegechristine.no/resource_redirect/downloads/file-uploads/sites/98926/themes/2150280600/downloads/51c5ba3-24-5f02-2d6-50223eaec1c_archivo-black.ttf') format('truetype');
+  }
+
+  /* ============== TOKENS ============== */
+  /* Synced to Hege Christine designsystem v1.0 */
+  :root {
+    --cream: #EFE6D4;        /* cream-200 (deck) */
+    --cream-light: #FBF8F0;  /* cream-50 */
+    --ink: #2E3230;          /* ink-600 (deck charcoal) */
+    --ink-soft: #4E5350;     /* ink-400 */
+    --rust: #C5522C;         /* rust-400 (deck terracotta) */
+    --rust-deep: #A94221;    /* rust-500 */
+    --olive: #5E5F4C;        /* olive-600 (deck) */
+    --olive-dark: #4A4B3C;   /* olive-700 */
+    --sage: #AFBEA0;         /* sage-300 (deck) */
+    --sand: #F0D9A8;         /* sand-200 (deck) */
+    --grid: rgba(46, 50, 48, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.5;
+    min-height: 100vh;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ============== TYPOGRAPHY ============== */
+  h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.7rem;
+  }
+
+  /* ============== LAYOUT ============== */
+  .page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+    position: relative;
+  }
+
+  /* ============== PROFILE CARD ============== */
+  .profile {
+    background: var(--cream-light);
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    padding: 22px 24px;
+    margin-bottom: 48px;
+    box-shadow: 6px 6px 0 var(--ink);
+    position: relative;
+  }
+
+  .profile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(44, 51, 40, 0.15);
+    margin-bottom: 22px;
+  }
+
+  .profile-top-left,
+  .profile-top-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .profile-top-left::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--rust);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .profile-top .kicker {
+    color: var(--ink);
+    font-size: 0.68rem;
+  }
+
+  .profile-main {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  /* HC-monogram (designsystem v1.0) — kvadrat med rust-fyll og cream-tekst */
+  .profile-photo {
+    width: 86px;
+    height: 86px;
+    border-radius: var(--radius-1, 2px);
+    background: var(--rust);
+    color: var(--cream-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    padding-top: 0.05em;
+    border: 2px solid var(--ink);
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .profile-name {
+    font-size: 1.85rem;
+    margin-bottom: 4px;
+  }
+
+  .profile-name .italic {
+    color: var(--rust);
+    font-size: 1.85rem;
+    font-weight: 400;
+  }
+
+  .profile-handle {
+    color: var(--ink-soft);
+    font-size: 0.68rem;
+  }
+
+  .profile-bio {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(44, 51, 40, 0.15);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.02rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .profile-bio strong {
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .socials {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .social-btn {
+    background: var(--ink);
+    color: var(--cream-light);
+    text-decoration: none;
+    padding: 13px 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: all 0.18s ease;
+  }
+
+  .social-btn:hover {
+    background: var(--rust);
+    transform: translateY(-1px);
+  }
+
+  .social-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  /* ============== SECTION HEADER ============== */
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(44, 51, 40, 0.18);
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1;
+  }
+
+  .section-title .italic {
+    color: var(--rust);
+    font-weight: 400;
+    font-size: 1.45rem;
+  }
+
+  .section-num {
+    color: var(--ink-soft);
+    font-size: 0.68rem;
+  }
+
+  .section-block {
+    margin-bottom: 40px;
+  }
+
+  /* ============== CARDS ============== */
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 10px;
+    transition: all 0.18s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateX(3px);
+  }
+
+  .card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.66rem;
+    color: var(--rust);
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: inherit;
+  }
+
+  .card-title .italic {
+    font-weight: 400;
+    color: inherit;
+  }
+
+  .card-arrow {
+    flex-shrink: 0;
+    color: inherit;
+    opacity: 0.7;
+    transition: transform 0.18s ease;
+  }
+
+  .card:hover .card-arrow {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  /* Card variants */
+  .card-dark {
+    background: var(--ink);
+    color: var(--cream-light);
+  }
+
+  .card-dark .card-icon {
+    background: var(--rust);
+    color: var(--cream-light);
+  }
+
+  .card-sage {
+    background: var(--sage);
+    color: var(--ink);
+  }
+
+  .card-sage .card-icon {
+    background: var(--cream-light);
+    color: var(--ink);
+  }
+
+  .card-sage .card-kicker {
+    color: var(--olive-dark);
+  }
+
+  .card-cream {
+    background: var(--cream-light);
+    color: var(--ink);
+    border: 1px solid rgba(44, 51, 40, 0.12);
+  }
+
+  .card-cream .card-icon {
+    background: var(--ink);
+    color: var(--cream-light);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .card-rust {
+    background: var(--rust);
+    color: var(--cream-light);
+  }
+
+  .card-rust .card-kicker {
+    color: var(--cream-light);
+    opacity: 0.8;
+  }
+
+  .card-rust .card-icon {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--cream-light);
+  }
+
+  .card-dashed {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px dashed rgba(44, 51, 40, 0.4);
+  }
+
+  .card-dashed .card-icon {
+    background: var(--cream-light);
+    color: var(--ink);
+    border: 1px solid rgba(44, 51, 40, 0.18);
+  }
+
+  /* ============== NEWSLETTER ============== */
+  .newsletter {
+    margin: 50px 0 36px;
+    perspective: 1200px;
+  }
+
+  .newsletter-flip {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.75s cubic-bezier(0.4, 0.0, 0.2, 1);
+    min-height: 380px;
+  }
+
+  .newsletter-flip.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  .newsletter-face {
+    background: var(--olive);
+    color: var(--cream-light);
+    border-radius: 6px;
+    padding: 28px 26px;
+    box-shadow: 6px 6px 0 var(--ink);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .newsletter-face--front {
+    position: relative;
+  }
+
+  .newsletter-face--back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .newsletter-face--back .check-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--rust);
+    color: var(--cream-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 0 var(--ink);
+  }
+
+  .newsletter-face--back .check-circle svg {
+    width: 32px;
+    height: 32px;
+    stroke-width: 3;
+  }
+
+  .newsletter-face--back h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.1;
+    color: var(--cream-light);
+    margin-bottom: 14px;
+  }
+
+  .newsletter-face--back h2 .italic {
+    color: var(--sand);
+    font-weight: 400;
+  }
+
+  .newsletter-face--back p {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    max-width: 340px;
+    color: rgba(245, 236, 214, 0.9);
+  }
+
+  .newsletter-face--back .back-foot {
+    margin-top: 22px;
+    color: rgba(245, 236, 214, 0.55);
+    font-size: 0.66rem;
+  }
+
+  .newsletter-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+    color: var(--sand);
+    margin-bottom: 14px;
+  }
+
+  .newsletter-kicker::before {
+    content: '— ';
+  }
+
+  .newsletter-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    color: var(--cream-light);
+    margin-bottom: 22px;
+  }
+
+  .newsletter-title .italic {
+    color: var(--cream-light);
+    font-weight: 400;
+  }
+
+  .newsletter-foot {
+    margin-top: 14px;
+    color: rgba(245, 236, 214, 0.55);
+    font-size: 0.66rem;
+  }
+
+  /* ============== CUSTOM NEWSLETTER FORM ============== */
+
+  .hc-newsletter-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .hc-newsletter-form input[type="text"],
+  .hc-newsletter-form input[type="email"] {
+    background: var(--cream-light);
+    border: 1px solid rgba(46, 50, 48, 0.18);
+    color: var(--ink);
+    padding: 12px 14px;
+    border-radius: 3px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.92rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+
+  .hc-newsletter-form input::placeholder {
+    color: rgba(46, 50, 48, 0.45);
+  }
+
+  .hc-newsletter-form input:focus {
+    outline: none;
+    border-color: var(--rust);
+    background: #fff;
+  }
+
+  .hc-newsletter-form button {
+    background: var(--rust);
+    color: var(--cream-light);
+    border: none;
+    padding: 13px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.18s ease;
+    grid-column: 1 / -1;
+  }
+
+  .hc-newsletter-form button:hover {
+    background: var(--rust-deep);
+  }
+
+  .hc-newsletter-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-message {
+    grid-column: 1 / -1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    min-height: 1em;
+  }
+
+  /* Mobil – stack kolonnene */
+  @media (max-width: 480px) {
+    .hc-newsletter-form {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============== KONTAKT-MODAL ============== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(46, 50, 48, 0.55);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 100;
+    padding: 60px 16px 16px;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .modal-overlay.is-open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal-card {
+    background: var(--olive);
+    color: var(--cream-light);
+    border-radius: 6px;
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 32px 28px 28px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    transform: translateY(-12px);
+    transition: transform 0.2s ease;
+  }
+
+  .modal-overlay.is-open .modal-card {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.18);
+    color: var(--cream-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .modal-close:hover {
+    background: var(--rust);
+  }
+
+  .modal-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+    color: var(--sand);
+    margin-bottom: 12px;
+  }
+
+  .modal-kicker::before {
+    content: '— ';
+  }
+
+  .modal-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    color: var(--cream-light);
+    margin-bottom: 18px;
+  }
+
+  .modal-title .italic {
+    color: var(--cream-light);
+    font-weight: 400;
+  }
+
+  .hc-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .hc-contact-form input[type="text"],
+  .hc-contact-form input[type="email"],
+  .hc-contact-form textarea {
+    background: var(--cream-light);
+    border: 1px solid rgba(46, 50, 48, 0.18);
+    color: var(--ink);
+    padding: 12px 14px;
+    border-radius: 3px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.92rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+
+  .hc-contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .hc-contact-form input::placeholder,
+  .hc-contact-form textarea::placeholder {
+    color: rgba(46, 50, 48, 0.45);
+  }
+
+  .hc-contact-form input:focus,
+  .hc-contact-form textarea:focus {
+    outline: none;
+    border-color: var(--rust);
+    background: #fff;
+  }
+
+  .hc-contact-form button[type="submit"] {
+    background: var(--rust);
+    color: var(--cream-light);
+    border: none;
+    padding: 13px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.18s ease;
+  }
+
+  .hc-contact-form button[type="submit"]:hover {
+    background: var(--rust-deep);
+  }
+
+  .modal-foot {
+    margin-top: 14px;
+    color: rgba(245, 236, 214, 0.55);
+    font-size: 0.66rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 16px 0 8px;
+  }
+
+  .modal-success.is-shown {
+    display: block;
+  }
+
+  .modal-success.is-shown ~ .hc-contact-form,
+  .modal-success.is-shown ~ .modal-foot {
+    display: none;
+  }
+
+  .modal-success p {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: rgba(245, 236, 214, 0.95);
+  }
+
+  /* ============== AFFILIATE NOTE ============== */
+  .affiliate-note {
+    background: var(--cream-light);
+    border-left: 3px solid var(--rust);
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ============== FOOTER ============== */
+  .page-foot {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+    border-top: 1px solid rgba(44, 51, 40, 0.18);
+    color: var(--ink-soft);
+    font-size: 0.66rem;
+  }
+
+  .page-foot-right {
+    display: flex;
+    gap: 22px;
+  }
+
+  .page-foot a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .page-foot a:hover {
+    color: var(--rust);
+  }
+
+  /* ============== RESPONSIVE ============== */
+  @media (max-width: 480px) {
+    .page {
+      padding: 20px 14px 40px;
+    }
+    .profile {
+      padding: 18px 18px;
+    }
+    .profile-main {
+      gap: 14px;
+    }
+    .profile-photo {
+      width: 70px;
+      height: 70px;
+    }
+    .profile-name {
+      font-size: 1.5rem;
+    }
+    .profile-name .italic {
+      font-size: 1.5rem;
+    }
+    .section-title,
+    .section-title .italic,
+    .newsletter-title {
+      font-size: 1.2rem;
+    }
+    .card {
+      padding: 14px 14px;
+    }
+    .card-icon {
+      width: 38px;
+      height: 38px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- ===== PROFILE CARD ===== -->
+  <section class="profile">
+    <div class="profile-top">
+      <div class="profile-top-left">
+        <span class="kicker">HEGECHRISTINE.NO</span>
+      </div>
+      <div class="profile-top-right">
+        <span class="kicker">LENKER · 2026</span>
+      </div>
+    </div>
+
+    <div class="profile-main">
+      <div class="profile-photo" aria-label="Hege Christine HC-monogram">HC</div>
+      <div>
+        <h1 class="profile-name">Hege <span class="italic">Christine</span></h1>
+        <span class="profile-handle kicker">@HEGECHRISTINE</span>
+      </div>
+    </div>
+
+    <p class="profile-bio">
+      Online business <strong>strateg</strong>, mentor og Kajabi-ekspert. Hjelper gründere bygge en business som faktisk passer livet de vil leve.
+    </p>
+
+    <div class="socials">
+      <a href="https://instagram.com/hegechristine.no" class="social-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58 0 4.85.07 1.17.05 1.81.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.81-.41 2.23-.22.56-.48.96-.9 1.38a3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.81-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.18 15.58 2.16 15.2 2.16 12s0-3.58.07-4.85c.05-1.17.25-1.81.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.18 8.8 2.16 12 2.16M12 0C8.74 0 8.33 0 7.05.07c-1.28.06-2.15.26-2.91.55-.79.31-1.46.72-2.13 1.39A5.85 5.85 0 0 0 .62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.29 1.63.49 2.91.55C8.33 24 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.29-.76.49-1.63.55-2.91C24 15.67 24 15.26 24 12s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.85 5.85 0 0 0-1.39-2.13A5.85 5.85 0 0 0 19.86.62C19.1.33 18.23.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        IG
+      </a>
+      <a href="https://linkedin.com/in/hegechristine" class="social-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45C23.21 24 24 23.22 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg>
+        IN
+      </a>
+      <a href="https://facebook.com/hegechristine.no" class="social-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24c5.74-.9 10.13-5.9 10.13-11.93z"/></svg>
+        FB
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== AKTUELT ===== -->
+  <section class="section-block">
+    <div class="section-head">
+      <h2 class="section-title">Aktuelt <span class="italic">akkurat nå</span></h2>
+      <span class="section-num kicker">01 / 03</span>
+    </div>
+
+    <a href="https://open.spotify.com/show/286EpL6ZfSuJVB47nXSQbZ" class="card card-dark" target="_blank" rel="noopener">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-kicker">PODCAST · NY EPISODE HVER UKE</span>
+        <span class="card-title">The <span class="italic">Edit</span> — hør på Spotify</span>
+      </div>
+      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <a href="#strategisamtale" class="card card-sage">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-kicker">BOOK · 90 MIN</span>
+        <span class="card-title">Strategisamtale med <span class="italic">Hege</span></span>
+      </div>
+      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== FELLESSKAP ===== -->
+  <section class="section-block">
+    <div class="section-head">
+      <h2 class="section-title">Bli med i <span class="italic">fellesskapene</span></h2>
+      <span class="section-num kicker">02 / 03</span>
+    </div>
+
+    <a href="https://facebook.com/groups/strategisksalg" class="card card-cream" target="_blank" rel="noopener">
+      <div class="card-icon">SS</div>
+      <div class="card-body">
+        <span class="card-kicker">COMMUNITY · ONLINE</span>
+        <span class="card-title">Strategisk Salg for online gründere</span>
+      </div>
+      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <a href="https://facebook.com/groups/798967624021150" class="card card-cream" target="_blank" rel="noopener">
+      <div class="card-icon">TG</div>
+      <div class="card-body">
+        <span class="card-kicker">COMMUNITY · LOKALT</span>
+        <span class="card-title">Trønderske Gründere</span>
+      </div>
+      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <a href="https://app.kajabi.com/r/yqTvH48Z/t/ssrmaokk" class="card card-rust" target="_blank" rel="noopener">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-kicker">AFFILIATE · 30 DAGER GRATIS</span>
+        <span class="card-title">Prøv <span class="italic">Kajabi</span> uten å betale</span>
+      </div>
+      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== KONTAKT ===== -->
+  <section class="section-block">
+    <div class="section-head">
+      <h2 class="section-title">Vil du <span class="italic">snakke?</span></h2>
+      <span class="section-num kicker">03 / 03</span>
+    </div>
+
+    <a href="mailto:hegechristine@hegechristine.no" class="card card-dashed" id="contact-trigger">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-kicker">E-POST · SVAR INNEN 2 DAGER</span>
+        <span class="card-title">Send meg en melding</span>
+      </div>
+      <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== KONTAKT-MODAL ===== -->
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" type="button" aria-label="Lukk" data-modal-close>×</button>
+      <div class="modal-kicker">KONTAKT</div>
+      <h2 class="modal-title" id="contact-modal-title">Send meg en <span class="italic">melding</span></h2>
+
+      <div class="modal-success" id="contact-success" aria-live="polite">
+        <p>Din e-postklient åpner seg nå med meldingen klargjort. Klikk <strong>Send</strong> der for å fullføre.</p>
+      </div>
+
+      <form id="contact-form" class="hc-contact-form" novalidate>
+        <input type="text" name="name" placeholder="Navn" required autocomplete="name">
+        <input type="email" name="email" placeholder="Din e-post" required autocomplete="email">
+        <textarea name="message" placeholder="Hva vil du snakke om?" required autocomplete="off"></textarea>
+        <button type="submit">Send melding →</button>
+      </form>
+
+      <div class="modal-foot">SVAR INNEN 2 DAGER</div>
+    </div>
+  </div>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <div class="newsletter-flip" id="newsletter-flip">
+
+      <!-- FRONT: skjema -->
+      <div class="newsletter-face newsletter-face--front">
+        <div class="newsletter-kicker">NYHETSBREV</div>
+        <h2 class="newsletter-title">Innsikt, tips og oppdateringer rett i <span class="italic">innboksen.</span></h2>
+
+        <form id="newsletter-form" class="hc-newsletter-form">
+          <input type="text" name="name" placeholder="Navn" required autocomplete="name">
+          <input type="email" name="email" placeholder="E-post" required autocomplete="email">
+          <button type="submit">Ja, takk! →</button>
+          <div class="form-message" id="form-message"></div>
+        </form>
+
+        <div class="newsletter-foot kicker">INGEN SPAM. AVMELD NÅR DU VIL.</div>
+      </div>
+
+      <!-- BACK: takk-melding -->
+      <div class="newsletter-face newsletter-face--back" aria-live="polite">
+        <div class="check-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2>Takk, du er <span class="italic">på listen!</span></h2>
+        <p>Sjekk innboksen din om litt — første hilsen er på vei.</p>
+        <div class="back-foot">DU KAN ALLTID AVMELDE DEG.</div>
+      </div>
+
+    </div>
+
+    <!-- Skjult Kajabi-embed (genererer authenticity_token og fungerer som proxy) -->
+    <div id="kajabi-hidden-wrap" style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; pointer-events: none;" aria-hidden="true">
+      <script src="https://www.hegechristine.no/forms/349307/embed.js"></script>
+    </div>
+
+    <!-- Skjult iframe for å fange Kajabi sin response uten å navigere bort -->
+    <iframe name="kajabi-response-frame" style="display: none;" aria-hidden="true"></iframe>
+  </section>
+
+  <script>
+    (function() {
+      const customForm = document.getElementById('newsletter-form');
+      const message = document.getElementById('form-message');
+      const button = customForm.querySelector('button[type="submit"]');
+
+      const redirectUrl = customForm.getAttribute('data-redirect-url');
+      const successMessage = customForm.getAttribute('data-success-message') || '✓ Takk! Du er på listen.';
+
+      function setMessage(text, color) {
+        message.textContent = text;
+        message.style.color = color || '';
+      }
+
+      function findKajabiForm() {
+        return document.querySelector('#kajabi-form form, #kajabi-hidden-wrap form');
+      }
+
+      customForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const kajabiForm = findKajabiForm();
+
+        if (!kajabiForm) {
+          setMessage('Skjemaet laster fortsatt — prøv igjen om et øyeblikk.', '#c44a2c');
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = 'Sender...';
+        setMessage('');
+
+        const userName = customForm.querySelector('input[name="name"]').value.trim();
+        const userEmail = customForm.querySelector('input[name="email"]').value.trim();
+
+        const emailInput = kajabiForm.querySelector('input[type="email"]');
+        if (emailInput) emailInput.value = userEmail;
+
+        const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+        for (let i = 0; i < textInputs.length; i++) {
+          const inp = textInputs[i];
+          if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+            inp.value = userName;
+            break;
+          }
+        }
+
+        kajabiForm.target = 'kajabi-response-frame';
+
+        try {
+          kajabiForm.submit();
+
+          setTimeout(function() {
+            if (redirectUrl) {
+              window.location.href = redirectUrl;
+            } else {
+              const flip = document.getElementById('newsletter-flip');
+              if (flip) flip.classList.add('is-flipped');
+              customForm.reset();
+              setMessage('');
+              button.disabled = false;
+              button.textContent = 'Ja, takk! →';
+            }
+          }, 800);
+        } catch (err) {
+          setMessage('Noe gikk galt. Prøv igjen om litt.', '#c44a2c');
+          button.disabled = false;
+          button.textContent = 'Ja, takk! →';
+        }
+      });
+    })();
+  </script>
+
+  <!-- ===== KONTAKT-MODAL JS ===== -->
+  <script>
+    (function() {
+      const trigger = document.getElementById('contact-trigger');
+      const modal = document.getElementById('contact-modal');
+      if (!trigger || !modal) return;
+
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('contact-success');
+      const recipient = 'hegechristine@hegechristine.no';
+      let lastFocused = null;
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        lastFocused = document.activeElement;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const firstInput = form.querySelector('input, textarea');
+        if (firstInput) setTimeout(function(){ firstInput.focus(); }, 50);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        success.classList.remove('is-shown');
+        form.reset();
+        if (lastFocused) lastFocused.focus();
+      }
+
+      trigger.addEventListener('click', openModal);
+
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal || e.target.hasAttribute('data-modal-close')) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const message = form.querySelector('textarea[name="message"]').value.trim();
+
+        if (!name || !email || !message) return;
+
+        const subject = 'Henvendelse fra ' + name;
+        const body = message + '\n\n—\nFra: ' + name + ' <' + email + '>';
+        const mailto = 'mailto:' + recipient
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+
+        window.location.href = mailto;
+        success.classList.add('is-shown');
+      });
+    })();
+  </script>
+
+  <!-- ===== AFFILIATE DISCLOSURE ===== -->
+  <div class="affiliate-note">
+    NB! Noen av lenkene er reklame-/affiliate-lenker. Jeg kan motta provisjon dersom du kjøper via disse — uten ekstra kostnad for deg.
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="page-foot">
+    <span class="kicker">© 2026 HEGECHRISTINE.NO</span>
+    <div class="page-foot-right">
+      <a href="https://www.hegechristine.no/pages/personvern" class="kicker">PERSONVERN</a>
+      <a href="https://www.hegechristine.no/pages/cookieerklaering" class="kicker">COOKIES</a>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
