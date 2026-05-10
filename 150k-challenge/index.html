@@ -640,6 +640,21 @@ body { padding-top: 80px; }
   width: 9px; height: 9px;
   background: var(--rust);
   border-radius: 50%;
+  animation: who-pulse 2.4s ease-in-out infinite;
+}
+
+.who-list li:nth-child(2)::before { animation-delay: 0.3s; }
+.who-list li:nth-child(3)::before { animation-delay: 0.6s; }
+.who-list li:nth-child(4)::before { animation-delay: 0.9s; }
+.who-list li:nth-child(5)::before { animation-delay: 1.2s; }
+
+@keyframes who-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(197, 82, 44, 0.45); }
+  50% { transform: scale(1.25); opacity: 0.85; box-shadow: 0 0 0 6px rgba(197, 82, 44, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-list li::before { animation: none; }
 }
 
 .notfor-list { list-style: none; max-width: 720px; margin: 0 auto; }
@@ -1367,7 +1382,7 @@ body { padding-top: 80px; }
       <p>Det er ikke flere tilbud du trenger. Det er <strong>en bedre forretningsmodell rundt det du allerede kan.</strong></p>
     </div>
 
-    <p class="premise-quote">Det er ikke kunnskapen din det er noe feil med. Det er måten du selger den på.</p>
+    <p class="premise-quote">Det er ikke kunnskapen din det er noe feil med. Det er hvordan den blir til en business.</p>
   </div>
 </section>
 
@@ -1541,7 +1556,7 @@ body { padding-top: 80px; }
 
         <p>Det jeg ser hos nesten alle som ikke får kunnskapen sin til å skalere: de prøver å gjøre mer av det samme. Levere flere timer. Ta inn flere klienter. Bygge enda et kurs. Det er sjelden der det sitter.</p>
 
-        <p>I seks år har jeg jobbet med digitale gründere, eksperter, fagpersoner og folk som har bygget og skalert sine digitale businesser.</p>
+        <p>I seks år har jeg jobbet med <strong>hundrevis av norske gründere</strong> — fra dem som så vidt har startet, til dem som omsetter for flere millioner. Mønstrene som faktisk skiller dem som lykkes — det er det jeg pakker inn i denne challengen.</p>
 
         <p class="about-quote">Det er ikke kunnskapen din det er noe feil med. Det er forretningsmodellen rundt den.</p>
 
