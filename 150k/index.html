@@ -311,7 +311,10 @@ h1 .accent { color: var(--rust); }
 
         setTimeout(function() {
           if (redirectUrl) {
-            window.location.href = redirectUrl;
+            const url = new URL(redirectUrl, window.location.origin);
+            if (userName) url.searchParams.set('name', userName);
+            if (userEmail) url.searchParams.set('email', userEmail);
+            window.location.href = url.toString();
           } else {
             setMessage(successMessage, 'success');
             customForm.reset();
