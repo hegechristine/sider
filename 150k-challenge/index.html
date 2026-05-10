@@ -362,23 +362,14 @@ body { padding-top: 80px; }
 
 .transform-row {
   display: grid;
-  grid-template-columns: 56px 1fr 36px 1fr;
-  gap: 28px;
-  align-items: baseline;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 36px;
+  align-items: center;
   padding: 28px 0;
   border-bottom: 1px solid var(--line-on-cream);
 }
 
 .transform-row:first-child { border-top: 1px solid var(--line-on-cream); }
-
-.transform-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  color: var(--rust);
-  line-height: 1.4;
-}
 
 .transform-from {
   font-family: 'Archivo', sans-serif;
@@ -395,12 +386,25 @@ body { padding-top: 80px; }
 }
 
 .transform-arrow {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  font-size: 18px;
-  color: var(--rust);
-  line-height: 1.2;
-  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.transform-row:hover .transform-arrow {
+  transform: translateX(3px);
 }
 
 .transform-to {
@@ -414,14 +418,18 @@ body { padding-top: 80px; }
 
 @media (max-width: 640px) {
   .transform-row {
-    grid-template-columns: 36px 1fr;
-    gap: 4px 14px;
+    grid-template-columns: 1fr;
+    gap: 8px;
     padding: 22px 0;
   }
-  .transform-num { grid-row: 1; grid-column: 1; }
-  .transform-from { grid-row: 1; grid-column: 2; text-align: left; font-size: 15px; }
-  .transform-arrow { display: none; }
-  .transform-to { grid-row: 2; grid-column: 2; font-size: 18px; }
+  .transform-from { text-align: left; font-size: 15px; }
+  .transform-arrow {
+    width: 28px; height: 28px;
+    font-size: 13px;
+    justify-self: start;
+    margin: 4px 0;
+  }
+  .transform-to { font-size: 18px; }
 }
 
 .section-head { text-align: center; margin-bottom: 80px; }
@@ -1424,25 +1432,21 @@ body { padding-top: 80px; }
     </div>
     <div class="transform-grid">
       <div class="transform-row">
-        <div class="transform-num">01</div>
         <div class="transform-from">Selger timene dine</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">Eier det du leverer</div>
       </div>
       <div class="transform-row">
-        <div class="transform-num">02</div>
         <div class="transform-from">Hopper fra idé til idé</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">Ett klart system</div>
       </div>
       <div class="transform-row">
-        <div class="transform-num">03</div>
         <div class="transform-from">Underpriser det du gjør</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">Tilbud som speiler verdien</div>
       </div>
       <div class="transform-row">
-        <div class="transform-num">04</div>
         <div class="transform-from">Jobber konstant uten resultater</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">En business som lønner seg</div>
