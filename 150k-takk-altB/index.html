@@ -492,6 +492,13 @@ body {
   line-height: 1.4;
 }
 
+.tier-features li.off {
+  text-decoration: line-through;
+  text-decoration-color: rgba(46, 50, 48, 0.45);
+  text-decoration-thickness: 1px;
+  opacity: 0.45;
+}
+
 .tier-cta {
   display: block;
   background: var(--ink);
@@ -815,12 +822,13 @@ body {
         <div class="tier-label">Med Opptak</div>
         <h3 class="tier-name">Live + <em>opptak</em></h3>
         <div class="tier-price">497<small>kr</small></div>
-        <div class="tier-includes-label">Inkluderer alt i Live, pluss</div>
+        <div class="tier-includes-label">Legger til i Live-pakken</div>
         <ul class="tier-features">
-          <li>Opptak av alle 5 kvelder</li>
+          <li>Opptak av alle 5 kvelder (tilgjengelig ut søndagen)</li>
           <li>Mine notater fra sesjonene</li>
           <li>Oppsummeringer etter hver kveld</li>
-          <li>Opptak tilgjengelig ut søndagen</li>
+          <li class="off">30 min 1-1-session med meg</li>
+          <li class="off">Prioritert oppfølging i community</li>
         </ul>
         <a href="https://www.hegechristine.no/offers/FRcbCd2Q/checkout" class="tier-cta" target="_blank" rel="noopener">Oppgrader til Med Opptak →</a>
         <p class="tier-fineprint">Engangsbeløp · inkl. mva</p>
@@ -831,11 +839,13 @@ body {
         <div class="tier-label">VIP</div>
         <h3 class="tier-name">Alt + <em>1-1 med meg</em></h3>
         <div class="tier-price">4 997<small>kr</small></div>
-        <div class="tier-includes-label">Inkluderer alt i Med Opptak, pluss</div>
+        <div class="tier-includes-label">Legger til i Live-pakken</div>
         <ul class="tier-features">
+          <li>Opptak av alle 5 kvelder (tilgjengelig ut søndagen)</li>
+          <li>Mine notater fra sesjonene</li>
+          <li>Oppsummeringer etter hver kveld</li>
           <li>30 min 1-1-session med meg</li>
           <li>Prioritert oppfølging i community</li>
-          <li>Skreddersydd hjelp på din business</li>
         </ul>
         <a href="https://www.hegechristine.no/offers/MgXwK9xS/checkout" class="tier-cta" target="_blank" rel="noopener">Sikre VIP-plass →</a>
         <p class="tier-fineprint">Engangsbeløp · inkl. mva</p>
