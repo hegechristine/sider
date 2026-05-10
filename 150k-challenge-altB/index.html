@@ -705,13 +705,12 @@ body {
       <aside class="signup-card" id="signup" aria-labelledby="signup-title">
         <span class="signup-flag">Gratis</span>
         <span class="signup-eyebrow">Sikre plassen din</span>
-        <h2 class="signup-title" id="signup-title">Bli med — det er <em>gratis.</em></h2>
-        <p class="signup-lead">Skriv inn navn og e-post. Du får bekreftelse og Zoom-link rett i innboksen.</p>
+        <h2 class="signup-title" id="signup-title">Sikre din <em>gratis</em> plass.</h2>
+        <p class="signup-lead">Bekreft e-posten din, så får du Zoom-link og alt du trenger rett i innboksen.</p>
 
         <form id="signup-form" class="hc-kajabi-form"
               data-kajabi-form-id="2149575768"
               data-redirect-url="/150k-gratis-takk/">
-          <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
           <input type="email" name="email" placeholder="E-post" required autocomplete="email">
           <button type="submit">Sikre plassen min →</button>
           <div class="form-message" data-form-message></div>
@@ -835,18 +834,21 @@ body {
       button.textContent = 'Sender...';
       setMessage('');
 
-      const userName = customForm.querySelector('input[name="name"]').value.trim();
+      const nameInput = customForm.querySelector('input[name="name"]');
+      const userName = nameInput ? nameInput.value.trim() : '';
       const userEmail = customForm.querySelector('input[name="email"]').value.trim();
 
       const emailInput = kajabiForm.querySelector('input[type="email"]');
       if (emailInput) emailInput.value = userEmail;
 
-      const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
-      for (let i = 0; i < textInputs.length; i++) {
-        const inp = textInputs[i];
-        if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
-          inp.value = userName;
-          break;
+      if (userName) {
+        const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+        for (let i = 0; i < textInputs.length; i++) {
+          const inp = textInputs[i];
+          if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+            inp.value = userName;
+            break;
+          }
         }
       }
 
