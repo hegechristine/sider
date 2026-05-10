@@ -745,8 +745,121 @@ body {
   color: var(--sand);
 }
 
+.footer-bottom a { color: var(--sand); text-decoration: none; transition: color 0.2s ease; }
+.footer-bottom a:hover { color: var(--cream); }
+
 @media (max-width: 720px) {
   .footer-bottom { flex-direction: column; text-align: left; align-items: flex-start; }
+}
+
+.footer-disclaimer-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+  text-decoration: underline;
+  text-decoration-color: rgba(240, 217, 168, 0.4);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: color 0.2s ease;
+}
+
+.footer-disclaimer-link:hover {
+  color: var(--rust);
+  text-decoration-color: var(--rust);
+}
+
+/* DISCLAIMER MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 50, 48, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: modal-fade 0.2s ease-out;
+}
+
+.modal-overlay.is-open { display: flex; }
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 var(--ink);
+  max-width: 560px;
+  width: 100%;
+  padding: 40px 40px 36px;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: modal-pop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: translate(-6px, -6px) scale(0.97); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: none; border: none;
+  width: 36px; height: 36px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px; font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modal-close:hover { color: var(--rust); transform: rotate(90deg); }
+
+.modal-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.modal h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.modal p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.modal p:last-child { margin-bottom: 0; }
+
+.modal p strong { font-weight: 700; }
+
+@media (max-width: 480px) {
+  .modal { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
+  .modal h2 { font-size: 24px; }
 }
 </style>
 </head>
@@ -905,10 +1018,55 @@ body {
 
     <div class="footer-bottom">
       <span>© 2026 Hege Christine</span>
-      <span>150K Business Challenge · Mai 2026</span>
+      <a href="#" id="disclaimer-trigger" class="footer-disclaimer-link">Inntektsforbehold</a>
     </div>
   </div>
 </footer>
+
+<!-- DISCLAIMER MODAL -->
+<div class="modal-overlay" id="disclaimer-modal" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" aria-hidden="true">
+  <div class="modal">
+    <button class="modal-close" id="disclaimer-close" aria-label="Lukk">×</button>
+    <div class="modal-eyebrow">Inntektsforbehold</div>
+    <h2 id="disclaimer-title">Du får <em style="font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--rust);">oppskriften.</em> Resultatet er opp til deg.</h2>
+    <p>Det du får i denne challengen er <strong>et komplett system</strong> — oppskriften på hvordan du bygger en business som faktisk lønner seg rundt kunnskapen din. Den funker.</p>
+    <p>Men jeg jobber ikke for deg. Jeg gir ingen garantier på spesifikke inntektsnivåer, fordi det avhenger av hva du gjør med det jeg viser deg.</p>
+    <p>150K-tallet er et eksempel på hva som er mulig — ikke et løfte til hver enkelt deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
+    <p>Du tar dine egne forretningsbeslutninger på eget ansvar.</p>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const trigger = document.getElementById('disclaimer-trigger');
+    const modal = document.getElementById('disclaimer-modal');
+    const closeBtn = document.getElementById('disclaimer-close');
+
+    function open(e) {
+      if (e) e.preventDefault();
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) close();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  })();
+</script>
 
 </body>
 </html>
