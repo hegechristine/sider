@@ -37,7 +37,6 @@ body {
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 73px;
 }
 
 .container { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
@@ -711,6 +710,9 @@ body {
 /* FOOTER */
 .footer { background: var(--olive); padding: 64px 0 36px; border-top: 1px solid var(--line-on-ink); color: var(--cream); }
 
+.footer.footer-slim { padding: 22px 0; }
+.footer.footer-slim .footer-bottom { padding-top: 0; }
+
 .footer-top {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
@@ -901,17 +903,6 @@ body {
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container header-row">
-    <a href="/150k-challenge-altB/" class="logo">
-      <span class="logo-mark">HC</span>
-      <span class="logo-name">Hege<em>Christine</em></span>
-    </a>
-    <span class="header-date"><span class="header-date-dot"></span>25.–29. mai 2026 · Live på Zoom</span>
-  </div>
-</header>
-
 <!-- CONFIRM BANNER — emphasised 'you're in' moment -->
 <section class="confirm-banner">
   <div class="container">
@@ -975,34 +966,9 @@ body {
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- FOOTER — minimal: copyright + earning disclaimer -->
+<footer class="footer footer-slim">
   <div class="container">
-    <div class="footer-top">
-      <div>
-        <a href="https://www.hegechristine.no/" class="footer-brand-name">Hege<em>Christine</em></a>
-        <p class="footer-tagline">Online business strategist og mentor for digitale grundere. Hjelper deg bygge en smart, kunnskapsbasert business du lever godt av og med.</p>
-      </div>
-
-      <div>
-        <div class="footer-col-label">Følg meg</div>
-        <ul class="footer-links">
-          <li><a href="https://www.instagram.com/hegechristine.no" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/hegechristine.no" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="https://www.linkedin.com/in/hegechristine/" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-col-label">Info</div>
-        <ul class="footer-links">
-          <li><a href="https://www.hegechristine.no/pages/personvern" target="_blank" rel="noopener">Personvernpolicy</a></li>
-          <li><a href="https://www.hegechristine.no/pages/cookieerklaering" target="_blank" rel="noopener">Cookieerklæring</a></li>
-          <li><a href="https://www.hegechristine.no/pages/salgsbetingelser" target="_blank" rel="noopener">Salgsbetingelser</a></li>
-        </ul>
-      </div>
-    </div>
-
     <div class="footer-bottom">
       <span>© 2026 Hege Christine</span>
       <a href="#" id="disclaimer-trigger" class="footer-disclaimer-link">Inntektsforbehold</a>
