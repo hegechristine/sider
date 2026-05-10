@@ -493,6 +493,10 @@ body { padding-top: 80px; }
   color: var(--ink);
 }
 
+.bg-ink .day-item { border-bottom-color: var(--line-on-ink); }
+.bg-ink .day-item:first-child { border-top-color: var(--line-on-ink); }
+.bg-ink .day-title { color: var(--cream); }
+
 @media (max-width: 640px) { .day-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; } }
 
 .tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; max-width: 1180px; margin: 0 auto; padding-right: 12px; padding-bottom: 12px; }
@@ -864,6 +868,8 @@ body { padding-top: 80px; }
 
 .final { text-align: left; padding: 160px 0 120px; }
 
+.final .eyebrow { margin-bottom: 56px; }
+
 .final h2 {
   font-family: 'Archivo', sans-serif;
   font-weight: 800;
@@ -871,8 +877,9 @@ body { padding-top: 80px; }
   line-height: 0.98;
   letter-spacing: -0.03em;
   color: var(--cream);
-  margin-bottom: 32px;
+  margin: 0 auto 32px;
   max-width: 22ch;
+  text-align: center;
 }
 
 .final h2 em { font-style: normal; color: var(--rust); }
@@ -882,9 +889,17 @@ body { padding-top: 80px; }
   font-weight: 400; font-size: 19px;
   line-height: 1.5; color: var(--sand);
   max-width: 480px; margin: 0 auto 56px;
+  text-align: center;
 }
 
-.final .cta-primary { background: var(--rust); color: var(--cream); }
+.final .cta-primary {
+  background: var(--rust);
+  color: var(--cream);
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 .final .cta-primary:hover { background: var(--cream); color: var(--ink); }
 
 .final-meta {
@@ -893,6 +908,7 @@ body { padding-top: 80px; }
   font-weight: 600; font-size: 11px;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--sand);
+  text-align: center;
 }
 
 .ps {
@@ -1456,7 +1472,7 @@ body { padding-top: 80px; }
 </section>
 
 <!-- DAYS -->
-<section class="section bg-cream">
+<section class="section bg-ink">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
@@ -1551,7 +1567,7 @@ body { padding-top: 80px; }
 </section>
 
 <!-- WHO IS THIS FOR -->
-<section class="section bg-cream">
+<section class="section bg-sage">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
