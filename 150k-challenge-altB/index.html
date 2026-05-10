@@ -324,6 +324,50 @@ body {
   .info-row { gap: 18px; }
 }
 
+/* MARQUEE-strip under hero */
+.marquee-strip {
+  background: var(--rust);
+  padding: 22px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 36px;
+  align-items: center;
+  padding-right: 36px;
+  animation: marquee-scroll 38s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-track span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+
+.marquee-track span.dot { opacity: 0.5; }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
 /* RIGHT: form card */
 .signup-card {
   background: #FBF8F0;
@@ -1113,6 +1157,28 @@ body {
         <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
       </aside>
 
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee-strip" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Eksperter</span><span class="dot">+</span>
+      <span>Fagpersoner</span><span class="dot">+</span>
+      <span>Foredragsholdere</span><span class="dot">+</span>
+      <span>Terapeuter</span><span class="dot">+</span>
+      <span>Coacher</span><span class="dot">+</span>
+      <span>Digitale gründere</span><span class="dot">+</span>
+      <span>Kursutviklere</span><span class="dot">+</span>
+      <span>Eksperter</span><span class="dot">+</span>
+      <span>Fagpersoner</span><span class="dot">+</span>
+      <span>Foredragsholdere</span><span class="dot">+</span>
+      <span>Terapeuter</span><span class="dot">+</span>
+      <span>Coacher</span><span class="dot">+</span>
+      <span>Digitale gründere</span><span class="dot">+</span>
+      <span>Kursutviklere</span><span class="dot">+</span>
     </div>
   </div>
 </section>
