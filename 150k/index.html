@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<title>Bli med · 150K Business Challenge — Hege Christine</title>
+<meta name="description" content="5-dagers live challenge for digitale gründere, eksperter og fagpersoner. 25.–29. mai 2026. Skriv inn navn og e-post for å sikre plassen din.">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #EFE6D4;
+  --ink: #2E3230;
+  --rust: #C5522C;
+  --olive: #5E5F4C;
+  --sage: #AFBEA0;
+  --sand: #F0D9A8;
+
+  --line-on-cream: rgba(46, 50, 48, 0.16);
+  --line-on-ink: rgba(239, 230, 212, 0.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px;
+}
+
+.container { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
+
+.section { position: relative; padding: 100px 0; }
+
+.section-corners { position: absolute; inset: 32px; pointer-events: none; }
+.section-corners::before, .section-corners::after {
+  content: "+";
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1;
+}
+.section-corners::before { top: 0; left: 0; }
+.section-corners::after  { top: 0; right: 0; }
+
+.section-corners-bottom::before, .section-corners-bottom::after {
+  content: "+";
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1;
+}
+.section-corners-bottom::before { bottom: 0; left: 32px; }
+.section-corners-bottom::after  { bottom: 0; right: 32px; }
+
+.bg-cream {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(rgba(46,50,48,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* HEADER */
+.site-header {
+  padding: 18px 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(239, 230, 212, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-on-cream);
+}
+
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+.logo { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+
+.logo-mark {
+  width: 36px; height: 36px;
+  background: var(--ink); color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 13px; letter-spacing: 0.02em;
+}
+
+.logo-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 17px; letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.logo-name em {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  color: var(--rust); margin-left: 6px;
+}
+
+.header-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  margin-left: auto; margin-right: auto;
+}
+
+.header-date-dot {
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+  animation: header-pulse 2s ease-in-out infinite;
+}
+
+@keyframes header-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-date-dot { animation: none; }
+}
+
+@media (max-width: 880px) {
+  .header-date { display: none; }
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--olive);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-cta:hover { color: var(--rust); }
+
+@media (max-width: 480px) {
+  .header-cta { font-size: 10px; letter-spacing: 0.08em; }
+}
+
+/* HERO — split: copy + form */
+.hero { padding: 80px 0 100px; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; max-width: 580px; }
+}
+
+/* LEFT: pitch */
+.hero-pitch { max-width: 540px; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hero-pitch h1 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 6.2vw, 76px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 28px;
+  max-width: 14ch;
+}
+
+.hero-pitch h1 .accent { color: var(--rust); }
+
+.hero-lead {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.7vw, 19px);
+  line-height: 1.55;
+  color: var(--olive);
+  margin-bottom: 36px;
+  max-width: 46ch;
+}
+
+.hero-lead strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line-on-cream);
+  border-bottom: 1px solid var(--line-on-cream);
+  margin-bottom: 28px;
+}
+
+.hero-bullets li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: baseline;
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.hero-bullets li .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--rust);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+}
+
+.hero-meta-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: 1px;
+}
+
+/* RIGHT: form card */
+.signup-card {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 40px 36px 36px;
+  box-shadow: 10px 10px 0 var(--ink);
+  position: relative;
+}
+
+@media (max-width: 540px) {
+  .signup-card { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
+}
+
+.signup-flag {
+  position: absolute;
+  top: -14px; left: 24px;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+}
+
+.signup-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+
+.signup-eyebrow::before {
+  content: "→";
+  font-weight: 700;
+  color: var(--rust);
+}
+
+.signup-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 2.8vw, 30px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 12px;
+  max-width: 20ch;
+}
+
+.signup-title em {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+.signup-lead {
+  font-family: 'Archivo', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--olive);
+  margin-bottom: 26px;
+  max-width: 38ch;
+}
+
+/* FORM */
+.hc-kajabi-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.hc-kajabi-form input[type="text"],
+.hc-kajabi-form input[type="email"] {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  padding: 14px 16px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hc-kajabi-form input::placeholder { color: rgba(46, 50, 48, 0.5); }
+
+.hc-kajabi-form input:focus {
+  outline: none;
+  border-color: var(--rust);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.hc-kajabi-form button {
+  width: 100%;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  padding: 16px 22px;
+  margin-top: 6px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hc-kajabi-form button:hover:not(:disabled) {
+  background: var(--rust);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.hc-kajabi-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hc-kajabi-form [data-form-message] {
+  min-height: 1em;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hc-kajabi-form [data-form-message][data-state="success"] { color: var(--rust); }
+.hc-kajabi-form [data-form-message][data-state="error"]   { color: #B33A1F; }
+
+.signup-fineprint {
+  margin-top: 18px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--olive);
+  opacity: 0.85;
+}
+
+/* Skjul Kajabi-embed og response-iframe */
+.kajabi-hidden-wrap {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kajabi-response-frame { display: none; }
+
+/* FOOTER */
+.footer { background: var(--olive); padding: 64px 0 36px; border-top: 1px solid var(--line-on-ink); color: var(--cream); }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line-on-ink);
+}
+
+@media (max-width: 720px) {
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+}
+
+.footer-brand-name {
+  display: inline-block;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 22px; letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-brand-name em {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  color: var(--rust); margin-left: 5px;
+}
+
+.footer-brand-name:hover { color: var(--rust); }
+
+.footer-tagline {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 14px;
+  line-height: 1.55;
+  color: var(--sand);
+  margin-top: 18px;
+  max-width: 36ch;
+}
+
+.footer-col-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 18px;
+}
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.footer-links a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500; font-size: 14px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover { color: var(--rust); }
+
+.footer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+}
+
+.footer-bottom a { color: var(--sand); text-decoration: none; transition: color 0.2s ease; }
+.footer-bottom a:hover { color: var(--cream); }
+
+@media (max-width: 720px) {
+  .footer-bottom { flex-direction: column; text-align: left; align-items: flex-start; }
+}
+
+.footer-disclaimer-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+  text-decoration: underline;
+  text-decoration-color: rgba(240, 217, 168, 0.4);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: color 0.2s ease;
+}
+
+.footer-disclaimer-link:hover {
+  color: var(--rust);
+  text-decoration-color: var(--rust);
+}
+
+/* DISCLAIMER MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 50, 48, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: modal-fade 0.2s ease-out;
+}
+
+.modal-overlay.is-open { display: flex; }
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 var(--ink);
+  max-width: 560px;
+  width: 100%;
+  padding: 40px 40px 36px;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: modal-pop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: translate(-6px, -6px) scale(0.97); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: none; border: none;
+  width: 36px; height: 36px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px; font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modal-close:hover { color: var(--rust); transform: rotate(90deg); }
+
+.modal-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.modal h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.modal p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.modal p:last-child { margin-bottom: 0; }
+
+.modal p strong { font-weight: 700; }
+
+@media (max-width: 480px) {
+  .modal { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
+  .modal h2 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo">
+      <span class="logo-mark">HC</span>
+      <span class="logo-name">Hege<em>Christine</em></span>
+    </a>
+    <span class="header-date"><span class="header-date-dot"></span>25.–29. mai 2026 · Live på Zoom</span>
+    <a href="#signup" class="header-cta">Sikre plassen min →</a>
+  </div>
+</header>
+
+<!-- HERO: pitch + form -->
+<section class="section bg-cream hero">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: pitch -->
+      <div class="hero-pitch">
+        <span class="eyebrow">5-dagers live challenge</span>
+        <h1>5 dager. Et system. <span class="accent">150K</span> i måneden.</h1>
+        <p class="hero-lead">Kunnskapen din fortjener en bedre forretningsmodell. På 5 kvelder får du systemet som tar deg dit — uten å selge timene dine, uten å hoppe fra idé til idé.</p>
+
+        <ul class="hero-bullets">
+          <li><span class="num">Dag 01</span><span>Få businessen du ønsker deg</span></li>
+          <li><span class="num">Dag 02</span><span>Tilbudet du burde tatt 10x mer for</span></li>
+          <li><span class="num">Dag 03</span><span>Produktet som bærer businessen</span></li>
+          <li><span class="num">Dag 04</span><span>De perfekte kundene</span></li>
+          <li><span class="num">Dag 05</span><span>Selg og markedsfør med selvtillit</span></li>
+        </ul>
+
+        <div class="hero-meta"><span class="hero-meta-dot"></span>25.–29. mai 2026 · Live på Zoom · Kveldstid</div>
+      </div>
+
+      <!-- RIGHT: signup form -->
+      <aside class="signup-card" id="signup" aria-labelledby="signup-title">
+        <span class="signup-flag">Gratis</span>
+        <span class="signup-eyebrow">Sikre plassen din</span>
+        <h2 class="signup-title" id="signup-title">Bli med — det er <em>gratis.</em></h2>
+        <p class="signup-lead">Skriv inn navn og e-post. Du får bekreftelse og Zoom-link rett i innboksen.</p>
+
+        <form id="signup-form" class="hc-kajabi-form"
+              data-kajabi-form-id="2149575768"
+              data-redirect-url="/150k-challenge/">
+          <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
+          <input type="email" name="email" placeholder="E-post" required autocomplete="email">
+          <button type="submit">Sikre plassen min →</button>
+          <div class="form-message" data-form-message></div>
+        </form>
+
+        <p class="signup-fineprint">Ved å melde deg på godtar du å motta e-post om challengen og relatert innhold. Du kan melde deg av når som helst.</p>
+
+        <!-- Skjult Kajabi-embed (genererer authenticity_token) -->
+        <div class="kajabi-hidden-wrap" aria-hidden="true">
+          <script src="https://www.hegechristine.no/forms/2149575768/embed.js"></script>
+        </div>
+
+        <!-- Skjult iframe for response -->
+        <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="https://www.hegechristine.no/" class="footer-brand-name">Hege<em>Christine</em></a>
+        <p class="footer-tagline">Online business strategist og mentor for digitale grundere. Hjelper deg bygge en smart, kunnskapsbasert business du lever godt av og med.</p>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Følg meg</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/hegechristine.no" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hegechristine.no" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.linkedin.com/in/hegechristine/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Info</div>
+        <ul class="footer-links">
+          <li><a href="https://www.hegechristine.no/pages/personvern" target="_blank" rel="noopener">Personvernpolicy</a></li>
+          <li><a href="https://www.hegechristine.no/pages/cookieerklaering" target="_blank" rel="noopener">Cookieerklæring</a></li>
+          <li><a href="https://www.hegechristine.no/pages/salgsbetingelser" target="_blank" rel="noopener">Salgsbetingelser</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Hege Christine</span>
+      <a href="#" id="disclaimer-trigger" class="footer-disclaimer-link">Inntektsforbehold</a>
+    </div>
+  </div>
+</footer>
+
+<!-- DISCLAIMER MODAL -->
+<div class="modal-overlay" id="disclaimer-modal" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" aria-hidden="true">
+  <div class="modal">
+    <button class="modal-close" id="disclaimer-close" aria-label="Lukk">×</button>
+    <div class="modal-eyebrow">Inntektsforbehold</div>
+    <h2 id="disclaimer-title">Du får <em style="font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--rust);">oppskriften.</em> Resultatet er opp til deg.</h2>
+    <p>Det du får i denne challengen er <strong>et komplett system</strong> — oppskriften på hvordan du bygger en business som faktisk lønner seg rundt kunnskapen din. Den funker.</p>
+    <p>Men jeg jobber ikke for deg. Jeg gir ingen garantier på spesifikke inntektsnivåer, fordi det avhenger av hva du gjør med det jeg viser deg.</p>
+    <p>150K-tallet er et eksempel på hva som er mulig — ikke et løfte til hver enkelt deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
+    <p>Du tar dine egne forretningsbeslutninger på eget ansvar.</p>
+  </div>
+</div>
+
+<!-- KAJABI FORM-INTEGRASJON -->
+<script>
+(function() {
+  const forms = document.querySelectorAll('.hc-kajabi-form');
+  forms.forEach(initKajabiForm);
+
+  function initKajabiForm(customForm) {
+    const button = customForm.querySelector('button[type="submit"]');
+    const message = customForm.querySelector('[data-form-message]');
+    const originalButtonText = button.textContent;
+    const redirectUrl = customForm.getAttribute('data-redirect-url');
+    const successMessage = customForm.getAttribute('data-success-message')
+      || '✓ Takk! Du er på listen.';
+
+    function setMessage(text, state) {
+      if (!message) return;
+      message.textContent = text;
+      message.setAttribute('data-state', state || '');
+    }
+
+    function findKajabiForm() {
+      return document.querySelector('#kajabi-form form, .kajabi-hidden-wrap form');
+    }
+
+    customForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const kajabiForm = findKajabiForm();
+
+      if (!kajabiForm) {
+        setMessage('Skjemaet laster fortsatt — prøv igjen om et øyeblikk.', 'error');
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sender...';
+      setMessage('');
+
+      const userName = customForm.querySelector('input[name="name"]').value.trim();
+      const userEmail = customForm.querySelector('input[name="email"]').value.trim();
+
+      const emailInput = kajabiForm.querySelector('input[type="email"]');
+      if (emailInput) emailInput.value = userEmail;
+
+      const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+      for (let i = 0; i < textInputs.length; i++) {
+        const inp = textInputs[i];
+        if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+          inp.value = userName;
+          break;
+        }
+      }
+
+      kajabiForm.target = 'kajabi-response-frame';
+
+      try {
+        kajabiForm.submit();
+
+        setTimeout(function() {
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+          } else {
+            setMessage(successMessage, 'success');
+            customForm.reset();
+            button.disabled = false;
+            button.textContent = originalButtonText;
+          }
+        }, 800);
+      } catch (err) {
+        setMessage('Noe gikk galt. Prøv igjen om litt.', 'error');
+        button.disabled = false;
+        button.textContent = originalButtonText;
+      }
+    });
+  }
+})();
+</script>
+
+<!-- DISCLAIMER MODAL-LOGIKK -->
+<script>
+  (function() {
+    const trigger = document.getElementById('disclaimer-trigger');
+    const modal = document.getElementById('disclaimer-modal');
+    const closeBtn = document.getElementById('disclaimer-close');
+
+    function open(e) {
+      if (e) e.preventDefault();
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) close();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  })();
+</script>
+
+</body>
+</html>
