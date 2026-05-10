@@ -41,25 +41,6 @@ body {
 }
 
 .container { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
-.narrow    { width: min(820px,  calc(100% - 56px)); margin: 0 auto; }
-
-.eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--rust);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-.eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 1px;
-  background: currentColor;
-}
 
 .section { position: relative; padding: 120px 0; }
 
@@ -82,14 +63,6 @@ body {
   background-image:
     linear-gradient(rgba(46,50,48,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(46,50,48,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-}
-
-.bg-sage {
-  background-color: var(--sage);
-  background-image:
-    linear-gradient(rgba(46,50,48,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46,50,48,0.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -461,217 +434,6 @@ body {
   white-space: nowrap;
 }
 
-/* DETAIL UPSELL (lower section — full feature comparison) */
-.upsell { padding: 100px 0 140px; }
-
-.upsell-head {
-  max-width: 1180px;
-  margin-left: auto; margin-right: auto;
-  text-align: left;
-  margin-bottom: 64px;
-}
-
-.upsell-head .eyebrow { margin-bottom: 24px; }
-
-.upsell-title {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(32px, 4.4vw, 48px);
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 28px;
-  max-width: 22ch;
-}
-
-.upsell-title em {
-  font-style: normal;
-  color: var(--rust);
-}
-
-.upsell-lead {
-  font-family: 'Archivo', sans-serif;
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--olive);
-  max-width: 580px;
-}
-
-/* TIERS (full) */
-.tier-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding-right: 12px;
-  padding-bottom: 12px;
-}
-
-@media (max-width: 880px) { .tier-grid { grid-template-columns: 1fr; max-width: 480px; gap: 28px; } }
-
-.tier {
-  background: #FBF8F0;
-  border: 1.5px solid var(--ink);
-  border-radius: 4px;
-  padding: 40px 32px;
-  display: flex; flex-direction: column;
-  position: relative;
-  box-shadow: 8px 8px 0 var(--ink);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tier:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0 var(--ink);
-}
-
-.tier-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 20px;
-}
-
-.tier-name {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800; font-size: 36px;
-  line-height: 1.0; letter-spacing: -0.025em;
-  color: var(--ink); margin-bottom: 12px;
-}
-
-.tier-price {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 500; font-size: 18px;
-  color: var(--olive); margin-bottom: 32px;
-}
-
-.tier-price small {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500; font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--olive); display: block; margin-top: 4px;
-}
-
-.tier-features { list-style: none; flex: 1; margin-bottom: 36px; }
-
-.tier-features li {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400; font-size: 15px;
-  line-height: 1.5; color: var(--ink);
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line-on-cream);
-}
-.tier-features li:last-child { border-bottom: none; }
-
-.tier-features li.off {
-  text-decoration: line-through;
-  text-decoration-color: rgba(46, 50, 48, 0.45);
-  text-decoration-thickness: 1px;
-  opacity: 0.42;
-}
-.tier-vip .tier-features li.off {
-  text-decoration-color: rgba(239, 230, 212, 0.5);
-  opacity: 0.4;
-}
-
-.tier-cta {
-  display: block; width: 100%; text-align: center;
-  background: transparent; color: var(--ink);
-  border: 1px solid var(--ink);
-  padding: 14px 18px;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 12px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none; transition: all 0.2s ease;
-  cursor: pointer;
-  border-radius: 0;
-}
-
-.tier-cta:hover { background: var(--ink); color: var(--cream); }
-
-.tier-vip { background: var(--ink); color: var(--cream); border-color: var(--ink); box-shadow: 8px 8px 0 var(--rust); }
-.tier-vip:hover { box-shadow: 10px 10px 0 var(--rust); }
-
-.tier-badge {
-  position: absolute;
-  top: -12px; right: 24px;
-  background: var(--rust);
-  color: var(--cream);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 10px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 3px;
-  border: 1.5px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
-  white-space: nowrap;
-}
-
-.tier-vip .tier-label { color: var(--sand); }
-.tier-vip .tier-name { color: var(--cream); }
-.tier-vip .tier-price { color: var(--sand); }
-.tier-vip .tier-price small { color: var(--sand); opacity: 0.8; }
-.tier-vip .tier-features li { color: var(--cream); border-color: var(--line-on-ink); }
-.tier-vip .tier-cta { background: var(--rust); color: var(--cream); border-color: var(--rust); }
-.tier-vip .tier-cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
-
-/* SKIP SECTION */
-.skip {
-  background: var(--sage);
-  background-image:
-    linear-gradient(rgba(46,50,48,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46,50,48,0.07) 1px, transparent 1px);
-  background-size: 80px 80px;
-  padding: 80px 0;
-  text-align: left;
-}
-
-.skip-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.skip-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--rust);
-  display: inline-flex; align-items: center; gap: 12px;
-  margin-bottom: 20px;
-}
-.skip-eyebrow::before {
-  content: ""; width: 24px; height: 1px; background: currentColor;
-}
-
-.skip h3 {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700;
-  font-size: clamp(22px, 2.6vw, 28px);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin-bottom: 16px;
-  max-width: 22ch;
-}
-
-.skip p {
-  font-family: 'Archivo', sans-serif;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--ink);
-  max-width: 540px;
-}
-
-.skip-meta {
-  margin-top: 22px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--olive);
-}
-
 /* FOOTER */
 .footer { background: var(--ink); padding: 72px 0 40px; border-top: 1px solid var(--line-on-ink); color: var(--cream); }
 
@@ -896,7 +658,7 @@ body {
 
       <!-- RIGHT: upgrade offer (hero-level CTA) -->
       <aside class="hero-offer" aria-labelledby="offer-title">
-        <span class="offer-flag">Velkomsttilbud · kun nå</span>
+        <span class="offer-flag">Siste sjanse</span>
         <span class="offer-eyebrow">Mens du venter på e-posten</span>
         <h2 class="offer-title" id="offer-title">Vil du ha mer ut av <em>disse 5 dagene?</em></h2>
         <p class="offer-lead">Live-plassen er låst inn. Skal vi gjøre den enda kraftigere før det starter?</p>
@@ -908,7 +670,7 @@ body {
               <span class="tier-mini-label">Med Opptak</span>
               <span class="tier-mini-price">497<small>kr</small></span>
             </div>
-            <p class="tier-mini-line">Alt live + opptak + notater. For deg som vil ta det i ditt eget tempo etter challengen.</p>
+            <p class="tier-mini-line">Live + opptak + notater. For deg som vil ta det i eget tempo — eller ikke rekker alle kveldene live. Opptak tilgjengelig ut søndagen.</p>
             <a href="https://www.hegechristine.no/offers/FRcbCd2Q/checkout" class="tier-mini-cta" target="_blank" rel="noopener">Oppgrader til Med Opptak →</a>
           </article>
 
@@ -925,65 +687,6 @@ body {
         </div>
       </aside>
 
-    </div>
-  </div>
-</section>
-
-<!-- DETAIL UPSELL (full feature comparison) -->
-<section class="section bg-cream upsell">
-  <div class="section-corners"></div>
-  <div class="container">
-    <div class="upsell-head">
-      <span class="eyebrow">Hva du faktisk får</span>
-      <h2 class="upsell-title">Hele bildet — side ved <em>side</em>.</h2>
-      <p class="upsell-lead">Vil du se nøyaktig hva som ligger i hvert nivå før du bestemmer deg? Her er sammenligningen.</p>
-    </div>
-
-    <div class="tier-grid">
-
-      <article class="tier">
-        <span class="tier-label">Med Opptak</span>
-        <h3 class="tier-name">497 kr</h3>
-        <p class="tier-price">Inkl. mva.<small>For deg som vil ta ting i eget tempo</small></p>
-        <ul class="tier-features">
-          <li>Live deltakelse alle 5 kvelder</li>
-          <li>Community-tilgang under challengen</li>
-          <li>Opptak av alle kveldene</li>
-          <li>Notater og oppsummeringer</li>
-          <li class="off">30 min 1-1 sesjon med meg</li>
-          <li class="off">Prioritert oppfølging i community</li>
-        </ul>
-        <a href="https://www.hegechristine.no/offers/FRcbCd2Q/checkout" class="tier-cta" target="_blank" rel="noopener">Oppgrader til Med Opptak</a>
-      </article>
-
-      <article class="tier tier-vip">
-        <span class="tier-badge">Kun 3 plasser</span>
-        <span class="tier-label">VIP</span>
-        <h3 class="tier-name">4 997 kr</h3>
-        <p class="tier-price">Inkl. mva.<small>Kun 3 plasser tilgjengelig</small></p>
-        <ul class="tier-features">
-          <li>Live deltakelse alle 5 kvelder</li>
-          <li>Community-tilgang under challengen</li>
-          <li>Opptak av alle kveldene</li>
-          <li>Notater og oppsummeringer</li>
-          <li>30 min 1-1 sesjon med meg</li>
-          <li>Prioritert oppfølging i community</li>
-        </ul>
-        <a href="https://www.hegechristine.no/offers/MgXwK9xS/checkout" class="tier-cta" target="_blank" rel="noopener">Sikre VIP nå</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKIP / OK ALSO -->
-<section class="skip">
-  <div class="container">
-    <div class="skip-inner">
-      <span class="skip-eyebrow">Helt OK å vente</span>
-      <h3>Vil du bare ta live-plassen og se hvordan det føles?</h3>
-      <p>Det er helt greit. Du har plassen din, og du kan oppgradere når som helst frem til challengen starter. Nederst i hver e-post fra meg ligger lenkene tilgjengelig.</p>
-      <p class="skip-meta">Sees 25. mai!</p>
     </div>
   </div>
 </section>
