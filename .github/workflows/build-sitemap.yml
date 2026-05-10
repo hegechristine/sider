@@ -1,0 +1,42 @@
+name: Build sitemap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/index.html'
+      - '.github/scripts/generate-sitemap.mjs'
+      - '.github/workflows/build-sitemap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-sitemap
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Generate sitemap
+        run: node .github/scripts/generate-sitemap.mjs
+
+      - name: Commit sitemap if changed
+        run: |
+          git add -A sitemap.xml 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No sitemap changes to commit"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Rebuild sitemap.xml [skip ci]"
+          git push
