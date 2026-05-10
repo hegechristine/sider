@@ -358,46 +358,82 @@ body { padding-top: 80px; }
 }
 
 .transform-grid {
-  max-width: 920px;
+  max-width: 980px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 8px;
+  padding-bottom: 8px;
 }
 
 .transform-row {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 36px;
+  grid-template-columns: 64px 1fr 48px 1fr;
+  gap: 24px;
   align-items: center;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line-on-cream);
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 22px 28px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.transform-row:first-child { border-top: 1px solid var(--line-on-cream); }
+.transform-row:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.transform-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  line-height: 1;
+}
 
 .transform-from {
   font-family: 'Archivo', sans-serif;
   font-weight: 500;
-  font-size: clamp(16px, 1.7vw, 19px);
-  line-height: 1.4;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.35;
   color: var(--ink);
   opacity: 0.55;
-  text-align: right;
   letter-spacing: -0.005em;
+  text-decoration: line-through;
+  text-decoration-color: rgba(46, 50, 48, 0.5);
+  text-decoration-thickness: 1.5px;
 }
 
 .transform-arrow {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  font-size: 18px;
-  color: var(--rust);
-  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  justify-self: center;
+  transition: transform 0.2s ease;
+}
+
+.transform-row:hover .transform-arrow {
+  transform: translateX(3px);
 }
 
 .transform-to {
   font-family: 'Archivo', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(17px, 1.9vw, 22px);
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
@@ -405,15 +441,17 @@ body { padding-top: 80px; }
 @media (max-width: 640px) {
   .transform-row {
     grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 22px 0;
+    gap: 10px;
+    padding: 22px 22px;
   }
-  .transform-from {
-    text-align: left;
-    opacity: 0.5;
-    font-size: 15px;
+  .transform-arrow {
+    width: 30px; height: 30px;
+    font-size: 14px;
+    justify-self: start;
+    margin: 4px 0;
   }
-  .transform-arrow { display: none; }
+  .transform-from { font-size: 15px; }
+  .transform-to { font-size: 18px; }
 }
 
 .section-head { text-align: center; margin-bottom: 80px; }
@@ -1344,21 +1382,25 @@ body { padding-top: 80px; }
     </div>
     <div class="transform-grid">
       <div class="transform-row">
+        <div class="transform-num">01</div>
         <div class="transform-from">Selger timene dine</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">Eier det du leverer</div>
       </div>
       <div class="transform-row">
+        <div class="transform-num">02</div>
         <div class="transform-from">Hopper fra idé til idé</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">Ett klart system</div>
       </div>
       <div class="transform-row">
+        <div class="transform-num">03</div>
         <div class="transform-from">Underpriser det du gjør</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">Tilbud som speiler verdien</div>
       </div>
       <div class="transform-row">
+        <div class="transform-num">04</div>
         <div class="transform-from">Jobber konstant uten resultater</div>
         <div class="transform-arrow">&rarr;</div>
         <div class="transform-to">En business som lønner seg</div>
@@ -1430,7 +1472,7 @@ body { padding-top: 80px; }
       <article class="tier">
         <span class="tier-label">Med Opptak</span>
         <h3 class="tier-name">497 kr</h3>
-        <p class="tier-price">Inkl. mva.<small>For deg som vil ha det med deg</small></p>
+        <p class="tier-price">Inkl. mva.<small>For deg som vil ta ting i eget tempo</small></p>
         <ul class="tier-features">
           <li>Live deltakelse alle 5 kvelder</li>
           <li>Community-tilgang under challengen</li>
