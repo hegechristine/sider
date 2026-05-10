@@ -149,18 +149,42 @@ body {
   .header-date { display: none; }
 }
 
-/* HERO — confirmation (tight, narrow) */
-.confirm { padding: 48px 0 40px; text-align: center; }
+/* TRIPWIRE 3-COL GRID */
+.tripwire { padding: 72px 0 72px; }
+
+.tripwire-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 960px) {
+  .tripwire-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    gap: 36px;
+  }
+}
+
+/* LEFT — confirm + bridge text */
+.tripwire-pitch {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 18px;
+}
 
 .confirm-row {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  text-align: left;
+  gap: 16px;
 }
 
 .confirm-check {
-  width: 52px; height: 52px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   background: var(--rust);
   display: flex; align-items: center; justify-content: center;
@@ -170,7 +194,7 @@ body {
 }
 
 .confirm-check svg {
-  width: 24px; height: 24px;
+  width: 22px; height: 22px;
   stroke: var(--cream);
   stroke-width: 3.5;
   fill: none;
@@ -181,7 +205,7 @@ body {
 .confirm-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .confirm-eyebrow {
@@ -191,30 +215,61 @@ body {
   color: var(--rust);
 }
 
-.confirm h1 {
+.confirm-line {
   font-family: 'Archivo', sans-serif;
   font-weight: 800;
-  font-size: clamp(22px, 2.4vw, 28px);
+  font-size: 18px;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   color: var(--ink);
-  margin: 0;
 }
 
-.confirm h1 em {
+.confirm-line em {
   font-family: 'Newsreader', serif;
   font-style: italic;
   font-weight: 500;
   color: var(--rust);
 }
 
-.confirm-body {
+.tripwire-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.tripwire-eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.tripwire-title {
   font-family: 'Archivo', sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
+  font-weight: 800;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+.tripwire-title em {
+  font-style: normal;
+  color: var(--rust);
+}
+
+.tripwire-lead {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
   color: var(--olive);
-  margin: 14px auto 0;
-  max-width: 480px;
+  max-width: 36ch;
 }
 
 /* INCLUDED — what they got */
@@ -752,33 +807,30 @@ body {
   </div>
 </header>
 
-<!-- HERO: confirmation (tight) -->
-<section class="section bg-cream confirm">
-  <div class="container">
-    <div class="confirm-row">
-      <div class="confirm-check" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <div class="confirm-text">
-        <span class="confirm-eyebrow">Plassen din er sikret</span>
-        <h1>Du er <em>med!</em> Bekreftelsen er på vei.</h1>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UPGRADE — bridge + tiers (HIGH UP, classic tripwire) -->
-<section class="section bg-cream upgrade">
+<!-- TRIPWIRE: 3-col — confirm/text + Med Opptak + VIP -->
+<section class="section bg-cream tripwire">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
-    <div class="upgrade-head">
-      <span class="eyebrow">Men vent litt …</span>
-      <h2 class="section-title">Vil du ha enda mer ut av <em>disse 5 dagene?</em></h2>
-      <p class="upgrade-head-lead">Live er låst inn — men hvis du ikke rekker alle kveldene, eller vil ha opptak, slides og oppsummering du kan gå tilbake til i eget tempo, er det dette du legger til.</p>
-    </div>
+    <div class="tripwire-grid">
 
-    <div class="upgrade-grid">
+      <!-- LEFT: confirm + bridge -->
+      <div class="tripwire-pitch">
+        <div class="confirm-row">
+          <div class="confirm-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="confirm-text">
+            <span class="confirm-eyebrow">Plassen din er sikret</span>
+            <span class="confirm-line">Du er <em>med!</em></span>
+          </div>
+        </div>
+
+        <span class="tripwire-eyebrow">Men vent litt …</span>
+        <h1 class="tripwire-title">Vil du ha enda mer ut av <em>disse 5 dagene?</em></h1>
+        <p class="tripwire-lead">Live er låst inn — men hvis du ikke rekker alle kveldene, eller vil ha opptak, slides og oppsummering du kan gå tilbake til i eget tempo, er det dette du legger til.</p>
+      </div>
+
 
       <article class="tier">
         <div class="tier-label">Med Opptak</div>
