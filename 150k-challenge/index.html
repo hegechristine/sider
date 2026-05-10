@@ -587,11 +587,22 @@ body { padding-top: 80px; }
   font-weight: 500;
   font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.45;
-  padding: 24px 0;
+  padding: 24px 0 24px 44px;
   border-top: 1px solid var(--line-on-cream);
   color: var(--ink);
+  position: relative;
 }
 .who-list li:last-child { border-bottom: 1px solid var(--line-on-cream); }
+
+.who-list li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 36px;
+  width: 9px; height: 9px;
+  background: var(--rust);
+  border-radius: 50%;
+}
 
 .notfor-list { list-style: none; max-width: 720px; margin: 0 auto; }
 
@@ -1477,7 +1488,6 @@ body { padding-top: 80px; }
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Hvem som leder dette</span>
-      <h2 class="section-title">Hege Christine</h2>
     </div>
     <div class="about-card">
       <div class="about-photo">
