@@ -556,6 +556,21 @@ body { padding-top: 80px; }
 
 .tier-vip { background: var(--ink); color: var(--cream); border-color: var(--ink); box-shadow: 8px 8px 0 var(--rust); }
 .tier-vip:hover { box-shadow: 10px 10px 0 var(--rust); }
+
+.tier-badge {
+  position: absolute;
+  top: -12px; right: 24px;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+}
 .tier-vip .tier-label { color: var(--sand); }
 .tier-vip .tier-name { color: var(--cream); }
 .tier-vip .tier-price { color: var(--sand); }
@@ -1412,13 +1427,14 @@ body { padding-top: 80px; }
           <li class="off">30 min 1-1 sesjon med meg</li>
           <li class="off">Prioritert oppfølging i community</li>
         </ul>
-        <a href="https://www.hegechristine.no/offers/FRcbCd2Q/checkout" class="tier-cta">Velg Med Opptak</a>
+        <a href="https://www.hegechristine.no/offers/FRcbCd2Q/checkout" class="tier-cta" target="_blank" rel="noopener">Velg Med Opptak</a>
       </article>
 
       <article class="tier tier-vip">
+        <span class="tier-badge">Kun 3 plasser</span>
         <span class="tier-label">VIP</span>
         <h3 class="tier-name">4 997 kr</h3>
-        <p class="tier-price">Inkl. mva.<small>Begrenset til 15 plasser</small></p>
+        <p class="tier-price">Inkl. mva.<small>Kun 3 plasser tilgjengelig</small></p>
         <ul class="tier-features">
           <li>Live deltakelse alle 5 kvelder</li>
           <li>Community-tilgang under challengen</li>
@@ -1427,7 +1443,7 @@ body { padding-top: 80px; }
           <li>30 min 1-1 sesjon med meg</li>
           <li>Prioritert oppfølging i community</li>
         </ul>
-        <a href="https://www.hegechristine.no/offers/MgXwK9xS/checkout" class="tier-cta">Sikre VIP</a>
+        <a href="https://www.hegechristine.no/offers/MgXwK9xS/checkout" class="tier-cta" target="_blank" rel="noopener">Sikre VIP</a>
       </article>
 
     </div>
@@ -1510,7 +1526,7 @@ body { padding-top: 80px; }
 
       <details class="faq-item">
         <summary class="faq-q">Hva er forskjellen på Live, Med Opptak og VIP?</summary>
-        <p class="faq-a">Live er deltakelse i sanntid, gratis, med begrenset antall plasser. Med Opptak gir deg opptak og notater for 497 kr inkl. mva. VIP legger til en 30 min 1-1 sesjon med meg og prioritert oppfølging — 15 plasser, 4 997 kr inkl. mva.</p>
+        <p class="faq-a">Live er deltakelse i sanntid, gratis, med begrenset antall plasser. Med Opptak gir deg opptak og notater for 497 kr inkl. mva. VIP legger til en 30 min 1-1 sesjon med meg og prioritert oppfølging — kun 3 plasser, 4 997 kr inkl. mva.</p>
       </details>
 
       <details class="faq-item">
