@@ -762,6 +762,73 @@ body {
   .faq-item[open] { box-shadow: 4px 4px 0 var(--rust); }
 }
 
+/* FINAL CTA */
+.bg-ink {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--cream);
+}
+
+.bg-ink .section-corners::before,
+.bg-ink .section-corners::after,
+.bg-ink .section-corners-bottom::before,
+.bg-ink .section-corners-bottom::after {
+  color: var(--cream);
+}
+
+.final { text-align: center; padding: 120px 0 100px; }
+
+.final .eyebrow {
+  color: var(--rust);
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.final h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin: 0 auto 48px;
+  max-width: 22ch;
+}
+
+.final h2 em { font-style: normal; color: var(--rust); }
+
+.final .cta-primary {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 20px 40px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.final .cta-primary:hover {
+  background: var(--cream);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.final-meta {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+}
+
 /* FOOTER */
 .footer { background: var(--olive); padding: 64px 0 36px; border-top: 1px solid var(--line-on-ink); color: var(--cream); }
 
@@ -1130,6 +1197,18 @@ body {
       </details>
 
     </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section bg-ink final">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <span class="eyebrow">Siste sjanse</span>
+    <h2>5 dager. Et system. <em>En business som lønner seg.</em></h2>
+    <a href="#signup" class="cta-primary">Sikre min plass</a>
+    <div class="final-meta">25.–29. mai 2026 · Live på Zoom</div>
   </div>
 </section>
 
