@@ -405,6 +405,7 @@ body { padding-top: 80px; }
   text-decoration: line-through;
   text-decoration-color: rgba(46, 50, 48, 0.5);
   text-decoration-thickness: 1.5px;
+  text-align: right;
 }
 
 .transform-arrow {
@@ -450,7 +451,7 @@ body { padding-top: 80px; }
     justify-self: start;
     margin: 4px 0;
   }
-  .transform-from { font-size: 15px; }
+  .transform-from { font-size: 15px; text-align: left; }
   .transform-to { font-size: 18px; }
 }
 
@@ -726,7 +727,7 @@ body { padding-top: 80px; }
   line-height: 1.0;
   letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .about-card-name em {
@@ -734,6 +735,17 @@ body { padding-top: 80px; }
   font-style: italic;
   font-weight: 500;
   color: var(--rust);
+}
+
+.about-tagline {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.35;
+  color: var(--olive);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
 }
 
 .about-content p {
@@ -1543,16 +1555,14 @@ body { padding-top: 80px; }
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Hvem som leder dette</span>
-    </div>
     <div class="about-card">
       <div class="about-photo">
         <img src="hege-portrait.webp" alt="Hege Christine" width="220" height="220" loading="lazy">
       </div>
       <div class="about-content">
-        <div class="about-card-meta">Online business strategist · Tech-gründer</div>
+        <div class="about-card-meta">Business mentor · Online business strategist · Tech-gründer</div>
         <h3 class="about-card-name">Hege <em>Christine</em></h3>
+        <p class="about-tagline">Hjelper digitale gründere bygge smartere businesser.</p>
 
         <p>Det jeg ser hos nesten alle som ikke får kunnskapen sin til å skalere: de prøver å gjøre mer av det samme. Levere flere timer. Ta inn flere klienter. Bygge enda et kurs. Det er sjelden der det sitter.</p>
 
