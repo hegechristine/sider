@@ -149,8 +149,80 @@ body {
   .header-date { display: none; }
 }
 
+/* CONFIRM BANNER — emphasised confirmation strip */
+.confirm-banner {
+  background: var(--sand);
+  border-bottom: 1.5px solid var(--ink);
+  padding: 28px 0;
+}
+
+.confirm-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.confirm-banner .confirm-check {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  flex-shrink: 0;
+}
+
+.confirm-banner .confirm-check svg {
+  width: 26px; height: 26px;
+  stroke: var(--cream);
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.confirm-banner .confirm-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirm-banner .confirm-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+}
+
+.confirm-banner h1 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 2.8vw, 32px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.confirm-banner h1 em {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+@media (max-width: 480px) {
+  .confirm-banner { padding: 22px 0; }
+  .confirm-banner-inner { gap: 16px; }
+  .confirm-banner .confirm-check { width: 48px; height: 48px; box-shadow: 3px 3px 0 var(--ink); }
+  .confirm-banner .confirm-check svg { width: 22px; height: 22px; }
+}
+
 /* TRIPWIRE 3-COL GRID */
-.tripwire { padding: 72px 0 72px; }
+.tripwire { padding: 56px 0 72px; }
 
 .tripwire-grid {
   display: grid;
@@ -807,27 +879,32 @@ body {
   </div>
 </header>
 
-<!-- TRIPWIRE: 3-col — confirm/text + Med Opptak + VIP -->
+<!-- CONFIRM BANNER — emphasised 'you're in' moment -->
+<section class="confirm-banner">
+  <div class="container">
+    <div class="confirm-banner-inner">
+      <div class="confirm-check" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="confirm-text">
+        <span class="confirm-eyebrow">Bekreftet · Plassen din er sikret</span>
+        <h1>Du er <em>med!</em> Bekreftelsen er på vei til innboksen din.</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIPWIRE: 3-col — pitch + Med Opptak + VIP -->
 <section class="section bg-cream tripwire">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
     <div class="tripwire-grid">
 
-      <!-- LEFT: confirm + bridge -->
+      <!-- LEFT: bridge pitch -->
       <div class="tripwire-pitch">
-        <div class="confirm-row">
-          <div class="confirm-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="confirm-text">
-            <span class="confirm-eyebrow">Plassen din er sikret</span>
-            <span class="confirm-line">Du er <em>med!</em></span>
-          </div>
-        </div>
-
         <span class="tripwire-eyebrow">Men vent litt …</span>
-        <h1 class="tripwire-title">Vil du ha enda mer ut av <em>disse 5 dagene?</em></h1>
+        <h2 class="tripwire-title">Vil du ha enda mer ut av <em>disse 5 dagene?</em></h2>
         <p class="tripwire-lead">Live er låst inn — men hvis du ikke rekker alle kveldene, eller vil ha opptak, slides og oppsummering du kan gå tilbake til i eget tempo, er det dette du legger til.</p>
       </div>
 
