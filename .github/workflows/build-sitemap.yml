@@ -1,4 +1,4 @@
-name: Build sitemap
+name: Build sitemap & ping search engines
 
 on:
   push:
@@ -16,6 +16,10 @@ concurrency:
   group: build-sitemap
   cancel-in-progress: false
 
+env:
+  INDEXNOW_KEY: 4cf9b4472fb3a579b6c15babd0a878914a93ee62cfd14690e7ff66fb1bc5dd37
+  HOST: sider.hegechristine.no
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,9 +34,11 @@ jobs:
         run: node .github/scripts/generate-sitemap.mjs
 
       - name: Commit sitemap if changed
+        id: commit
         run: |
           git add -A sitemap.xml 2>/dev/null || true
           if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No sitemap changes to commit"
             exit 0
           fi
@@ -40,3 +46,24 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m "Rebuild sitemap.xml [skip ci]"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Ping IndexNow (Bing, DuckDuckGo, Yandex)
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          urls_json=$(jq -R -s -c 'split("\n") | map(select(length > 0))' .github/sitemap-urls.txt)
+          if [ "$urls_json" = "[]" ]; then
+            echo "No URLs to submit — sitemap is empty"
+            exit 0
+          fi
+          payload=$(jq -n \
+            --arg host "$HOST" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyLocation "https://$HOST/$INDEXNOW_KEY.txt" \
+            --argjson urlList "$urls_json" \
+            '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')
+          echo "Submitting $(echo "$urls_json" | jq 'length') URLs to IndexNow"
+          curl -fsS -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d "$payload"
+          echo "IndexNow submitted."

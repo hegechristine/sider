@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFileSync, writeFileSync, statSync, existsSync, unlinkSync } from 'node:fs';
+import { readFileSync, writeFileSync, statSync } from 'node:fs';
 import { readdir } from 'node:fs/promises';
 import { resolve, relative, join } from 'node:path';
 
@@ -39,12 +39,7 @@ const indexable = files.filter(shouldIndex);
 console.log(`Scanned ${files.length} index.html files, ${indexable.length} indexable.`);
 
 const out = resolve(ROOT, 'sitemap.xml');
-
-if (indexable.length === 0) {
-  if (existsSync(out)) unlinkSync(out);
-  console.log('No indexable pages — sitemap.xml not written.');
-  process.exit(0);
-}
+const urlsTxt = resolve(ROOT, '.github', 'sitemap-urls.txt');
 
 const urls = indexable.map(f => {
   const lastmod = statSync(f).mtime.toISOString().slice(0, 10);
@@ -63,4 +58,5 @@ ${urls.join('\n')}
 `;
 
 writeFileSync(out, xml);
+writeFileSync(urlsTxt, indexable.map(urlForFile).join('\n') + '\n');
 console.log(`Wrote sitemap.xml with ${indexable.length} URLs.`);
