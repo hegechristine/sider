@@ -528,7 +528,7 @@ body {
 .kajabi-response-frame { display: none; }
 
 /* PREMISE — single conviction section */
-.premise { padding: 100px 0; }
+.premise { padding: 64px 0 96px; }
 
 .premise-headline {
   font-family: 'Archivo', sans-serif;
@@ -574,18 +574,19 @@ body {
   margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 56px;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
   align-items: start;
 }
 
 .about-photo {
-  width: 220px;
-  height: 220px;
+  width: 240px;
+  height: 240px;
   border: 2px solid var(--ink);
-  border-radius: 4px;
+  border-radius: 50%;
   overflow: hidden;
   background: var(--rust);
+  box-shadow: 8px 8px 0 var(--ink);
   flex-shrink: 0;
 }
 
@@ -665,9 +666,9 @@ body {
 @media (max-width: 720px) {
   .about-card {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
   }
-  .about-photo { width: 140px; height: 140px; }
+  .about-photo { width: 160px; height: 160px; box-shadow: 6px 6px 0 var(--ink); }
 }
 
 /* SECTION HEAD (for FAQ + ABOUT) */

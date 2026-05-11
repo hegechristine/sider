@@ -315,7 +315,7 @@ body { padding-top: 80px; }
   .marquee-track { animation: none; }
 }
 
-.premise { text-align: left; padding: 140px 0; }
+.premise { text-align: left; padding: 72px 0 120px; }
 
 .premise-headline {
   font-family: 'Archivo', sans-serif;
@@ -665,26 +665,23 @@ body { padding-top: 80px; }
 .notfor-list li:last-child { border-bottom: 1px solid var(--line-on-olive); }
 
 .about-card {
-  max-width: 1080px;
+  max-width: 980px;
   margin: 0 auto;
-  background: #FBF8F0;
-  border: 1.5px solid var(--ink);
-  border-radius: 6px;
-  box-shadow: 10px 10px 0 var(--ink);
-  padding: 48px;
+  padding: 0;
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 48px;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
   align-items: start;
 }
 
 .about-photo {
-  width: 220px;
-  height: 220px;
+  width: 240px;
+  height: 240px;
   border: 2px solid var(--ink);
-  border-radius: 4px;
+  border-radius: 50%;
   overflow: hidden;
   background: var(--rust);
+  box-shadow: 8px 8px 0 var(--ink);
   flex-shrink: 0;
 }
 
@@ -764,11 +761,9 @@ body { padding-top: 80px; }
 @media (max-width: 720px) {
   .about-card {
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 32px 28px;
-    box-shadow: 6px 6px 0 var(--ink);
+    gap: 32px;
   }
-  .about-photo { width: 140px; height: 140px; }
+  .about-photo { width: 160px; height: 160px; box-shadow: 6px 6px 0 var(--ink); }
 }
 
 .faq-list {
