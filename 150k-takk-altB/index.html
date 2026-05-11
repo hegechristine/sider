@@ -154,7 +154,6 @@ body {
   border-top: 1.5px solid var(--ink);
   border-bottom: 1.5px solid var(--ink);
   padding: 28px 0;
-  overflow: hidden;
 }
 
 .confirm-banner-inner {
@@ -164,33 +163,6 @@ body {
   gap: 22px;
   flex-wrap: wrap;
   text-align: left;
-  animation: confirm-dissolve-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-}
-
-@keyframes confirm-dissolve-in {
-  0% {
-    filter: blur(18px);
-    opacity: 0;
-    transform: scale(1.03);
-  }
-  60% {
-    filter: blur(4px);
-    opacity: 0.7;
-  }
-  100% {
-    filter: blur(0);
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .confirm-banner-inner {
-    animation: none;
-    filter: none;
-    transform: none;
-    opacity: 1;
-  }
 }
 
 .confirm-banner .confirm-check {
