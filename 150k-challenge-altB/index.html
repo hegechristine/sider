@@ -148,21 +148,22 @@ body {
 }
 
 .header-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--olive);
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 13px 22px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
   text-decoration: none;
-  transition: color 0.2s ease;
+  border-radius: 3px;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-.header-cta:hover { color: var(--rust); }
+.header-cta:hover { background: var(--rust); transform: translateY(-1px); }
 
 @media (max-width: 480px) {
-  .header-cta { font-size: 10px; letter-spacing: 0.08em; }
+  .header-cta { padding: 11px 16px; font-size: 10px; letter-spacing: 0.08em; }
 }
 
 /* HERO — split: pitch + form */
