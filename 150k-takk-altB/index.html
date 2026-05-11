@@ -154,6 +154,7 @@ body {
   border-top: 1.5px solid var(--ink);
   border-bottom: 1.5px solid var(--ink);
   padding: 28px 0;
+  overflow: hidden;
 }
 
 .confirm-banner-inner {
@@ -163,6 +164,20 @@ body {
   gap: 22px;
   flex-wrap: wrap;
   text-align: left;
+  animation: confirm-slide-up 10s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes confirm-slide-up {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirm-banner-inner {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .confirm-banner .confirm-check {
@@ -903,14 +918,14 @@ body {
       <div class="tripwire-pitch">
         <span class="tripwire-eyebrow">Vent litt</span>
         <h2 class="tripwire-title">Vil du ha enda mer ut av <em>disse 5 dagene?</em></h2>
-        <p class="tripwire-lead">Du har nå sikret deg tilgang til <strong>livesendingene</strong> og <strong>communityet</strong> under challengen. Men om du ikke har anledning til å delta live, eller ønsker å se opptak når det passer deg og jobbe i eget tempo — er det dette du legger til.</p>
+        <p class="tripwire-lead">Du har nå sikret deg tilgang til <strong>livesendingene</strong> og <strong>communityet</strong> under challengen. Men om du ikke har anledning til å delta live, eller ønsker å se opptak når det passer deg og jobbe i eget tempo, kan du oppgradere ved å velge ett av disse alternativene:</p>
       </div>
 
 
       <article class="tier">
         <div class="tier-label">Med Opptak</div>
         <h3 class="tier-name">Live + <em>opptak</em></h3>
-        <div class="tier-price">497<small>kr</small></div>
+        <div class="tier-price">490,-</div>
         <ul class="tier-features">
           <li>Opptak av alle 5 kvelder (tilgjengelig ut søndagen)</li>
           <li>Hege Christine sine notater fra hver sesjon</li>
@@ -925,7 +940,7 @@ body {
         <span class="tier-badge">Kun 3 plasser</span>
         <div class="tier-label">VIP</div>
         <h3 class="tier-name">Live + opptak + <em>1-1</em></h3>
-        <div class="tier-price">4 997<small>kr</small></div>
+        <div class="tier-price">4990,-</div>
         <ul class="tier-features">
           <li>Opptak av alle 5 kvelder (tilgjengelig ut søndagen)</li>
           <li>Hege Christine sine notater fra hver sesjon</li>
