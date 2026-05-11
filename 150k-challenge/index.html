@@ -734,8 +734,31 @@ body { padding-top: 80px; }
   font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.35;
   color: var(--olive);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   letter-spacing: -0.005em;
+}
+
+.about-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  padding: 14px 0;
+  border-top: 1px solid var(--line-on-cream);
+  border-bottom: 1px solid var(--line-on-cream);
+  margin-bottom: 28px;
+}
+
+.about-credentials .dot {
+  color: var(--rust);
+  font-weight: 700;
+  opacity: 0.7;
 }
 
 .about-content p {
@@ -750,12 +773,22 @@ body { padding-top: 80px; }
   font-family: 'Newsreader', serif !important;
   font-style: italic !important;
   font-weight: 500 !important;
-  font-size: clamp(19px, 2.1vw, 22px) !important;
-  line-height: 1.4 !important;
+  font-size: clamp(22px, 2.6vw, 28px) !important;
+  line-height: 1.35 !important;
   color: var(--rust) !important;
-  border-left: 2px solid var(--rust);
-  padding-left: 22px;
-  margin: 28px 0 !important;
+  border-left: 3px solid var(--rust);
+  padding-left: 28px;
+  margin: 36px 0 !important;
+}
+
+.about-signature {
+  margin-top: 24px !important;
+  font-family: 'Newsreader', serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  color: var(--rust) !important;
+  text-align: right;
 }
 
 @media (max-width: 720px) {
@@ -1593,6 +1626,14 @@ body { padding-top: 80px; }
         <h3 class="about-card-name">Hege <em>Christine</em></h3>
         <p class="about-tagline">Hjelper digitale gründere bygge smartere businesser.</p>
 
+        <div class="about-credentials" aria-label="Erfaring">
+          <span>6 år</span>
+          <span class="dot">·</span>
+          <span>Hundrevis av gründere</span>
+          <span class="dot">·</span>
+          <span>Fra ny til millioner</span>
+        </div>
+
         <p>Er det én ting jeg ser hos nesten alle som ikke får til å skalere kunnskapen sin, så er det at de prøver å gjøre mer av det samme. De låser seg fast. Jobber i businessen fremfor på den. Levere flere timer. Ta inn flere klienter. Lage flere produkter. Bygge enda et kurs. Prøve å nå alle. Og ender opp utbrente og fortvilte.</p>
 
         <p>I seks år har jeg jobbet med <strong>hundrevis av norske gründere</strong> — fra dem som så vidt har startet, til dem som omsetter for flere millioner. Det som skiller dem som lykkes fra dem som ikke gjør det, er ikke hvor lenge de har holdt på. Det er ikke engang hvor mye de kan. Det er hvordan de har bygget businessen rundt kunnskapen sin.</p>
@@ -1602,6 +1643,8 @@ body { padding-top: 80px; }
         <p class="about-quote">Det er ikke kunnskapen din det er noe feil med. Det er forretningsmodellen rundt den.</p>
 
         <p>Det er det vi fikser på 5 dager.</p>
+
+        <p class="about-signature">— Hege Christine</p>
       </div>
     </div>
   </div>
