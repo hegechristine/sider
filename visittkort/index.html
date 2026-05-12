@@ -992,26 +992,49 @@
     const filename = 'Hege-Christine-Brunsvik.png';
     const url = 'visittkort-bilde.png';
 
+    // Pre-last bildet ved page load. iOS Safari mister "user activation"
+    // hvis vi awaiter et nettverkskall mellom klikk og navigator.share —
+    // ved å ha File-objektet klart, kan share trigges synkront i click.
+    let cachedFile = null;
+    let prefetchPromise = null;
+    function prefetchImage() {
+      if (prefetchPromise) return prefetchPromise;
+      prefetchPromise = fetch(url)
+        .then(function(r) { return r.blob(); })
+        .then(function(blob) {
+          cachedFile = new File([blob], filename, { type: 'image/png' });
+        })
+        .catch(function() { /* ingen ting */ });
+      return prefetchPromise;
+    }
+    // Start pre-fetch idle eller umiddelbart
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(prefetchImage, { timeout: 2000 });
+    } else {
+      setTimeout(prefetchImage, 500);
+    }
+
     btn.addEventListener('click', async function() {
       btn.disabled = true;
       try {
-        // iOS 15+: bruk Web Share API med fil — bringer opp "Lagre bilde"
-        if (navigator.canShare && navigator.share) {
-          try {
-            const res = await fetch(url);
-            const blob = await res.blob();
-            const file = new File([blob], filename, { type: 'image/png' });
-            if (navigator.canShare({ files: [file] })) {
+        // Trigger pre-fetch hvis ikke kommet i gang ennå (raskt på cached)
+        if (!cachedFile) await prefetchImage();
+
+        // iOS 15+ / Android: Web Share API med fil → "Lagre bilde" i sheet
+        if (cachedFile && navigator.canShare && navigator.share) {
+          if (navigator.canShare({ files: [cachedFile] })) {
+            try {
               await navigator.share({
-                files: [file],
+                files: [cachedFile],
                 title: 'Hege Christine Brunsvik',
                 text: 'Digitalt visittkort'
               });
               return;
-            }
-          } catch (e) { /* bruker avbrøt eller fallback */ }
+            } catch (e) { /* bruker avbrøt */ }
+          }
         }
-        // Android/Desktop: vanlig nedlasting via anchor
+
+        // Fallback: vanlig nedlasting (Android, desktop, eldre iOS)
         const a = document.createElement('a');
         a.href = url;
         a.download = filename;
