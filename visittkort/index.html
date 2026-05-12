@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hege Christine — Digitalt visittkort</title>
-<meta name="description" content="Digitalt visittkort for Hege Christine. Lagre kontakten min eller del din info tilbake.">
+<title>Hege Christine Brunsvik — Digitalt visittkort</title>
+<meta name="description" content="Digitalt visittkort for Hege Christine Brunsvik. Lagre kontakten min eller del din info tilbake.">
 <meta name="robots" content="noindex,follow">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Hege Christine — Digitalt visittkort">
+<meta property="og:title" content="Hege Christine Brunsvik — Digitalt visittkort">
 <meta property="og:description" content="Online business strategist, mentor og tech founder.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://sider.hegechristine.no/visittkort/">
@@ -156,6 +156,18 @@
     color: var(--rust);
     font-size: 2rem;
     font-weight: 400;
+  }
+
+  .vk-surname {
+    display: block;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--rust);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
   }
 
   .vk-role {
@@ -644,6 +656,10 @@
     .vk-name .italic {
       font-size: 1.6rem;
     }
+    .vk-surname {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
     .vk-form {
       grid-template-columns: 1fr;
     }
@@ -673,10 +689,11 @@
 
     <div class="card-vk-main">
       <div class="vk-photo">
-        <img src="profile.png" alt="Hege Christine" loading="eager" width="96" height="96">
+        <img src="profile.png" alt="Hege Christine Brunsvik" loading="eager" width="96" height="96">
       </div>
       <div>
         <h1 class="vk-name">Hege <span class="italic">Christine</span></h1>
+        <span class="vk-surname">Brunsvik</span>
         <span class="vk-role">Online business strategist · Mentor · Tech founder</span>
       </div>
     </div>
@@ -817,8 +834,8 @@
     const vcard = [
       'BEGIN:VCARD',
       'VERSION:3.0',
-      'N:Christine;Hege;;;',
-      'FN:Hege Christine',
+      'N:Brunsvik;Hege Christine;;;',
+      'FN:Hege Christine Brunsvik',
       'TITLE:Online business strategist · Mentor · Tech founder',
       'EMAIL;TYPE=INTERNET,PREF:hegechristine@hegechristine.no',
       'TEL;TYPE=CELL,VOICE,PREF:+47 484 83 883',
@@ -837,7 +854,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'Hege-Christine.vcf';
+      a.download = 'Hege-Christine-Brunsvik.vcf';
       document.body.appendChild(a);
       a.click();
       setTimeout(function() {
