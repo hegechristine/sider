@@ -943,6 +943,23 @@
       if (channel) payload['Foretrukken kanal'] = channel;
       if (note) payload.Melding = note;
 
+      // Send parallelt til Make-webhook for automasjon (Asana etc.)
+      // Fire-and-forget — feil her skal ikke blokkere bruker-feedback
+      fetch('https://hook.eu1.make.com/i13e92dgj3olytb7ec3bqghpugkqp752', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          navn: name,
+          epost: email,
+          bedrift: company || '',
+          telefon: phone || '',
+          foretrukken_kanal: channel || '',
+          melding: note || '',
+          kilde: 'visittkort',
+          mottatt: new Date().toISOString()
+        })
+      }).catch(function() {});
+
       fetch('https://formsubmit.co/ajax/hegechristine@hegechristine.no', {
         method: 'POST',
         headers: {
