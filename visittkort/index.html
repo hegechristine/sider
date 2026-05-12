@@ -797,6 +797,9 @@
             <input type="hidden" name="channel" id="channel-input" value="">
           </div>
 
+          <!-- Honeypot: skjult felt — botter fyller ut, mennesker ikke -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+
           <textarea name="note" placeholder="Hvor møttes vi? Har vi avtalt å snakke om noe? (valgfritt)"></textarea>
           <button type="submit">Send til Hege Christine →</button>
           <div class="form-message" id="form-message"></div>
@@ -910,6 +913,13 @@
       const phone = form.querySelector('input[name="phone"]').value.trim();
       const channel = channelInput.value.trim();
       const note = form.querySelector('textarea[name="note"]').value.trim();
+      const honey = form.querySelector('input[name="_honey"]').value;
+
+      // Honeypot — hvis fylt, ignorer (bot)
+      if (honey) {
+        if (flip) flip.classList.add('is-flipped');
+        return;
+      }
 
       if (!name || !email) {
         setMessage('Fyll ut navn og e-post.', '#ffd9c5');
@@ -918,46 +928,50 @@
 
       button.disabled = true;
       button.textContent = 'Sender...';
+      setMessage('');
 
-      // Bygg mailto-body
-      const lines = [
-        'Navn: ' + name,
-        'E-post: ' + email
-      ];
-      if (company) lines.push('Bedrift: ' + company);
-      if (phone) lines.push('Telefon: ' + phone);
-      if (channel) lines.push('Foretrukken kanal: ' + channel);
-      if (note) {
-        lines.push('');
-        lines.push('Melding:');
-        lines.push(note);
-      }
-      lines.push('');
-      lines.push('— Sendt fra digitalt visittkort');
+      const payload = {
+        _subject: 'Visittkort-utveksling: ' + name,
+        _replyto: email,
+        _captcha: 'false',
+        _template: 'table',
+        Navn: name,
+        'E-post': email
+      };
+      if (company) payload.Bedrift = company;
+      if (phone) payload.Telefon = phone;
+      if (channel) payload['Foretrukken kanal'] = channel;
+      if (note) payload.Melding = note;
 
-      const subject = 'Visittkort-utveksling: ' + name;
-      const body = lines.join('\n');
-
-      const mailto = 'mailto:hegechristine@hegechristine.no'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-
-      // Åpne brukerens e-postklient
-      window.location.href = mailto;
-
-      // Vis takk-melding etter kort delay
-      setTimeout(function() {
-        if (flip) flip.classList.add('is-flipped');
-        form.reset();
-        chips.forEach(function(c) {
-          c.classList.remove('is-active');
-          c.setAttribute('aria-checked', 'false');
-        });
-        channelInput.value = '';
-        setMessage('');
+      fetch('https://formsubmit.co/ajax/hegechristine@hegechristine.no', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(json) {
+        if (json && (json.success === 'true' || json.success === true)) {
+          if (flip) flip.classList.add('is-flipped');
+          form.reset();
+          chips.forEach(function(c) {
+            c.classList.remove('is-active');
+            c.setAttribute('aria-checked', 'false');
+          });
+          channelInput.value = '';
+        } else {
+          throw new Error('FormSubmit returnerte ikke success');
+        }
+      })
+      .catch(function() {
+        setMessage('Noe gikk galt. Prøv igjen om litt.', '#ffd9c5');
+      })
+      .finally(function() {
         button.disabled = false;
         button.textContent = 'Send til Hege Christine →';
-      }, 600);
+      });
     });
   })();
 </script>
