@@ -754,10 +754,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Lagre kontakt
       </button>
-      <a href="visittkort-bilde.png" target="_blank" rel="noopener" download="Hege-Christine-Brunsvik.png" class="save-image">
+      <button type="button" class="save-image" id="save-image-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Last ned info
-      </a>
+      </button>
     </div>
 
     <!-- Quick actions -->
@@ -912,38 +912,115 @@
     const btn = document.getElementById('save-contact-btn');
     if (!btn) return;
 
-    // RFC 6350 vCard 3.0
-    const vcard = [
-      'BEGIN:VCARD',
-      'VERSION:3.0',
-      'N:Brunsvik;Hege Christine;;;',
-      'FN:Hege Christine Brunsvik',
-      'TITLE:Online business strategist · Mentor · Tech founder',
-      'EMAIL;TYPE=INTERNET,PREF:hegechristine@hegechristine.no',
-      'TEL;TYPE=CELL,VOICE,PREF:+47 484 83 883',
-      'URL:https://www.hegechristine.no',
-      'URL;TYPE=podcast:https://podcast.hegechristine.no',
-      'X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/hegechristine.no',
-      'X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/in/hegechristine',
-      'X-SOCIALPROFILE;TYPE=facebook:https://facebook.com/hegechristine.no',
-      'X-SOCIALPROFILE;TYPE=youtube:https://www.youtube.com/@hegechristine',
-      'NOTE:Online business strategist som hjelper gründere bygge en business som faktisk passer livet de vil leve.',
-      'REV:' + new Date().toISOString(),
-      'END:VCARD'
-    ].join('\r\n');
+    // Folder vCard-linjer på 75 octets per RFC 6350
+    function fold(line) {
+      if (line.length <= 75) return line;
+      const out = [line.substring(0, 75)];
+      let i = 75;
+      while (i < line.length) {
+        out.push(' ' + line.substring(i, i + 74));
+        i += 74;
+      }
+      return out.join('\r\n');
+    }
 
-    btn.addEventListener('click', function() {
-      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Hege-Christine-Brunsvik.vcf';
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function() {
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }, 100);
+    let cachedPhoto = null;
+    async function fetchPhoto() {
+      if (cachedPhoto !== null) return cachedPhoto;
+      try {
+        const res = await fetch('vcard-photo.b64');
+        if (!res.ok) throw new Error('photo fetch failed');
+        cachedPhoto = (await res.text()).trim();
+      } catch (e) {
+        cachedPhoto = '';
+      }
+      return cachedPhoto;
+    }
+
+    async function buildVCard() {
+      const photoB64 = await fetchPhoto();
+      const lines = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Brunsvik;Hege Christine;;;',
+        'FN:Hege Christine Brunsvik',
+        'TITLE:Online business strategist · Mentor · Tech founder',
+        'EMAIL;TYPE=INTERNET,PREF:hegechristine@hegechristine.no',
+        'TEL;TYPE=CELL,VOICE,PREF:+47 484 83 883',
+        'URL:https://www.hegechristine.no',
+        'URL;TYPE=podcast:https://podcast.hegechristine.no',
+        'X-SOCIALPROFILE;type=instagram;x-user=hegechristine.no:https://instagram.com/hegechristine.no',
+        'X-SOCIALPROFILE;type=linkedin;x-user=hegechristine:https://linkedin.com/in/hegechristine',
+        'X-SOCIALPROFILE;type=facebook;x-user=hegechristine.no:https://facebook.com/hegechristine.no',
+        'X-SOCIALPROFILE;type=youtube;x-user=hegechristine:https://www.youtube.com/@hegechristine',
+        'NOTE:Online business strategist som hjelper gründere bygge en business som faktisk passer livet de vil leve.'
+      ];
+      if (photoB64) {
+        lines.push('PHOTO;ENCODING=b;TYPE=JPEG:' + photoB64);
+      }
+      lines.push('REV:' + new Date().toISOString());
+      lines.push('END:VCARD');
+      return lines.map(fold).join('\r\n');
+    }
+
+    btn.addEventListener('click', async function() {
+      btn.disabled = true;
+      try {
+        const vcard = await buildVCard();
+        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Hege-Christine-Brunsvik.vcf';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 100);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  })();
+
+  /* ============== Last ned info (bildet) — iOS-vennlig ============== */
+  (function() {
+    const btn = document.getElementById('save-image-btn');
+    if (!btn) return;
+    const filename = 'Hege-Christine-Brunsvik.png';
+    const url = 'visittkort-bilde.png';
+
+    btn.addEventListener('click', async function() {
+      btn.disabled = true;
+      try {
+        // iOS 15+: bruk Web Share API med fil — bringer opp "Lagre bilde"
+        if (navigator.canShare && navigator.share) {
+          try {
+            const res = await fetch(url);
+            const blob = await res.blob();
+            const file = new File([blob], filename, { type: 'image/png' });
+            if (navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                files: [file],
+                title: 'Hege Christine Brunsvik',
+                text: 'Digitalt visittkort'
+              });
+              return;
+            }
+          } catch (e) { /* bruker avbrøt eller fallback */ }
+        }
+        // Android/Desktop: vanlig nedlasting via anchor
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() { document.body.removeChild(a); }, 100);
+      } finally {
+        btn.disabled = false;
+      }
     });
   })();
 
