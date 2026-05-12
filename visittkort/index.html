@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hege Christine Brunsvik — Digitalt visittkort</title>
 <meta name="description" content="Digitalt visittkort for Hege Christine Brunsvik. Lagre kontakten min eller del din info tilbake.">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
 <!-- Open Graph -->
@@ -170,13 +170,19 @@
     letter-spacing: -0.005em;
   }
 
-  .vk-role {
+  .vk-role-line {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(44, 51, 40, 0.12);
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    font-size: 0.64rem;
     color: var(--ink-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .vk-bio {
@@ -283,6 +289,7 @@
     color: var(--cream-light);
     text-decoration: none;
     padding: 14px 8px;
+    border: none;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -294,6 +301,7 @@
     font-size: 0.62rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    cursor: pointer;
     transition: all 0.18s ease;
   }
 
@@ -693,6 +701,10 @@
       font-size: 1.05rem;
       margin-bottom: 6px;
     }
+    .vk-role-line {
+      font-size: 0.52rem;
+      letter-spacing: 0.08em;
+    }
     .vk-form {
       grid-template-columns: 1fr;
     }
@@ -727,9 +739,10 @@
       <div>
         <h1 class="vk-name">Hege <span class="italic">Christine</span></h1>
         <span class="vk-surname">Brunsvik</span>
-        <span class="vk-role">Online business strategist · Mentor · Tech founder</span>
       </div>
     </div>
+
+    <p class="vk-role-line">Online business strategist · Mentor · Tech founder</p>
 
     <p class="vk-bio">
       Hjelper gründere bygge en <strong>business</strong> som faktisk passer livet de vil leve.
@@ -743,7 +756,7 @@
       </button>
       <a href="visittkort-bilde.png" target="_blank" rel="noopener" download="Hege-Christine-Brunsvik.png" class="save-image">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
-        Som bilde
+        Last ned bilde
       </a>
     </div>
 
@@ -765,10 +778,10 @@
         <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
         Podcast
       </a>
-      <a href="#exchange" class="action-btn">
-        <svg viewBox="0 0 24 24"><path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/></svg>
-        Del info
-      </a>
+      <button type="button" class="action-btn" id="share-btn">
+        <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        Del
+      </button>
     </div>
 
     <!-- Sosiale lenker -->
@@ -796,7 +809,6 @@
   <section class="exchange" id="exchange">
     <div class="section-head">
       <h2 class="section-title">Del din <span class="italic">info med meg</span></h2>
-      <span class="section-num kicker">VISITTKORT-RETUR</span>
     </div>
 
     <div class="exchange-flip" id="exchange-flip">
@@ -867,6 +879,34 @@
 </main>
 
 <script>
+  /* ============== Web Share (Del-knapp) ============== */
+  (function() {
+    const btn = document.getElementById('share-btn');
+    if (!btn) return;
+    const shareData = {
+      title: 'Hege Christine Brunsvik',
+      text: 'Digitalt visittkort — Hege Christine Brunsvik',
+      url: 'https://sider.hegechristine.no/visittkort/'
+    };
+    btn.addEventListener('click', async function() {
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (e) { /* bruker avbrøt */ }
+      } else if (navigator.clipboard) {
+        // Fallback: kopier URL
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          const orig = btn.querySelector('svg').nextSibling;
+          const txt = btn.childNodes[btn.childNodes.length - 1];
+          const oldText = txt.textContent;
+          txt.textContent = ' Kopiert ';
+          setTimeout(function() { txt.textContent = oldText; }, 1600);
+        } catch (e) { /* ingen ting */ }
+      }
+    });
+  })();
+
   /* ============== vCard download ============== */
   (function() {
     const btn = document.getElementById('save-contact-btn');
