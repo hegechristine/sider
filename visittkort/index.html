@@ -961,6 +961,9 @@
             c.setAttribute('aria-checked', 'false');
           });
           channelInput.value = '';
+        } else if (json && typeof json.message === 'string' && /activat/i.test(json.message)) {
+          // Engangs-aktivering kreves (kun første gang skjemaet brukes)
+          setMessage('Skjemaet aktiveres — prøv igjen om et øyeblikk.', '#ffd9c5');
         } else {
           throw new Error('FormSubmit returnerte ikke success');
         }
