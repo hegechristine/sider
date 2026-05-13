@@ -15,4 +15,5 @@ Hostes på GitHub Pages, midlertidig — flyttes til Kajabi når MCP-en er tilgj
 - [/lenker/](lenker/) — link-in-bio
 - [/visittkort/](visittkort/) — digitalt visittkort med vCard + skjema-automasjon ([detaljer](visittkort/README.md))
 - [/150k/](150k/) — salgsside for 150K-utfordringen (+ alt-varianter og takk-sider)
-- [/kajabi/](kajabi/) — Kajabi-trial-redirect
+- [/min-plattform/](min-plattform/) — affiliate-anbefaling, plattform-jeg-bruker
+- [/kajabi/](kajabi/) — redirect → /min-plattform/ (gammel URL, byttet pga Partner Agreement §4.3)

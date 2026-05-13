@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plattformen jeg bygger businessen min på | Hege Christine</title>
+<meta name="description" content="Ett system for kurs, e-post, betaling og community. Min ærlige anbefaling — og hvordan du kan teste det selv.">
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+<meta property="og:title" content="Plattformen jeg bygger businessen min på | Hege Christine">
+<meta property="og:description" content="Ett system for kurs, e-post, betaling og community. Min ærlige anbefaling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sider.hegechristine.no/min-plattform/">
+<link rel="canonical" href="https://sider.hegechristine.no/min-plattform/">
+
+<style>
+:root {
+  --cream: #EFE6D4;
+  --ink: #2E3230;
+  --rust: #C5522C;
+  --olive: #5E5F4C;
+  --sage: #AFBEA0;
+  --sand: #F0D9A8;
+
+  --line-on-cream: rgba(46, 50, 48, 0.16);
+  --line-on-ink: rgba(239, 230, 212, 0.18);
+  --line-on-sage: rgba(46, 50, 48, 0.20);
+  --line-on-olive: rgba(239, 230, 212, 0.20);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px;
+}
+
+.container { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
+.narrow    { width: min(820px,  calc(100% - 56px)); margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.accent { color: var(--rust); }
+
+.section { position: relative; padding: 120px 0; }
+
+.section-corners { position: absolute; inset: 32px; pointer-events: none; }
+.section-corners::before, .section-corners::after {
+  content: "+";
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1;
+}
+.section-corners::before { top: 0; left: 0; }
+.section-corners::after  { top: 0; right: 0; }
+
+.section-corners-bottom::before, .section-corners-bottom::after {
+  content: "+";
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1;
+}
+.section-corners-bottom::before { bottom: 0; left: 32px; }
+.section-corners-bottom::after  { bottom: 0; right: 32px; }
+
+.bg-cream {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(rgba(46,50,48,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.bg-sage {
+  background-color: var(--sage);
+  background-image:
+    linear-gradient(rgba(46,50,48,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.07) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.bg-olive {
+  background-color: var(--olive);
+  background-image:
+    linear-gradient(rgba(239,230,212,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--cream);
+}
+
+.bg-ink {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--cream);
+}
+
+.bg-olive .section-corners::before, .bg-olive .section-corners::after,
+.bg-olive .section-corners-bottom::before, .bg-olive .section-corners-bottom::after,
+.bg-ink .section-corners::before, .bg-ink .section-corners::after,
+.bg-ink .section-corners-bottom::before, .bg-ink .section-corners-bottom::after {
+  color: var(--cream);
+}
+
+.no-grid { background-image: none; }
+
+/* HEADER */
+.site-header {
+  padding: 18px 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(239, 230, 212, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-on-cream);
+}
+
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+.header-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  margin-left: auto; margin-right: auto;
+}
+
+.header-meta-dot {
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+}
+
+@media (max-width: 880px) { .header-meta { display: none; } }
+
+.header-cta {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 13px 22px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.header-cta:hover { background: var(--rust); transform: translateY(-1px); }
+
+@media (max-width: 480px) {
+  .header-cta { padding: 11px 16px; font-size: 10px; letter-spacing: 0.08em; }
+}
+
+.logo { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+
+.logo-mark {
+  width: 36px; height: 36px;
+  background: var(--ink); color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 13px; letter-spacing: 0.02em;
+}
+
+.logo-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 17px; letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.logo-name em {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  color: var(--rust); margin-left: 6px;
+}
+
+/* HERO */
+.hero { padding: 120px 0 100px; text-align: center; position: relative; }
+
+.hero .eyebrow { margin-bottom: 32px; }
+
+.hero h1 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 7.5vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 18ch;
+  margin-left: auto; margin-right: auto;
+}
+
+.hero h1 em { font-style: normal; color: var(--rust); }
+
+.hero-lead {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.45;
+  color: var(--olive);
+  max-width: 620px;
+  margin: 0 auto 48px;
+}
+
+.cta-primary {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 20px 40px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; border: none;
+  cursor: pointer; transition: all 0.2s ease;
+}
+
+.cta-primary:hover { background: var(--rust); transform: translateY(-1px); }
+
+.cta-secondary {
+  display: inline-block;
+  color: var(--ink);
+  padding: 18px 4px;
+  margin-left: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--ink);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.cta-secondary:hover { color: var(--rust); border-color: var(--rust); }
+
+.hero-meta {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+}
+
+/* MARQUEE */
+.marquee-strip {
+  background: var(--rust);
+  padding: 22px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.marquee { display: flex; overflow: hidden; }
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 36px;
+  align-items: center;
+  padding-right: 36px;
+  animation: marquee-scroll 42s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-track span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+
+.marquee-track span.dot { opacity: 0.5; }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* STATS STRIP */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 1080px;
+  margin: 0 auto;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: #FBF8F0;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.stat {
+  padding: 40px 32px;
+  text-align: center;
+  border-right: 1px solid var(--line-on-cream);
+}
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--rust);
+  margin-bottom: 12px;
+}
+
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+}
+
+@media (max-width: 720px) {
+  .stats-strip { grid-template-columns: 1fr; box-shadow: 6px 6px 0 var(--ink); }
+  .stat { border-right: none; border-bottom: 1px solid var(--line-on-cream); padding: 32px 24px; }
+  .stat:last-child { border-bottom: none; }
+}
+
+/* SECTION HEAD */
+.section-head { text-align: center; margin-bottom: 72px; }
+.section-head .eyebrow { margin-bottom: 24px; }
+.section-head--left { text-align: left; }
+
+.section-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+.section-title em { font-style: normal; color: var(--rust); }
+
+.bg-olive .section-title, .bg-ink .section-title { color: var(--cream); }
+
+.section-lead {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--olive);
+  max-width: 620px;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.bg-olive .section-lead, .bg-ink .section-lead { color: var(--sand); }
+
+/* PREMISE (why) */
+.premise { padding: 130px 0; }
+
+.premise-body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 660px;
+}
+
+.premise-body p + p { margin-top: 18px; }
+.premise-body strong { font-weight: 700; }
+
+.premise-quote {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(24px, 3.4vw, 36px);
+  line-height: 1.3;
+  color: var(--rust);
+  max-width: 720px;
+  margin: 56px 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* TRANSFORM (replaces grid) */
+.transform-grid { max-width: 980px; margin: 0 auto; }
+
+.transform-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+}
+
+.transform-row:first-child { border-top: 1px solid var(--line-on-cream); }
+
+.transform-from {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.4;
+  color: var(--ink);
+  opacity: 0.5;
+  letter-spacing: -0.005em;
+  text-decoration: line-through;
+  text-decoration-color: rgba(46, 50, 48, 0.55);
+  text-decoration-thickness: 1.5px;
+  text-align: right;
+}
+
+.transform-arrow {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  flex-shrink: 0;
+}
+
+.transform-to {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 1.9vw, 22px);
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .transform-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+  .transform-from { text-align: left; font-size: 15px; }
+  .transform-arrow { width: 28px; height: 28px; font-size: 13px; justify-self: start; margin: 4px 0; }
+  .transform-to { font-size: 18px; }
+}
+
+/* FEATURES GRID */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+.feature {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 32px;
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feature:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.feature-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--cream);
+  border: 1px solid var(--line-on-cream);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(rgba(46,50,48,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.feature-art-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(72px, 10vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  position: relative;
+  z-index: 2;
+}
+
+.feature-art-shape {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.feature-art-shape.s-rust {
+  width: 64px; height: 64px;
+  background: var(--rust);
+  border: 1.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.feature-art-shape.s-sage {
+  width: 48px; height: 48px;
+  background: var(--sage);
+  border: 1.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.feature-art-shape.s-sand {
+  width: 36px; height: 36px;
+  background: var(--sand);
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Per-card art placements — varied to feel hand-composed */
+.feature:nth-child(1) .s-rust { top: 18%; right: 18%; }
+.feature:nth-child(1) .s-sage { bottom: 22%; left: 16%; }
+
+.feature:nth-child(2) .s-rust { bottom: 16%; right: 22%; }
+.feature:nth-child(2) .s-sand { top: 20%; left: 18%; }
+
+.feature:nth-child(3) .s-sage { top: 16%; right: 16%; }
+.feature:nth-child(3) .s-rust { bottom: 20%; left: 22%; width: 48px; height: 48px; }
+
+.feature:nth-child(4) .s-sand { top: 24%; right: 26%; }
+.feature:nth-child(4) .s-rust { bottom: 18%; left: 18%; }
+
+.feature:nth-child(5) .s-rust { top: 18%; left: 20%; }
+.feature:nth-child(5) .s-sage { bottom: 18%; right: 22%; }
+.feature:nth-child(5) .s-sand { top: 50%; right: 14%; }
+
+.feature:nth-child(6) .s-sage { top: 22%; left: 22%; }
+.feature:nth-child(6) .s-rust { bottom: 18%; right: 20%; width: 48px; height: 48px; }
+
+.feature:nth-child(7) .s-rust { top: 20%; right: 20%; }
+.feature:nth-child(7) .s-sand { bottom: 22%; left: 20%; }
+
+.feature:nth-child(8) .s-sage { top: 18%; left: 18%; }
+.feature:nth-child(8) .s-rust { bottom: 20%; right: 18%; }
+.feature:nth-child(8) .s-sand { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 24px; height: 24px; }
+
+.feature-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+}
+
+.feature-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.feature-desc {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+@media (max-width: 760px) {
+  .features-grid { grid-template-columns: 1fr; max-width: 520px; }
+}
+
+/* WHY ME (about + reasons) */
+.reasons-list { max-width: 820px; margin: 0 auto; list-style: none; }
+
+.reasons-list li {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.45;
+  padding: 26px 0 26px 44px;
+  border-top: 1px solid var(--line-on-cream);
+  color: var(--ink);
+  position: relative;
+}
+.reasons-list li:last-child { border-bottom: 1px solid var(--line-on-cream); }
+
+.reasons-list li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 38px;
+  width: 9px; height: 9px;
+  background: var(--rust);
+  border-radius: 50%;
+}
+
+.reasons-list strong { font-weight: 700; }
+
+/* PRICING */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 1080px) { .tier-grid { grid-template-columns: repeat(2, 1fr); max-width: 720px; } }
+@media (max-width: 540px) { .tier-grid { grid-template-columns: 1fr; max-width: 400px; } }
+
+.tier {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 32px 26px;
+  display: flex; flex-direction: column;
+  position: relative;
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tier:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+
+.tier-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.tier-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 30px;
+  line-height: 1.0; letter-spacing: -0.025em;
+  color: var(--ink); margin-bottom: 14px;
+}
+
+.tier-price {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 26px;
+  color: var(--ink); margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.tier-price span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 11px;
+  color: var(--olive); margin-left: 4px;
+  letter-spacing: 0.05em;
+}
+
+.tier-price-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--olive); margin-bottom: 28px;
+}
+
+.tier-features { list-style: none; flex: 1; margin-bottom: 28px; }
+
+.tier-features li {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 14px;
+  line-height: 1.5; color: var(--ink);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+}
+.tier-features li:last-child { border-bottom: none; }
+
+.tier-features strong { font-weight: 700; color: var(--rust); }
+
+.tier-cta {
+  display: block; width: 100%; text-align: center;
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 13px 16px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.tier-cta:hover { background: var(--ink); color: var(--cream); }
+
+.tier-featured {
+  background: var(--ink); color: var(--cream);
+  border-color: var(--ink);
+  box-shadow: 6px 6px 0 var(--rust);
+}
+.tier-featured:hover { box-shadow: 8px 8px 0 var(--rust); }
+
+.tier-badge {
+  position: absolute;
+  top: -12px; right: 20px;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+}
+
+.tier-featured .tier-label { color: var(--sand); }
+.tier-featured .tier-name { color: var(--cream); }
+.tier-featured .tier-price { color: var(--cream); }
+.tier-featured .tier-price span { color: var(--sand); }
+.tier-featured .tier-price-sub { color: var(--sand); }
+.tier-featured .tier-features li { color: var(--cream); border-color: var(--line-on-ink); }
+.tier-featured .tier-features strong { color: var(--sand); }
+.tier-featured .tier-cta { background: var(--rust); color: var(--cream); border-color: var(--rust); }
+.tier-featured .tier-cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+.pricing-disclaimer {
+  margin-top: 48px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+/* ABOUT */
+.about-card {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 var(--ink);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 220px;
+  height: 220px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 16px;
+}
+
+.about-meta::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+}
+
+.about-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.about-name em {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+.about-tagline {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.35;
+  color: var(--olive);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+}
+
+.about-content p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px; line-height: 1.6;
+  color: var(--ink); margin-bottom: 18px;
+}
+
+.about-content p:last-child { margin-bottom: 0; }
+
+.partner-badge-row {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-on-cream);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.partner-badge-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.partner-badge-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  line-height: 1.5;
+  max-width: 36ch;
+}
+
+@media (max-width: 720px) {
+  .about-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 28px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .about-photo { width: 140px; height: 140px; }
+}
+
+/* FAQ */
+.faq-list {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+}
+
+.faq-item {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--ink); }
+.faq-item[open] { box-shadow: 5px 5px 0 var(--rust); }
+.faq-item[open]:hover { box-shadow: 6px 6px 0 var(--rust); }
+
+.faq-q {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 18px;
+  line-height: 1.3; letter-spacing: -0.01em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  transition: color 0.2s ease;
+  margin: 0;
+}
+
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::marker { content: ""; }
+
+.faq-q::after {
+  content: "+";
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  border: 1.5px solid var(--ink);
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+
+.faq-q:hover { color: var(--rust); }
+.faq-q:focus-visible { outline: none; color: var(--rust); }
+
+.faq-a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 16px;
+  line-height: 1.55; color: var(--ink);
+  padding: 0 26px 24px 26px;
+  max-width: 70ch;
+}
+
+.faq-a strong { font-weight: 700; }
+
+@media (max-width: 520px) {
+  .faq-q { padding: 20px 20px; font-size: 16px; gap: 14px; }
+  .faq-q::after { width: 28px; height: 28px; font-size: 14px; }
+  .faq-a { padding: 0 20px 20px 20px; }
+  .faq-item { box-shadow: 4px 4px 0 var(--ink); }
+  .faq-item[open] { box-shadow: 4px 4px 0 var(--rust); }
+}
+
+/* FINAL */
+.final { text-align: left; padding: 160px 0 120px; }
+
+.final h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin: 0 auto 32px;
+  max-width: 22ch;
+  text-align: center;
+}
+
+.final h2 em { font-style: normal; color: var(--rust); }
+
+.final-lead {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 19px;
+  line-height: 1.5; color: var(--sand);
+  max-width: 520px; margin: 0 auto 48px;
+  text-align: center;
+}
+
+.final .cta-primary {
+  background: var(--rust);
+  color: var(--cream);
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final .cta-primary:hover { background: var(--cream); color: var(--ink); }
+
+.final-meta {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+  text-align: center;
+}
+
+.ps {
+  margin: 80px auto 0; max-width: 520px;
+  border-top: 1px solid var(--line-on-ink);
+  padding-top: 32px; text-align: left;
+}
+
+.ps-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust); margin-bottom: 12px;
+}
+
+.ps-body {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: 17px; line-height: 1.55;
+  color: var(--sand);
+}
+
+/* DISCLOSURE BAR */
+.disclosure {
+  background: var(--sage);
+  padding: 22px 0;
+  border-top: 1px solid var(--line-on-sage);
+  border-bottom: 1px solid var(--line-on-sage);
+  text-align: center;
+}
+
+.disclosure-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.78;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.disclosure-text + .disclosure-text {
+  margin-top: 8px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* FOOTER */
+.footer { background: var(--olive); padding: 64px 0 40px; color: var(--cream); }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line-on-ink);
+}
+
+@media (max-width: 720px) {
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+}
+
+.footer-brand-name {
+  display: inline-block;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 22px; letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-brand-name em {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  color: var(--rust); margin-left: 5px;
+}
+
+.footer-brand-name:hover { color: var(--rust); }
+
+.footer-tagline {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 14px;
+  line-height: 1.55;
+  color: var(--sand);
+  margin-top: 18px;
+  max-width: 36ch;
+}
+
+.footer-col-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 18px;
+}
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.footer-links a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500; font-size: 14px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover { color: var(--rust); }
+
+.footer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+@media (max-width: 540px) {
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a class="logo" href="https://www.hegechristine.no" aria-label="Hege Christine — forside">
+      <span class="logo-mark">HC</span>
+      <span class="logo-name">Hege Christine</span>
+    </a>
+    <div class="header-meta">
+      <span class="header-meta-dot"></span>
+      <span>Affiliate-anbefaling</span>
+    </div>
+    <a class="header-cta" href="#start">Prøv Kajabi gratis</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section bg-cream hero">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="eyebrow">Plattformen jeg bygger businessen min på</div>
+    <h1>Én plattform. <em>Hele businessen.</em></h1>
+    <p class="hero-lead">
+      Kajabi er der jeg samler kurs, e-post, betaling, community og landing pages — uten å lime sammen fem ulike verktøy som hater hverandre. Her er hvorfor jeg anbefaler det, og hvordan du tester det selv.
+    </p>
+    <a class="cta-primary" href="#start" id="hero-cta">Start gratis prøveperiode</a>
+    <a class="cta-secondary" href="#hvorfor">Les hvorfor først</a>
+    <div class="hero-meta">14 dager gratis · Ingen kort nødvendig · Du eier dataene dine</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee">
+    <div class="marquee-track" aria-hidden="true">
+      <span>Kurs</span><span class="dot">+</span>
+      <span>E-post</span><span class="dot">+</span>
+      <span>Betaling</span><span class="dot">+</span>
+      <span>Community</span><span class="dot">+</span>
+      <span>Landing Pages</span><span class="dot">+</span>
+      <span>Coaching</span><span class="dot">+</span>
+      <span>Medlemskap</span><span class="dot">+</span>
+      <span>Podcast</span><span class="dot">+</span>
+      <span>App</span><span class="dot">+</span>
+      <span>Kurs</span><span class="dot">+</span>
+      <span>E-post</span><span class="dot">+</span>
+      <span>Betaling</span><span class="dot">+</span>
+      <span>Community</span><span class="dot">+</span>
+      <span>Landing Pages</span><span class="dot">+</span>
+      <span>Coaching</span><span class="dot">+</span>
+      <span>Medlemskap</span><span class="dot">+</span>
+      <span>Podcast</span><span class="dot">+</span>
+      <span>App</span><span class="dot">+</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="section bg-sage">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Tall fra Kajabi</div>
+      <h2 class="section-title">Bygd av eksperter. <em>For eksperter.</em></h2>
+    </div>
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-num">100K+</div>
+        <div class="stat-label">Businesser bygd</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$11&thinsp;mrd+</div>
+        <div class="stat-label">Tjent av kursskapere</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">75M+</div>
+        <div class="stat-label">Kunder servert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY (premise) -->
+<section class="section bg-cream premise" id="hvorfor">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="narrow">
+    <div class="eyebrow" style="margin-bottom: 32px;">Hvorfor jeg byttet</div>
+    <h2 class="section-title section-head--left" style="text-align:left; margin: 0 0 40px; max-width: 18ch;">
+      Fem verktøy er ikke en <em>businessplan.</em>
+    </h2>
+    <div class="premise-body">
+      <p>
+        Før Kajabi hadde jeg det samme oppsettet som de fleste digitale gründere: ett system for e-post, ett for kurs, ett for betaling, ett for landing pages, ett for community. Og en haug med Zapier-bindinger som røyk hver fjerde uke.
+      </p>
+      <p>
+        Det funket. Tidvis. Helt til det ikke gjorde det — og jeg brukte hver torsdag på å fikse data som ikke fant veien mellom systemene.
+      </p>
+      <p>
+        Kajabi gjorde noe enkelt: <strong>de samlet det.</strong> Kurset, e-postlisten, checkouten, community-en, landingspagen — alt snakker sammen fordi det er ett system. Det er ikke perfekt på alt, men det er bra nok på nok ting til at jeg slipper å være IT-avdeling for min egen business.
+      </p>
+    </div>
+    <div class="premise-quote">
+      Edit, don't add. Jeg fjernet fire verktøy og fikk tilbake torsdagene mine.
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM (replaces) -->
+<section class="section bg-cream">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Hva Kajabi erstatter</div>
+      <h2 class="section-title">Fra spagetti til <em>system.</em></h2>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-from">Mailchimp / ConvertKit / ActiveCampaign</div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-to">E-post og automasjoner — inkludert</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Teachable / Thinkific / Podia</div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-to">Kurs- og medlemskapsplattform — inkludert</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Stripe-checkout limt på Squarespace</div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-to">Betalingsflyt og funnels — inkludert</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Circle / Mighty Networks / Facebook-gruppe</div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-to">Community med egen feed — inkludert</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Calendly + Zoom + et koblings-håp</div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-to">Coaching og booking — inkludert</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Webflow / WordPress for landingspages</div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-to">Sider og funnels — inkludert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section bg-olive" id="hva">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Hva du faktisk får</div>
+      <h2 class="section-title">Alt du trenger for å <em>selge ekspertisen din.</em></h2>
+      <p class="section-lead">Sju kjernemoduler i én plattform. Skreddersydd for gründere som selger kunnskap — ikke fysiske varer.</p>
+    </div>
+    <div class="features-grid">
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-num">01</span>
+        </div>
+        <div class="feature-label">Kurs</div>
+        <div class="feature-title">Bygg, selg og levér kurs som faktisk fullføres.</div>
+        <div class="feature-desc">Drag-and-drop kurseditor, drip-content, quizzer, fremdriftssporing og automatisk tilgang ved kjøp. Ingen Vimeo-Stripe-Mailchimp-puslespill.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">02</span>
+        </div>
+        <div class="feature-label">Coaching</div>
+        <div class="feature-title">1:1 og gruppe-coaching med booking innebygd.</div>
+        <div class="feature-desc">Klienter booker via kalender, betaler, får tilgang til ressurser — i samme system. Slipp Calendly-Zoom-PayPal-skjøtene.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-num">03</span>
+        </div>
+        <div class="feature-label">Community</div>
+        <div class="feature-title">Eget rom for medlemmene — uten Meta.</div>
+        <div class="feature-desc">Feed, kommentarer, events, direktemeldinger og live rooms. Data og medlemmer er dine, ikke Facebook sine.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-num">04</span>
+        </div>
+        <div class="feature-label">Medlemskap</div>
+        <div class="feature-title">Tilbakevendende inntekter, automatisk fakturert.</div>
+        <div class="feature-desc">Månedlig eller årlig, gated content, automatisk tilgangsstyring og oppsigelsesflyt som fungerer.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">05</span>
+        </div>
+        <div class="feature-label">E-post &amp; automasjoner</div>
+        <div class="feature-title">Nyhetsbrev, sekvenser og adferdsbaserte triggere.</div>
+        <div class="feature-desc">Samme database som kursene og checkouten — så automasjonene skjønner faktisk hva kunden har gjort. Ingen sync-feil.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-num">06</span>
+        </div>
+        <div class="feature-label">Digitale produkter</div>
+        <div class="feature-title">Selg e-bøker, maler, lydfiler og freebies.</div>
+        <div class="feature-desc">Perfekt for lead magnets og lavpris-tilbud som varmer opp listen. Alt betales og leveres via samme checkout.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">07</span>
+        </div>
+        <div class="feature-label">Podcast</div>
+        <div class="feature-title">Hosting og distribusjon — også til Apple og Spotify.</div>
+        <div class="feature-desc">Privat podcast for medlemmer, eller offentlig kanal som mater e-postlisten. Ingen Libsyn-kontoer på siden.</div>
+      </article>
+      <article class="feature">
+        <div class="feature-art">
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">08</span>
+        </div>
+        <div class="feature-label">Funnels &amp; sider</div>
+        <div class="feature-title">Landingspages, sjekkout og opt-ins som konverterer.</div>
+        <div class="feature-desc">Ferdige templates eller bygg fra bunn. Inkludert AB-testing, upsells og bestselger-funnels du kan lære av andre skapere på samme plattform.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="section bg-cream">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Min ærlige anbefaling</div>
+      <h2 class="section-title">Derfor anbefaler jeg <em>akkurat dette.</em></h2>
+    </div>
+    <ul class="reasons-list">
+      <li><strong>Jeg bruker det selv hver dag.</strong> Kursene, listene, checkouten, automasjonene mine ligger her. Jeg anbefaler ikke ting jeg ikke faktisk lener meg på.</li>
+      <li><strong>Det fjerner heller enn å legge til.</strong> Når du går fra fem abonnementer til ett, sparer du både kroner og kognitivt overskudd. Begge deler matter.</li>
+      <li><strong>Norske gründere kan bruke det.</strong> Stripe og PayPal som betalingsleverandører, MVA håndteres med tredjepartsverktøy, og du kan kjøre alt på norsk hvis du vil.</li>
+      <li><strong>De selger ikke dataene dine.</strong> Du eier kundene, listen og kursene. Ingen algoritme bestemmer hvem som ser deg.</li>
+      <li><strong>Ekte support, 24/7.</strong> Mennesker, ikke bare chatbot. Når noe ryker fredag kveld før lansering, betyr det alt.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section bg-sage">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="about-card">
+      <div class="about-photo">
+        <img src="../150k-challenge/hege-portrait.webp" alt="Hege Christine">
+      </div>
+      <div class="about-content">
+        <div class="about-meta">Hvem som anbefaler dette</div>
+        <h3 class="about-name">Hege <em>Christine</em></h3>
+        <p class="about-tagline">Bygger digitale businesser som tåler både skala og søvn.</p>
+        <p>
+          Jeg har drevet digitale businesser i over et tiår — kurs, community, coaching, programmer. Jeg har testet Teachable, Thinkific, Podia, ConvertKit, ActiveCampaign, Circle, Mighty Networks, og en lang liste verktøy som lovte å være "alt-i-ett" og endte med å bli "ett av fem".
+        </p>
+        <p>
+          Kajabi er det første systemet hvor jeg ikke har savnet noe vesentlig på flere år. Det betyr ikke at det er perfekt — men det betyr at jeg ikke leter etter noe annet. Og det er den anbefalingen jeg kan stå inne for.
+        </p>
+        <div class="partner-badge-row">
+          <img class="partner-badge-img" src="partner-badge-black.png" alt="Kajabi Partner — offisielt utstedt merke" width="261" height="90">
+          <div class="partner-badge-note">Offisiell partner siden 2024 · Merket er utstedt av Kajabi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section bg-cream" id="pris">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Priser</div>
+      <h2 class="section-title">Velg planen som <em>passer fasen din.</em></h2>
+      <p class="section-lead">Alle priser i USD per måned ved årlig fakturering. Du får 14 dager gratis uten kortinfo først.</p>
+    </div>
+    <div class="tier-grid">
+
+      <div class="tier">
+        <div class="tier-label">For å komme i gang</div>
+        <div class="tier-name">Starter</div>
+        <div class="tier-price">$71<span>/mnd</span></div>
+        <div class="tier-price-sub">Årlig · $89/mnd månedlig</div>
+        <ul class="tier-features">
+          <li><strong>1</strong> produkt</li>
+          <li><strong>250</strong> kontakter</li>
+          <li>2 admin-brukere</li>
+          <li>1 nettside</li>
+          <li>1 community</li>
+          <li>Ubegrenset epost-utsending</li>
+        </ul>
+        <a class="tier-cta" href="#start">Start gratis</a>
+      </div>
+
+      <div class="tier tier-featured">
+        <div class="tier-badge">Mest valgt</div>
+        <div class="tier-label">Når du selger flere ting</div>
+        <div class="tier-name">Basic</div>
+        <div class="tier-price">$143<span>/mnd</span></div>
+        <div class="tier-price-sub">Årlig · $179/mnd månedlig</div>
+        <ul class="tier-features">
+          <li><strong>5</strong> produkter</li>
+          <li><strong>2 500</strong> kontakter</li>
+          <li>2 admin-brukere</li>
+          <li>Ubegrenset funnels & landing pages</li>
+          <li>1 community</li>
+          <li>Avansert automasjon</li>
+        </ul>
+        <a class="tier-cta" href="#start">Prøv 14 dager gratis</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-label">Voksende business</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-price">$199<span>/mnd</span></div>
+        <div class="tier-price-sub">Årlig · $249/mnd månedlig</div>
+        <ul class="tier-features">
+          <li><strong>50</strong> produkter</li>
+          <li><strong>25 000</strong> kontakter</li>
+          <li>11 admin-brukere</li>
+          <li>Branded mobil-app</li>
+          <li>Affiliate-program</li>
+          <li>Avansert automasjon</li>
+        </ul>
+        <a class="tier-cta" href="#start">Start gratis</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-label">For team og stor skala</div>
+        <div class="tier-name">Pro</div>
+        <div class="tier-price">$399<span>/mnd</span></div>
+        <div class="tier-price-sub">Årlig · $499/mnd månedlig</div>
+        <ul class="tier-features">
+          <li><strong>Ubegrenset</strong> produkter</li>
+          <li><strong>100 000</strong> kontakter</li>
+          <li>26 admin-brukere</li>
+          <li>3 nettsteder & communities</li>
+          <li>Dedikert support</li>
+          <li>Custom kode-redigering</li>
+        </ul>
+        <a class="tier-cta" href="#start">Start gratis</a>
+      </div>
+
+    </div>
+    <p class="pricing-disclaimer">Priser oppdatert mai 2026 · Sjekk siste pris hos Kajabi før kjøp</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-sage">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Vanlige spørsmål</div>
+      <h2 class="section-title">Det du <em>egentlig</em> lurer på.</h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">Funker Kajabi for norske gründere?</summary>
+        <div class="faq-a">
+          Ja. Du fakturerer i USD eller EUR (eller annen valuta via Stripe), og betalingsmottak går via Stripe eller PayPal — begge støtter norsk konto og BankID-verifisering. MVA-håndtering setter du opp via Quaderno eller Octobat for digitale tjenester til EU/Norge. Plattformen kan kjøres på norsk i frontend (kurssidene, checkouten, e-postene), selv om admin-panelet er på engelsk.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hvor mye koster det egentlig?</summary>
+        <div class="faq-a">
+          Starter er $71/mnd ved årlig betaling ($89 månedlig). De fleste seriøse gründere lander på Basic ($143/mnd årlig) eller Growth ($199/mnd årlig). Alle planer har 14 dager gratis prøvetid uten kortinfo. <strong>Sjekk siste pris hos Kajabi før kjøp</strong> — de kjører jevnlige kampanjer med 50% rabatt de første 12 månedene.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hva er forskjellen på Kajabi og Teachable / Thinkific?</summary>
+        <div class="faq-a">
+          Teachable og Thinkific er <strong>kursplattformer</strong> — du trenger fortsatt ConvertKit/ActiveCampaign for e-post, Stripe for betaling, Circle for community, og Zapier for å holde det sammen. Kajabi er bygd som <strong>en hel business-plattform</strong>: kurs er én av åtte ting. Hvis du bare skal selge ett kurs én gang, er Teachable billigere. Hvis du skal bygge en business, er Kajabi billigere i lengden — fordi du slipper de fire andre abonnementene.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Kan jeg flytte hvis jeg ombestemmer meg?</summary>
+        <div class="faq-a">
+          Ja. Kursinnhold er ditt — du laster ned video, tekst, leksjoner og eksporterer kontaktlisten. Betalingsabonnementer som ligger på Stripe følger Stripe-kontoen din, ikke Kajabi. Du blir ikke låst inne. Det er en av grunnene til at jeg tør å anbefale det.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Er det en gratisversjon?</summary>
+        <div class="faq-a">
+          Nei, men 14 dager gratis prøvetid — uten kortinfo. Det er nok til å sette opp ett kurs eller én checkout og se om plattformen funker for deg. Min anbefaling: <strong>sett av en helg</strong>, bygg én ting, og bestem deg basert på hvordan det føles å jobbe i det.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Får du betalt hvis jeg melder meg på via lenken din?</summary>
+        <div class="faq-a">
+          Ja. Jeg er Kajabi-partner og får en kommisjon hvis du blir kunde via en av lenkene mine. Det koster deg ingenting ekstra — prisen er den samme som om du gikk direkte. Jeg har valgt å være tydelig på dette fordi det er den eneste måten anbefalinger er verdt noe på.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hva med support på norsk?</summary>
+        <div class="faq-a">
+          Kajabi-supporten er på engelsk, 24/7 via chat og epost. I praksis er det sjelden et problem — terminologien er den samme som i hele bransjen. Hvis du er usikker, kan du sende meg en epost, så hjelper jeg deg med å finne frem første gang.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section bg-ink final" id="start">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <h2>Test det i 14 dager. <em>Behold det du bruker.</em></h2>
+    <p class="final-lead">
+      Ingen kortinfo. Ingen forpliktelse. Bygg én ting, se om det er noe for deg, og bestem deg etter det.
+    </p>
+    <a class="cta-primary" href="https://app.kajabi.com/r/REPLACE_WITH_AFFILIATE_CODE" target="_blank" rel="noopener" id="final-cta">Start gratis prøveperiode →</a>
+    <div class="final-meta">Affiliate-lenke · Samme pris som direkte</div>
+
+    <div class="ps">
+      <div class="ps-label">P.S.</div>
+      <p class="ps-body">
+        Hvis du er usikker på om Kajabi er riktig for deg — send meg en epost. Jeg svarer på hva jeg ville valgt i din situasjon, selv om svaret er at du bør vente eller velge noe annet.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLOSURE -->
+<div class="disclosure">
+  <div class="container">
+    <div class="disclosure-text">Denne siden inneholder affiliate-lenker · Markedsføringsloven §3</div>
+    <div class="disclosure-text">Mine tjenester er uavhengige av Kajabi, LLC og er ikke autorisert, godkjent eller på annen måte støttet av Kajabi.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="footer-brand-name" href="https://www.hegechristine.no">Hege <em>Christine</em></a>
+        <p class="footer-tagline">Digitale businesser med overskudd — både i regnskapet og i livet.</p>
+      </div>
+      <div>
+        <div class="footer-col-label">Sider</div>
+        <ul class="footer-links">
+          <li><a href="https://www.hegechristine.no">Forside</a></li>
+          <li><a href="https://sider.hegechristine.no/lenker/">Lenker</a></li>
+          <li><a href="https://podcast.hegechristine.no">The Edit podcast</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <ul class="footer-links">
+          <li><a href="mailto:hei@hegechristine.no">hei@hegechristine.no</a></li>
+          <li><a href="https://instagram.com/hegechristine.no" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Hege Christine 2026</span>
+      <span>Affiliate-side · sider.hegechristine.no/min-plattform</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
