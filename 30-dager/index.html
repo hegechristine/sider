@@ -1193,6 +1193,32 @@ body {
   max-width: 36ch;
 }
 
+.footer-partner-line {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-on-ink);
+  max-width: 36ch;
+}
+
+.footer-partner-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.footer-partner-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sand);
+  opacity: 0.8;
+}
+
 .footer-col-label {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600; font-size: 11px;
@@ -1259,7 +1285,7 @@ body {
     <div class="eyebrow">Plattformen jeg bygger businessen min på</div>
     <h1>Én plattform. <em>Hele businessen.</em></h1>
     <p class="hero-lead">
-      Kajabi er der jeg samler kurs, e-post, betaling, community og landing pages — uten å lime sammen fem ulike verktøy som hater hverandre. Her er hvorfor jeg anbefaler det, og hvordan du tester det selv.
+      Kurs, e-post, betaling, community og landing pages — ett system, ikke fem. Jeg har brukt Kajabi i over seks år. Som partner kan jeg tilby 30 dagers gratis prøveperiode.
     </p>
     <p class="hero-tagline-quote">
       «The operating system for human expertise.»
@@ -1298,19 +1324,57 @@ body {
 </div>
 
 <!-- WHAT IS KAJABI (bridge) -->
-<section class="section bg-cream" style="padding: 100px 0 80px;">
+<section class="section bg-cream no-grid" style="padding: 110px 0 90px;">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="narrow">
-    <div class="eyebrow" style="margin-bottom: 28px;">Det heter Kajabi</div>
-    <h2 style="font-family:'Archivo',sans-serif; font-weight:800; font-size: clamp(32px,4vw,46px); line-height:1.0; letter-spacing:-0.025em; color:var(--ink); max-width: 22ch; margin-bottom: 24px;">
+    <div class="bridge-lockup">
+      <span class="bridge-eyebrow">Plattformen jeg snakker om</span>
+      <img src="kajabi-lockup-dark.png" alt="Kajabi" width="523" height="180">
+    </div>
+    <h2 style="font-family:'Archivo',sans-serif; font-weight:800; font-size: clamp(32px,4vw,46px); line-height:1.05; letter-spacing:-0.025em; color:var(--ink); max-width: 22ch; margin-bottom: 24px;">
       Hvis ekspertisen din <em style="font-style:normal; color:var(--rust);">er produktet</em> — kurs, coaching, community — er dette systemet jeg lener meg på.
     </h2>
     <p style="font-family:'Archivo',sans-serif; font-size: 18px; line-height: 1.65; color: var(--ink); max-width: 620px;">
-      Jeg har drevet digitale businesser i over et tiår, og testet det meste. Kajabi er det første alt-i-ett-systemet jeg ikke leter etter alternativer til. Ikke fordi det er perfekt — men fordi det er bra nok på nok ting til at jeg slipper å være IT-avdeling for min egen business.
+      Jeg har drevet digitalt i over et tiår — startet med nettbutikk, gikk videre til kurs og community. Kajabi har jeg brukt i over seks år, og det er det første alt-i-ett-systemet jeg ikke leter etter alternativer til. Ikke fordi det er perfekt — men fordi det er bra nok på nok ting til at jeg slipper å være IT-avdeling for min egen business.
     </p>
   </div>
 </section>
+
+<style>
+.bridge-lockup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.bridge-lockup img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.bridge-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bridge-eyebrow::after {
+  content: "→";
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--rust);
+}
+</style>
 
 <!-- STATS -->
 <section class="section bg-sage">
@@ -1643,10 +1707,10 @@ body {
         <h3 class="about-name">Hege <em>Christine</em></h3>
         <p class="about-tagline">Bygger digitale businesser som tåler både skala og søvn.</p>
         <p>
-          Jeg har drevet digitale businesser i over et tiår — kurs, community, coaching, programmer. Jeg har testet Teachable, Thinkific, Podia, ConvertKit, ActiveCampaign, Circle, Mighty Networks, og en lang liste verktøy som lovte å være "alt-i-ett" og endte med å bli "ett av fem".
+          Jeg har drevet digitalt i over et tiår — startet med nettbutikk, og bygget meg over til kurs, community og coaching etter hvert. På veien har jeg testet Teachable, Thinkific, Podia, ConvertKit, ActiveCampaign, Circle, Mighty Networks — det meste, egentlig.
         </p>
         <p>
-          Kajabi er det første systemet hvor jeg ikke har savnet noe vesentlig på flere år. Det betyr ikke at det er perfekt — men det betyr at jeg ikke leter etter noe annet. Og det er den anbefalingen jeg kan stå inne for.
+          Kajabi har jeg brukt i over seks år. Det betyr ikke at det er perfekt — men det betyr at jeg ikke leter etter noe annet. Og det er den anbefalingen jeg kan stå inne for.
         </p>
         <div class="partner-badge-row">
           <img class="partner-badge-img" src="partner-badge-black.svg" alt="Kajabi Partner — offisielt utstedt merke" width="523" height="180">
@@ -1823,6 +1887,10 @@ body {
       <div>
         <a class="footer-brand-name" href="https://www.hegechristine.no">Hege <em>Christine</em></a>
         <p class="footer-tagline">Digitale businesser med overskudd — både i regnskapet og i livet.</p>
+        <div class="footer-partner-line">
+          <img class="footer-partner-logo" src="kajabi-lockup-light.png" alt="Kajabi" width="523" height="180">
+          <span class="footer-partner-text">Partner siden 2020</span>
+        </div>
       </div>
       <div>
         <div class="footer-col-label">Sider</div>
