@@ -48,6 +48,36 @@
     '.who-list li', '.notfor-list li', '.reasons-list li',
     '.tier-badge',
     '.final-lead', '.ps-label', '.ps-body',
+    // ALT C/D/E + 100k-tilbud-challenge — editorial / Cochrane-rammeverk
+    '.hero-headline', '.hero-lede', '.hero-eyebrow-strip', '.hero-date-line',
+    '.masthead-edition', '.masthead-title', '.masthead-date',
+    '.header-date', '.section-sub',
+    '.promise-eyebrow', '.promise-num', '.promise-title', '.promise-desc', '.promise-outcome',
+    '.how-label', '.how-value', '.how-detail',
+    '.spots-eyebrow', '.spots-title', '.spots-body', '.spots-kicker',
+    '.bonus-visual-eyebrow', '.bonus-visual-amount', '.bonus-visual-label',
+    '.bonus-eyebrow', '.bonus-title', '.bonus-text',
+    '.tier-eyebrow', '.tier-flag', '.tier-price-detail', '.tier-includes-label',
+    '.testimonial-quote', '.testimonial-attr',
+    '.video-caption',
+    '.final-headline', '.final-sub', '.final-cta',
+    '.footer-brand', '.footer-meta', '.footer-disclaimer',
+    '.walkaway-list li',
+    '.ai-quote-eyebrow', '.ai-quote-text',
+    '.signup-eyebrow', '.signup-title', '.signup-lead', '.signup-fineprint', '.signup-flag',
+    '.signup-card-flag', '.signup-card-title', '.signup-card-lede', '.signup-card-fineprint',
+    '.info-label', '.info-value',
+    '.about-card-meta', '.about-card-name', '.about-quote', '.about-signature',
+    '.about-byline', '.about-name', '.about-role',
+    '.day-desc',
+    '.modal-eyebrow',
+    // altC editorial brev
+    '.letter-mark', '.letter-body',
+    '.shift-num', '.shift-headline', '.shift-from', '.shift-body',
+    '.pullquote-text', '.pullquote-eyebrow', '.pullquote-attribution',
+    '.manifesto-aside', '.manifesto-text',
+    '.practical-label', '.practical-value',
+    '.signature-text', '.signature-mark',
     // Opt-in via attribute hvis du vil markere noe spesifikt
     '[data-editable]'
   ];
@@ -280,7 +310,7 @@
   });
 
   // Prevent Enter from creating new paragraphs in single-line fields
-  const singleLineSelectors = 'h1, h2, h3, .eyebrow, .feature-label, .tier-name, .tier-price, .tier-price-sub, .stat-num, .stat-label, .footer-col-label, .partner-badge-note, .footer-partner-text, .hero-photo-tag, .hero-partner-chip-text, .bridge-eyebrow, .about-meta, .disclosure-text, .day-num, .tier-badge';
+  const singleLineSelectors = 'h1, h2, h3, .eyebrow, .feature-label, .tier-name, .tier-price, .tier-price-sub, .tier-price-detail, .tier-includes-label, .tier-eyebrow, .tier-flag, .stat-num, .stat-label, .footer-col-label, .partner-badge-note, .footer-partner-text, .hero-photo-tag, .hero-partner-chip-text, .bridge-eyebrow, .about-meta, .disclosure-text, .day-num, .tier-badge, .promise-eyebrow, .promise-num, .promise-outcome, .how-label, .how-value, .spots-eyebrow, .bonus-visual-eyebrow, .bonus-visual-amount, .bonus-visual-label, .bonus-eyebrow, .footer-brand, .footer-meta, .masthead-edition, .masthead-title, .masthead-date, .info-label, .info-value, .signup-eyebrow, .signup-flag, .signup-card-flag, .about-byline, .about-role, .about-card-meta, .about-card-name, .modal-eyebrow, .header-date, .hero-eyebrow-strip, .hero-date-line, .ai-quote-eyebrow, .letter-mark, .shift-from, .pullquote-eyebrow, .pullquote-attribution, .manifesto-aside, .practical-label, .practical-value, .signature-mark, .signature-text';
   document.querySelectorAll('[contenteditable="true"]').forEach(el => {
     if (el.matches(singleLineSelectors)) {
       el.addEventListener('keydown', (e) => {
