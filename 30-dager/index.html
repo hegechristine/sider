@@ -80,7 +80,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   color: var(--ink);
-  opacity: 0.35;
+  opacity: 0.2;
   line-height: 1;
 }
 .section-corners::before { top: 0; left: 0; }
@@ -93,7 +93,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   color: var(--ink);
-  opacity: 0.35;
+  opacity: 0.2;
   line-height: 1;
 }
 .section-corners-bottom::before { bottom: 0; left: 32px; }
@@ -102,34 +102,38 @@ body {
 .bg-cream {
   background-color: var(--cream);
   background-image:
-    linear-gradient(rgba(46,50,48,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46,50,48,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(rgba(46,50,48,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.025) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+.bg-mist {
+  background-color: #F5EEDD;
 }
 
 .bg-sage {
-  background-color: var(--sage);
+  background-color: #C9D2BE;
   background-image:
-    linear-gradient(rgba(46,50,48,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46,50,48,0.07) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(rgba(46,50,48,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.035) 1px, transparent 1px);
+  background-size: 96px 96px;
 }
 
 .bg-olive {
   background-color: var(--olive);
   background-image:
-    linear-gradient(rgba(239,230,212,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239,230,212,0.06) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(rgba(239,230,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.04) 1px, transparent 1px);
+  background-size: 96px 96px;
   color: var(--cream);
 }
 
 .bg-ink {
   background-color: var(--ink);
   background-image:
-    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(rgba(239,230,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.04) 1px, transparent 1px);
+  background-size: 96px 96px;
   color: var(--cream);
 }
 
@@ -403,7 +407,7 @@ body {
   border: 1.5px solid var(--ink);
   border-radius: 4px;
   background: #FBF8F0;
-  box-shadow: 8px 8px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
 .stat {
@@ -431,7 +435,7 @@ body {
 }
 
 @media (max-width: 720px) {
-  .stats-strip { grid-template-columns: 1fr; box-shadow: 6px 6px 0 var(--ink); }
+  .stats-strip { grid-template-columns: 1fr; box-shadow: 4px 4px 0 var(--ink); }
   .stat { border-right: none; border-bottom: 1px solid var(--line-on-cream); padding: 32px 24px; }
   .stat:last-child { border-bottom: none; }
 }
@@ -571,7 +575,7 @@ body {
   border: 1.5px solid var(--ink);
   border-radius: 4px;
   padding: 32px;
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
@@ -580,7 +584,7 @@ body {
 
 .feature:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
 .feature-art {
@@ -740,11 +744,11 @@ body {
   padding: 32px 26px;
   display: flex; flex-direction: column;
   position: relative;
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.tier:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+.tier:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
 
 .tier-label {
   font-family: 'JetBrains Mono', monospace;
@@ -812,9 +816,9 @@ body {
 .tier-featured {
   background: var(--ink); color: var(--cream);
   border-color: var(--ink);
-  box-shadow: 6px 6px 0 var(--rust);
+  box-shadow: 4px 4px 0 var(--rust);
 }
-.tier-featured:hover { box-shadow: 8px 8px 0 var(--rust); }
+.tier-featured:hover { box-shadow: 3px 3px 0 var(--rust); }
 
 .tier-badge {
   position: absolute;
@@ -859,7 +863,7 @@ body {
   background: #FBF8F0;
   border: 1.5px solid var(--ink);
   border-radius: 6px;
-  box-shadow: 10px 10px 0 var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
   padding: 48px;
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -970,7 +974,7 @@ body {
     grid-template-columns: 1fr;
     gap: 28px;
     padding: 32px 28px;
-    box-shadow: 6px 6px 0 var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
   }
   .about-photo { width: 140px; height: 140px; }
 }
@@ -990,13 +994,13 @@ body {
   background: #FBF8F0;
   border: 1.5px solid var(--ink);
   border-radius: 4px;
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.faq-item:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--ink); }
-.faq-item[open] { box-shadow: 5px 5px 0 var(--rust); }
-.faq-item[open]:hover { box-shadow: 6px 6px 0 var(--rust); }
+.faq-item:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.faq-item[open] { box-shadow: 3px 3px 0 var(--rust); }
+.faq-item[open]:hover { box-shadow: 4px 4px 0 var(--rust); }
 
 .faq-q {
   list-style: none;
@@ -1473,7 +1477,7 @@ body {
 </section>
 
 <!-- FEATURES -->
-<section class="section bg-olive" id="hva">
+<section class="section bg-mist" id="hva">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
@@ -1617,7 +1621,7 @@ body {
   border: 1.5px solid var(--cream);
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 8px 8px 0 var(--rust);
+  box-shadow: 3px 3px 0 var(--rust);
 }
 
 .cofounder-bubble {
@@ -1694,7 +1698,7 @@ body {
 </section>
 
 <!-- ABOUT -->
-<section class="section bg-sage">
+<section class="section bg-mist">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
