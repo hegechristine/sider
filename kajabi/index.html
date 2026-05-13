@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kajabi — alt-i-ett-plattformen jeg bygger businessen min på | Hege Christine</title>
-<meta name="description" content="Hvorfor jeg valgte Kajabi for kurs, e-post, betaling og community — og hvordan du kan teste det selv. Affiliate-anbefaling fra Hege Christine.">
+<title>Plattformen jeg bygger businessen min på | Hege Christine</title>
+<meta name="description" content="Ett system for kurs, e-post, betaling og community. Min ærlige anbefaling — og hvordan du kan teste det selv.">
 
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 
-<meta property="og:title" content="Kajabi — alt-i-ett-plattformen jeg bygger businessen min på">
-<meta property="og:description" content="Hvorfor jeg valgte Kajabi — og hvordan du kan prøve det selv.">
+<meta property="og:title" content="Plattformen jeg bygger businessen min på | Hege Christine">
+<meta property="og:description" content="Ett system for kurs, e-post, betaling og community. Min ærlige anbefaling.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sider.hegechristine.no/kajabi/">
 
@@ -511,21 +511,87 @@ body {
   box-shadow: 8px 8px 0 var(--ink);
 }
 
-.feature-img {
+.feature-art {
+  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background: var(--sage);
+  aspect-ratio: 16 / 9;
+  background: var(--cream);
   border: 1px solid var(--line-on-cream);
   border-radius: 3px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(rgba(46,50,48,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-.feature-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.feature-art-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(72px, 10vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  position: relative;
+  z-index: 2;
 }
+
+.feature-art-shape {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.feature-art-shape.s-rust {
+  width: 64px; height: 64px;
+  background: var(--rust);
+  border: 1.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.feature-art-shape.s-sage {
+  width: 48px; height: 48px;
+  background: var(--sage);
+  border: 1.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.feature-art-shape.s-sand {
+  width: 36px; height: 36px;
+  background: var(--sand);
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Per-card art placements — varied to feel hand-composed */
+.feature:nth-child(1) .s-rust { top: 18%; right: 18%; }
+.feature:nth-child(1) .s-sage { bottom: 22%; left: 16%; }
+
+.feature:nth-child(2) .s-rust { bottom: 16%; right: 22%; }
+.feature:nth-child(2) .s-sand { top: 20%; left: 18%; }
+
+.feature:nth-child(3) .s-sage { top: 16%; right: 16%; }
+.feature:nth-child(3) .s-rust { bottom: 20%; left: 22%; width: 48px; height: 48px; }
+
+.feature:nth-child(4) .s-sand { top: 24%; right: 26%; }
+.feature:nth-child(4) .s-rust { bottom: 18%; left: 18%; }
+
+.feature:nth-child(5) .s-rust { top: 18%; left: 20%; }
+.feature:nth-child(5) .s-sage { bottom: 18%; right: 22%; }
+.feature:nth-child(5) .s-sand { top: 50%; right: 14%; }
+
+.feature:nth-child(6) .s-sage { top: 22%; left: 22%; }
+.feature:nth-child(6) .s-rust { bottom: 18%; right: 20%; width: 48px; height: 48px; }
+
+.feature:nth-child(7) .s-rust { top: 20%; right: 20%; }
+.feature:nth-child(7) .s-sand { bottom: 22%; left: 20%; }
+
+.feature:nth-child(8) .s-sage { top: 18%; left: 18%; }
+.feature:nth-child(8) .s-rust { bottom: 20%; right: 18%; }
+.feature:nth-child(8) .s-sand { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 24px; height: 24px; }
 
 .feature-label {
   font-family: 'JetBrains Mono', monospace;
@@ -960,7 +1026,7 @@ body {
 /* DISCLOSURE BAR */
 .disclosure {
   background: var(--sage);
-  padding: 18px 0;
+  padding: 22px 0;
   border-top: 1px solid var(--line-on-sage);
   border-bottom: 1px solid var(--line-on-sage);
   text-align: center;
@@ -970,10 +1036,22 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
   font-size: 11px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: 0.75;
+  opacity: 0.78;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.disclosure-text + .disclosure-text {
+  margin-top: 8px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 /* FOOTER */
@@ -1221,52 +1299,86 @@ body {
     </div>
     <div class="features-grid">
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d86d1a1b263af0e87ec73_courses-lg.avif" alt="Kajabi-kursmodul" loading="lazy"></div>
-        <div class="feature-label">01 — Kurs</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-num">01</span>
+        </div>
+        <div class="feature-label">Kurs</div>
         <div class="feature-title">Bygg, selg og levér kurs som faktisk fullføres.</div>
         <div class="feature-desc">Drag-and-drop kurseditor, drip-content, quizzer, fremdriftssporing og automatisk tilgang ved kjøp. Ingen Vimeo-Stripe-Mailchimp-puslespill.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d86d04d9a6ea7f57ac03c_coaching-lg.avif" alt="Kajabi coaching" loading="lazy"></div>
-        <div class="feature-label">02 — Coaching</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">02</span>
+        </div>
+        <div class="feature-label">Coaching</div>
         <div class="feature-title">1:1 og gruppe-coaching med booking innebygd.</div>
         <div class="feature-desc">Klienter booker via kalender, betaler, får tilgang til ressurser — i samme system. Slipp Calendly-Zoom-PayPal-skjøtene.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d869fc2d96d4e97e62980_communities-lg.avif" alt="Kajabi communities" loading="lazy"></div>
-        <div class="feature-label">03 — Community</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-num">03</span>
+        </div>
+        <div class="feature-label">Community</div>
         <div class="feature-title">Eget rom for medlemmene — uten Meta.</div>
         <div class="feature-desc">Feed, kommentarer, events, direktemeldinger og live rooms. Data og medlemmer er dine, ikke Facebook sine.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d869f94394026ad60cf15_memberships-lg.avif" alt="Kajabi medlemskap" loading="lazy"></div>
-        <div class="feature-label">04 — Medlemskap</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-num">04</span>
+        </div>
+        <div class="feature-label">Medlemskap</div>
         <div class="feature-title">Tilbakevendende inntekter, automatisk fakturert.</div>
         <div class="feature-desc">Månedlig eller årlig, gated content, automatisk tilgangsstyring og oppsigelsesflyt som fungerer.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d86d1b1c15e3c06155bbe_newsletters-lg.avif" alt="Kajabi nyhetsbrev" loading="lazy"></div>
-        <div class="feature-label">05 — E-post & automasjoner</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">05</span>
+        </div>
+        <div class="feature-label">E-post &amp; automasjoner</div>
         <div class="feature-title">Nyhetsbrev, sekvenser og adferdsbaserte triggere.</div>
-        <div class="feature-desc">Same database som kursene og checkouten — så automasjonene skjønner faktisk hva kunden har gjort. Ingen sync-feil.</div>
+        <div class="feature-desc">Samme database som kursene og checkouten — så automasjonene skjønner faktisk hva kunden har gjort. Ingen sync-feil.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d86d169bad80832b5883c_downloads-lg.avif" alt="Kajabi digital downloads" loading="lazy"></div>
-        <div class="feature-label">06 — Digitale produkter</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-num">06</span>
+        </div>
+        <div class="feature-label">Digitale produkter</div>
         <div class="feature-title">Selg e-bøker, maler, lydfiler og freebies.</div>
         <div class="feature-desc">Perfekt for lead magnets og lavpris-tilbud som varmer opp listen. Alt betales og leveres via samme checkout.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d86d0bf59d1dc69bf1cf4_podcasts-lg.avif" alt="Kajabi podcast" loading="lazy"></div>
-        <div class="feature-label">07 — Podcast</div>
-        <div class="feature-title">Hosting og distribusjon — også til iTunes og Spotify.</div>
-        <div class="feature-desc">Privat podcast for medlemmer, eller offentlig kanal som mater epost-listen. Ingen Libsyn-kontoer på siden.</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">07</span>
+        </div>
+        <div class="feature-label">Podcast</div>
+        <div class="feature-title">Hosting og distribusjon — også til Apple og Spotify.</div>
+        <div class="feature-desc">Privat podcast for medlemmer, eller offentlig kanal som mater e-postlisten. Ingen Libsyn-kontoer på siden.</div>
       </article>
       <article class="feature">
-        <div class="feature-img"><img src="https://cdn.prod.website-files.com/693317e747432cd054b3bdc6/695d866597d71dd6cb1a7e90_sell.avif" alt="Kajabi sales funnels" loading="lazy"></div>
-        <div class="feature-label">08 — Funnels & sider</div>
+        <div class="feature-art">
+          <span class="feature-art-shape s-sage"></span>
+          <span class="feature-art-shape s-rust"></span>
+          <span class="feature-art-shape s-sand"></span>
+          <span class="feature-art-num">08</span>
+        </div>
+        <div class="feature-label">Funnels &amp; sider</div>
         <div class="feature-title">Landingspages, sjekkout og opt-ins som konverterer.</div>
-        <div class="feature-desc">Ferdige templates eller bygg fra bunn. Inkludert AB-testing, upsells og bestselger-funnels du kan lære av andre Kajabi-skapere.</div>
+        <div class="feature-desc">Ferdige templates eller bygg fra bunn. Inkludert AB-testing, upsells og bestselger-funnels du kan lære av andre skapere på samme plattform.</div>
       </article>
     </div>
   </div>
@@ -1485,7 +1597,8 @@ body {
 <!-- DISCLOSURE -->
 <div class="disclosure">
   <div class="container">
-    <span class="disclosure-text">Denne siden inneholder affiliate-lenker · Markedsføringsloven §3</span>
+    <div class="disclosure-text">Denne siden inneholder affiliate-lenker · Markedsføringsloven §3</div>
+    <div class="disclosure-text">Mine tjenester er uavhengige av Kajabi, LLC og er ikke autorisert, godkjent eller på annen måte støttet av Kajabi.</div>
   </div>
 </div>
 
