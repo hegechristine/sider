@@ -840,6 +840,70 @@ img { max-width: 100%; height: auto; display: block; }
   color: rgba(239,230,212,0.55);
   margin-top: 18px; max-width: 70ch;
 }
+
+/* ===== EDIT MODE ===== */
+.edit-toolbar {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: var(--cream);
+  padding: 12px 16px;
+  border: 1.5px solid var(--cream);
+  border-radius: 999px;
+  display: flex; gap: 12px; align-items: center;
+  box-shadow: 6px 6px 0 var(--rust);
+  z-index: 1000;
+  font-family: 'JetBrains Mono', monospace;
+}
+.edit-toolbar-status {
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 600;
+  color: var(--sand);
+  padding: 0 6px;
+}
+.edit-toolbar button {
+  background: var(--rust); color: var(--cream);
+  border: 1.5px solid var(--cream);
+  padding: 9px 14px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.edit-toolbar button:hover { transform: translateY(-1px); }
+.edit-toolbar button.btn-muted { background: transparent; }
+.edit-toolbar button.btn-muted:hover { background: rgba(239,230,212,0.12); }
+
+.is-editable {
+  outline: 1px dashed transparent;
+  outline-offset: 4px;
+  transition: outline-color 0.15s, background 0.15s;
+  cursor: text;
+}
+.is-editable:hover {
+  outline-color: rgba(197, 82, 44, 0.6);
+  background: rgba(197, 82, 44, 0.05);
+}
+.is-editable:focus {
+  outline: 2px solid var(--rust);
+  outline-offset: 4px;
+  background: rgba(197, 82, 44, 0.08);
+}
+.edit-dirty-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--rust);
+  margin-right: 8px;
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.edit-toolbar.is-dirty .edit-dirty-dot { opacity: 1; }
+
+@media (max-width: 640px) {
+  .edit-toolbar { flex-wrap: wrap; max-width: calc(100% - 24px); justify-content: center; }
+  .edit-toolbar-status { width: 100%; text-align: center; }
+}
 </style>
 </head>
 <body>
@@ -1218,6 +1282,122 @@ img { max-width: 100%; height: auto; display: block; }
     <p class="footer-disclaimer">Dette programmet gir deg konkrete steg for å bygge eller skalere en kunnskapsbasert business. Resultater er ikke garanterte. 150K-tallet er et eksempel på hva som er mulig — ikke et løfte til hver deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
   </div>
 </footer>
+
+<!-- EDIT MODE TOOLBAR (vises kun med ?edit=1) -->
+<div id="edit-toolbar" class="edit-toolbar" hidden>
+  <span class="edit-toolbar-status"><span class="edit-dirty-dot"></span>Redigeringsmodus · Klikk på tekst</span>
+  <button id="edit-download" type="button">Last ned HTML</button>
+  <button id="edit-reset" type="button" class="btn-muted">Tilbakestill</button>
+  <button id="edit-close" type="button" class="btn-muted">Avslutt</button>
+</div>
+
+<!-- EDIT MODE LOGIKK -->
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  if (!params.has('edit')) return;
+
+  const STORAGE_KEY = 'altE-edits-v1';
+  const toolbar = document.getElementById('edit-toolbar');
+  toolbar.hidden = false;
+  document.body.style.paddingBottom = '88px';
+
+  const editableSelector = [
+    'h1', 'h2', 'h3', 'h4',
+    'p', 'li', 'summary',
+    '.hero-eyebrow-strip', '.hero-date-line',
+    '.masthead-edition', '.masthead-title', '.masthead-date',
+    '.header-date', '.header-cta',
+    '.eyebrow', '.section-sub',
+    '.promise-eyebrow', '.promise-num', '.promise-outcome',
+    '.how-label', '.how-value', '.how-detail',
+    '.spots-eyebrow', '.spots-title', '.spots-body', '.spots-kicker',
+    '.bonus-visual-eyebrow', '.bonus-visual-amount', '.bonus-visual-label',
+    '.bonus-eyebrow', '.bonus-title', '.bonus-text',
+    '.tier-eyebrow', '.tier-flag', '.tier-name', '.tier-price', '.tier-price-detail',
+    '.tier-includes-label', '.tier-cta',
+    '.testimonial-quote', '.testimonial-attr',
+    '.video-caption',
+    '.final-headline', '.final-sub', '.final-cta',
+    '.footer-brand', '.footer-meta', '.footer-disclaimer'
+  ].join(',');
+
+  const editables = [...document.querySelectorAll(editableSelector)];
+  // Exclude toolbar itself
+  const inToolbar = el => el.closest('#edit-toolbar');
+  const targets = editables.filter(el => !inToolbar(el));
+
+  // Tag each editable with a stable index based on document order + selector
+  targets.forEach((el, i) => {
+    el.dataset.editIdx = String(i);
+    el.setAttribute('contenteditable', 'true');
+    el.setAttribute('spellcheck', 'true');
+    el.classList.add('is-editable');
+  });
+
+  // Restore from localStorage
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
+  Object.keys(saved).forEach(idx => {
+    const el = targets[Number(idx)];
+    if (el && typeof saved[idx] === 'string') {
+      el.innerHTML = saved[idx];
+    }
+  });
+  if (Object.keys(saved).length > 0) toolbar.classList.add('is-dirty');
+
+  // Save on input
+  let saveTimer = null;
+  function scheduleSave() {
+    toolbar.classList.add('is-dirty');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      const snapshot = {};
+      targets.forEach((el, i) => { snapshot[i] = el.innerHTML; });
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot)); } catch (e) {}
+    }, 400);
+  }
+  targets.forEach(el => el.addEventListener('input', scheduleSave));
+
+  // Buttons
+  document.getElementById('edit-close').addEventListener('click', () => {
+    const url = new URL(location);
+    url.searchParams.delete('edit');
+    location.href = url.toString();
+  });
+
+  document.getElementById('edit-reset').addEventListener('click', () => {
+    if (!confirm('Tilbakestill alle endringer? Dette kan ikke angres.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+
+  document.getElementById('edit-download').addEventListener('click', () => {
+    // Clone document and strip edit-mode artifacts
+    const clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[contenteditable]').forEach(el => {
+      el.removeAttribute('contenteditable');
+      el.removeAttribute('spellcheck');
+      el.removeAttribute('data-edit-idx');
+      el.classList.remove('is-editable');
+    });
+    const tb = clone.querySelector('#edit-toolbar');
+    if (tb) tb.remove();
+    // Remove the edit-mode script tag itself
+    [...clone.querySelectorAll('script')].forEach(s => {
+      if (s.textContent && s.textContent.includes('altE-edits-v1')) s.remove();
+    });
+    const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '150k-challenge-altE-redigert.html';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  });
+})();
+</script>
 
 <!-- COUNTDOWN -->
 <script>
