@@ -25,6 +25,11 @@
 
   --line-on-cream: rgba(46, 50, 48, 0.16);
   --line-on-ink: rgba(239, 230, 212, 0.18);
+
+  /* 12-col system inside 1240px container */
+  --col-12: 1240px;
+  --col-10: 1033px;
+  --col-8: 827px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -589,16 +594,16 @@ body {
 /* DAYS, TIERS, WHO — kopiert fra hovedsalgssida */
 .section-head--left { text-align: left; margin-left: auto; margin-right: auto; }
 .section-head--left .section-title { margin-left: 0; margin-right: 0; max-width: none; }
-.section-head--left.section-head--w-days  { max-width: 1000px; }
+.section-head--left.section-head--w-days  { max-width: var(--col-10); }
 
 .bg-ink .days-eyebrow { color: var(--sand); }
 .bg-ink .days-eyebrow::before { background: var(--sand); }
-.section-head--left.section-head--w-who   { max-width: 900px;  }
-.section-head--left.section-head--w-tiers { max-width: 1180px; }
+.section-head--left.section-head--w-who   { max-width: var(--col-8); }
+.section-head--left.section-head--w-tiers { max-width: var(--col-12); }
 
 .bg-ink .section-title { color: var(--cream); }
 
-.day-list { max-width: 1000px; margin: 0 auto; }
+.day-list { max-width: var(--col-10); margin: 0 auto; }
 
 .day-item {
   display: grid;
@@ -658,7 +663,7 @@ body {
 
 @media (max-width: 640px) { .day-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; } }
 
-.tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; max-width: 1180px; margin: 0 auto; padding-right: 12px; padding-bottom: 12px; }
+.tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; max-width: var(--col-12); margin: 0 auto; padding-right: 12px; padding-bottom: 12px; }
 
 @media (max-width: 880px) { .tier-grid { grid-template-columns: 1fr; max-width: 480px; gap: 28px; } }
 
@@ -764,7 +769,7 @@ body {
 .tier-vip .tier-cta { background: var(--rust); color: var(--cream); border-color: var(--rust); }
 .tier-vip .tier-cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
 
-.who-list { list-style: none; max-width: 900px; margin: 0 auto; }
+.who-list { list-style: none; max-width: var(--col-8); margin: 0 auto; }
 
 .who-list li {
   font-family: 'Archivo', sans-serif;
@@ -807,13 +812,14 @@ body {
 .transform-section { padding: 88px 0; }
 
 .transform-section .section-head {
-  text-align: left;
-  max-width: 980px;
-  margin-bottom: 56px;
+  text-align: center;
+  max-width: var(--col-8);
+  margin: 0 auto 56px;
 }
+.transform-section .section-head .section-title { margin-left: auto; margin-right: auto; }
 
 .transform-grid {
-  max-width: 980px;
+  max-width: var(--col-10);
   margin: 0 auto;
 }
 
@@ -918,7 +924,7 @@ body {
 
 /* ABOUT */
 .about-card {
-  max-width: 980px;
+  max-width: var(--col-10);
   margin: 0 auto;
   padding: 0;
   display: grid;
@@ -1066,7 +1072,7 @@ body {
 
 .section-head--left {
   text-align: left;
-  max-width: 920px;
+  max-width: var(--col-8);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1092,7 +1098,7 @@ body {
 
 /* FAQ */
 .faq-list {
-  max-width: 920px;
+  max-width: var(--col-8);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1583,9 +1589,9 @@ body {
     </div>
     <div class="transform-grid">
       <div class="transform-row">
-        <div class="transform-from">Selger timene dine</div>
+        <div class="transform-from">Jakter leads</div>
         <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">Eier det du leverer</div>
+        <div class="transform-to">Bygger kundeliste</div>
       </div>
       <div class="transform-row">
         <div class="transform-from">Hopper fra idé til idé</div>
@@ -1593,14 +1599,14 @@ body {
         <div class="transform-to">Ett klart system</div>
       </div>
       <div class="transform-row">
-        <div class="transform-from">Underpriser det du gjør</div>
+        <div class="transform-from">Selger kunnskap</div>
         <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">Tilbud som speiler verdien</div>
+        <div class="transform-to">Selger transformasjon</div>
       </div>
       <div class="transform-row">
-        <div class="transform-from">Jobber konstant uten resultater</div>
+        <div class="transform-from">Hustler alene</div>
         <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">En business som lønner seg</div>
+        <div class="transform-to">AI gjør 80%, du gjør 20%</div>
       </div>
     </div>
   </div>
