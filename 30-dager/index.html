@@ -2051,5 +2051,262 @@ body {
   </div>
 </footer>
 
+<!-- EDIT MODE — aktiveres med ?edit i URL-en -->
+<script>
+(function() {
+  if (!new URLSearchParams(location.search).has('edit')) return;
+
+  // Auto-restore from localStorage
+  const STORAGE_KEY = 'sider-30-dager-edits';
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+  // Tag editable elements with stable IDs
+  const editableSelectors = [
+    '.hero-text h1', '.hero-text .hero-lead', '.hero-text .hero-tagline-quote',
+    '.hero-text .eyebrow', '.hero-partner-chip-text', '.hero-photo-tag',
+    '.hero-meta',
+    '.bridge-text h2', '.bridge-text p', '.bridge-eyebrow',
+    '.stats-strip .stat-num', '.stats-strip .stat-label',
+    '.section-head .eyebrow', '.section-head .section-title', '.section-head .section-lead',
+    '.premise-headline', '.premise-body p', '.premise-quote',
+    '.transform-from', '.transform-to',
+    '.feature-label', '.feature-title', '.feature-desc',
+    '.cofounder-content h2', '.cofounder-content p',
+    '.reasons-list li',
+    '.about-name', '.about-tagline', '.about-content p', '.about-meta', '.partner-badge-note',
+    '.tier-label', '.tier-name', '.tier-features li', '.tier-cta', '.pricing-disclaimer',
+    '.faq-q', '.faq-a',
+    '.final h2', '.final-lead', '.ps-body',
+    '.disclosure-text',
+    '.footer-tagline', '.footer-col-label', '.footer-partner-text'
+  ];
+
+  let editCount = 0;
+  editableSelectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      // Skip if contains other editable children (avoid nested)
+      const id = 'e' + (++editCount);
+      el.dataset.editId = id;
+      el.dataset.editOriginal = el.innerText;
+      el.contentEditable = 'true';
+      el.spellcheck = true;
+
+      // Restore saved edit
+      if (saved[id] != null && saved[id] !== el.innerText) {
+        el.innerText = saved[id];
+      }
+
+      // Save on edit
+      el.addEventListener('input', () => {
+        const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        if (el.innerText === el.dataset.editOriginal) {
+          delete current[id]; // Unmodified — remove from saved
+        } else {
+          current[id] = el.innerText;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+        updateStatus();
+      });
+    });
+  });
+
+  // Inject styles
+  const style = document.createElement('style');
+  style.textContent = `
+    [contenteditable="true"] { cursor: text; transition: outline 0.15s ease, background 0.15s ease; }
+    [contenteditable="true"]:hover { outline: 2px dashed rgba(197, 82, 44, 0.5); outline-offset: 4px; border-radius: 2px; }
+    [contenteditable="true"]:focus { outline: 2px solid rgba(197, 82, 44, 0.9); outline-offset: 4px; background: rgba(251, 248, 240, 0.6); border-radius: 2px; }
+
+    .edit-toolbar {
+      position: fixed; bottom: 20px; right: 20px; z-index: 99999;
+      background: #2E3230; color: #EFE6D4;
+      border-radius: 12px; padding: 16px; min-width: 280px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.15);
+      font-family: 'Archivo', sans-serif; font-size: 13px;
+      border: 1.5px solid #C5522C;
+    }
+    .edit-toolbar-title {
+      font-family: 'JetBrains Mono', monospace; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #C5522C; margin-bottom: 6px;
+    }
+    .edit-toolbar-status {
+      font-size: 12px; color: #F0D9A8; margin-bottom: 14px;
+      font-family: 'Archivo', sans-serif;
+    }
+    .edit-toolbar-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .edit-btn {
+      flex: 1; min-width: 0;
+      background: #C5522C; color: #EFE6D4; border: none;
+      padding: 10px 14px; border-radius: 6px;
+      font-family: 'Archivo', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .edit-btn:hover { background: #d96340; transform: translateY(-1px); }
+    .edit-btn.edit-btn-secondary { background: transparent; border: 1px solid rgba(239,230,212,0.3); color: #EFE6D4; }
+    .edit-btn.edit-btn-secondary:hover { background: rgba(239,230,212,0.1); }
+    .edit-btn.edit-btn-tiny { padding: 6px 10px; font-size: 10px; flex: 0 1 auto; }
+
+    .edit-toast {
+      position: fixed; bottom: 200px; right: 20px; z-index: 99998;
+      background: #5E5F4C; color: #EFE6D4;
+      padding: 12px 18px; border-radius: 8px;
+      font-family: 'Archivo', sans-serif; font-size: 13px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      pointer-events: none;
+    }
+    .edit-toast.show { transform: translateY(0); opacity: 1; }
+  `;
+  document.head.appendChild(style);
+
+  // Build toolbar
+  const bar = document.createElement('div');
+  bar.className = 'edit-toolbar';
+  bar.innerHTML = `
+    <div class="edit-toolbar-title">Edit-modus</div>
+    <div class="edit-toolbar-status" id="edit-status">${Object.keys(saved).length} endringer lagret</div>
+    <div class="edit-toolbar-row">
+      <button class="edit-btn" id="edit-copy">Kopier endringer</button>
+      <button class="edit-btn edit-btn-secondary" id="edit-reset">Tilbakestill</button>
+    </div>
+    <div class="edit-toolbar-row" style="margin-top: 8px;">
+      <button class="edit-btn edit-btn-tiny edit-btn-secondary" id="edit-toggle">Skjul</button>
+      <button class="edit-btn edit-btn-tiny edit-btn-secondary" id="edit-exit">Avslutt</button>
+    </div>
+  `;
+  document.body.appendChild(bar);
+
+  // Toast helper
+  const toast = document.createElement('div');
+  toast.className = 'edit-toast';
+  document.body.appendChild(toast);
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove('show'), 2400);
+  }
+
+  function updateStatus() {
+    const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    document.getElementById('edit-status').textContent = Object.keys(current).length + ' endringer lagret';
+  }
+
+  // Build export — only changed elements with OLD/NEW diff
+  function buildExport() {
+    const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    const changes = [];
+    Object.keys(current).forEach(id => {
+      const el = document.querySelector(`[data-edit-id="${id}"]`);
+      if (!el) return;
+      const sectionEl = el.closest('section, footer');
+      // Use original section title (data attribute on heading inside section)
+      let section = '?';
+      if (sectionEl) {
+        const heading = sectionEl.querySelector('.section-title, h1, h2');
+        section = heading?.dataset?.editOriginal || heading?.innerText?.slice(0, 50) || sectionEl.tagName;
+      }
+      changes.push({
+        section: section.trim(),
+        selector: getElementPath(el),
+        oldText: el.dataset.editOriginal || '',
+        newText: current[id]
+      });
+    });
+
+    if (changes.length === 0) return 'Ingen endringer enda. Klikk på tekst og rediger.';
+
+    let out = '# Endringer fra /30-dager/ — ' + new Date().toISOString().slice(0,16).replace('T',' ') + '\n\n';
+    out += changes.length + ' endring' + (changes.length === 1 ? '' : 'er') + ':\n\n';
+    let lastSection = null;
+    changes.forEach(c => {
+      if (c.section !== lastSection) {
+        out += `\n## ${c.section}\n\n`;
+        lastSection = c.section;
+      }
+      out += `### ${c.selector}\n\n`;
+      out += `**FØR:**\n${c.oldText}\n\n`;
+      out += `**ETTER:**\n${c.newText}\n\n`;
+      out += '---\n\n';
+    });
+    return out;
+  }
+
+  function getElementPath(el) {
+    const tag = el.tagName.toLowerCase();
+    const cls = (el.className || '').toString().split(' ').filter(Boolean).slice(0,2).join('.');
+    return cls ? `${tag}.${cls}` : tag;
+  }
+
+  // Copy button
+  document.getElementById('edit-copy').addEventListener('click', async () => {
+    const txt = buildExport();
+    try {
+      await navigator.clipboard.writeText(txt);
+      showToast('Kopiert! Lim inn til Claude.');
+    } catch (e) {
+      // Fallback: open in textarea
+      const ta = document.createElement('textarea');
+      ta.value = txt;
+      ta.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:90vw;height:60vh;z-index:999999;padding:20px;font-family:monospace;';
+      document.body.appendChild(ta);
+      ta.select();
+      showToast('Velg + kopier manuelt (Cmd+C)');
+    }
+  });
+
+  // Reset
+  document.getElementById('edit-reset').addEventListener('click', () => {
+    if (!confirm('Tilbakestill alle endringer? Dette kan ikke angres.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+
+  // Toggle visibility
+  let hidden = false;
+  document.getElementById('edit-toggle').addEventListener('click', () => {
+    hidden = !hidden;
+    bar.style.opacity = hidden ? '0.2' : '1';
+    bar.style.pointerEvents = hidden ? 'none' : 'auto';
+    if (hidden) {
+      const showBtn = document.createElement('button');
+      showBtn.textContent = 'Vis edit';
+      showBtn.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;padding:10px 14px;background:#C5522C;color:#EFE6D4;border:none;border-radius:6px;font-family:Archivo,sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;';
+      showBtn.onclick = () => {
+        hidden = false;
+        bar.style.opacity = '1';
+        bar.style.pointerEvents = 'auto';
+        showBtn.remove();
+      };
+      document.body.appendChild(showBtn);
+    }
+  });
+
+  // Exit
+  document.getElementById('edit-exit').addEventListener('click', () => {
+    const url = new URL(location.href);
+    url.searchParams.delete('edit');
+    location.href = url.toString();
+  });
+
+  // Prevent Enter from creating new paragraphs in single-line fields
+  document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+    if (el.matches('h1, h2, h3, .eyebrow, .feature-label, .tier-name, .tier-price, .stat-num, .stat-label, .footer-col-label, .partner-badge-note, .footer-partner-text, .hero-photo-tag, .hero-partner-chip-text, .bridge-eyebrow, .about-meta, .disclosure-text')) {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          el.blur();
+        }
+      });
+    }
+  });
+
+  console.log('[Edit-modus] Aktiv. Klikk på tekst for å redigere. Endringer lagres automatisk i nettleseren.');
+})();
+</script>
+
 </body>
 </html>
