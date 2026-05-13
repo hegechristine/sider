@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://sider.hegechristine.no/30-dager/">
 <meta http-equiv="refresh" content="0; url=/30-dager/">
+<script>if(new URLSearchParams(location.search).has('edit')){document.querySelector('meta[http-equiv="refresh"]')?.remove();}</script>
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <style>
   body {
@@ -34,6 +35,7 @@
     <p>Du blir sendt videre om et øyeblikk.</p>
     <p><a href="/30-dager/">Gå til ny side →</a></p>
   </div>
-  <script>window.location.replace('/30-dager/');</script>
+  <script>if(!new URLSearchParams(location.search).has('edit')){window.location.replace('/30-dager/');}</script>
+  <script defer src="/edit.js"></script>
 </body>
 </html>
