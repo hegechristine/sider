@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,follow">
 <title>3 dager. Et system. 150K i måneden. — Hege Christine</title>
-<meta name="description" content="3-dagers live challenge for digitale gründere, eksperter og fagpersoner. 26.–28. mai 2026.">
+<meta name="description" content="Gratis 3-dagers live challenge. Bygg systemet bak 150K-måneder — uten å selge timene, uten å hoppe fra idé til idé. 26.–28. mai 2026.">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"></noscript>
 
 <style>
 :root {
   --cream: #EFE6D4;
   --ink: #2E3230;
   --rust: #C5522C;
-  --olive: #5E5F4C;
-  --sage: #AFBEA0;
   --sand: #F0D9A8;
+  --olive: #5E5F4C;
 
-  --line-on-cream: rgba(46, 50, 48, 0.16);
-  --line-on-ink: rgba(239, 230, 212, 0.18);
+  --line: rgba(46, 50, 48, 0.16);
+  --line-strong: rgba(46, 50, 48, 0.4);
+  --muted: rgba(46, 50, 48, 0.55);
 
-  /* 12-col system inside 1240px container */
   --col-12: 1240px;
   --col-10: 1033px;
   --col-8: 827px;
+  --col-6: 620px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 
 body {
   font-family: 'Archivo', sans-serif;
-  font-size: 16px;
-  line-height: 1.45;
+  font-size: 17px;
+  line-height: 1.55;
   color: var(--ink);
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
@@ -46,1234 +46,746 @@ body {
   padding-top: 80px;
 }
 
-.container { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
+.container { width: min(var(--col-12), calc(100% - 56px)); margin: 0 auto; }
+.container-8 { width: min(var(--col-8), calc(100% - 56px)); margin: 0 auto; }
+.container-10 { width: min(var(--col-10), calc(100% - 56px)); margin: 0 auto; }
 
-.section { position: relative; padding: 100px 0; }
+img { max-width: 100%; height: auto; display: block; }
 
-.section-corners { position: absolute; inset: 32px; pointer-events: none; }
-.section-corners::before, .section-corners::after {
-  content: "+";
-  position: absolute;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  font-size: 16px;
-  color: var(--ink);
-  opacity: 0.35;
-  line-height: 1;
-}
-.section-corners::before { top: 0; left: 0; }
-.section-corners::after  { top: 0; right: 0; }
-
-.section-corners-bottom::before, .section-corners-bottom::after {
-  content: "+";
-  position: absolute;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  font-size: 16px;
-  color: var(--ink);
-  opacity: 0.35;
-  line-height: 1;
-}
-.section-corners-bottom::before { bottom: 0; left: 32px; }
-.section-corners-bottom::after  { bottom: 0; right: 32px; }
-
-.bg-cream {
-  background-color: var(--cream);
-  background-image:
-    linear-gradient(rgba(46,50,48,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46,50,48,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-}
-
-/* HEADER */
+/* ===== HEADER ===== */
 .site-header {
-  padding: 18px 0;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: rgba(239, 230, 212, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line-on-cream);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
 }
-
-.header-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-
-.logo { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
-
+.header-row {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 32px;
+}
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
 .logo-mark {
-  width: 36px; height: 36px;
-  background: var(--ink); color: var(--cream);
+  width: 34px; height: 34px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800; font-size: 13px; letter-spacing: 0.02em;
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-weight: 600; font-size: 17px; line-height: 1;
 }
-
 .logo-name {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 17px; letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
-.logo-name em {
   font-family: 'Newsreader', serif;
-  font-style: italic; font-weight: 500;
-  color: var(--rust); margin-left: 6px;
+  font-weight: 500; font-size: 18px; letter-spacing: -0.005em;
 }
+.logo-name em { font-style: italic; color: var(--rust); font-weight: 500; }
 
 .header-date {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--olive);
-  margin-left: auto; margin-right: auto;
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
 }
-
-.header-date-dot {
-  width: 7px; height: 7px;
-  background: var(--rust);
-  border-radius: 50%;
-  animation: header-pulse 2s ease-in-out infinite;
-}
-
-@keyframes header-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .header-date-dot { animation: none; }
-}
-
-@media (max-width: 880px) {
-  .header-date { display: none; }
-}
+.header-date-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
 
 .header-cta {
-  display: inline-block;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 13px 22px;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 11px;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 18px;
+  background: var(--rust); color: var(--cream);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
   text-decoration: none;
-  border-radius: 3px;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s, transform 0.2s;
+}
+.header-cta:hover { background: var(--ink); transform: translateY(-1px); }
+
+@media (max-width: 760px) {
+  .header-row { gap: 12px; }
+  .header-date { display: none; }
+  .logo-name { font-size: 16px; }
 }
 
-.header-cta:hover { background: var(--rust); transform: translateY(-1px); }
-
-@media (max-width: 480px) {
-  .header-cta { padding: 11px 16px; font-size: 10px; letter-spacing: 0.08em; }
+/* ===== MASTHEAD ===== */
+.masthead {
+  border-bottom: 1px solid var(--line-strong);
+  padding: 18px 0 14px; margin-top: 24px;
+}
+.masthead-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: baseline; gap: 24px;
+}
+.masthead-edition, .masthead-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.masthead-date { text-align: right; }
+.masthead-title {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: 20px; color: var(--ink); text-align: center;
+}
+@media (max-width: 760px) {
+  .masthead-grid { grid-template-columns: 1fr; gap: 6px; text-align: left; }
+  .masthead-title, .masthead-date { text-align: left; }
 }
 
-/* HERO — split: pitch + form */
-.hero { padding: 48px 0 64px; }
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 72px;
-  align-items: start;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-@media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; max-width: 580px; }
-}
-
-/* LEFT: pitch */
-.hero-pitch { max-width: 540px; }
-
+/* ===== SHARED ===== */
 .eyebrow {
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--rust);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--rust);
+  display: inline-flex; align-items: center; gap: 12px;
 }
 .eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 1px;
-  background: currentColor;
+  content: ""; width: 36px; height: 1.5px;
+  background: currentColor; display: inline-block;
 }
+.eyebrow.center { justify-content: center; }
 
-.hero-pitch h1 {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(32px, 4.6vw, 56px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  color: var(--ink);
-  margin-bottom: 20px;
-  max-width: 20ch;
-}
-
-.hero-pitch h1 .accent { color: var(--rust); }
-
-.hero-lead {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400;
-  font-size: clamp(16px, 1.5vw, 17px);
-  line-height: 1.5;
-  color: var(--olive);
-  margin-bottom: 24px;
-  max-width: 46ch;
-}
-
-.hero-lead strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.hero-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 18px 0;
-  border-top: 1px solid var(--line-on-cream);
-  border-bottom: 1px solid var(--line-on-cream);
-  margin-bottom: 22px;
-}
-
-.hero-bullets li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px;
-  align-items: baseline;
-  font-family: 'Archivo', sans-serif;
-  font-size: 14.5px;
-  line-height: 1.35;
-  color: var(--ink);
-}
-
-.hero-bullets li .num {
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 32px;
+  background: var(--rust); color: var(--cream);
+  border: 1.5px solid var(--ink); border-radius: 999px;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--rust);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-/* INFO-ROW — date / time / location (no card, inline) */
-.info-row {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.info-icon {
-  width: 32px; height: 32px;
-  border-radius: 4px;
-  background: var(--rust);
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1.5px solid var(--ink);
-}
-
-.info-icon svg {
-  width: 14px; height: 14px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.info-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  min-width: 0;
-}
-
-.info-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--rust);
-  line-height: 1;
-}
-
-.info-value {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 14px;
-  line-height: 1.2;
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-@media (max-width: 540px) {
-  .info-row { gap: 18px; }
-}
-
-/* MARQUEE-strip under hero */
-.marquee-strip {
-  background: var(--sand);
-  padding: 18px 0;
-  overflow: hidden;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-}
-
-.marquee {
-  display: flex;
-  overflow: hidden;
-}
-
-.marquee-track {
-  display: flex;
-  flex-shrink: 0;
-  gap: 36px;
-  align-items: center;
-  padding-right: 36px;
-  animation: marquee-scroll 38s linear infinite;
-  white-space: nowrap;
-}
-
-.marquee-track span {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  color: var(--ink);
-  text-transform: uppercase;
-}
-
-.marquee-track span.dot { opacity: 0.4; color: var(--rust); }
-
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
-
-/* RIGHT: form card */
-.signup-card {
-  background: #FBF8F0;
-  border: 1.5px solid var(--ink);
-  border-radius: 4px;
-  padding: 40px 36px 36px;
-  box-shadow: 10px 10px 0 var(--ink);
-  position: relative;
-}
-
-@media (max-width: 540px) {
-  .signup-card { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
-}
-
-.signup-flag {
-  position: absolute;
-  top: -14px; left: 24px;
-  background: var(--rust);
-  color: var(--cream);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 10px;
+  font-size: 13px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 7px 14px;
-  border-radius: 3px;
-  border: 1.5px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
-  white-space: nowrap;
-}
-
-.signup-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--olive);
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-bottom: 14px;
-}
-
-.signup-eyebrow::before {
-  content: "→";
-  font-weight: 700;
-  color: var(--rust);
-}
-
-.signup-title {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(24px, 2.8vw, 30px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  margin-bottom: 12px;
-  max-width: 20ch;
-}
-
-.signup-title em {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--rust);
-}
-
-.signup-lead {
-  font-family: 'Archivo', sans-serif;
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--olive);
-  margin-bottom: 26px;
-  max-width: 38ch;
-}
-
-/* FORM */
-.hc-kajabi-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-.hc-kajabi-form input[type="text"],
-.hc-kajabi-form input[type="email"] {
-  width: 100%;
-  font-family: 'Archivo', sans-serif;
-  font-size: 15px;
-  line-height: 1.4;
-  color: var(--ink);
-  background: var(--cream);
-  border: 1.5px solid var(--ink);
-  border-radius: 3px;
-  padding: 14px 16px;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
-}
-
-.hc-kajabi-form input::placeholder { color: rgba(46, 50, 48, 0.5); }
-
-.hc-kajabi-form input:focus {
-  outline: none;
-  border-color: var(--rust);
+  text-decoration: none;
   box-shadow: 3px 3px 0 var(--ink);
-}
-
-.hc-kajabi-form button {
-  width: 100%;
+  transition: transform 0.15s, box-shadow 0.15s;
   cursor: pointer;
-  background: var(--ink);
-  color: var(--cream);
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 13px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  border: 1.5px solid var(--ink);
-  border-radius: 3px;
-  padding: 16px 22px;
-  margin-top: 6px;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
+.btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
 
-.hc-kajabi-form button:hover:not(:disabled) {
-  background: var(--rust);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
-}
-
-.hc-kajabi-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.hc-kajabi-form [data-form-message] {
-  min-height: 1em;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-
-.hc-kajabi-form [data-form-message][data-state="success"] { color: var(--rust); }
-.hc-kajabi-form [data-form-message][data-state="error"]   { color: #B33A1F; }
-
-.signup-fineprint {
-  margin-top: 18px;
-  font-family: 'Archivo', sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--olive);
-  opacity: 0.85;
-}
-
-/* Skjul Kajabi-embed og response-iframe */
-.kajabi-hidden-wrap {
-  position: absolute;
-  left: -9999px;
-  top: -9999px;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.kajabi-response-frame { display: none; }
-
-/* AI-QUOTE — ink banner med pull-quote */
-.ai-quote-section {
-  background-color: var(--ink);
-  background-image:
-    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-  color: var(--cream);
-  padding: 88px 0;
-  text-align: center;
-}
-
-.ai-quote-section .section-corners::before,
-.ai-quote-section .section-corners::after,
-.ai-quote-section .section-corners-bottom::before,
-.ai-quote-section .section-corners-bottom::after {
-  color: var(--cream);
-}
-
-.ai-quote-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--sand);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-
-.ai-quote-eyebrow::before,
-.ai-quote-eyebrow::after {
-  content: "";
-  width: 24px;
-  height: 1px;
-  background: currentColor;
-}
-
-.ai-quote-text {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(28px, 4vw, 48px);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  color: var(--cream);
-  max-width: 24ch;
-  margin: 0 auto;
-}
-
-.ai-quote-text em {
+.btn-ghost {
   font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--rust);
-}
-
-/* DAYS, TIERS, WHO — kopiert fra hovedsalgssida */
-.section-head--left { text-align: left; margin-left: auto; margin-right: auto; }
-.section-head--left .section-title { margin-left: 0; margin-right: 0; max-width: none; }
-.section-head--left.section-head--w-days  { max-width: var(--col-10); }
-
-.bg-ink .days-eyebrow { color: var(--sand); }
-.bg-ink .days-eyebrow::before { background: var(--sand); }
-.section-head--left.section-head--w-who   { max-width: var(--col-8); }
-.section-head--left.section-head--w-tiers { max-width: var(--col-12); }
-
-.bg-ink .section-title { color: var(--cream); }
-
-.day-list { max-width: var(--col-10); margin: 0 auto; }
-
-.day-item {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 32px;
-  padding: 36px 0;
-  border-bottom: 1px solid var(--line-on-cream);
-  align-items: baseline;
-}
-
-.day-item:first-child { border-top: 1px solid var(--line-on-cream); }
-
-.day-item {
-  transition: padding-left 0.25s ease;
-}
-
-.day-item:hover {
-  padding-left: 8px;
-}
-
-.day-item:hover .day-num {
-  color: var(--cream);
-}
-
-.day-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 12px;
-  letter-spacing: 0.14em;
-  color: var(--rust);
-  text-transform: uppercase;
-}
-
-.day-title {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700;
-  font-size: clamp(22px, 2.6vw, 30px);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-}
-
-.day-desc {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--ink);
-  opacity: 0.75;
-  margin-top: 10px;
-  max-width: 60ch;
-}
-
-.bg-ink .day-item { border-bottom-color: var(--line-on-ink); }
-.bg-ink .day-item:first-child { border-top-color: var(--line-on-ink); }
-.bg-ink .day-title { color: var(--cream); }
-.bg-ink .day-desc { color: var(--sand); opacity: 0.85; }
-
-@media (max-width: 640px) { .day-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; } }
-
-.tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; max-width: var(--col-12); margin: 0 auto; padding-right: 12px; padding-bottom: 12px; }
-
-@media (max-width: 880px) { .tier-grid { grid-template-columns: 1fr; max-width: 480px; gap: 28px; } }
-
-.tier {
-  background: #FBF8F0;
-  border: 1.5px solid var(--ink);
-  border-radius: 4px;
-  padding: 40px 32px;
-  display: flex; flex-direction: column;
-  position: relative;
-  box-shadow: 8px 8px 0 var(--ink);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tier:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0 var(--ink); }
-
-.tier-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 20px;
-}
-
-.tier-name {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800; font-size: 36px;
-  line-height: 1.0; letter-spacing: -0.025em;
-  color: var(--ink); margin-bottom: 12px;
-}
-
-.tier-price {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 500; font-size: 18px;
-  color: var(--olive); margin-bottom: 32px;
-}
-
-.tier-price small {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500; font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--olive); display: block; margin-top: 4px;
-}
-
-.tier-features { list-style: none; flex: 1; margin-bottom: 36px; }
-
-.tier-features li {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400; font-size: 15px;
-  line-height: 1.5; color: var(--ink);
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line-on-cream);
-}
-.tier-features li:last-child { border-bottom: none; }
-
-.tier-features li.off {
-  text-decoration: line-through;
-  text-decoration-color: rgba(46, 50, 48, 0.45);
+  font-style: italic; font-weight: 500;
+  font-size: 18px; color: var(--ink);
+  text-decoration: underline;
   text-decoration-thickness: 1px;
-  opacity: 0.42;
-}
-.tier-vip .tier-features li.off {
-  text-decoration-color: rgba(239, 230, 212, 0.5);
-  opacity: 0.4;
+  text-underline-offset: 4px;
 }
 
-.tier-cta {
-  display: block; width: 100%; text-align: center;
-  background: transparent; color: var(--ink);
-  border: 1px solid var(--ink);
-  padding: 14px 18px;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 12px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none; transition: all 0.2s ease;
-  cursor: pointer;
-  border-radius: 0;
+.section { padding: 96px 0; }
+.section-head {
+  text-align: center; margin-bottom: 56px;
+  max-width: var(--col-8); margin-left: auto; margin-right: auto;
 }
-.tier-cta:hover { background: var(--ink); color: var(--cream); }
-
-.tier-vip { background: var(--ink); color: var(--cream); border-color: var(--ink); box-shadow: 8px 8px 0 var(--rust); }
-.tier-vip:hover { box-shadow: 10px 10px 0 var(--rust); }
-
-.tier-badge {
-  position: absolute;
-  top: -12px; right: 24px;
-  background: var(--rust);
-  color: var(--cream);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 10px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 3px;
-  border: 1.5px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
-  white-space: nowrap;
-}
-.tier-vip .tier-label { color: var(--sand); }
-.tier-vip .tier-name { color: var(--cream); }
-.tier-vip .tier-price { color: var(--sand); }
-.tier-vip .tier-price small { color: var(--sand); opacity: 0.8; }
-.tier-vip .tier-features li { color: var(--cream); border-color: var(--line-on-ink); }
-.tier-vip .tier-cta { background: var(--rust); color: var(--cream); border-color: var(--rust); }
-.tier-vip .tier-cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
-
-.who-list { list-style: none; max-width: var(--col-8); margin: 0 auto; }
-
-.who-list li {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 500;
-  font-size: clamp(17px, 1.8vw, 20px);
-  line-height: 1.45;
-  padding: 24px 0 24px 44px;
-  border-top: 1px solid var(--line-on-cream);
-  color: var(--ink);
-  position: relative;
-}
-.who-list li:last-child { border-bottom: 1px solid var(--line-on-cream); }
-
-.who-list li::before {
-  content: '';
-  position: absolute;
-  left: 12px;
-  top: 36px;
-  width: 9px; height: 9px;
-  background: var(--rust);
-  border-radius: 50%;
-  animation: who-pulse 2.4s ease-in-out infinite;
-}
-
-.who-list li:nth-child(2)::before { animation-delay: 0.3s; }
-.who-list li:nth-child(3)::before { animation-delay: 0.6s; }
-.who-list li:nth-child(4)::before { animation-delay: 0.9s; }
-.who-list li:nth-child(5)::before { animation-delay: 1.2s; }
-
-@keyframes who-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(197, 82, 44, 0.45); }
-  50% { transform: scale(1.25); opacity: 0.85; box-shadow: 0 0 0 6px rgba(197, 82, 44, 0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .who-list li::before { animation: none; }
-}
-
-/* TRANSFORM — før/etter rader */
-.transform-section { padding: 88px 0; }
-
-.transform-section .section-head {
-  text-align: center;
-  max-width: var(--col-8);
-  margin: 0 auto 56px;
-}
-.transform-section .section-head .section-title { margin-left: auto; margin-right: auto; }
-
-.transform-grid {
-  max-width: var(--col-10);
-  margin: 0 auto;
-}
-
-.transform-row {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 36px;
-  align-items: center;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line-on-cream);
-}
-
-.transform-row:first-child { border-top: 1px solid var(--line-on-cream); }
-
-.transform-from {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 500;
-  font-size: clamp(15px, 1.5vw, 18px);
-  line-height: 1.4;
-  color: var(--ink);
-  opacity: 0.5;
-  letter-spacing: -0.005em;
-  text-decoration: line-through;
-  text-decoration-color: rgba(46, 50, 48, 0.55);
-  text-decoration-thickness: 1.5px;
-  text-align: right;
-}
-
-.transform-arrow {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--rust);
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
-  border: 1.5px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
-  transition: transform 0.2s ease;
-  flex-shrink: 0;
-}
-
-.transform-row:hover .transform-arrow {
-  transform: translateX(3px);
-}
-
-.transform-to {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700;
-  font-size: clamp(17px, 1.9vw, 22px);
-  line-height: 1.3;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-
-@media (max-width: 640px) {
-  .transform-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 22px 0;
-  }
-  .transform-from { text-align: left; font-size: 15px; }
-  .transform-arrow {
-    width: 28px; height: 28px;
-    font-size: 13px;
-    justify-self: start;
-    margin: 4px 0;
-  }
-  .transform-to { font-size: 18px; }
-}
-
-.narrow { width: min(820px, calc(100% - 56px)); margin: 0 auto; }
-
-.bg-sage {
-  background-color: var(--sage);
-}
-
-.bg-sand {
-  background-color: var(--sand);
-}
-
-.bg-cream-no-grid {
-  background-color: var(--cream);
-}
-
-/* Scroll fade-in */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-}
-
-/* ABOUT */
-.about-card {
-  max-width: var(--col-10);
-  margin: 0 auto;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.about-photo {
-  width: 240px;
-  height: 240px;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--rust);
-  box-shadow: 8px 8px 0 var(--ink);
-  flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.about-photo:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 12px 12px 0 var(--ink);
-}
-
-.about-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.about-card-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--olive);
-  margin-bottom: 16px;
-}
-
-.about-card-meta::before {
-  content: '';
-  width: 7px; height: 7px;
-  background: var(--rust);
-  border-radius: 50%;
-}
-
-.about-card-name {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(28px, 3.4vw, 38px);
-  line-height: 1.0;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 12px;
-}
-
-.about-card-name em {
+.section-title {
   font-family: 'Newsreader', serif;
-  font-style: italic;
   font-weight: 500;
-  color: var(--rust);
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--ink); max-width: 24ch;
+  margin: 18px auto 0;
 }
+.section-title em { font-style: italic; color: var(--rust); font-weight: 500; }
 
-.about-tagline {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(17px, 1.8vw, 20px);
-  line-height: 1.35;
-  color: var(--olive);
-  margin-bottom: 24px;
-  letter-spacing: -0.005em;
-}
-
-.about-credentials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  align-items: center;
+/* ===== HERO ===== */
+.hero { padding: 56px 0 96px; background: var(--cream); }
+.hero-eyebrow-strip {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 10px 18px;
+  background: var(--ink); color: var(--cream);
+  border-radius: 999px;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--olive);
-  padding: 14px 0;
-  border-top: 1px solid var(--line-on-cream);
-  border-bottom: 1px solid var(--line-on-cream);
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 600;
   margin-bottom: 28px;
 }
+.hero-eyebrow-strip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
 
-.about-credentials .dot {
-  color: var(--rust);
-  font-weight: 700;
-  opacity: 0.7;
+.hero-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 0.98; letter-spacing: -0.025em;
+  color: var(--ink); margin-bottom: 28px;
+  max-width: 18ch;
+}
+.hero-headline em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 64px; align-items: start;
+}
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
-.about-content p {
-  font-family: 'Archivo', sans-serif;
-  font-size: 17px; line-height: 1.6;
-  color: var(--ink); margin-bottom: 18px;
-}
-
-.about-content p:last-child { margin-bottom: 0; }
-
-.about-quote {
-  font-family: 'Newsreader', serif !important;
-  font-style: italic !important;
-  font-weight: 500 !important;
-  font-size: clamp(22px, 2.6vw, 28px) !important;
-  line-height: 1.35 !important;
-  color: var(--rust) !important;
-  border-left: 3px solid var(--rust);
-  padding-left: 28px;
-  margin: 36px 0 !important;
-}
-
-.about-signature {
-  margin-top: 24px !important;
-  font-family: 'Newsreader', serif !important;
-  font-style: italic !important;
-  font-weight: 500 !important;
-  font-size: 20px !important;
-  color: var(--rust) !important;
-  text-align: right;
-}
-
-@media (max-width: 720px) {
-  .about-card {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .about-photo { width: 160px; height: 160px; box-shadow: 6px 6px 0 var(--ink); }
-}
-
-/* SECTION HEAD (for FAQ + ABOUT) */
-.section-head {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.section-head--left {
-  text-align: left;
-  max-width: var(--col-8);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-head .eyebrow { margin-bottom: 18px; }
-
-.section-title {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(36px, 4.6vw, 56px);
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  max-width: 22ch;
-}
-
-.section-title em {
-  font-style: normal;
-  color: var(--rust);
-}
-
-.section-head--left .section-title { margin-left: 0; }
-
-/* FAQ */
-.faq-list {
-  max-width: var(--col-8);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-right: 6px;
-  padding-bottom: 6px;
-}
-
-.faq-item {
-  background: #FBF8F0;
-  border: 1.5px solid var(--ink);
-  border-radius: 4px;
-  box-shadow: 5px 5px 0 var(--ink);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.faq-item:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 6px 6px 0 var(--ink);
-}
-
-.faq-item[open] {
-  box-shadow: 5px 5px 0 var(--rust);
-}
-
-.faq-item[open]:hover {
-  box-shadow: 6px 6px 0 var(--rust);
-}
-
-.faq-q {
-  list-style: none;
-  cursor: pointer;
-  padding: 22px 26px;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 18px;
-  line-height: 1.3; letter-spacing: -0.01em;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  transition: color 0.2s ease;
-  margin: 0;
-}
-
-.faq-q::-webkit-details-marker { display: none; }
-.faq-q::marker { content: ""; }
-
-.faq-q::after {
-  content: "+";
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: var(--rust);
-  color: var(--cream);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1;
-  border: 1.5px solid var(--ink);
-  box-shadow: 1.5px 1.5px 0 var(--ink);
-  transition: transform 0.25s ease, box-shadow 0.2s ease;
-  flex-shrink: 0;
-}
-
-.faq-item[open] .faq-q::after {
-  transform: rotate(45deg);
-}
-
-.faq-q:hover { color: var(--rust); }
-.faq-q:hover::after { transform: scale(1.08); }
-.faq-item[open] .faq-q:hover::after { transform: rotate(45deg) scale(1.08); }
-.faq-q:focus-visible { outline: none; color: var(--rust); }
-
-.faq-a {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400; font-size: 16px;
-  line-height: 1.55; color: var(--ink);
-  padding: 0 26px 24px 26px;
-  max-width: 70ch;
-  animation: faq-reveal 0.3s ease-out;
-}
-
-@keyframes faq-reveal {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 520px) {
-  .faq-q { padding: 20px 20px; font-size: 16px; gap: 14px; }
-  .faq-q::after { width: 28px; height: 28px; font-size: 14px; }
-  .faq-a { padding: 0 20px 20px 20px; }
-  .faq-item { box-shadow: 4px 4px 0 var(--ink); }
-  .faq-item[open] { box-shadow: 4px 4px 0 var(--rust); }
-}
-
-/* FINAL CTA */
-.bg-ink {
-  background-color: var(--ink);
-  background-image:
-    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-  color: var(--cream);
-}
-
-.bg-ink .section-corners::before,
-.bg-ink .section-corners::after,
-.bg-ink .section-corners-bottom::before,
-.bg-ink .section-corners-bottom::after {
-  color: var(--cream);
-}
-
-.final { text-align: center; padding: 120px 0 100px; }
-
-.final .eyebrow {
-  color: var(--rust);
-  margin-bottom: 24px;
-  justify-content: center;
-}
-
-.final h2 {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  color: var(--cream);
-  margin: 0 auto 48px;
-  max-width: 28ch;
-}
-
-.final h2 em { font-style: normal; color: var(--rust); }
-
-.final .cta-primary {
-  display: inline-block;
-  background: var(--rust);
-  color: var(--cream);
-  padding: 20px 40px;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 13px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none;
-  border: 1.5px solid var(--ink);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-}
-
-.final .cta-primary:hover {
-  background: var(--cream);
-  color: var(--ink);
-  transform: translateY(-1px);
-}
-
-.final-meta {
-  margin-top: 28px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--sand);
-}
-
-.final-ps {
-  max-width: 56ch;
-  margin: 0 auto 36px;
+.hero-pitch p {
   font-family: 'Newsreader', serif;
   font-weight: 400;
-  font-size: clamp(17px, 1.6vw, 20px);
+  font-size: clamp(18px, 1.7vw, 22px);
   line-height: 1.55;
-  color: rgba(239,230,212,0.85);
+  color: var(--ink);
+  max-width: 54ch; margin-bottom: 18px;
+}
+.hero-pitch p:last-of-type { margin-bottom: 28px; }
+.hero-pitch p em { font-style: italic; color: var(--rust); font-weight: 500; }
+.hero-pitch p strong { font-weight: 600; }
+
+.hero-actions {
+  display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  margin-top: 8px;
+}
+.hero-date-line {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink);
+  padding: 14px 20px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--sand);
+}
+.hero-date-line strong { color: var(--rust); }
+
+.hero-video {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--rust);
+  aspect-ratio: 4/3;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-video-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(94,95,76,0.92), rgba(46,50,48,0.96));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--cream); padding: 32px; text-align: center;
+}
+.video-play-btn {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--rust);
+  border: 2px solid var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; cursor: pointer;
+  transition: transform 0.2s;
+}
+.video-play-btn:hover { transform: scale(1.06); }
+.video-play-btn svg { width: 28px; height: 28px; fill: var(--cream); margin-left: 4px; }
+.video-caption {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-size: 18px;
+  color: var(--cream);
+  max-width: 28ch; line-height: 1.4;
+}
+
+.hero-signature {
+  margin-top: 40px;
+  display: flex; align-items: center; gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  max-width: 480px;
+}
+.signature-mark {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--rust);
+  line-height: 1;
+}
+.signature-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+}
+.signature-text strong {
+  display: block; color: var(--ink);
+  font-weight: 700; margin-bottom: 2px;
+}
+
+/* ===== LETTER ===== */
+.letter-section {
+  padding: 80px 0 96px;
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+}
+.letter-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 14px;
+}
+.letter-mark::before, .letter-mark::after {
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+.letter-body {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.65; color: var(--ink);
+}
+.letter-body p { margin-bottom: 22px; }
+.letter-body p:last-child { margin-bottom: 0; }
+.letter-body em { font-style: italic; color: var(--rust); font-weight: 500; }
+.letter-body strong { font-weight: 600; }
+.letter-body .drop {
+  float: left; font-style: italic;
+  font-size: 4.2em; line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--rust); font-weight: 500;
+}
+
+/* ===== SHIFTS (3 dager) ===== */
+.shifts-section { padding: 96px 0; background: var(--olive); color: var(--cream); }
+.shifts-section .eyebrow { color: var(--sand); }
+.shifts-section .eyebrow::before { background: var(--sand); }
+.shifts-section .section-title { color: var(--cream); margin: 0 auto; }
+.shifts-section .section-title em { color: var(--sand); }
+
+.shifts-list { max-width: var(--col-10); margin: 0 auto; }
+.shift-item {
+  display: grid; grid-template-columns: 220px 1fr;
+  gap: 56px; padding: 48px 0;
+  border-top: 1px solid rgba(239,230,212,0.18);
+  align-items: start;
+}
+.shift-item:last-child { border-bottom: 1px solid rgba(239,230,212,0.18); }
+.shift-num {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: clamp(72px, 9vw, 132px);
+  line-height: 0.85; color: var(--sand);
+}
+.shift-num small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal; font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(239,230,212,0.7);
+  margin-top: 14px; font-weight: 500;
+}
+.shift-from {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--sand);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.shift-from::before { content: "→"; color: var(--rust); font-family: 'Archivo', sans-serif; }
+.shift-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.1; letter-spacing: -0.015em;
+  color: var(--cream); margin-bottom: 16px;
+  max-width: 22ch;
+}
+.shift-title em { font-style: italic; color: var(--sand); font-weight: 500; }
+.shift-body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px; line-height: 1.65;
+  color: rgba(239,230,212,0.88);
+  max-width: 58ch;
+}
+.shift-body em { font-style: italic; color: var(--sand); font-weight: 500; }
+.shift-outcome {
+  margin-top: 14px;
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-size: 18px;
+  color: var(--sand);
+}
+.shift-outcome::before {
+  content: "Du går ut med: ";
+  font-style: normal; color: rgba(239,230,212,0.6);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .shift-item { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
+  .shift-num { font-size: 88px; }
+}
+
+/* ===== PULL-QUOTE ===== */
+.pullquote-section { padding: 120px 0; background: var(--cream); }
+.pullquote-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--rust);
+  margin-bottom: 28px; text-align: center;
+}
+.pullquote-text {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: clamp(30px, 4.8vw, 56px);
+  line-height: 1.15; letter-spacing: -0.015em;
+  color: var(--ink); text-align: center;
+  max-width: 28ch; margin: 0 auto 32px;
+}
+.pullquote-text mark {
+  background: linear-gradient(180deg, transparent 60%, var(--sand) 60%);
+  color: var(--ink);
+  padding: 0 0.1em;
+  font-style: italic;
+}
+.pullquote-attribution {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted);
+  text-align: center;
+}
+
+/* ===== MANIFESTO ===== */
+.manifesto-section {
+  padding: 96px 0; background: var(--sand);
+  border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);
+}
+.manifesto-grid {
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 80px; align-items: start;
+  max-width: var(--col-10); margin: 0 auto;
+}
+.manifesto-aside {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink);
+  padding-top: 12px; border-top: 2px solid var(--ink);
+}
+.manifesto-aside strong {
+  display: block;
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-size: 56px;
+  font-weight: 500; letter-spacing: -0.02em;
+  margin: 8px 0 16px;
+  color: var(--rust); line-height: 1;
+}
+.manifesto-aside span { display: block; color: var(--muted); }
+.manifesto-text {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.35; letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.manifesto-text em { font-style: italic; color: var(--rust); font-weight: 500; }
+.manifesto-text strong { font-weight: 600; }
+
+@media (max-width: 760px) {
+  .manifesto-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ===== WALKAWAY ===== */
+.walkaway-section { padding: 96px 0; background: var(--cream); }
+.walkaway-list {
+  max-width: var(--col-8); margin: 0 auto;
+  display: flex; flex-direction: column;
+  list-style: none;
+}
+.walkaway-list li {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(19px, 1.9vw, 23px);
+  line-height: 1.4; color: var(--ink);
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: 36px 1fr;
+  gap: 18px; align-items: baseline;
+}
+.walkaway-list li:last-child { border-bottom: 1px solid var(--line); }
+.walkaway-list li::before {
+  content: "✓";
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px; font-weight: 700;
+  color: var(--rust); background: var(--sand);
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; border: 1.5px solid var(--ink);
+}
+.walkaway-list li strong { font-weight: 600; }
+.walkaway-list li em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+/* ===== PRACTICAL ===== */
+.practical-section { padding: 80px 0; background: var(--ink); color: var(--cream); }
+.practical-section .eyebrow { color: var(--sand); }
+.practical-section .eyebrow::before { background: var(--sand); }
+.practical-section .section-title { color: var(--cream); margin: 0 auto; }
+.practical-section .section-title em { color: var(--sand); }
+
+.practical-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 36px; max-width: var(--col-10); margin: 0 auto;
+}
+.practical-cell {
+  border-top: 2px solid var(--sand); padding-top: 20px;
+}
+.practical-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--sand);
+  margin-bottom: 12px;
+}
+.practical-value {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--cream); margin-bottom: 12px;
+}
+.practical-value em { font-style: italic; color: var(--sand); font-weight: 500; }
+.practical-detail {
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px; line-height: 1.55;
+  color: rgba(239,230,212,0.8);
+}
+@media (max-width: 760px) {
+  .practical-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ===== SIGN-UP ===== */
+.signup-section { padding: 96px 0 120px; background: var(--cream); }
+.signup-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  max-width: var(--col-10); margin: 0 auto;
+}
+.signup-left .eyebrow { margin-bottom: 18px; }
+.signup-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 0.98; letter-spacing: -0.02em;
+  color: var(--ink); margin-bottom: 24px;
+  max-width: 14ch;
+}
+.signup-headline em { font-style: italic; color: var(--rust); font-weight: 500; }
+.signup-lede {
+  font-family: 'Newsreader', serif;
+  font-size: 19px; line-height: 1.55;
+  color: var(--ink); max-width: 44ch;
+  margin-bottom: 24px;
+}
+.signup-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--rust);
+  display: flex; gap: 18px; flex-wrap: wrap;
+}
+.signup-meta span::before { content: "→"; color: var(--ink); margin-right: 6px; }
+
+.signup-card {
+  background: var(--cream); color: var(--ink);
+  padding: 40px 36px;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 8px 8px 0 var(--rust);
+  position: relative;
+}
+.signup-card-flag {
+  position: absolute; top: -14px; left: 24px;
+  background: var(--rust); color: var(--cream);
+  padding: 6px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; font-weight: 700;
+  border-radius: 999px;
+}
+.signup-card-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--rust);
+  margin: 8px 0 14px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.signup-card-eyebrow::before { content: "→"; font-family: 'Archivo', sans-serif; }
+.signup-card-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 36px);
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--ink); margin-bottom: 14px;
+}
+.signup-card-title em { font-style: italic; color: var(--rust); font-weight: 500; }
+.signup-card-lede {
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px; line-height: 1.55;
+  color: var(--muted); margin-bottom: 22px;
+}
+
+.hc-kajabi-form {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.hc-kajabi-form input[type="text"],
+.hc-kajabi-form input[type="email"] {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px; padding: 14px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: transparent; color: var(--ink);
+  width: 100%; outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hc-kajabi-form input::placeholder { color: rgba(46,50,48,0.5); }
+.hc-kajabi-form input:focus {
+  border-color: var(--rust);
+  background: rgba(255,255,255,0.4);
+}
+.hc-kajabi-form button {
+  margin-top: 4px;
+  padding: 16px 24px;
+  background: var(--ink); color: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.hc-kajabi-form button:hover:not(:disabled) { background: var(--rust); border-color: var(--rust); }
+.hc-kajabi-form button:disabled { opacity: 0.6; cursor: wait; }
+.hc-kajabi-form [data-form-message] {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.08em;
+  text-align: center; margin-top: 8px; min-height: 18px;
+}
+.hc-kajabi-form [data-form-message][data-state="error"] { color: var(--rust); }
+.hc-kajabi-form [data-form-message][data-state="success"] { color: var(--rust); }
+.signup-card-fineprint {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px; line-height: 1.5;
+  color: var(--muted); margin-top: 16px;
+}
+.kajabi-hidden-wrap { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.kajabi-response-frame { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; border: 0; }
+
+@media (max-width: 880px) {
+  .signup-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ===== ABOUT ===== */
+.about-section { padding: 96px 0; background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 56px;
+  max-width: var(--col-10); margin: 0 auto;
+  align-items: start;
+}
+.about-photo {
+  position: sticky; top: 100px;
+}
+.about-photo img {
+  width: 100%; border-radius: 6px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--rust);
+}
+.about-mast {
+  border-top: 2px solid var(--ink);
+  padding-top: 16px;
+  margin-bottom: 28px;
+}
+.about-byline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 14px;
+}
+.about-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 0.95; letter-spacing: -0.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.about-name em { font-style: italic; color: var(--rust); font-weight: 500; }
+.about-role {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-size: 19px;
+  font-weight: 500; color: var(--rust);
+}
+.about-body p {
+  font-family: 'Newsreader', serif;
+  font-size: 19px; line-height: 1.65;
+  color: var(--ink); margin-bottom: 18px;
+}
+.about-body p:last-child { margin-bottom: 0; }
+.about-body p em { font-style: italic; color: var(--rust); font-weight: 500; }
+.about-body p strong { font-weight: 600; }
+.about-body > p:first-of-type::first-letter {
+  float: left; font-style: italic;
+  font-size: 4.6em; line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--rust); font-weight: 500;
+}
+.about-quote {
+  font-style: italic !important;
+  font-size: clamp(22px, 2.4vw, 28px) !important;
+  line-height: 1.3 !important;
+  padding: 24px 0 24px 24px;
+  border-left: 3px solid var(--rust);
+  margin: 28px 0 !important;
+}
+
+@media (max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-photo { position: static; max-width: 240px; }
+}
+
+/* ===== FAQ ===== */
+.faq-section { padding: 96px 0; background: var(--cream); border-top: 1px solid var(--line); }
+.faq-list { max-width: var(--col-8); margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q {
+  cursor: pointer;
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(19px, 2vw, 23px);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  padding: 26px 0;
+  list-style: none;
+  display: flex; justify-content: space-between; gap: 24px; align-items: baseline;
+  transition: color 0.2s;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q:hover { color: var(--rust); }
+.faq-q::after {
+  content: "+";
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 22px;
+  color: var(--rust);
+  transition: transform 0.2s; flex-shrink: 0;
+}
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px; line-height: 1.65;
+  color: var(--ink); padding: 0 0 26px;
+  max-width: 65ch;
+}
+
+/* ===== FINAL CTA ===== */
+.final-section {
+  padding: 120px 0;
+  background: var(--rust); color: var(--cream);
+  text-align: center;
+}
+.final-section .eyebrow { color: var(--sand); justify-content: center; }
+.final-section .eyebrow::before { background: var(--sand); }
+.final-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--cream); max-width: 22ch;
+  margin: 24px auto 28px;
+}
+.final-headline em { font-style: italic; color: var(--sand); font-weight: 500; }
+.final-ps {
+  max-width: 56ch;
+  margin: 0 auto 18px;
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.6;
+  color: rgba(239,230,212,0.9);
 }
 .final-ps strong { color: var(--cream); font-weight: 600; }
 .final-ps em { font-style: italic; color: var(--sand); font-weight: 500; }
@@ -1283,230 +795,99 @@ body {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--rust);
+  color: var(--sand);
   margin-right: 8px;
   font-weight: 700;
 }
-
-.final-countdown {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  max-width: 520px;
-  margin: 32px auto 0;
-}
-.final-countdown-cell {
-  text-align: center;
-  padding: 14px 6px;
-  background: rgba(239,230,212,0.08);
-  border: 1px solid rgba(239,230,212,0.25);
-  border-radius: 4px;
-}
-.final-countdown-num {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(28px, 3.8vw, 40px);
-  line-height: 1;
-  color: var(--cream);
-}
-.final-countdown-label {
+.final-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 20px 32px;
+  background: var(--cream); color: var(--ink);
+  border: 1.5px solid var(--ink); border-radius: 999px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(239,230,212,0.7);
-  margin-top: 6px;
-}
-
-/* FOOTER */
-.footer { background: var(--olive); padding: 64px 0 36px; border-top: 1px solid var(--line-on-ink); color: var(--cream); }
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 56px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--line-on-ink);
-}
-
-@media (max-width: 720px) {
-  .footer-top { grid-template-columns: 1fr; gap: 36px; }
-}
-
-.footer-brand-name {
-  display: inline-block;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700; font-size: 22px; letter-spacing: -0.01em;
-  color: var(--cream);
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
   text-decoration: none;
-  transition: color 0.2s ease;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-top: 16px;
+}
+.final-cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.final-meta {
+  margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(239,230,212,0.8);
 }
 
-.footer-brand-name em {
+/* ===== FOOTER ===== */
+.footer { padding: 40px 0; background: var(--ink); color: rgba(239,230,212,0.7); }
+.footer-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
   font-family: 'Newsreader', serif;
   font-style: italic; font-weight: 500;
-  color: var(--rust); margin-left: 5px;
+  font-size: 18px; color: var(--cream);
 }
-
-.footer-brand-name:hover { color: var(--rust); }
-
-.footer-tagline {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400; font-size: 14px;
-  line-height: 1.55;
-  color: var(--sand);
-  margin-top: 18px;
-  max-width: 36ch;
-}
-
-.footer-col-label {
+.footer-meta {
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 18px;
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
-
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-
-.footer-links a {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 500; font-size: 14px;
-  color: var(--cream);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover { color: var(--rust); }
-
-.footer-bottom {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  padding-top: 28px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--sand);
-}
-
-.footer-bottom a { color: var(--sand); text-decoration: none; transition: color 0.2s ease; }
-.footer-bottom a:hover { color: var(--cream); }
-
-@media (max-width: 720px) {
-  .footer-bottom { flex-direction: column; text-align: left; align-items: flex-start; }
-}
-
 .footer-disclaimer-link {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--sand);
+  color: rgba(239,230,212,0.7);
   text-decoration: underline;
-  text-decoration-color: rgba(240, 217, 168, 0.4);
-  text-underline-offset: 4px;
-  cursor: pointer;
-  background: none; border: none; padding: 0;
-  transition: color 0.2s ease;
+  text-decoration-color: rgba(239,230,212,0.25);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
+.footer-disclaimer-link:hover { color: var(--sand); }
 
-.footer-disclaimer-link:hover {
-  color: var(--rust);
-  text-decoration-color: var(--rust);
-}
-
-/* DISCLAIMER MODAL */
+/* ===== DISCLAIMER MODAL ===== */
 .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(46, 50, 48, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 24px;
-  animation: modal-fade 0.2s ease-out;
+  position: fixed; inset: 0;
+  background: rgba(46,50,48,0.7);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
 }
-
-.modal-overlay.is-open { display: flex; }
-
-@keyframes modal-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+.modal-overlay.is-open { opacity: 1; pointer-events: auto; }
 .modal {
-  background: #FBF8F0;
+  background: var(--cream);
   border: 1.5px solid var(--ink);
   border-radius: 6px;
-  box-shadow: 10px 10px 0 var(--ink);
-  max-width: 560px;
-  width: 100%;
-  padding: 40px 40px 36px;
+  padding: 40px 36px;
+  max-width: 560px; width: calc(100% - 48px);
+  max-height: 80vh; overflow-y: auto;
   position: relative;
-  max-height: 85vh;
-  overflow-y: auto;
-  animation: modal-pop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 6px 6px 0 var(--rust);
 }
-
-@keyframes modal-pop {
-  from { opacity: 0; transform: translate(-6px, -6px) scale(0.97); }
-  to { opacity: 1; transform: translate(0, 0) scale(1); }
-}
-
 .modal-close {
-  position: absolute;
-  top: 14px; right: 14px;
+  position: absolute; top: 12px; right: 16px;
   background: none; border: none;
-  width: 36px; height: 36px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 22px; font-weight: 500;
-  color: var(--ink);
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; cursor: pointer;
+  color: var(--ink); line-height: 1;
 }
-
-.modal-close:hover { color: var(--rust); transform: rotate(90deg); }
-
 .modal-eyebrow {
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 16px;
-}
-
-.modal h2 {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 22px;
-}
-
-.modal p {
-  font-family: 'Archivo', sans-serif;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--ink);
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--rust);
   margin-bottom: 14px;
 }
-
-.modal p:last-child { margin-bottom: 0; }
-
-.modal p strong { font-weight: 700; }
-
-@media (max-width: 480px) {
-  .modal { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
-  .modal h2 { font-size: 24px; }
+.modal h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 500; font-size: 28px;
+  line-height: 1.1; letter-spacing: -0.015em;
+  color: var(--ink); margin-bottom: 18px;
+}
+.modal p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px; line-height: 1.6;
+  color: var(--ink); margin-bottom: 12px;
 }
 </style>
 </head>
@@ -1516,174 +897,245 @@ body {
 <header class="site-header">
   <div class="container header-row">
     <a href="/" class="logo">
-      <span class="logo-mark">HC</span>
-      <span class="logo-name">Hege<em>Christine</em></span>
+      <span class="logo-mark">H<em style="font-style:italic;color:var(--rust);">C</em></span>
+      <span class="logo-name">Hege <em>Christine</em></span>
     </a>
     <span class="header-date"><span class="header-date-dot"></span>26.–28. mai 2026 · Live på Zoom</span>
-    <a href="#signup" class="header-cta">Sikre min plass →</a>
+    <a href="#signup" class="header-cta">Sikre plassen min →</a>
   </div>
 </header>
 
-<!-- HERO: pitch + form -->
-<section class="section bg-cream hero">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
+<!-- MASTHEAD -->
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-grid">
+      <div class="masthead-edition">Utgave Nr. 01 — Mai 2026</div>
+      <div class="masthead-title">3 dager · Et system · 150K i måneden</div>
+      <div class="masthead-date">Live på Zoom · 26.–28. mai</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
   <div class="container">
+    <span class="hero-eyebrow-strip"><span class="dot"></span>Live 3-dagers Challenge · 26.–28. mai 2026</span>
+    <h1 class="hero-headline">3 dager. Et system. <em>150K</em> i måneden.</h1>
+
     <div class="hero-grid">
-
-      <!-- LEFT: pitch -->
       <div class="hero-pitch">
-        <span class="eyebrow">3-dagers live challenge</span>
-        <h1>3 dager. Et system.<br><span class="accent">150K</span> i måneden.</h1>
-        <p class="hero-lead">Kunnskapen din fortjener en bedre forretningsmodell. På kun 3 dager får du systemet som tar deg dit — uten å selge timene dine, uten å hoppe fra idé til idé.</p>
+        <p>Kunnskapen din fortjener en bedre forretningsmodell. På kun 3 dager får du systemet som tar deg dit — uten å selge timene dine, uten å hoppe fra idé til idé.</p>
 
-        <ul class="hero-bullets">
-          <li><span class="num">Dag 01</span><span>Den perfekte businessmodellen</span></li>
-          <li><span class="num">Dag 02</span><span>Produktene du kunne tatt 10X for</span></li>
-          <li><span class="num">Dag 03</span><span>Selg og markedsfør på autopilot</span></li>
-        </ul>
+        <div class="hero-actions">
+          <a href="#signup" class="btn-primary">Sikre min gratis plass →</a>
+          <a href="#shifts" class="btn-ghost">Se hva som forandrer seg</a>
+        </div>
 
-        <div class="info-row" role="group" aria-label="Praktisk informasjon">
-          <div class="info-item">
-            <div class="info-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
-            </div>
-            <div class="info-text">
-              <span class="info-label">Dato</span>
-              <span class="info-value">26.–28. mai</span>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="info-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
-            </div>
-            <div class="info-text">
-              <span class="info-label">Tid</span>
-              <span class="info-value">19–20</span>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="info-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><polygon points="16 9 22 6 22 18 16 15 16 9" fill="currentColor" stroke="none"/></svg>
-            </div>
-            <div class="info-text">
-              <span class="info-label">Sted</span>
-              <span class="info-value">Live på Zoom</span>
-            </div>
-          </div>
+        <span class="hero-date-line"><strong>📅 Dato:</strong> 26.–28. mai 2026 · kl. 19–21 hver kveld</span>
+
+        <div class="hero-signature">
+          <span class="signature-mark">H<em style="color:var(--ink);">C.</em></span>
+          <span class="signature-text">
+            <strong>Hege Christine</strong>
+            Din mentor i de tre kveldene
+          </span>
         </div>
       </div>
 
-      <!-- RIGHT: signup form -->
-      <aside class="signup-card" id="signup" aria-labelledby="signup-title">
-        <span class="signup-flag">Gratis</span>
-        <span class="signup-eyebrow">Siste steg</span>
-        <h2 class="signup-title" id="signup-title">Sikre din <em>gratis</em> plass.</h2>
-        <p class="signup-lead">Sjekk at navn og e-postadresse stemmer og trykk på knappen under, så vil du motta bekreftelse og lenken til alle livesendingene på e-post.</p>
-
-        <form id="signup-form" class="hc-kajabi-form"
-              data-kajabi-form-id="2149575768"
-              data-redirect-url="/150k-takk-altB/">
-          <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
-          <input type="email" name="email" placeholder="E-post" required autocomplete="email">
-          <button type="submit">Sikre plassen min →</button>
-          <div class="form-message" data-form-message></div>
-        </form>
-
-        <p class="signup-fineprint">Ved å melde deg på godtar du å motta e-post om challengen og relatert innhold. Du kan melde deg av når som helst.</p>
-
-        <!-- Skjult Kajabi-embed (genererer authenticity_token) -->
-        <div class="kajabi-hidden-wrap" aria-hidden="true">
-          <script src="https://www.hegechristine.no/forms/2149575768/embed.js"></script>
+      <div class="hero-video" aria-hidden="true">
+        <div class="hero-video-placeholder">
+          <button class="video-play-btn" aria-label="Spill av introduksjonsvideo" type="button">
+            <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20"/></svg>
+          </button>
+          <p class="video-caption">3 minutter med Hege Christine om hvorfor "jobbe mer" aldri blir svaret.</p>
         </div>
-
-        <!-- Skjult iframe for response -->
-        <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
-      </aside>
-
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<section class="marquee-strip" aria-hidden="true">
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Coacher</span><span class="dot">+</span>
-      <span>Eksperter</span><span class="dot">+</span>
-      <span>Fagpersoner</span><span class="dot">+</span>
-      <span>Foredragsholdere</span><span class="dot">+</span>
-      <span>Kursskapere</span><span class="dot">+</span>
-      <span>Terapeuter</span><span class="dot">+</span>
-      <span>Coacher</span><span class="dot">+</span>
-      <span>Eksperter</span><span class="dot">+</span>
-      <span>Fagpersoner</span><span class="dot">+</span>
-      <span>Foredragsholdere</span><span class="dot">+</span>
-      <span>Kursskapere</span><span class="dot">+</span>
-      <span>Terapeuter</span><span class="dot">+</span>
+<!-- LETTER -->
+<section class="letter-section">
+  <div class="container-8">
+    <div class="letter-mark">— Et brev før vi starter —</div>
+    <div class="letter-body">
+      <p><span class="drop">D</span>u kan masse. Du leverer godt. Du har klienter eller kursdeltakere som faktisk får resultater. Likevel sitter du der — klokken er ti om kvelden, innboksen er full, og du tenker: <em>"hvorfor vokser ikke businessen min slik den burde?"</em></p>
+
+      <p>Jeg har sett mønsteret hos hundrevis av norske gründere de siste seks årene. Det er nesten alltid det samme: <strong>du prøver å gjøre mer av det samme.</strong> Flere klienter. Enda et kurs. Enda en lansering. Enda et nyhetsbrev. Og hver gang du legger på en ny ting, blir businessen tyngre — ikke mer lønnsom.</p>
+
+      <p>Det handler ikke om hvor mye du kan. Det handler om <em>hvordan kunnskapen din er pakket</em> — og om du selger den én time av gangen, eller som et system som faktisk lever sitt eget liv.</p>
+
+      <p>I 2026 er den forskjellen mye større enn før. AI er en gave til oss som lever av å selge kunnskap. Du kan la den ta research, struktur, utkast og sparring — og selv stå igjen med <strong>strategien, valgene og stemmen.</strong> Det er der businessen din egentlig ligger.</p>
+
+      <p>Det er den tankegangen vi tar med oss inn i de tre dagene.</p>
     </div>
   </div>
 </section>
 
-<!-- AI-QUOTE — pull-quote banner -->
-<section class="section ai-quote-section">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
-  <div class="narrow">
-    <span class="ai-quote-eyebrow">80/20-metoden</span>
-    <p class="ai-quote-text">La AI ta 80 prosent av jobben. De 20 som teller — <em>strategien, valgene, stemmen</em> — er dine.</p>
+<!-- 3 SHIFTS -->
+<section class="shifts-section" id="shifts">
+  <div class="section-head">
+    <span class="eyebrow center">— 3 dager · 3 skift —</span>
+    <h2 class="section-title">Tre kvelder. Tre <em>skift</em> som flytter businessen din.</h2>
   </div>
-</section>
-
-<!-- TRANSFORM — før/etter -->
-<section class="section bg-cream transform-section">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Forskjellen</span>
-      <h2 class="section-title">Når strukturen er på <em>plass.</em></h2>
+    <div class="shifts-list">
+
+      <article class="shift-item">
+        <div class="shift-num">01<small>Dag 1 · 26. mai · 19–21</small></div>
+        <div class="shift-content">
+          <div class="shift-from">Den perfekte businessmodellen</div>
+          <h3 class="shift-title">Slutt å <em>gjette</em> på hva businessen din skal være.</h3>
+          <p class="shift-body">Du tror kanskje du må ha tusenvis av følgere for å komme i nærheten av 150K-måneder. Du må ikke det. Vi går rett inn i hva som faktisk drar businessen din videre — og det er noe helt annet enn å samle leads. Du ser hele bildet, ikke bare neste lansering.</p>
+          <p class="shift-outcome">Klarhet i hvilken business du vil drive, og hvem du bygger den for.</p>
+        </div>
+      </article>
+
+      <article class="shift-item">
+        <div class="shift-num">02<small>Dag 2 · 27. mai · 19–21</small></div>
+        <div class="shift-content">
+          <div class="shift-from">Produktene du kunne tatt 10X for</div>
+          <h3 class="shift-title">Tør å si <em>pris høyt</em> — og stå for den.</h3>
+          <p class="shift-body">Du har sannsynligvis tenkt at du tar for lite betalt, men aldri turt å si det høyt. Vi ser på hvorfor de fleste underpriser — og hvordan du pakker tilbudet ditt så det speiler transformasjonen du leverer, ikke timene du legger ned. Etter dagen vet du hva du er verdt.</p>
+          <p class="shift-outcome">Et tilbud priset og pakket så det selger seg selv.</p>
+        </div>
+      </article>
+
+      <article class="shift-item">
+        <div class="shift-num">03<small>Dag 3 · 28. mai · 19–21</small></div>
+        <div class="shift-content">
+          <div class="shift-from">Selg og markedsfør på autopilot</div>
+          <h3 class="shift-title">Slipp å være <em>på fjorten timer</em> i døgnet.</h3>
+          <p class="shift-body">Du er nok skikkelig lei av å produsere innhold som om livet stod på det. Det skal du slippe. På dag 3 setter vi opp flyten som lar AI ta de 80 prosentene som tapper deg — research, struktur, utkast, sparring — så du står igjen med de tjue som faktisk teller.</p>
+          <p class="shift-outcome">En plan for salg og markedsføring du kan starte mandag morgen.</p>
+        </div>
+      </article>
+
     </div>
-    <div class="transform-grid">
-      <div class="transform-row">
-        <div class="transform-from">Jakter leads</div>
-        <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">Bygger kundeliste</div>
+  </div>
+</section>
+
+<!-- PULL-QUOTE -->
+<section class="pullquote-section">
+  <div class="container-8">
+    <p class="pullquote-eyebrow">— Hjertet av det vi gjør —</p>
+    <p class="pullquote-text">Det handler ikke om <mark>mer arbeid</mark>. Det handler om mer <em>overskudd.</em></p>
+    <p class="pullquote-attribution">På to måter samtidig</p>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto-section">
+  <div class="container manifesto-grid">
+    <aside class="manifesto-aside">
+      80/20-prinsippet
+      <strong>80<span style="color:var(--ink);font-style:normal;">/</span>20</strong>
+      <span>For deg som lever av kunnskapen din i 2026.</span>
+    </aside>
+    <div class="manifesto-text">
+      La AI ta 80 prosent — research, struktur, utkast, automatisering, sparring. De 20 som faktisk teller — <em>strategien, valgene, stemmen din</em> — er <strong>fortsatt dine.</strong> Det er ikke fremtid. Det er allerede her, og det er den enkleste hevarmen vi har for å skalere uten å brenne ut.
+    </div>
+  </div>
+</section>
+
+<!-- WALKAWAY -->
+<section class="walkaway-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Dette går du ut med —</span>
+    <h2 class="section-title">Etter tre kvelder <em>har du.</em></h2>
+  </div>
+  <div class="container">
+    <ul class="walkaway-list">
+      <li>Klarhet i hvilken business du vil drive — så du <em>slipper å gjette</em> på neste trekk.</li>
+      <li>Et tilbud priset og pakket sånn at du tør å <strong>si pris høyt</strong> — uten å føle deg usikker.</li>
+      <li>En plan for salg og markedsføring som faktisk <em>går av seg selv</em> — så du slipper å være på hele tiden.</li>
+      <li>AI som tar de 80 prosentene som tapper deg — så du står igjen med <strong>de tjue som teller</strong>.</li>
+      <li>Roen i å vite at du har <em>ett system som virker</em>. Ikke flere ideer, ikke flere lanseringer.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRACTICAL -->
+<section class="practical-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Slik funker det —</span>
+    <h2 class="section-title">Det <em>praktiske.</em></h2>
+  </div>
+  <div class="container">
+    <div class="practical-grid">
+      <div class="practical-cell">
+        <div class="practical-label">Når</div>
+        <div class="practical-value"><em>26.–28. mai 2026</em></div>
+        <p class="practical-detail">Tirsdag, onsdag og torsdag. Kl. 19–21 norsk tid hver kveld.</p>
       </div>
-      <div class="transform-row">
-        <div class="transform-from">Hopper fra idé til idé</div>
-        <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">Ett klart system</div>
+      <div class="practical-cell">
+        <div class="practical-label">Hvor</div>
+        <div class="practical-value">Live på <em>Zoom</em></div>
+        <p class="practical-detail">Hjemmefra, med kaffekoppen og notatboka klar. Lenke kommer på e-post når du har sikret plassen.</p>
       </div>
-      <div class="transform-row">
-        <div class="transform-from">Selger kunnskap</div>
-        <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">Selger transformasjon</div>
-      </div>
-      <div class="transform-row">
-        <div class="transform-from">Hustler alene</div>
-        <div class="transform-arrow">&rarr;</div>
-        <div class="transform-to">AI gjør 80%, du gjør 20%</div>
+      <div class="practical-cell">
+        <div class="practical-label">Pris</div>
+        <div class="practical-value"><em>Gratis</em> å delta</div>
+        <p class="practical-detail">Du melder deg på under, og får bekreftelse på e-post med en gang. Ingen skjulte kostnader.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SIGN-UP -->
+<section class="signup-section" id="signup">
+  <div class="container signup-grid">
+    <div class="signup-left">
+      <span class="eyebrow">Sikre plassen din</span>
+      <h2 class="signup-headline">Bli med — <em>helt gratis.</em></h2>
+      <p class="signup-lede">Skriv inn navn og e-post under, så lander bekreftelsen i innboksen din innen et minutt. Du får lenke til alle tre kveldene og et lite forberedende notat dagen før vi starter.</p>
+      <div class="signup-meta">
+        <span>26.–28. mai</span>
+        <span>19–21 hver kveld</span>
+        <span>Live på Zoom</span>
+      </div>
+    </div>
+
+    <aside class="signup-card" aria-labelledby="signup-title">
+      <span class="signup-card-flag">Gratis</span>
+      <span class="signup-card-eyebrow">Siste steg</span>
+      <h3 class="signup-card-title" id="signup-title">Sikre din <em>gratis</em> plass.</h3>
+      <p class="signup-card-lede">Sjekk at navn og e-post stemmer og trykk på knappen — så vil du motta bekreftelse og lenken til alle livesendingene på e-post.</p>
+
+      <form id="signup-form" class="hc-kajabi-form"
+            data-kajabi-form-id="2149575768"
+            data-redirect-url="/150k-takk-altB/">
+        <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
+        <input type="email" name="email" placeholder="E-post" required autocomplete="email">
+        <button type="submit">Sikre plassen min →</button>
+        <div class="form-message" data-form-message></div>
+      </form>
+
+      <p class="signup-card-fineprint">Ved å melde deg på godtar du å motta e-post om challengen og relatert innhold. Du kan melde deg av når som helst.</p>
+
+      <div class="kajabi-hidden-wrap" aria-hidden="true">
+        <script src="https://www.hegechristine.no/forms/2149575768/embed.js"></script>
+      </div>
+      <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
+    </aside>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="section bg-cream">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
+<section class="about-section">
   <div class="container">
-    <div class="about-card">
+    <div class="about-grid">
       <div class="about-photo">
-        <img src="hege-portrait.webp" alt="Hege Christine" width="220" height="220" loading="lazy">
+        <img src="hege-portrait.webp" alt="Hege Christine" width="280" height="280" loading="lazy">
       </div>
-      <div class="about-content">
-        <div class="about-card-meta">Møt kursholderen din</div>
-        <h3 class="about-card-name">Hege <em>Christine</em></h3>
-        <p class="about-tagline">Hjelper digitale gründere med å bygge smartere businesser.</p>
+      <div class="about-body">
+        <div class="about-mast">
+          <div class="about-byline">— Møt mentoren din —</div>
+          <h2 class="about-name">Hege <em>Christine</em></h2>
+          <p class="about-role">Hjelper digitale gründere med å bygge smartere businesser.</p>
+        </div>
 
-<p>Er det én ting jeg ser hos nesten alle som ikke får til å skalere kunnskapsbusinessen sin, så er det at de prøver å gjøre mer av det samme. De låser seg fast. Jobber i businessen fremfor på den. Levere flere timer. Ta inn flere klienter. Lage flere produkter. Bygge enda et kurs. Prøve å nå alle. Og ender opp utbrente og fortvilte.</p>
+        <p>Er det én ting jeg ser hos nesten alle som ikke får til å skalere kunnskapsbusinessen sin, så er det at de prøver å gjøre mer av det samme. De låser seg fast. Jobber i businessen fremfor på den. Levere flere timer. Ta inn flere klienter. Lage flere produkter. Bygge enda et kurs. Prøve å nå alle. Og ender opp utbrente og fortvilte.</p>
 
         <p>I seks år har jeg jobbet med <strong>hundrevis av norske gründere</strong> — fra dem som så vidt har startet, til dem som omsetter for flere millioner. Det som skiller dem som lykkes fra dem som ikke gjør det, er ikke hvor lenge de har holdt på. Det er ikke engang hvor mye de kan. Det er hvordan de har bygget businessen rundt kunnskapen sin.</p>
 
@@ -1691,100 +1143,24 @@ body {
 
         <p class="about-quote">Det er ikke kunnskapen din det er noe feil med. Det er businessmodellen.</p>
 
-        <p>Det er det vi fikser på 3 dager.</p>
-
-        <p class="about-signature">— Hege Christine</p>
+        <p>Det er det vi fikser på tre dager.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- DAYS -->
-<section class="section bg-ink">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
-  <div class="container">
-    <div class="section-head section-head--left section-head--w-days">
-      <span class="eyebrow days-eyebrow">3 dager</span>
-    </div>
-    <div class="day-list">
-      <div class="day-item">
-        <span class="day-num">DAG 01</span>
-        <div>
-          <h3 class="day-title">Den perfekte businessmodellen</h3>
-          <p class="day-desc">Du tror kanskje du må ha tusenvis av følgere for å komme i nærheten av 150K-måneder. Du må ikke det. Vi går rett inn i hva som faktisk drar businessen din videre — og det er noe helt annet enn å jakte leads. Når dagen er over, vet du hvilken business du vil drive, og hvem du bygger den for.</p>
-        </div>
-      </div>
-      <div class="day-item">
-        <span class="day-num">DAG 02</span>
-        <div>
-          <h3 class="day-title">Produktene du kunne tatt 10X for</h3>
-          <p class="day-desc">Du har sannsynligvis tenkt at du tar for lite betalt, men aldri turt å si det høyt. Vi ser på hvorfor de fleste underpriser — og hvordan du pakker tilbudet ditt så det speiler transformasjonen du leverer, ikke timene du legger ned. Etter dagen tør du å si pris høyt — og stå for den.</p>
-        </div>
-      </div>
-      <div class="day-item">
-        <span class="day-num">DAG 03</span>
-        <div>
-          <h3 class="day-title">Selg og markedsfør på autopilot</h3>
-          <p class="day-desc">Du er nok skikkelig lei av å produsere innhold som om livet stod på det. Det skal du slippe. På dag 3 setter vi opp flyten som lar AI ta 80 prosent av jobben — research, struktur, utkast, sparring — så du står igjen med strategien, valgene og stemmen. Du går ut med en plan klar til mandag morgen.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WALKAWAY — Dette går du ut med -->
-<section class="section bg-sand">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
-  <div class="container">
-    <div class="section-head section-head--left section-head--w-who">
-      <span class="eyebrow">Dette går du ut med</span>
-      <h2 class="section-title">Etter 3 dager <em>har du.</em></h2>
-    </div>
-    <ul class="who-list">
-      <li>Klarhet i <strong>hvilken business du vil drive</strong> — så du slipper å gjette på neste trekk.</li>
-      <li>Et tilbud priset og pakket sånn at <strong>du tør å si pris høyt</strong> — uten å føle deg usikker hver gang.</li>
-      <li>En plan for salg og markedsføring som <strong>faktisk går av seg selv</strong> — så du slipper å være på fjorten timer i døgnet.</li>
-      <li>AI som tar de <strong>80 prosentene som tapper deg</strong> — så du står igjen med de tjue som faktisk teller.</li>
-      <li>Roen i å vite at du har <strong>ett system som virker</strong>. Ikke flere ideer, ikke flere lanseringer. Bare ett system.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- WHO IS THIS FOR -->
-<section class="section bg-sage">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
-  <div class="container">
-    <div class="section-head section-head--left section-head--w-who">
-      <span class="eyebrow">Hvem dette er for</span>
-      <h2 class="section-title">Kjenner du deg <em>igjen?</em></h2>
-    </div>
-    <ul class="who-list">
-      <li>Du er ekspert, fagperson, foredragsholder, terapeut eller coach — og vil tjene mer på det du allerede kan.</li>
-      <li>Du selger timene dine i dag, og vet at det ikke skalerer i lengden.</li>
-      <li>Du har en fysisk bedrift og vurderer å bygge en digital sidegren rundt kunnskapen.</li>
-      <li>Du har ikke startet ennå, men vet hva du vil levere — og vil bygge riktig fra start.</li>
-      <li>Du er ferdig med å gjette på neste trekk og vil ha en strategi du faktisk kan stå for.</li>
-    </ul>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section bg-sage">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
+<section class="faq-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Det du lurer på —</span>
+    <h2 class="section-title">Spørsmål som <em>pleier</em> å komme.</h2>
+  </div>
   <div class="container">
-    <div class="section-head section-head--left">
-      <span class="eyebrow">Spørsmål du kanskje har</span>
-      <h2 class="section-title">Det du <em>lurer</em> på</h2>
-    </div>
     <div class="faq-list">
 
       <details class="faq-item">
         <summary class="faq-q">Funker dette uansett om jeg er ny eller etablert?</summary>
-        <p class="faq-a">Ja. De fleste jeg jobber med har en etablert business som har vokst gradvis og nå sliter med å skalere fordi strukturen ikke henger sammen lenger — der går vi rett inn i hva som holder businessen tilbake. For deg som akkurat har startet, er det enklere å bygge riktig fra start enn å rydde opp senere. Vi tegner opp hele bildet før du begynner å levere.</p>
+        <p class="faq-a">Ja. De fleste jeg jobber med har en etablert business som har vokst gradvis og nå sliter med å skalere fordi strukturen ikke henger sammen lenger. Der går vi rett inn i hva som holder businessen tilbake. For deg som akkurat har startet, er det enklere å bygge riktig fra start enn å rydde opp senere.</p>
       </details>
 
       <details class="faq-item">
@@ -1794,7 +1170,7 @@ body {
 
       <details class="faq-item">
         <summary class="faq-q">Jeg har vært på lignende ting før, og det førte ingen vei. Hva er annerledes her?</summary>
-        <p class="faq-a">Forskjellen er at vi ikke jobber med inspirasjon. De tre dagene er strukturert som et arbeidsmøte med deg selv og businessen din — du går ut med tilbud, produkter og en plan tegnet ned, ikke en notatblokk full av ideer. Det betyr at du faktisk har noe å gjøre når mandagen kommer.</p>
+        <p class="faq-a">Forskjellen er at vi ikke jobber med inspirasjon. De tre dagene er strukturert som et arbeidsmøte med deg selv og businessen din. Du går ut med tilbud, produkter og en plan tegnet ned — ikke en notatblokk full av ideer. Det betyr at du faktisk har noe å gjøre når mandagen kommer.</p>
       </details>
 
       <details class="faq-item">
@@ -1814,11 +1190,11 @@ body {
 
       <details class="faq-item">
         <summary class="faq-q">Kan du garantere 150K i måneden etter challengen?</summary>
-        <p class="faq-a">Nei. Et tall kan ingen garantere. Du får et rammeverk og strategier som funker — men jobben må du gjøre. Challengen er gratis, men å sette det ut i livet koster tid og innsats. Gjør du jobben, er det meste mulig.</p>
+        <p class="faq-a">Nei. Et tall kan ingen garantere. Du får et rammeverk og strategier som funker — men jobben må du gjøre. 150K er et eksempel på hva som er mulig, ikke et løfte til hver deltaker. Gjør du jobben, er det meste mulig.</p>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">Hvem passer ikke denne challengen for?</summary>
+        <summary class="faq-q">Hvem passer denne challengen ikke for?</summary>
         <p class="faq-a">For deg som ikke har lyst til å se nærmere på hva som faktisk holder businessen din tilbake. For deg som leter etter en snarvei. Og for deg som tror at det å jobbe mer er svaret på alt. Da har vi ikke det samme målet — og det er helt greit.</p>
       </details>
 
@@ -1827,57 +1203,24 @@ body {
 </section>
 
 <!-- FINAL CTA -->
-<section class="section bg-ink final">
-  <div class="section-corners"></div>
-  <div class="section-corners-bottom"></div>
+<section class="final-section">
   <div class="container">
-    <span class="eyebrow">Siste sjanse</span>
-    <h2>3 dager. Et system.<br><em>En business som lønner seg.</em></h2>
-    <p class="final-ps"><span class="final-ps-label">P.S.</span>Du vet det allerede. Du har gått og kjent på det en stund. At det du gjør nå ikke bærer videre — og at det å bare jobbe enda mer ikke er løsningen.</p>
+    <span class="eyebrow center">— P.S. —</span>
+    <h2 class="final-headline">Tre kvelder kan endre <em>hele</em> 2026 for businessen din.</h2>
+    <p class="final-ps">Du vet det allerede. Du har gått og kjent på det en stund. At det du gjør nå ikke bærer videre — og at det å bare jobbe enda mer ikke er løsningen.</p>
     <p class="final-ps">Tenk deg at du sitter her om tre måneder med <em>ett system som drar businessen videre</em> — også når du tar fri. Et tilbud kundene faktisk vil ha. AI som tar det repetitive. Tid til å leve livet, ikke bare drive det.</p>
     <p class="final-ps">Det er det vi bygger på tre kvelder. Og det koster deg ingenting.</p>
-    <a href="#signup" class="cta-primary">Sikre min plass</a>
-    <div class="final-meta">26.–28. mai 2026 · Live på Zoom</div>
-
-    <div class="final-countdown" role="timer" aria-label="Nedtelling til challengen starter">
-      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="days">25</div><div class="final-countdown-label">Dager</div></div>
-      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="hours">18</div><div class="final-countdown-label">Timer</div></div>
-      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="mins">52</div><div class="final-countdown-label">Min</div></div>
-      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="secs">33</div><div class="final-countdown-label">Sek</div></div>
-    </div>
+    <a href="#signup" class="final-cta">Sikre min plass nå →</a>
+    <div class="final-meta">26.–28. mai 2026 · Live på Zoom · Gratis</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-top">
-      <div>
-        <a href="https://www.hegechristine.no/" class="footer-brand-name">Hege<em>Christine</em></a>
-        <p class="footer-tagline">Online business strategist og mentor for digitale grundere. Hjelper deg bygge en smart, kunnskapsbasert business du lever godt av og med.</p>
-      </div>
-
-      <div>
-        <div class="footer-col-label">Følg meg</div>
-        <ul class="footer-links">
-          <li><a href="https://www.instagram.com/hegechristine.no" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/hegechristine.no" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="https://www.linkedin.com/in/hegechristine/" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-col-label">Info</div>
-        <ul class="footer-links">
-          <li><a href="https://www.hegechristine.no/pages/personvern" target="_blank" rel="noopener">Personvernpolicy</a></li>
-          <li><a href="https://www.hegechristine.no/pages/cookieerklaering" target="_blank" rel="noopener">Cookieerklæring</a></li>
-          <li><a href="https://www.hegechristine.no/pages/salgsbetingelser" target="_blank" rel="noopener">Salgsbetingelser</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Hege Christine</span>
+    <div class="footer-row">
+      <span class="footer-brand">Hege Christine</span>
+      <span class="footer-meta">© 2026 — 150K Challenge</span>
       <a href="#" id="disclaimer-trigger" class="footer-disclaimer-link">Inntektsforbehold</a>
     </div>
   </div>
@@ -1888,7 +1231,7 @@ body {
   <div class="modal">
     <button class="modal-close" id="disclaimer-close" aria-label="Lukk">×</button>
     <div class="modal-eyebrow">Inntektsforbehold</div>
-    <h2 id="disclaimer-title">Du får <em style="font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--rust);">oppskriften.</em> Resultatet er opp til deg.</h2>
+    <h2 id="disclaimer-title">Du får <em style="font-style:italic;font-weight:500;color:var(--rust);">oppskriften.</em> Resultatet er opp til deg.</h2>
     <p>Det du får i denne challengen er <strong>et komplett system</strong> — oppskriften på hvordan du bygger en business som faktisk lønner seg rundt kunnskapen din. Den funker.</p>
     <p>Men jeg jobber ikke for deg. Jeg gir ingen garantier på spesifikke inntektsnivåer, fordi det avhenger av hva du gjør med det jeg viser deg.</p>
     <p>150K-tallet er et eksempel på hva som er mulig — ikke et løfte til hver enkelt deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
@@ -1910,7 +1253,6 @@ body {
     const successMessage = customForm.getAttribute('data-success-message')
       || '✓ Takk! Du er på listen.';
 
-    // Forhåndsutfyll fra URL-params (?name=...&email=...) hvis brukeren kom fra opt-in
     try {
       const params = new URLSearchParams(window.location.search);
       const prefName = params.get('name');
@@ -1923,7 +1265,7 @@ body {
         const emailField = customForm.querySelector('input[name="email"]');
         if (emailField && !emailField.value) emailField.value = prefEmail;
       }
-    } catch (e) { /* ignore */ }
+    } catch (e) {}
 
     function setMessage(text, state) {
       if (!message) return;
@@ -1932,14 +1274,12 @@ body {
     }
 
     function findKajabiForm() {
-      return document.querySelector('#kajabi-form form, .kajabi-hidden-wrap form');
+      return document.querySelector('.kajabi-hidden-wrap form');
     }
 
     customForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
       const kajabiForm = findKajabiForm();
-
       if (!kajabiForm) {
         setMessage('Skjemaet laster fortsatt — prøv igjen om et øyeblikk.', 'error');
         return;
@@ -1971,7 +1311,6 @@ body {
 
       try {
         kajabiForm.submit();
-
         setTimeout(function() {
           if (redirectUrl) {
             window.location.href = redirectUrl;
@@ -2023,50 +1362,6 @@ body {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
     });
   })();
-</script>
-
-<!-- SCROLL FADE-IN -->
-<script>
-  (function() {
-    if (!('IntersectionObserver' in window)) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    // Marker alle seksjoner under hero som .reveal
-    const sections = document.querySelectorAll('section.section:not(.hero), .marquee-strip');
-    sections.forEach(s => s.classList.add('reveal'));
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-    sections.forEach(s => io.observe(s));
-  })();
-</script>
-
-<!-- COUNTDOWN -->
-<script>
-(function () {
-  const target = new Date('2026-05-26T19:00:00+02:00').getTime();
-  function tick() {
-    const now = Date.now();
-    let diff = Math.max(0, target - now);
-    const days = Math.floor(diff / 86400000); diff -= days * 86400000;
-    const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
-    const mins = Math.floor(diff / 60000); diff -= mins * 60000;
-    const secs = Math.floor(diff / 1000);
-    document.querySelectorAll('[data-cd="days"]').forEach(e => e.textContent = String(days).padStart(2,'0'));
-    document.querySelectorAll('[data-cd="hours"]').forEach(e => e.textContent = String(hours).padStart(2,'0'));
-    document.querySelectorAll('[data-cd="mins"]').forEach(e => e.textContent = String(mins).padStart(2,'0'));
-    document.querySelectorAll('[data-cd="secs"]').forEach(e => e.textContent = String(secs).padStart(2,'0'));
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
 </script>
 
 <script defer src="/edit.js"></script>
