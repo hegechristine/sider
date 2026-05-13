@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<title>5-dagers Premium-Tilbud Challenge — Hege Christine</title>
+<meta name="description" content="Bygg ett uimotståelig premium-tilbud på 5 dager. Live challenge med Hege Christine, 8.–12. juni 2026.">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"></noscript>
+
+<style>
+:root {
+  --cream: #EFE6D4;
+  --ink: #2E3230;
+  --rust: #C5522C;
+  --sand: #F0D9A8;
+  --olive: #5E5F4C;
+
+  --line: rgba(46, 50, 48, 0.16);
+  --line-strong: rgba(46, 50, 48, 0.4);
+  --muted: rgba(46, 50, 48, 0.55);
+
+  --col-12: 1240px;
+  --col-10: 1033px;
+  --col-8: 827px;
+  --col-6: 620px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px;
+}
+
+.container { width: min(var(--col-12), calc(100% - 56px)); margin: 0 auto; }
+.container-8 { width: min(var(--col-8), calc(100% - 56px)); margin: 0 auto; }
+.container-10 { width: min(var(--col-10), calc(100% - 56px)); margin: 0 auto; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ===== HEADER ===== */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+.header-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.logo-mark {
+  width: 34px; height: 34px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px; line-height: 1;
+}
+.logo-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 500; font-size: 18px;
+  letter-spacing: -0.005em;
+}
+.logo-name em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+.header-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+  text-align: center;
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+}
+.header-date-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
+
+.header-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 18px;
+  background: var(--rust);
+  color: var(--cream);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.header-cta:hover { background: var(--ink); transform: translateY(-1px); }
+
+@media (max-width: 760px) {
+  .header-row { gap: 12px; }
+  .header-date { display: none; }
+  .logo-name { font-size: 16px; }
+}
+
+/* ===== MASTHEAD ===== */
+.masthead {
+  border-bottom: 1px solid var(--line-strong);
+  padding: 18px 0 14px;
+  margin-top: 24px;
+}
+.masthead-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: baseline; gap: 24px;
+}
+.masthead-edition, .masthead-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.masthead-date { text-align: right; }
+.masthead-title {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: 20px; color: var(--ink);
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .masthead-grid { grid-template-columns: 1fr; gap: 6px; text-align: left; }
+  .masthead-title, .masthead-date { text-align: left; }
+}
+
+/* ===== EYEBROW ===== */
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--rust);
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before {
+  content: ""; width: 36px; height: 1.5px;
+  background: currentColor; display: inline-block;
+}
+.eyebrow.center { justify-content: center; }
+
+/* ===== HERO ===== */
+.hero { padding: 64px 0 96px; background: var(--cream); }
+.hero-eyebrow-strip {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 10px 18px;
+  background: var(--ink); color: var(--cream);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 600;
+  margin-bottom: 28px;
+}
+.hero-eyebrow-strip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
+
+.hero-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 6.4vw, 84px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 28px;
+  max-width: 22ch;
+}
+.hero-headline em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 64px; align-items: start;
+}
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.hero-pitch p {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 52ch;
+  margin-bottom: 18px;
+}
+.hero-pitch p:last-of-type { margin-bottom: 32px; }
+.hero-pitch p em { font-style: italic; color: var(--rust); font-weight: 500; }
+.hero-pitch p strong { font-weight: 600; }
+
+.hero-date-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 16px 22px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--sand);
+}
+.hero-date-line strong { color: var(--rust); }
+
+.hero-video {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--rust);
+  aspect-ratio: 4/3;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-video-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(94,95,76,0.9), rgba(46,50,48,0.95));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--cream);
+  padding: 32px;
+  text-align: center;
+}
+.video-play-btn {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--rust);
+  border: 2px solid var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.video-play-btn:hover { transform: scale(1.06); }
+.video-play-btn svg { width: 28px; height: 28px; fill: var(--cream); margin-left: 4px; }
+.video-caption {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--cream);
+  max-width: 28ch;
+  line-height: 1.4;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 32px;
+  background: var(--rust);
+  color: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-ghost:hover { background: var(--ink); color: var(--cream); }
+
+/* ===== LOGO STRIP ===== */
+.logo-strip {
+  padding: 28px 0;
+  background: var(--ink);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  color: rgba(239,230,212,0.8);
+}
+.logo-strip-inner {
+  display: flex; gap: 36px; align-items: center; justify-content: center;
+  flex-wrap: wrap;
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 18px;
+}
+.logo-strip-inner .dot { color: var(--rust); font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+
+/* ===== SECTION HEADS ===== */
+.section { padding: 96px 0; }
+.section-head {
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: var(--col-8);
+  margin-left: auto; margin-right: auto;
+}
+.section-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 22ch;
+  margin: 18px auto 0;
+}
+.section-title em { font-style: italic; color: var(--rust); font-weight: 500; }
+.section-sub {
+  font-family: 'Newsreader', serif;
+  font-size: 19px;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+/* ===== 5 DAYS ===== */
+.days-section { background: var(--cream); }
+.days-list {
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.day-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 56px;
+  padding: 44px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.day-item:last-child { border-bottom: 1px solid var(--line); }
+.day-num {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(64px, 8vw, 120px);
+  line-height: 0.85;
+  color: var(--rust);
+}
+.day-num small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 12px;
+  font-weight: 500;
+}
+.day-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 16px;
+  max-width: 24ch;
+}
+.day-title em { font-style: italic; color: var(--rust); font-weight: 500; }
+.day-desc {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 60ch;
+}
+.day-desc strong { font-weight: 600; }
+
+@media (max-width: 760px) {
+  .day-item { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
+  .day-num { font-size: 84px; }
+}
+
+/* ===== WALK AWAY (sand) ===== */
+.walkaway-section { background: var(--sand); border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+.walkaway-list {
+  max-width: var(--col-8);
+  margin: 0 auto;
+  display: flex; flex-direction: column;
+  list-style: none;
+}
+.walkaway-list li {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(19px, 1.9vw, 24px);
+  line-height: 1.4;
+  color: var(--ink);
+  padding: 24px 0;
+  border-top: 1px solid rgba(46,50,48,0.2);
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+.walkaway-list li:last-child { border-bottom: 1px solid rgba(46,50,48,0.2); }
+.walkaway-list li::before {
+  content: "✓";
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rust);
+  background: var(--cream);
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+}
+.walkaway-list li em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+/* ===== HOW IT WORKS (olive) ===== */
+.how-section { background: var(--olive); color: var(--cream); }
+.how-section .section-head .eyebrow { color: var(--sand); }
+.how-section .section-head .eyebrow::before { background: var(--sand); }
+.how-section .section-title { color: var(--cream); }
+.how-section .section-title em { color: var(--sand); }
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.how-cell {
+  border-top: 2px solid var(--sand);
+  padding-top: 20px;
+}
+.how-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 12px;
+}
+.how-value {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.how-value em { font-style: italic; color: var(--sand); font-weight: 500; }
+.how-detail {
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(239,230,212,0.8);
+}
+
+@media (max-width: 760px) {
+  .how-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ===== LIMITED SPOTS ===== */
+.spots-section { background: var(--cream); }
+.spots-card {
+  max-width: var(--col-8);
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 48px;
+  box-shadow: 8px 8px 0 var(--rust);
+}
+.spots-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 18px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.spots-eyebrow::before { content: "🔒"; font-family: 'Archivo', sans-serif; }
+.spots-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.spots-title em { font-style: italic; color: var(--rust); font-weight: 500; }
+.spots-body {
+  font-family: 'Newsreader', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.spots-body em { font-style: italic; color: var(--rust); font-weight: 500; }
+.spots-body strong { font-weight: 600; }
+
+.spots-kicker {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--rust);
+  margin: 24px 0;
+  padding: 14px 18px;
+  background: var(--sand);
+  border-left: 3px solid var(--rust);
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  max-width: 540px;
+}
+.countdown-cell {
+  text-align: center;
+  padding: 14px 8px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: var(--cream);
+}
+.countdown-num {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1;
+  color: var(--ink);
+}
+.countdown-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ===== BONUS ===== */
+.bonus-section { background: var(--ink); color: var(--cream); }
+.bonus-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 56px;
+  max-width: var(--col-10);
+  margin: 0 auto;
+  align-items: center;
+}
+.bonus-visual {
+  background: var(--sand);
+  color: var(--ink);
+  padding: 32px 24px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1.5px solid var(--cream);
+  box-shadow: 6px 6px 0 var(--rust);
+}
+.bonus-visual-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 8px;
+}
+.bonus-visual-amount {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.bonus-visual-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.bonus-content { padding-top: 0; }
+.bonus-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 16px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.bonus-eyebrow::before { content: "🎁"; font-family: 'Archivo', sans-serif; }
+.bonus-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+.bonus-title em { font-style: italic; color: var(--sand); font-weight: 500; }
+.bonus-text {
+  font-family: 'Newsreader', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(239,230,212,0.85);
+  margin-bottom: 12px;
+}
+.bonus-text strong { color: var(--cream); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .bonus-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ===== TIERS ===== */
+.tiers-section { background: var(--cream); }
+.tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.tier-card {
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 36px;
+  position: relative;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.tier-card.featured {
+  background: var(--sand);
+  box-shadow: 6px 6px 0 var(--rust);
+}
+.tier-flag {
+  position: absolute;
+  top: -14px; left: 24px;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 6px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 999px;
+}
+.tier-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 12px;
+}
+.tier-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.tier-name em { font-style: italic; color: var(--rust); font-weight: 500; }
+.tier-price {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--ink);
+  margin: 16px 0 8px;
+}
+.tier-price-detail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.tier-includes-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.tier-list { list-style: none; margin-bottom: 28px; }
+.tier-list li {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 12px 0;
+  border-top: 1px solid rgba(46,50,48,0.18);
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.tier-list li::before {
+  content: "✓";
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--rust);
+}
+.tier-list li strong { font-weight: 600; }
+.tier-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 16px 24px;
+  background: var(--ink);
+  color: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.tier-cta:hover { background: var(--rust); border-color: var(--rust); }
+.tier-card.featured .tier-cta { background: var(--rust); border-color: var(--rust); }
+.tier-card.featured .tier-cta:hover { background: var(--ink); border-color: var(--ink); }
+
+@media (max-width: 760px) {
+  .tiers-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ===== MENTOR (about) ===== */
+.mentor-section { background: var(--olive); color: var(--cream); }
+.mentor-section .section-head .eyebrow { color: var(--sand); }
+.mentor-section .section-head .eyebrow::before { background: var(--sand); }
+.mentor-section .section-title { color: var(--cream); }
+.mentor-section .section-title em { color: var(--sand); }
+.mentor-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 56px;
+  max-width: var(--col-10);
+  margin: 0 auto;
+  align-items: start;
+}
+.mentor-photo img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1.5px solid var(--cream);
+  box-shadow: 6px 6px 0 var(--rust);
+}
+.mentor-content p {
+  font-family: 'Newsreader', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--cream);
+  margin-bottom: 18px;
+}
+.mentor-content p:last-child { margin-bottom: 0; }
+.mentor-content p strong { font-weight: 600; color: var(--sand); }
+.mentor-content p em { font-style: italic; color: var(--sand); font-weight: 500; }
+
+@media (max-width: 760px) {
+  .mentor-grid { grid-template-columns: 1fr; gap: 32px; }
+  .mentor-photo { max-width: 240px; }
+}
+
+/* ===== FAQ ===== */
+.faq-section { background: var(--cream); }
+.faq-list {
+  max-width: var(--col-8);
+  margin: 0 auto;
+}
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q {
+  cursor: pointer;
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(19px, 2vw, 23px);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  padding: 26px 0;
+  list-style: none;
+  display: flex; justify-content: space-between; gap: 24px; align-items: baseline;
+  transition: color 0.2s;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q:hover { color: var(--rust); }
+.faq-q::after {
+  content: "+";
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--rust);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  padding: 0 0 26px;
+  max-width: 65ch;
+}
+
+/* ===== FINAL CTA ===== */
+.final-section {
+  background: var(--rust);
+  color: var(--cream);
+  text-align: center;
+  padding: 120px 0;
+}
+.final-section .eyebrow { color: var(--sand); justify-content: center; }
+.final-section .eyebrow::before { background: var(--sand); }
+.final-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 6.5vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  max-width: 18ch;
+  margin: 24px auto 24px;
+}
+.final-headline em { font-style: italic; color: var(--sand); font-weight: 500; }
+.final-sub {
+  font-family: 'Newsreader', serif;
+  font-size: 19px;
+  line-height: 1.55;
+  color: rgba(239,230,212,0.9);
+  max-width: 56ch;
+  margin: 0 auto 36px;
+}
+.final-sub em { font-style: italic; color: var(--sand); font-weight: 500; }
+.final-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 20px 32px;
+  background: var(--cream);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.final-cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.final-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 540px;
+  margin: 40px auto 0;
+}
+.final-countdown .countdown-cell { background: rgba(46,50,48,0.25); border-color: var(--cream); color: var(--cream); }
+.final-countdown .countdown-num { color: var(--cream); }
+.final-countdown .countdown-label { color: rgba(239,230,212,0.7); }
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 40px 0;
+  background: var(--ink);
+  color: rgba(239,230,212,0.7);
+}
+.footer-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--cream);
+}
+.footer-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.footer-disclaimer {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(239,230,212,0.55);
+  margin-top: 18px;
+  max-width: 70ch;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo">
+      <span class="logo-mark">H<em style="font-style:italic;color:var(--rust);">C</em></span>
+      <span class="logo-name">Hege <em>Christine</em></span>
+    </a>
+    <span class="header-date"><span class="header-date-dot"></span>8.–12. juni 2026 · Live på Zoom</span>
+    <a href="#tiers" class="header-cta">Sikre plassen min →</a>
+  </div>
+</header>
+
+<!-- MASTHEAD -->
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-grid">
+      <div class="masthead-edition">Utgave Nr. 02 — Juni 2026</div>
+      <div class="masthead-title">5-dagers Premium-Tilbud Challenge</div>
+      <div class="masthead-date">Live på Zoom · 8.–12. juni</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow-strip"><span class="dot"></span>Live 5-dagers Challenge · 8.–12. juni 2026</span>
+    <h1 class="hero-headline">Den ekte grunnen til at du jobber for mye for inntekten din <em>(og hvordan du fikser det på 5 dager).</em></h1>
+
+    <div class="hero-grid">
+      <div class="hero-pitch">
+        <p>De fleste coacher, eksperter og digitale gründere tror de trenger flere leads, mer innhold og flere funnels for å vokse.</p>
+
+        <p><strong>Sannheten?</strong> Du kan tjene mye mer på færre kunder ved å fokusere på <em>ett premium-tilbud</em> du selger på en enkel måte.</p>
+
+        <p>På 5 dager bygger vi sammen ett uimotståelig premium-tilbud — og en enkel måte å selge det på — slik at du realistisk kan 2x, 5x, til og med 10x inntekten din over tid, uten å legge på flere timer i uka.</p>
+
+        <span class="hero-date-line"><strong>📅 Dato:</strong> 8.–12. juni 2026</span>
+      </div>
+
+      <div class="hero-video" aria-hidden="true">
+        <div class="hero-video-placeholder">
+          <button class="video-play-btn" aria-label="Spill av introduksjonsvideo" type="button">
+            <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20"/></svg>
+          </button>
+          <p class="video-caption">3 minutter med Hege Christine om hvorfor premium-tilbud er den enkleste hevarmen i 2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<section class="logo-strip" aria-hidden="true">
+  <div class="container logo-strip-inner">
+    <span>For coacher</span>
+    <span class="dot">+</span>
+    <span>eksperter</span>
+    <span class="dot">+</span>
+    <span>fagpersoner</span>
+    <span class="dot">+</span>
+    <span>kursskapere</span>
+    <span class="dot">+</span>
+    <span>terapeuter</span>
+    <span class="dot">+</span>
+    <span>rådgivere</span>
+  </div>
+</section>
+
+<!-- 5 DAYS -->
+<section class="section days-section">
+  <div class="section-head">
+    <span class="eyebrow center">— På 5 dager lærer du —</span>
+    <h2 class="section-title">Dette får du <em>med deg.</em></h2>
+  </div>
+
+  <div class="container">
+    <div class="days-list">
+
+      <article class="day-item">
+        <div class="day-num">01<small>Dag 1 · 8. juni</small></div>
+        <div>
+          <h3 class="day-title">Vitenskapen bak <em>skalering</em>.</h3>
+          <p class="day-desc">Vi avdekker tallene og prinsippene som gjør 150K-måneder mulig — selv om publikumet ditt er lite. Du lærer <strong>64/4-regelen</strong> og ser nøyaktig hvordan færre, bedre kunder gir vekst uten å brenne ut.</p>
+        </div>
+      </article>
+
+      <article class="day-item">
+        <div class="day-num">02<small>Dag 2 · 9. juni</small></div>
+        <div>
+          <h3 class="day-title">Bygg et tilbud kundene <em>ikke kan si nei til</em>.</h3>
+          <p class="day-desc">Lær hvordan du designer et premium-tilbud som er så klart og treffsikkert at drømmekundene dine føler seg heldige som får sagt ja. Du jobber gjennom <strong>MAGIC-rammeverket</strong> — så tilbudene dine selger seg selv før du engang åpner munnen.</p>
+        </div>
+      </article>
+
+      <article class="day-item">
+        <div class="day-num">03<small>Dag 3 · 10. juni</small></div>
+        <div>
+          <h3 class="day-title">Pris og pakk ditt <em>100K+ tilbud</em>.</h3>
+          <p class="day-desc">Du finner ut hva som skal med — og hva som skal kuttes — så du aldri trenger å føle deg usikker på prisen igjen. Du gir tilbudet navn, låser pris, anchorer det til ekte verdi, og skisserer hvordan du leverer resultatet. På slutten av dagen har du et komplett premium-tilbud klart til salg.</p>
+        </div>
+      </article>
+
+      <article class="day-item">
+        <div class="day-num">04<small>Dag 4 · 11. juni</small></div>
+        <div>
+          <h3 class="day-title">Selg <em>uten</em> salgskall eller funnels.</h3>
+          <p class="day-desc">Stopp å grue deg til pinlige salgskall, pushy taktikker eller kompliserte funnels. Du lærer hvordan du posisjonerer og presenterer premium-tilbudet ditt slik at de riktige kjøperne kommer til deg <em>klare til å si ja</em> — uten at du må jakte eller overbevise.</p>
+        </div>
+      </article>
+
+      <article class="day-item">
+        <div class="day-num">05<small>Dag 5 · 12. juni</small></div>
+        <div>
+          <h3 class="day-title">Lanser tilbudet <em>på autopilot</em>.</h3>
+          <p class="day-desc">Lær hvordan du plugger inn premium-tilbudet i den businessen du allerede har — slik at du kan skalere til 150K-måneder med mindre jobb og mer klarhet. Du ser nøyaktig hvordan du holder fokus, leverer resultater og bygger enkel momentum som får premium-kundene til å komme tilbake.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- WALK AWAY -->
+<section class="section walkaway-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Dette går du ut med —</span>
+    <h2 class="section-title">Etter 5 dager <em>har du.</em></h2>
+  </div>
+  <div class="container">
+    <ul class="walkaway-list">
+      <li><span>Et <em>premium-tilbud</em> du er stolt (og trygg) på å selge.</span></li>
+      <li><span>Klarhet i hva du skal ta betalt — og hvordan du posisjonerer det.</span></li>
+      <li><span>En enkel plan for å få inn <em>høyttbetalende kunder</em> — uten salgskall eller funnels.</span></li>
+      <li><span>Selvtillit til å skalere til 150K-måneder uten å brenne ut.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Slik funker det —</span>
+    <h2 class="section-title">Det <em>praktiske.</em></h2>
+  </div>
+  <div class="container">
+    <div class="how-grid">
+      <div class="how-cell">
+        <div class="how-label">Når</div>
+        <div class="how-value"><em>8.–12. juni 2026</em></div>
+        <p class="how-detail">Live mandag til fredag, kl. 19–21 (norsk tid). VIP starter en time tidligere kl. 18.</p>
+      </div>
+      <div class="how-cell">
+        <div class="how-label">Hvor</div>
+        <div class="how-value">Live på <em>Zoom</em></div>
+        <p class="how-detail">Du kan delta hvor som helst fra i verden — det eneste du trenger er en stabil nettlinje.</p>
+      </div>
+      <div class="how-cell">
+        <div class="how-label">For hvem</div>
+        <div class="how-value">Du som <em>selger kunnskap</em></div>
+        <p class="how-detail">Coacher, eksperter, fagpersoner og kursskapere som er klare for å ta betalt for verdien — og levere et resultat som faktisk teller.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIMITED SPOTS -->
+<section class="section spots-section">
+  <div class="container">
+    <div class="spots-card">
+      <span class="spots-eyebrow">Plassene er begrensede</span>
+      <h2 class="spots-title">Bare <em>50 VIP-plasser</em> tilgjengelig.</h2>
+      <p class="spots-body">VIP-billetten gir deg <strong>én time live Q&amp;A</strong> med meg før hver av de fem dagene — der du kan spørre om akkurat din business, ditt tilbud og din neste milepæl.</p>
+      <p class="spots-body">I tillegg får du <strong>opptak av alle live-sendingene</strong> så lenge challengen pågår, så du kan repetere det du har lært når det passer deg.</p>
+      <p class="spots-kicker">Men her kommer kickeren: det er bare <strong>50 VIP-billetter</strong>. Når de er tatt, er de tatt. Det er fordi jeg vil ha rom til å gi alle skikkelig oppmerksomhet i Q&amp;A-rundene.</p>
+
+      <div class="countdown" id="spots-countdown" role="timer" aria-label="Nedtelling til challengen starter">
+        <div class="countdown-cell"><div class="countdown-num" data-cd="days">25</div><div class="countdown-label">Dager</div></div>
+        <div class="countdown-cell"><div class="countdown-num" data-cd="hours">18</div><div class="countdown-label">Timer</div></div>
+        <div class="countdown-cell"><div class="countdown-num" data-cd="mins">52</div><div class="countdown-label">Min</div></div>
+        <div class="countdown-cell"><div class="countdown-num" data-cd="secs">33</div><div class="countdown-label">Sek</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="section bonus-section">
+  <div class="container">
+    <div class="bonus-grid">
+      <div class="bonus-visual">
+        <div class="bonus-visual-eyebrow">Bonus</div>
+        <div class="bonus-visual-amount">500K</div>
+        <div class="bonus-visual-label">Tilbudsmal</div>
+      </div>
+      <div class="bonus-content">
+        <span class="bonus-eyebrow">Bonus til alle som melder seg på</span>
+        <h2 class="bonus-title">Min <em>500 000 kr-tilbudsmal</em>.</h2>
+        <p class="bonus-text">Som takk for at du sikrer plassen din i challengen, gir jeg deg tilgang til <strong>nøyaktig den malen jeg selv har brukt</strong> for å lande premium-tilbud på over 500 000 kr.</p>
+        <p class="bonus-text">På toppen får du en <strong>videotrening</strong> der jeg bryter ned psykologien bak hvert eneste ord i malen, så du kan tilpasse den til dine egne tilbud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section tiers-section" id="tiers">
+  <div class="section-head">
+    <span class="eyebrow center">— Velg ditt nivå —</span>
+    <h2 class="section-title">To måter å være <em>med på.</em></h2>
+  </div>
+  <div class="container">
+    <div class="tiers-grid">
+
+      <article class="tier-card">
+        <span class="tier-eyebrow">General Admission</span>
+        <h3 class="tier-name">Med på alt det <em>live.</em></h3>
+        <div class="tier-price">997 kr</div>
+        <div class="tier-price-detail">Engangskjøp · MVA inkludert</div>
+
+        <div class="tier-includes-label">Inkluderer:</div>
+        <ul class="tier-list">
+          <li><span>Hele <strong>5-dagers challenge-opplevelsen</strong> live.</span></li>
+          <li><span>Live community under challengen.</span></li>
+          <li><span>Min <strong>500K Tilbudsmal</strong> + videotrening.</span></li>
+          <li><span>Tilgang til opptakene <em>så lenge challengen pågår</em>.</span></li>
+        </ul>
+
+        <a href="#" class="tier-cta">Sikre General-billett →</a>
+      </article>
+
+      <article class="tier-card featured">
+        <span class="tier-flag">Anbefalt</span>
+        <span class="tier-eyebrow">VIP Experience · Kun 50 plasser</span>
+        <h3 class="tier-name">Med tid <em>én-til-én</em> med meg.</h3>
+        <div class="tier-price">2 997 kr</div>
+        <div class="tier-price-detail">Engangskjøp · MVA inkludert</div>
+
+        <div class="tier-includes-label">Inkluderer alt i General — pluss:</div>
+        <ul class="tier-list">
+          <li><span><strong>1 time Q&amp;A med Hege Christine</strong> før hver av de 5 dagene (verdi 25 000 kr).</span></li>
+          <li><span>Hele 5-dagers challenge-opplevelsen live.</span></li>
+          <li><span>Live community under challengen.</span></li>
+          <li><span>Min <strong>500K Tilbudsmal</strong> + videotrening.</span></li>
+          <li><span>Tilgang til opptakene så lenge challengen pågår.</span></li>
+        </ul>
+
+        <a href="#" class="tier-cta">Sikre VIP-billett →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR / ABOUT -->
+<section class="section mentor-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Møt mentoren din —</span>
+    <h2 class="section-title">Hege <em>Christine.</em></h2>
+  </div>
+  <div class="container">
+    <div class="mentor-grid">
+      <div class="mentor-photo">
+        <img src="hege-portrait.webp" alt="Hege Christine" width="280" height="280" loading="lazy">
+      </div>
+      <div class="mentor-content">
+        <p>Hei, jeg er <strong>Hege Christine</strong> — businessmentor for digitale gründere i Norge. I seks år har jeg jobbet tett på <em>hundrevis av norske gründere</em> som lever av kunnskapen sin.</p>
+
+        <p>Det jeg har sett om og om igjen er at det ikke handler om hvor mye du kan, eller hvor lenge du har holdt på. Det handler om <strong>hvordan businessen din er bygget rundt kunnskapen</strong> — og om du selger den én time av gangen, eller pakket inn i ett premium-tilbud som faktisk speiler verdien du leverer.</p>
+
+        <p>Det viktigste prinsippet jeg har lært? <em>Premium-tilbud selges ikke som vanlige produkter.</em> Det selges på en helt annen måte. Når du først har ett tilbud som faktisk speiler verdien — og en enkel måte å selge det på — skifter alt.</p>
+
+        <p>Disse fem dagene viser jeg deg nøyaktig hvordan, så du kan bygge ditt eget premium-tilbud og skalere businessen din uten å brenne ut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-head">
+    <span class="eyebrow center">— Det du lurer på —</span>
+    <h2 class="section-title">Spørsmål som pleier å <em>komme.</em></h2>
+  </div>
+  <div class="container">
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">Får jeg virkelig bygget tilbudet på 5 dager?</summary>
+        <p class="faq-a">Ja. Jeg går steg for steg gjennom hvordan du gir tilbudet navn, priser det, posisjonerer det, og skisserer leveransen. På slutten av uka har du et premium-tilbud designet og klart til salg.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Må jeg ta salgskall?</summary>
+        <p class="faq-a">Nei. Jeg viser deg metoden jeg har brukt selv for å selge premium-tilbud uten 1:1-salgskall eller pushy taktikker.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hvem er challengen for?</summary>
+        <p class="faq-a">For deg som har en kunnskapsbasert business — coach, ekspert, fagperson, kursskaper, terapeut, rådgiver — og som er klar for å ta betalt for verdien du leverer. Du må ha et tilbud eller en tjeneste i dag, men du trenger ikke ha alt på plass.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hvem er challengen ikke for?</summary>
+        <p class="faq-a">For deg som leter etter en "shiny object" å legge i samlingen av kurs du aldri kommer til å gå gjennom. Hvis du er nysgjerrig på business, men ikke seriøs — ikke kast bort tid og penger.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hva koster det?</summary>
+        <p class="faq-a">Det er to nivåer å være med på. General Admission koster 997 kr og gir deg full tilgang til alle fem live-dagene, opptakene og bonusen. VIP Experience koster 2 997 kr og gir deg i tillegg én time live Q&amp;A med meg før hver dag — der jeg svarer på akkurat dine spørsmål om tilbudet ditt.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Er klassene live?</summary>
+        <p class="faq-a">Ja, alt foregår live. Klassene blir tatt opp, men opptakene er kun tilgjengelige <em>så lenge challengen pågår</em> — så du må enten være med live eller se opptakene innenfor uka.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hvordan fungerer 5-dagers challengen?</summary>
+        <p class="faq-a">Hver dag har vi én live-trening kl. 19–21 norsk tid. For VIP-deltakere starter vi en time tidligere, kl. 18, med en lukket Q&amp;A. På kvelden får du oppgaver du jobber med i ditt eget tempo, slik at du faktisk bygger noe — ikke bare lytter.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Får jeg direkte feedback fra Hege Christine?</summary>
+        <p class="faq-a">Det får du i Q&amp;A-rundene som er en del av VIP-billetten. Har du General Admission, er du med i den åpne live-treningen, men ikke i de lukkede Q&amp;A-rundene.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hva er VIP-billetten og hvor får jeg tak i en?</summary>
+        <p class="faq-a">VIP-billetten gir deg tilgang én time tidligere hver dag, der du kan stille spørsmål direkte til meg om din business og ditt tilbud. Det er <strong>kun 50 VIP-plasser</strong> per challenge, og de fordeles førstemann-til-mølla. Sikre VIP under "Velg ditt nivå" på denne siden.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Jeg har ikke en business ennå — kan jeg likevel være med?</summary>
+        <p class="faq-a">Ja, du er hjertelig velkommen. Vær obs på at jeg underviser prinsipper og rammeverk — jeg jobber ikke fra null. Hvis du planlegger å starte, kan challengen gi deg veldig god innsikt i hvordan du bygger riktig fra start.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-section">
+  <div class="container">
+    <span class="eyebrow center">— Slutt å gå glipp av pengene —</span>
+    <h2 class="final-headline">Slutt å la penger ligge <em>på bordet.</em></h2>
+    <p class="final-sub">Hver måned du blir sittende i lav-pris-modus, mister du tid og lar 2x, 5x — til og med 10x — av inntekten din ligge uavhentet. <em>Det er tilbudet ditt som mangler — ikke flere timer.</em></p>
+    <a href="#tiers" class="final-cta">Sikre min plass nå →</a>
+
+    <div class="final-countdown countdown" role="timer" aria-label="Nedtelling til challengen starter">
+      <div class="countdown-cell"><div class="countdown-num" data-cd="days">25</div><div class="countdown-label">Dager</div></div>
+      <div class="countdown-cell"><div class="countdown-num" data-cd="hours">18</div><div class="countdown-label">Timer</div></div>
+      <div class="countdown-cell"><div class="countdown-num" data-cd="mins">52</div><div class="countdown-label">Min</div></div>
+      <div class="countdown-cell"><div class="countdown-num" data-cd="secs">33</div><div class="countdown-label">Sek</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <span class="footer-brand">Hege Christine</span>
+      <span class="footer-meta">© 2026 — 5-dagers Premium-Tilbud Challenge</span>
+    </div>
+    <p class="footer-disclaimer">Dette programmet gir deg konkrete steg for å bygge eller skalere en kunnskapsbasert business. Resultater er ikke garanterte. Tall som 100K og 150K er eksempler på hva som er mulig — ikke løfter til hver deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
+  </div>
+</footer>
+
+<!-- COUNTDOWN -->
+<script>
+(function () {
+  const target = new Date('2026-06-08T19:00:00+02:00').getTime();
+  function tick() {
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const days = Math.floor(diff / 86400000); diff -= days * 86400000;
+    const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
+    const mins = Math.floor(diff / 60000); diff -= mins * 60000;
+    const secs = Math.floor(diff / 1000);
+    document.querySelectorAll('[data-cd="days"]').forEach(e => e.textContent = String(days).padStart(2,'0'));
+    document.querySelectorAll('[data-cd="hours"]').forEach(e => e.textContent = String(hours).padStart(2,'0'));
+    document.querySelectorAll('[data-cd="mins"]').forEach(e => e.textContent = String(mins).padStart(2,'0'));
+    document.querySelectorAll('[data-cd="secs"]').forEach(e => e.textContent = String(secs).padStart(2,'0'));
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+</body>
+</html>
