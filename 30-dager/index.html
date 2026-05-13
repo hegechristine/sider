@@ -221,7 +221,92 @@ body {
 }
 
 /* HERO */
-.hero { padding: 120px 0 100px; text-align: center; position: relative; }
+.hero { padding: 100px 0 90px; text-align: left; position: relative; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.hero-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--rust);
+  background: var(--sand);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-photo-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  padding: 8px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-radius: 999px;
+}
+
+.hero-photo-tag::before {
+  content: "•";
+  color: var(--rust);
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* 2-col hero text overrides */
+.hero-text .hero-partner-chip { margin: 0 0 28px 0; }
+.hero-text .eyebrow { margin-bottom: 22px; }
+.hero-text h1 { margin: 0 0 28px 0; max-width: 12ch; font-size: clamp(40px, 5.6vw, 76px); }
+.hero-text .hero-lead { max-width: 480px; margin: 0 0 32px 0; }
+.hero-text .hero-tagline-quote { max-width: 460px; margin: 0 0 40px 0; text-align: left; }
+.hero-text .hero-tagline-quote .attrib { text-align: left; }
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hero-text .hero-meta {
+  margin-top: 0;
+  text-align: left;
+}
+
+@media (max-width: 920px) {
+  .hero { text-align: center; padding: 110px 0 80px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; max-width: 620px; }
+  .hero-photo { aspect-ratio: 4/3; max-width: 520px; margin: 0 auto; }
+
+  /* Mobile: re-center text */
+  .hero-text .hero-partner-chip { margin: 0 auto 28px; }
+  .hero-text h1 { margin: 0 auto 28px; max-width: 18ch; }
+  .hero-text .hero-lead { margin: 0 auto 32px; }
+  .hero-text .hero-tagline-quote { margin: 0 auto 40px; text-align: center; }
+  .hero-text .hero-tagline-quote .attrib { text-align: center; }
+  .hero-cta-row { justify-content: center; }
+  .hero-text .hero-meta { text-align: center; }
+}
 
 .hero-partner-chip {
   display: flex;
@@ -1282,22 +1367,32 @@ body {
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
-    <div class="hero-partner-chip">
-      <img src="partner-badge-black.svg" alt="Kajabi Partner-merket" width="523" height="180">
-      <span class="hero-partner-chip-text"><strong>Offisiell partner</strong> · 30 dagers prøveperiode</span>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-partner-chip">
+          <img src="partner-badge-black.svg" alt="Kajabi Partner-merket" width="523" height="180">
+          <span class="hero-partner-chip-text"><strong>Offisiell partner</strong> · 30 dagers prøveperiode</span>
+        </div>
+        <div class="eyebrow">Plattformen jeg bygger businessen min på</div>
+        <h1>Én plattform. <em>Hele businessen.</em></h1>
+        <p class="hero-lead">
+          Kurs, e-post, betaling, community og landing pages — ett system, ikke fem. Jeg har brukt Kajabi i over seks år. Som partner kan jeg tilby 30 dagers gratis prøveperiode.
+        </p>
+        <p class="hero-tagline-quote">
+          «The operating system for human expertise.»
+          <span class="attrib">— slik Kajabi selv kaller det</span>
+        </p>
+        <div class="hero-cta-row">
+          <a class="cta-primary" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener" id="hero-cta">Start gratis prøveperiode</a>
+          <a class="cta-secondary" href="#hvorfor">Les hvorfor først</a>
+        </div>
+        <div class="hero-meta">30 dager gratis · Transparent prising · Ingen revenue-share</div>
+      </div>
+      <div class="hero-photo">
+        <img src="hero-photo.jpg" alt="Ekspert som jobber på laptop i kafé-miljø" loading="eager" width="1200" height="1500">
+        <span class="hero-photo-tag">Bygd for eksperter</span>
+      </div>
     </div>
-    <div class="eyebrow">Plattformen jeg bygger businessen min på</div>
-    <h1>Én plattform. <em>Hele businessen.</em></h1>
-    <p class="hero-lead">
-      Kurs, e-post, betaling, community og landing pages — ett system, ikke fem. Jeg har brukt Kajabi i over seks år. Som partner kan jeg tilby 30 dagers gratis prøveperiode.
-    </p>
-    <p class="hero-tagline-quote">
-      «The operating system for human expertise.»
-      <span class="attrib">— slik Kajabi selv kaller det</span>
-    </p>
-    <a class="cta-primary" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener" id="hero-cta">Start gratis prøveperiode</a>
-    <a class="cta-secondary" href="#hvorfor">Les hvorfor først</a>
-    <div class="hero-meta">30 dager gratis · Transparent prising · Ingen revenue-share</div>
   </div>
 </section>
 
@@ -1331,21 +1426,58 @@ body {
 <section class="section bg-cream no-grid" style="padding: 110px 0 90px;">
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
-  <div class="narrow">
-    <div class="bridge-lockup">
-      <span class="bridge-eyebrow">Plattformen jeg snakker om</span>
-      <img src="kajabi-lockup-dark.png" alt="Kajabi" width="523" height="180">
+  <div class="container">
+    <div class="bridge-grid">
+      <div class="bridge-text">
+        <div class="bridge-lockup">
+          <span class="bridge-eyebrow">Plattformen jeg snakker om</span>
+          <img src="kajabi-lockup-dark.png" alt="Kajabi" width="523" height="180">
+        </div>
+        <h2 style="font-family:'Archivo',sans-serif; font-weight:800; font-size: clamp(32px,4vw,46px); line-height:1.05; letter-spacing:-0.025em; color:var(--ink); max-width: 18ch; margin-bottom: 24px;">
+          Hvis ekspertisen din <em style="font-style:normal; color:var(--rust);">er produktet</em> — kurs, coaching, community — er dette systemet jeg lener meg på.
+        </h2>
+        <p style="font-family:'Archivo',sans-serif; font-size: 18px; line-height: 1.65; color: var(--ink);">
+          Jeg har drevet digitalt i over et tiår — startet med nettbutikk, gikk videre til kurs og community. Kajabi har jeg brukt i over seks år, og det er det første alt-i-ett-systemet jeg ikke leter etter alternativer til. Ikke fordi det er perfekt — men fordi det er bra nok på nok ting til at jeg slipper å være IT-avdeling for min egen business.
+        </p>
+      </div>
+      <div class="bridge-photo">
+        <img src="workspace-detail.jpg" alt="Varm arbeidsplass — kaffe, bolle, laptop" loading="lazy" width="800" height="1200">
+      </div>
     </div>
-    <h2 style="font-family:'Archivo',sans-serif; font-weight:800; font-size: clamp(32px,4vw,46px); line-height:1.05; letter-spacing:-0.025em; color:var(--ink); max-width: 22ch; margin-bottom: 24px;">
-      Hvis ekspertisen din <em style="font-style:normal; color:var(--rust);">er produktet</em> — kurs, coaching, community — er dette systemet jeg lener meg på.
-    </h2>
-    <p style="font-family:'Archivo',sans-serif; font-size: 18px; line-height: 1.65; color: var(--ink); max-width: 620px;">
-      Jeg har drevet digitalt i over et tiår — startet med nettbutikk, gikk videre til kurs og community. Kajabi har jeg brukt i over seks år, og det er det første alt-i-ett-systemet jeg ikke leter etter alternativer til. Ikke fordi det er perfekt — men fordi det er bra nok på nok ting til at jeg slipper å være IT-avdeling for min egen business.
-    </p>
   </div>
 </section>
 
 <style>
+.bridge-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bridge-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--sand);
+}
+
+.bridge-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 880px) {
+  .bridge-grid { grid-template-columns: 1fr; gap: 40px; max-width: 560px; }
+  .bridge-photo { aspect-ratio: 4/3; max-width: 480px; margin: 0 auto; }
+}
+
 .bridge-lockup {
   display: flex;
   align-items: center;
