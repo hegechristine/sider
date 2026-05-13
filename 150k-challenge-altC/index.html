@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<title>Et brev til en kunnskapsbygger — Hege Christine</title>
+<meta name="description" content="3 dager. Ett system. 150K i måneden. Et brev og en challenge fra Hege Christine — 26.–28. mai 2026.">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"></noscript>
+
+<style>
+:root {
+  --cream: #EFE6D4;
+  --ink: #2E3230;
+  --rust: #C5522C;
+  --sand: #F0D9A8;
+
+  --line: rgba(46, 50, 48, 0.16);
+  --line-strong: rgba(46, 50, 48, 0.4);
+  --muted: rgba(46, 50, 48, 0.55);
+
+  --col-12: 1240px;
+  --col-10: 1033px;
+  --col-8: 827px;
+  --col-6: 620px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 72px;
+}
+
+.container { width: min(var(--col-12), calc(100% - 56px)); margin: 0 auto; }
+.container-8 { width: min(var(--col-8), calc(100% - 56px)); margin: 0 auto; }
+.container-10 { width: min(var(--col-10), calc(100% - 56px)); margin: 0 auto; }
+
+/* ===== TOPBAR ===== */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+.topbar-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+.brand-mark {
+  display: inline-flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--ink);
+}
+.brand-mono {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1;
+}
+.brand-text {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.005em;
+}
+.brand-text em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+.topbar-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.topbar-meta .dot { color: var(--rust); margin: 0 8px; }
+
+.topbar-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 18px;
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+.topbar-cta:hover { background: var(--rust); transform: translateY(-1px); }
+
+@media (max-width: 760px) {
+  .topbar-grid { grid-template-columns: auto 1fr auto; gap: 12px; }
+  .topbar-meta { display: none; }
+  .brand-text { font-size: 16px; }
+}
+
+/* ===== EDITORIAL HEADER STRIP ===== */
+.masthead {
+  border-bottom: 1px solid var(--line-strong);
+  padding: 14px 0 12px;
+  margin-top: 24px;
+}
+.masthead-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  gap: 24px;
+}
+.masthead-edition {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.masthead-title {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--ink);
+  text-align: center;
+}
+.masthead-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .masthead-grid { grid-template-columns: 1fr; gap: 6px; text-align: left; }
+  .masthead-title, .masthead-date { text-align: left; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 80px 0 64px;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 28px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 36px; height: 1.5px;
+  background: var(--rust);
+  display: inline-block;
+}
+.hero-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(48px, 8vw, 112px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 14ch;
+  margin-bottom: 36px;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--rust);
+  font-weight: 500;
+}
+.hero-lede {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 52ch;
+  margin-bottom: 48px;
+}
+.hero-lede em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 28px;
+  background: var(--rust);
+  color: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn-secondary {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.hero-signature {
+  margin-top: 56px;
+  display: flex; align-items: center; gap: 18px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  max-width: 480px;
+}
+.signature-mark {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--rust);
+  line-height: 1;
+}
+.signature-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.signature-text strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* ===== THE LETTER (intro paragraphs) ===== */
+.letter {
+  padding: 64px 0 96px;
+  border-top: 1px solid var(--line);
+}
+.letter-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 14px;
+}
+.letter-mark::before, .letter-mark::after {
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+.letter-body {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.65;
+  color: var(--ink);
+}
+.letter-body p { margin-bottom: 22px; }
+.letter-body p:last-child { margin-bottom: 0; }
+.letter-body em { font-style: italic; color: var(--rust); font-weight: 500; }
+.letter-body strong { font-weight: 600; }
+.letter-body .drop {
+  float: left;
+  font-style: italic;
+  font-size: 4.2em;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--rust);
+  font-weight: 500;
+}
+
+/* ===== THREE SHIFTS ===== */
+.shifts {
+  padding: 96px 0;
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+}
+.shifts-head {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.shifts-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.shifts-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  max-width: 18ch;
+  margin: 0 auto;
+}
+.shifts-title em { font-style: italic; color: var(--sand); font-weight: 500; }
+
+.shifts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.shift {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  padding: 56px 0;
+  border-top: 1px solid rgba(239, 230, 212, 0.18);
+  align-items: start;
+}
+.shift:last-child { border-bottom: 1px solid rgba(239, 230, 212, 0.18); }
+
+.shift-num {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(72px, 9vw, 140px);
+  line-height: 0.85;
+  color: var(--sand);
+}
+.shift-num small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.7;
+  margin-top: 16px;
+}
+.shift-content {
+  padding-top: 18px;
+}
+.shift-from {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 12px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.shift-from::before {
+  content: "→"; color: var(--rust); font-family: 'Archivo', sans-serif;
+}
+.shift-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin-bottom: 18px;
+  max-width: 22ch;
+}
+.shift-headline em { font-style: italic; color: var(--sand); font-weight: 500; }
+.shift-body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(239, 230, 212, 0.85);
+  max-width: 56ch;
+}
+
+@media (max-width: 760px) {
+  .shift { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+  .shift-num { font-size: 96px; }
+}
+
+/* ===== PULL QUOTE ===== */
+.pullquote {
+  padding: 120px 0;
+  background: var(--cream);
+}
+.pullquote-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 32px;
+  text-align: center;
+}
+.pullquote-text {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-align: center;
+  max-width: 22ch;
+  margin: 0 auto 40px;
+}
+.pullquote-text mark {
+  background: linear-gradient(180deg, transparent 60%, var(--sand) 60%);
+  color: var(--ink);
+  padding: 0 0.1em;
+  font-style: italic;
+}
+.pullquote-attribution {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ===== AI MANIFESTO ===== */
+.manifesto {
+  padding: 96px 0;
+  background: var(--sand);
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+}
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.manifesto-aside {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-top: 12px;
+  border-top: 2px solid var(--ink);
+}
+.manifesto-aside strong {
+  display: block;
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 8px 0 16px;
+  color: var(--rust);
+  line-height: 1;
+}
+.manifesto-text {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.manifesto-text em { font-style: italic; color: var(--rust); font-weight: 500; }
+.manifesto-text strong { font-weight: 600; }
+
+@media (max-width: 760px) {
+  .manifesto-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ===== PRACTICAL STRIP ===== */
+.practical {
+  padding: 64px 0;
+  background: var(--cream);
+}
+.practical-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: var(--col-10);
+  margin: 0 auto;
+  padding: 0 0;
+}
+.practical-cell {
+  padding: 0;
+}
+.practical-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: block;
+}
+.practical-value {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.practical-value em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+@media (max-width: 760px) {
+  .practical-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+
+/* ===== SIGN-UP ===== */
+.signup {
+  padding: 96px 0 120px;
+  background: var(--ink);
+  color: var(--cream);
+}
+.signup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.signup-left {
+  padding-right: 24px;
+}
+.signup-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.signup-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 24px;
+  max-width: 14ch;
+}
+.signup-headline em { font-style: italic; color: var(--sand); font-weight: 500; }
+.signup-lede {
+  font-family: 'Newsreader', serif;
+  font-size: 19px;
+  line-height: 1.5;
+  color: rgba(239, 230, 212, 0.8);
+  max-width: 44ch;
+  margin-bottom: 32px;
+}
+.signup-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
+  display: flex; gap: 18px; flex-wrap: wrap;
+}
+.signup-meta span::before {
+  content: "→"; color: var(--rust); margin-right: 8px;
+}
+
+.signup-card {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 40px 36px;
+  border-radius: 4px;
+  border: 1.5px solid var(--cream);
+  box-shadow: 6px 6px 0 var(--rust);
+  position: relative;
+}
+.signup-card-flag {
+  position: absolute;
+  top: -14px; left: 24px;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 6px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 999px;
+}
+.signup-card-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 8px 0 18px;
+}
+.signup-card-title em { font-style: italic; color: var(--rust); font-weight: 500; }
+.signup-card-lede {
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.hc-kajabi-form {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.hc-kajabi-form input[type="text"],
+.hc-kajabi-form input[type="email"] {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hc-kajabi-form input::placeholder { color: rgba(46, 50, 48, 0.5); }
+.hc-kajabi-form input:focus {
+  border-color: var(--rust);
+  background: rgba(255,255,255,0.4);
+}
+.hc-kajabi-form button {
+  margin-top: 4px;
+  padding: 16px 24px;
+  background: var(--ink);
+  color: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.hc-kajabi-form button:hover:not(:disabled) { background: var(--rust); border-color: var(--rust); }
+.hc-kajabi-form button:disabled { opacity: 0.6; cursor: wait; }
+.hc-kajabi-form [data-form-message] {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-top: 8px;
+  min-height: 18px;
+}
+.hc-kajabi-form [data-form-message][data-state="error"] { color: var(--rust); }
+.hc-kajabi-form [data-form-message][data-state="success"] { color: var(--rust); }
+
+.signup-card-fineprint {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+.kajabi-hidden-wrap { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.kajabi-response-frame { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; border: 0; }
+
+@media (max-width: 880px) {
+  .signup-grid { grid-template-columns: 1fr; gap: 40px; }
+  .signup-left { padding-right: 0; }
+}
+
+/* ===== ABOUT ===== */
+.about {
+  padding: 96px 0;
+  background: var(--cream);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 64px;
+  align-items: start;
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+.about-mast {
+  border-top: 2px solid var(--ink);
+  padding-top: 16px;
+}
+.about-byline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.about-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.about-name em { font-style: italic; color: var(--rust); font-weight: 500; }
+.about-role {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--rust);
+  font-weight: 500;
+}
+.about-body {
+  font-family: 'Newsreader', serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.about-body p { margin-bottom: 18px; }
+.about-body p:last-child { margin-bottom: 0; }
+.about-body em { font-style: italic; color: var(--rust); font-weight: 500; }
+.about-body strong { font-weight: 600; }
+
+@media (max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ===== FAQ ===== */
+.faq {
+  padding: 96px 0;
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+}
+.faq-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.faq-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 18px;
+  display: inline-block;
+}
+.faq-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.faq-title em { font-style: italic; color: var(--rust); font-weight: 500; }
+.faq-list {
+  max-width: var(--col-8);
+  margin: 0 auto;
+  display: flex; flex-direction: column;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+  cursor: pointer;
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  padding: 26px 0;
+  list-style: none;
+  display: flex; justify-content: space-between; gap: 24px; align-items: baseline;
+  transition: color 0.2s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--rust); }
+.faq-item summary::after {
+  content: "+";
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--rust);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-answer {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  padding: 0 0 26px;
+  max-width: 60ch;
+}
+
+/* ===== FINAL CTA ===== */
+.final {
+  padding: 120px 0;
+  background: var(--rust);
+  color: var(--cream);
+  text-align: center;
+}
+.final-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.final-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 6.5vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  max-width: 16ch;
+  margin: 0 auto 32px;
+}
+.final-headline em { font-style: italic; color: var(--sand); font-weight: 500; }
+.final-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 20px 32px;
+  background: var(--cream);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-top: 8px;
+}
+.final-cta:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 40px 0;
+  background: var(--ink);
+  color: rgba(239, 230, 212, 0.7);
+}
+.footer-grid {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--cream);
+}
+.footer-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="container topbar-grid">
+    <a href="/" class="brand-mark">
+      <span class="brand-mono">H<em>C</em></span>
+      <span class="brand-text">Hege <em>Christine</em></span>
+    </a>
+    <div class="topbar-meta">
+      26.–28. mai 2026 <span class="dot">·</span> Live på Zoom <span class="dot">·</span> 150K-utgaven
+    </div>
+    <a href="#signup" class="topbar-cta">Sikre min plass →</a>
+  </div>
+</header>
+
+<!-- ===== EDITORIAL HEADER STRIP ===== -->
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-grid">
+      <div class="masthead-edition">Utgave Nr. 01 — Mai 2026</div>
+      <div class="masthead-title">Et brev til en kunnskapsbygger</div>
+      <div class="masthead-date">3 dager · 1 system · 150K</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container-10">
+    <div class="hero-eyebrow">Fra Hege Christines skrivebord</div>
+    <h1 class="hero-headline">Det er ikke deg det er noe <em>feil</em> med.</h1>
+    <p class="hero-lede">Det er <em>forretningsmodellen</em> rundt kunnskapen din. I tre dager bygger vi den om sammen — så du selger transformasjon, ikke timer, og lar AI gjøre 80 prosent av jobben.</p>
+
+    <div class="hero-actions">
+      <a href="#signup" class="btn-primary">Sikre min gratis plass →</a>
+      <a href="#shifts" class="btn-secondary">Les hva som forandrer seg</a>
+    </div>
+
+    <div class="hero-signature">
+      <span class="signature-mark">H<em style="color:var(--ink);">C.</em></span>
+      <span class="signature-text">
+        <strong>Hege Christine</strong>
+        Skrevet 13. mai 2026
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE LETTER ===== -->
+<section class="letter">
+  <div class="container-8">
+    <div class="letter-mark">— Brevet —</div>
+    <div class="letter-body">
+      <p><span class="drop">D</span>u kan masse. Du er god på det du gjør. Du har klienter, kursdeltakere, lesere — og en innboks som beviser at det du leverer faktisk hjelper folk. Likevel sitter du her, klokken to på natten, og lurer på hvorfor businessen din ikke vokser slik den burde.</p>
+
+      <p>Jeg har sett mønsteret hos hundrevis av norske gründere de siste seks årene. Det er nesten alltid det samme: <em>du prøver å gjøre mer av det samme.</em> Flere timer. Flere klienter. Enda et kurs. Enda en lansering. Og hver gang du legger på en ny ting, blir businessen tyngre — ikke mer lønnsom.</p>
+
+      <p>Det handler ikke om hvor mye du kan. Det handler om <strong>hvordan kunnskapen din er pakket</strong> — og om du selger den én time av gangen, eller som et system som lever sitt eget liv.</p>
+
+      <p>I 2026 er den forskjellen mye større enn før. AI er en gave til oss som lever av å pakke kunnskap. Du kan la den gjøre research, struktur, utkast og sparring — og selv stå igjen med <em>strategien, valgene og stemmen.</em> Det er der businessen din egentlig ligger.</p>
+
+      <p>Den tankegangen tar vi med oss inn i tre dager sammen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE SHIFTS ===== -->
+<section class="shifts" id="shifts">
+  <div class="shifts-head">
+    <span class="shifts-eyebrow">— De tre skiftene —</span>
+    <h2 class="shifts-title">Tre dager. Tre <em>skift</em> i hvordan du tenker om businessen din.</h2>
+  </div>
+  <div class="container">
+    <div class="shifts-grid">
+
+      <article class="shift">
+        <div class="shift-num">01<small>Dag 1 · 26. mai</small></div>
+        <div class="shift-content">
+          <div class="shift-from">Fra: Jakter leads</div>
+          <h3 class="shift-headline">Til <em>en kundeliste</em> som vokser mens du sover.</h3>
+          <p class="shift-body">Vi bygger forretningsmodellen som faktisk lønner seg — en der du eier kontakten med kundene dine, og der hvert nye menneske som finner deg, havner et sted du kan snakke med dem igjen. Slutt på å lete. Begynnelsen på å bygge.</p>
+        </div>
+      </article>
+
+      <article class="shift">
+        <div class="shift-num">02<small>Dag 2 · 27. mai</small></div>
+        <div class="shift-content">
+          <div class="shift-from">Fra: Selger kunnskap</div>
+          <h3 class="shift-headline">Til å selge <em>transformasjonen</em> du leverer.</h3>
+          <p class="shift-body">Det er ikke informasjon kundene dine kjøper. Det er resultatet av å bruke den. Vi pakker om tilbudet ditt så det speiler den faktiske endringen folk tar med seg fra deg — og prises deretter.</p>
+        </div>
+      </article>
+
+      <article class="shift">
+        <div class="shift-num">03<small>Dag 3 · 28. mai</small></div>
+        <div class="shift-content">
+          <div class="shift-from">Fra: Hustler alene</div>
+          <h3 class="shift-headline">Til AI gjør <em>80 prosent</em>. Du gjør de tjue som teller.</h3>
+          <p class="shift-body">Markedsføring på autopilot er ikke en fjern drøm — det er et oppsett du kan ha klart innen helgen er over. Vi setter opp flyten som driver businessen din mens du gjør det du faktisk er der for.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PULL QUOTE ===== -->
+<section class="pullquote">
+  <div class="container-8">
+    <div class="pullquote-eyebrow">— Innsatsen —</div>
+    <p class="pullquote-text">Det handler ikke om <mark>mer arbeid</mark>. Det handler om mer <em>overskudd.</em></p>
+    <div class="pullquote-attribution">På to måter samtidig</div>
+  </div>
+</section>
+
+<!-- ===== AI MANIFESTO ===== -->
+<section class="manifesto">
+  <div class="container manifesto-grid">
+    <aside class="manifesto-aside">
+      80/20-prinsippet
+      <strong>80<span style="color:var(--ink);font-style:normal;">/</span>20</strong>
+      <span style="display:block;color:var(--muted);">For kunnskapsbaserte gründere i 2026.</span>
+    </aside>
+    <div class="manifesto-text">
+      La AI ta 80 prosent av jobben — research, struktur, utkast, automatisering, sparring. De tjue som faktisk teller — <em>strategien, valgene, stemmen din</em> — er <strong>fortsatt dine.</strong> Det er ikke fremtid. Det er allerede her, og det er den enkleste hevarmen vi har for å skalere uten å brenne ut.
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRACTICAL ===== -->
+<section class="practical">
+  <div class="container">
+    <div class="practical-grid">
+      <div class="practical-cell">
+        <span class="practical-label">Når</span>
+        <span class="practical-value">26.–28. <em>mai</em></span>
+      </div>
+      <div class="practical-cell">
+        <span class="practical-label">Tid</span>
+        <span class="practical-value">19–21 hver kveld</span>
+      </div>
+      <div class="practical-cell">
+        <span class="practical-label">Sted</span>
+        <span class="practical-value">Live på <em>Zoom</em></span>
+      </div>
+      <div class="practical-cell">
+        <span class="practical-label">Pris</span>
+        <span class="practical-value">Gratis å delta</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIGN-UP ===== -->
+<section class="signup" id="signup">
+  <div class="container signup-grid">
+    <div class="signup-left">
+      <span class="signup-eyebrow">— Siste steg —</span>
+      <h2 class="signup-headline">Bli med på <em>brevet.</em></h2>
+      <p class="signup-lede">Skriv inn navn og e-post, så lander bekreftelsen i innboksen din innen et minutt. Du får lenke til alle tre kveldene og et lite forberedende notat dagen før vi starter.</p>
+      <div class="signup-meta">
+        <span>26.–28. mai</span>
+        <span>19–21</span>
+        <span>Zoom</span>
+      </div>
+    </div>
+
+    <aside class="signup-card" aria-labelledby="signup-title-altc">
+      <span class="signup-card-flag">Gratis</span>
+      <h3 class="signup-card-title" id="signup-title-altc">Sikre din <em>gratis</em> plass.</h3>
+      <p class="signup-card-lede">Du melder deg på challengen og får e-post fra Hege Christine.</p>
+
+      <form id="signup-form" class="hc-kajabi-form"
+            data-kajabi-form-id="2149575768"
+            data-redirect-url="/150k-takk-altB/">
+        <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
+        <input type="email" name="email" placeholder="E-post" required autocomplete="email">
+        <button type="submit">Sikre plassen min →</button>
+        <div class="form-message" data-form-message></div>
+      </form>
+
+      <p class="signup-card-fineprint">Ved å melde deg på godtar du å motta e-post om challengen og relatert innhold. Du kan melde deg av når som helst.</p>
+
+      <div class="kajabi-hidden-wrap" aria-hidden="true">
+        <script src="https://www.hegechristine.no/forms/2149575768/embed.js"></script>
+      </div>
+      <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about">
+  <div class="container about-grid">
+    <div class="about-mast">
+      <div class="about-byline">— Avsenderen —</div>
+      <h2 class="about-name">Hege <em>Christine</em></h2>
+      <p class="about-role">Hjelper digitale gründere bygge smartere businesser.</p>
+    </div>
+    <div class="about-body">
+      <p>I seks år har jeg jobbet med <strong>hundrevis av norske gründere</strong> — fra de som så vidt har startet, til de som omsetter for flere millioner. Det som skiller dem som lykkes, er sjelden hvor mye de kan. Det er hvordan de har bygget businessen <em>rundt</em> kunnskapen sin.</p>
+      <p>Den jobben ser annerledes ut i 2026 enn den gjorde for to år siden. AI er en gave til oss som lever av å pakke kunnskap — om vi tør å bruke den der den hører hjemme.</p>
+      <p>Det er det jeg lærer deg i disse tre dagene.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-head">
+      <span class="faq-eyebrow">— Det du lurer på —</span>
+      <h2 class="faq-title">Spørsmål som <em>pleier</em> å komme.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Passer dette uansett hvor langt jeg har kommet?</summary>
+        <p class="faq-answer">Ja. Du må ha noe du selger — kunnskap, tilbud, klientarbeid — men du trenger ikke ha en stor liste, et stort publikum eller mye erfaring. Mange som lykkes i denne challengen er akkurat i startfasen, andre har holdt på i ti år.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Hva om jeg ikke kan delta live alle tre kveldene?</summary>
+        <p class="faq-answer">Alt blir tatt opp og delt med deg samme natt. Du får mest ut av å være med live, men du faller ikke av om en kveld kolliderer.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Trenger jeg å kunne noe om AI for å henge med?</summary>
+        <p class="faq-answer">Nei. Jeg viser deg konkret hvordan AI brukes i hver av de tre dagene — og du får ferdige promptmaler så du kan komme i gang med en gang.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Er det noe å betale?</summary>
+        <p class="faq-answer">Challengen er gratis. På siste kveld presenterer jeg en betalt mulighet for de som vil gå dypere, men det er helt valgfritt.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Lover du 150 000 i måneden?</summary>
+        <p class="faq-answer">Nei. Tittelen viser hva forretningsmodellen er bygget for å gjøre mulig — ikke et garantert resultat. Du får oppskriften. Resultatet er opp til deg.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL ===== -->
+<section class="final">
+  <div class="container">
+    <span class="final-eyebrow">— P.S. —</span>
+    <h2 class="final-headline">Tre kvelder kan endre <em>hele</em> businessen din.</h2>
+    <a href="#signup" class="final-cta">Sikre min plass nå →</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <span class="footer-brand">Hege Christine</span>
+    <span class="footer-meta">© 2026 — Et brev til en kunnskapsbygger</span>
+  </div>
+</footer>
+
+<!-- ===== KAJABI FORM-INTEGRASJON ===== -->
+<script>
+(function() {
+  const forms = document.querySelectorAll('.hc-kajabi-form');
+  forms.forEach(initKajabiForm);
+
+  function initKajabiForm(customForm) {
+    const button = customForm.querySelector('button[type="submit"]');
+    const message = customForm.querySelector('[data-form-message]');
+    const originalButtonText = button.textContent;
+    const redirectUrl = customForm.getAttribute('data-redirect-url');
+    const successMessage = customForm.getAttribute('data-success-message')
+      || '✓ Takk! Du er på listen.';
+
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const prefName = params.get('name');
+      const prefEmail = params.get('email');
+      if (prefName) {
+        const nameField = customForm.querySelector('input[name="name"]');
+        if (nameField && !nameField.value) nameField.value = prefName;
+      }
+      if (prefEmail) {
+        const emailField = customForm.querySelector('input[name="email"]');
+        if (emailField && !emailField.value) emailField.value = prefEmail;
+      }
+    } catch (e) {}
+
+    function setMessage(text, state) {
+      if (!message) return;
+      message.textContent = text;
+      message.setAttribute('data-state', state || '');
+    }
+
+    function findKajabiForm() {
+      return document.querySelector('.kajabi-hidden-wrap form');
+    }
+
+    customForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const kajabiForm = findKajabiForm();
+      if (!kajabiForm) {
+        setMessage('Skjemaet laster fortsatt — prøv igjen om et øyeblikk.', 'error');
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sender...';
+      setMessage('');
+
+      const nameInput = customForm.querySelector('input[name="name"]');
+      const userName = nameInput ? nameInput.value.trim() : '';
+      const userEmail = customForm.querySelector('input[name="email"]').value.trim();
+
+      const emailInput = kajabiForm.querySelector('input[type="email"]');
+      if (emailInput) emailInput.value = userEmail;
+
+      if (userName) {
+        const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+        for (let i = 0; i < textInputs.length; i++) {
+          const inp = textInputs[i];
+          if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+            inp.value = userName;
+            break;
+          }
+        }
+      }
+
+      kajabiForm.target = 'kajabi-response-frame';
+
+      try {
+        kajabiForm.submit();
+        setTimeout(function() {
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+          } else {
+            setMessage(successMessage, 'success');
+            customForm.reset();
+            button.disabled = false;
+            button.textContent = originalButtonText;
+          }
+        }, 800);
+      } catch (err) {
+        setMessage('Noe gikk galt. Prøv igjen om litt.', 'error');
+        button.disabled = false;
+        button.textContent = originalButtonText;
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
