@@ -315,6 +315,64 @@ body { padding-top: 80px; }
   .marquee-track { animation: none; }
 }
 
+/* AI-QUOTE — ink banner med pull-quote */
+.ai-quote-section {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--cream);
+  padding: 88px 0;
+  text-align: center;
+}
+
+.ai-quote-section .section-corners::before,
+.ai-quote-section .section-corners::after,
+.ai-quote-section .section-corners-bottom::before,
+.ai-quote-section .section-corners-bottom::after {
+  color: var(--cream);
+}
+
+.ai-quote-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.ai-quote-eyebrow::before,
+.ai-quote-eyebrow::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.ai-quote-text {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+.ai-quote-text em {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
 .premise { text-align: left; padding: 72px 0 120px; }
 
 .premise-headline {
@@ -1429,21 +1487,29 @@ body { padding-top: 80px; }
 <section class="marquee-strip" aria-hidden="true">
   <div class="marquee">
     <div class="marquee-track">
+      <span>Coacher</span><span class="dot">+</span>
       <span>Eksperter</span><span class="dot">+</span>
       <span>Fagpersoner</span><span class="dot">+</span>
       <span>Foredragsholdere</span><span class="dot">+</span>
+      <span>Kursskapere</span><span class="dot">+</span>
       <span>Terapeuter</span><span class="dot">+</span>
       <span>Coacher</span><span class="dot">+</span>
-      <span>Digitale gründere</span><span class="dot">+</span>
-      <span>Kursutviklere</span><span class="dot">+</span>
       <span>Eksperter</span><span class="dot">+</span>
       <span>Fagpersoner</span><span class="dot">+</span>
       <span>Foredragsholdere</span><span class="dot">+</span>
+      <span>Kursskapere</span><span class="dot">+</span>
       <span>Terapeuter</span><span class="dot">+</span>
-      <span>Coacher</span><span class="dot">+</span>
-      <span>Digitale gründere</span><span class="dot">+</span>
-      <span>Kursutviklere</span><span class="dot">+</span>
     </div>
+  </div>
+</section>
+
+<!-- AI-QUOTE — pull-quote banner -->
+<section class="section ai-quote-section">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="narrow">
+    <span class="ai-quote-eyebrow">AI-første metode</span>
+    <p class="ai-quote-text">AI tar det tunge. Du tar valgene. Sånn bygger vi en <em>business som lønner seg.</em></p>
   </div>
 </section>
 
