@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine favorittverktøy — Hege Christine</title>
+<meta name="description" content="Verktøyene Hege Christine faktisk bruker for å drive businessen sin — fra Asana og Kajabi til Claude og Riverside.">
+<link rel="canonical" href="https://sider.hegechristine.no/verktoy/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<meta property="og:title" content="Mine favorittverktøy — Hege Christine">
+<meta property="og:description" content="Stacken jeg faktisk bruker for å drive businessen min. Ikke en Google-liste.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sider.hegechristine.no/verktoy/">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=JetBrains+Mono:wght@500;600&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============== TOKENS · Designsystem v1.0 ============== */
+  :root {
+    --cream: #EFE6D4;
+    --cream-light: #FBF8F0;
+    --cream-deep: #E7DCC4;
+    --ink: #2E3230;
+    --ink-soft: #4E5350;
+    --ink-mute: #6B6F6C;
+    --rust: #C5522C;
+    --rust-deep: #A94221;
+    --olive: #5E5F4C;
+    --olive-dark: #4A4B3C;
+    --sage: #AFBEA0;
+    --sand: #F0D9A8;
+    --line: rgba(46, 50, 48, 0.14);
+    --line-soft: rgba(46, 50, 48, 0.08);
+    --grid: rgba(46, 50, 48, 0.05);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.5;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ============== TYPOGRAPHY ============== */
+  h1, h2, h3, h4 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.02;
+    letter-spacing: -0.018em;
+  }
+
+  .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  .editorial {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+    color: var(--ink);
+  }
+
+  .kicker--soft { color: var(--ink-mute); }
+  .kicker--rust { color: var(--rust); }
+  .kicker--sand { color: var(--sand); }
+
+  a { color: inherit; }
+
+  /* ============== TOP NAV ============== */
+  .topnav {
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(239, 230, 212, 0.92);
+  }
+
+  .topnav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .topnav-brand {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topnav-brand::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    background: var(--rust);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .topnav-brand .italic {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .topnav-back {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .topnav-back:hover { color: var(--rust); }
+
+  /* ============== HERO ============== */
+  .hero {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 80px 28px 64px;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 36px;
+    height: 2px;
+    background: var(--rust);
+  }
+
+  .hero-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2.6rem, 7.5vw, 5.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    max-width: 14ch;
+    margin-bottom: 28px;
+  }
+
+  .hero-title .italic {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  .hero-lede {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.15rem, 2.1vw, 1.45rem);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 38ch;
+  }
+
+  .hero-lede strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid var(--ink);
+    background: var(--rust);
+    flex-shrink: 0;
+  }
+
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-byline {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    line-height: 1.35;
+  }
+
+  .hero-byline strong {
+    color: var(--ink);
+    font-style: normal;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+  }
+
+  /* ============== INDEX BAR ============== */
+  .index-bar {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--cream-deep);
+  }
+
+  .index-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    align-items: center;
+  }
+
+  .index-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.66rem;
+    color: var(--ink-mute);
+  }
+
+  .index-link {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.86rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    transition: color 0.18s ease;
+  }
+
+  .index-link:hover { color: var(--rust); }
+
+  .index-link span {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: var(--ink-mute);
+  }
+
+  /* ============== SECTIONS ============== */
+  .section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 28px 16px;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    max-width: 16ch;
+  }
+
+  .section-title .italic {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .section-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+    padding-bottom: 4px;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+  }
+
+  /* ============== TOOL GRID ============== */
+  .tools {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  @media (min-width: 720px) {
+    .tools {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+
+  /* ============== TOOL CARD ============== */
+  .tool {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px 26px;
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tool:hover {
+    transform: translateY(-3px);
+    border-color: var(--ink);
+    box-shadow: 0 12px 0 -8px var(--ink);
+  }
+
+  .tool-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .tool-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 3px;
+    background: var(--ink);
+    color: var(--cream-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+
+  .tool-icon img {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+
+  .tool-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    color: var(--ink-mute);
+    text-align: right;
+  }
+
+  .tool-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 4px 0 4px;
+  }
+
+  .tool-name .italic {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .tool-body {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+
+  .tool-foot {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    color: var(--ink);
+  }
+
+  .tool-link svg {
+    transition: transform 0.18s ease;
+    width: 14px;
+    height: 14px;
+  }
+
+  .tool:hover .tool-link svg {
+    transform: translateX(3px);
+  }
+
+  /* ============== AFFILIATE BADGE ============== */
+  .aff {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.58rem;
+    padding: 5px 10px 5px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .aff::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .aff--yes {
+    background: var(--rust);
+    color: var(--cream-light);
+  }
+
+  .aff--no {
+    border: 1px solid var(--line);
+    color: var(--ink-mute);
+    background: transparent;
+  }
+
+  .aff--yes-light {
+    background: var(--cream-light);
+    color: var(--rust);
+  }
+
+  .aff--no-light {
+    border: 1px solid rgba(251, 248, 240, 0.32);
+    color: rgba(251, 248, 240, 0.78);
+    background: transparent;
+  }
+
+  /* ============== FEATURED CARD ============== */
+  .tool--featured {
+    grid-column: 1 / -1;
+    padding: 0;
+    background: transparent;
+    border: none;
+    overflow: hidden;
+  }
+
+  .tool--featured:hover {
+    transform: translateY(-3px);
+    box-shadow: none;
+    border: none;
+  }
+
+  .featured-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1.5px solid var(--ink);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  @media (min-width: 720px) {
+    .featured-inner {
+      grid-template-columns: 5fr 7fr;
+    }
+  }
+
+  .featured-side {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 36px;
+    min-height: 280px;
+  }
+
+  .featured-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.66rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .featured-tag::before {
+    content: '';
+    width: 24px;
+    height: 1.5px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  .featured-icon-big {
+    width: 72px;
+    height: 72px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+  }
+
+  .featured-icon-big img {
+    width: 38px;
+    height: 38px;
+    display: block;
+  }
+
+  .featured-foot {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .featured-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  .featured-name .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .featured-tagline {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.08rem;
+    line-height: 1.45;
+    opacity: 0.82;
+    max-width: 32ch;
+  }
+
+  .featured-main {
+    padding: 36px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    background: var(--cream-light);
+    color: var(--ink);
+  }
+
+  .featured-quote {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+    line-height: 1.4;
+    color: var(--ink);
+    border-left: 3px solid var(--rust);
+    padding-left: 18px;
+  }
+
+  .featured-quote strong {
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .featured-body {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .featured-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--cream-light);
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    align-self: flex-start;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+
+  .featured-cta:hover {
+    background: var(--rust);
+    transform: translateY(-1px);
+  }
+
+  /* Featured variants */
+  .featured--rust .featured-side {
+    background: var(--rust);
+    color: var(--cream-light);
+  }
+
+  .featured--rust .featured-icon-big {
+    background: var(--cream-light);
+    color: var(--rust);
+  }
+
+  .featured--rust .featured-cta {
+    background: var(--cream-light);
+    color: var(--rust);
+  }
+
+  .featured--rust .featured-cta:hover {
+    background: var(--ink);
+    color: var(--cream-light);
+  }
+
+  .featured--ink .featured-side {
+    background: var(--ink);
+    color: var(--cream-light);
+  }
+
+  .featured--ink .featured-icon-big {
+    background: var(--rust);
+    color: var(--cream-light);
+  }
+
+  .featured--ink .featured-cta {
+    background: var(--rust);
+    color: var(--cream-light);
+  }
+
+  .featured--ink .featured-cta:hover {
+    background: var(--rust-deep);
+  }
+
+  .featured-badge {
+    display: inline-block;
+    background: var(--cream-light);
+    color: var(--rust);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-left: 10px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  .featured--ink .featured-badge {
+    background: var(--sand);
+    color: var(--ink);
+  }
+
+  /* ============== DOWNLOAD CTA ============== */
+  .download {
+    max-width: 1080px;
+    margin: 72px auto 0;
+    padding: 0 28px;
+    perspective: 1400px;
+  }
+
+  .download-flip {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.85s cubic-bezier(0.4, 0.0, 0.2, 1);
+    min-height: 420px;
+  }
+
+  .download-flip.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  .download-face {
+    background: var(--olive);
+    color: var(--cream-light);
+    border-radius: 5px;
+    padding: 48px 44px;
+    border: 1.5px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .download-face--front {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 820px) {
+    .download-face--front {
+      grid-template-columns: 5fr 6fr;
+      gap: 52px;
+      align-items: center;
+    }
+  }
+
+  .download-face--back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .download-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    color: var(--sand);
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .download-kicker::before {
+    content: '';
+    width: 24px;
+    height: 1.5px;
+    background: var(--sand);
+  }
+
+  .download-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.028em;
+    color: var(--cream-light);
+    margin-bottom: 16px;
+  }
+
+  .download-title .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--sand);
+  }
+
+  .download-body {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: rgba(251, 248, 240, 0.88);
+    margin-bottom: 16px;
+  }
+
+  .download-meta {
+    display: flex;
+    gap: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    color: var(--sand);
+  }
+
+  .download-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .download-meta span::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sand);
+  }
+
+  /* Form */
+  .download-form {
+    display: grid;
+    gap: 12px;
+  }
+
+  .download-form input[type="text"],
+  .download-form input[type="email"] {
+    background: var(--cream-light);
+    border: 1px solid rgba(46, 50, 48, 0.18);
+    color: var(--ink);
+    padding: 14px 16px;
+    border-radius: 3px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.98rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+
+  .download-form input::placeholder {
+    color: rgba(46, 50, 48, 0.42);
+  }
+
+  .download-form input:focus {
+    outline: none;
+    border-color: var(--rust);
+    background: #fff;
+  }
+
+  .download-form button {
+    background: var(--rust);
+    color: var(--cream-light);
+    border: none;
+    padding: 15px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .download-form button:hover {
+    background: var(--rust-deep);
+    transform: translateY(-1px);
+  }
+
+  .download-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .download-form-msg {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    min-height: 1em;
+    color: var(--sand);
+    margin-top: 4px;
+  }
+
+  .download-fineprint {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.86rem;
+    color: rgba(251, 248, 240, 0.66);
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+
+  /* Back-face (success) */
+  .download-success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--rust);
+    color: var(--cream-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 5px 0 var(--ink);
+  }
+
+  .download-success-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke-width: 3;
+  }
+
+  .download-face--back h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    line-height: 1.08;
+    color: var(--cream-light);
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+  }
+
+  .download-face--back h2 .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--sand);
+  }
+
+  .download-face--back .download-body {
+    max-width: 36ch;
+    margin-bottom: 26px;
+  }
+
+  .download-pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--rust);
+    color: var(--cream-light);
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transition: background 0.18s ease, transform 0.18s ease;
+    box-shadow: 0 4px 0 var(--ink);
+  }
+
+  .download-pdf-link:hover {
+    background: var(--rust-deep);
+    transform: translateY(-1px);
+  }
+
+  .download-pdf-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ============== CLOSING (unused legacy - kept for reference) ============== */
+  .closing {
+    max-width: 1080px;
+    margin: 56px auto 0;
+    padding: 0 28px;
+  }
+
+  .closing-inner {
+    background: var(--olive);
+    color: var(--cream-light);
+    border-radius: 5px;
+    padding: 54px 44px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    border: 1.5px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  @media (min-width: 720px) {
+    .closing-inner {
+      grid-template-columns: 5fr 4fr;
+      gap: 48px;
+      align-items: center;
+    }
+  }
+
+  .closing-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    color: var(--sand);
+    margin-bottom: 16px;
+  }
+
+  .closing-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--cream-light);
+    margin-bottom: 14px;
+  }
+
+  .closing-title .italic {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--sand);
+  }
+
+  .closing-body {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.08rem;
+    line-height: 1.5;
+    color: rgba(251, 248, 240, 0.88);
+  }
+
+  .closing-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--rust);
+    color: var(--cream-light);
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    align-self: flex-start;
+    justify-self: start;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+
+  .closing-cta:hover {
+    background: var(--rust-deep);
+    transform: translateY(-1px);
+  }
+
+  /* ============== AFFILIATE / FOOTER ============== */
+  .affiliate {
+    max-width: 1080px;
+    margin: 56px auto 0;
+    padding: 0 28px;
+  }
+
+  .affiliate-inner {
+    border-left: 3px solid var(--rust);
+    background: var(--cream-light);
+    padding: 18px 22px;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .footer {
+    max-width: 1080px;
+    margin: 48px auto 0;
+    padding: 32px 28px 56px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-left {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.66rem;
+    color: var(--ink-mute);
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-right a {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.66rem;
+    color: var(--ink-mute);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .footer-right a:hover { color: var(--rust); }
+
+  /* ============== RESPONSIVE ============== */
+  @media (max-width: 720px) {
+    .topnav-inner { padding: 14px 20px; }
+    .hero { padding: 56px 20px 48px; }
+    .hero-eyebrow { margin-bottom: 24px; }
+    .hero-meta { margin-top: 32px; padding-top: 22px; }
+    .index-inner { padding: 14px 20px; gap: 14px 22px; }
+    .section { padding: 56px 20px 8px; }
+    .section-head { margin-bottom: 28px; padding-bottom: 14px; }
+    .tool { padding: 22px 20px; }
+    .tool-name { font-size: 1.45rem; }
+    .featured-side { padding: 28px 24px; min-height: 0; gap: 24px; }
+    .featured-main { padding: 28px 24px; }
+    .closing { margin-top: 40px; padding: 0 20px; }
+    .closing-inner { padding: 36px 28px; }
+    .download { margin-top: 48px; padding: 0 20px; }
+    .download-face { padding: 32px 26px; }
+    .download-flip { min-height: 0; }
+    .download-face--back { padding: 36px 24px; }
+    .affiliate { margin-top: 40px; padding: 0 20px; }
+    .footer { padding: 28px 20px 40px; }
+  }
+
+  @media (max-width: 480px) {
+    .topnav-back .full { display: none; }
+    .hero-title { font-size: 2.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="https://www.hegechristine.no" class="topnav-brand">
+      Hege <span class="italic">Christine</span>
+    </a>
+    <a href="https://www.hegechristine.no" class="topnav-back">
+      <span class="full">← Tilbake til </span>hegechristine.no
+    </a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-eyebrow">
+    <span class="kicker kicker--rust">Verktøykista · 2026</span>
+  </div>
+
+  <h1 class="hero-title">
+    Stacken jeg <span class="italic">faktisk</span> bruker.
+  </h1>
+
+  <p class="hero-lede">
+    Dette er <strong>verktøyene som driver businessen min</strong> — fra de første tankene en mandag morgen til kursene som selges en lørdag kveld. Ingen Google-klipping. Bare det jeg åpner i nettleseren hver dag.
+  </p>
+
+  <div class="hero-meta">
+    <div class="hero-avatar">
+      <img src="profile.png" alt="Hege Christine" width="48" height="48" loading="eager">
+    </div>
+    <div class="hero-byline">
+      Samlet og kuratert av <strong>Hege Christine</strong><br>
+      Sist oppdatert mai 2026.
+    </div>
+  </div>
+</header>
+
+<!-- ===== INDEX BAR ===== -->
+<div class="index-bar">
+  <div class="index-inner">
+    <span class="index-label">Innhold</span>
+    <a href="#ai" class="index-link"><span>01</span>AI</a>
+    <a href="#innhold" class="index-link"><span>02</span>Innhold &amp; design</a>
+    <a href="#plan" class="index-link"><span>03</span>Plan &amp; automasjon</a>
+    <a href="#plattform" class="index-link"><span>04</span>Plattform &amp; infrastruktur</a>
+  </div>
+</div>
+
+<!-- ===== AI ===== -->
+<section class="section" id="ai">
+  <div class="section-head">
+    <h2 class="section-title">AI som faktisk <span class="italic">hjelper</span></h2>
+    <div class="section-meta">
+      <span class="section-num">01 / 04</span>
+    </div>
+  </div>
+
+  <div class="tools">
+
+    <!-- Når Claude blir affiliate: bytt aff--no til aff--yes og legg inn affiliate-URL -->
+    <a href="https://claude.ai" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">
+          <img src="https://api.iconify.design/simple-icons:claude.svg?color=%23FBF8F0" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Sparringspartner</span>
+      </div>
+      <h3 class="tool-name">Claude</h3>
+      <p class="tool-body">Den AI-en jeg snakker mest med. Strategi, tekst, kode — en sparringspartner som faktisk skjønner nyansene og ikke bare gir høflige sammendrag.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          claude.ai
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+    <a href="https://www.perplexity.ai" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">
+          <img src="https://api.iconify.design/simple-icons:perplexity.svg?color=%23FBF8F0" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Søk med kilder</span>
+      </div>
+      <h3 class="tool-name">Perplexity</h3>
+      <p class="tool-body">Når jeg trenger fakta jeg kan stole på — med kildeangivelser. Som Google burde vært, før Google ble en annonseplattform.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          perplexity.ai
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+    <a href="https://wisprflow.ai" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">WF</div>
+        <span class="tool-tag">Stemme til tekst</span>
+      </div>
+      <h3 class="tool-name">Wispr <span class="italic">Flow</span></h3>
+      <p class="tool-body">Jeg snakker raskere enn jeg skriver. Wispr lar meg diktere overalt i systemet — og tenke mens jeg snakker, uten å bryte flyten.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          wisprflow.ai
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+    <a href="https://fireflies.ai" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">FF</div>
+        <span class="tool-tag">Møtenotater · transkribering</span>
+      </div>
+      <h3 class="tool-name">Fireflies</h3>
+      <p class="tool-body">Min gode venn for møter. Joiner alle samtalene mine, transkriberer hvert ord og lager sammendrag jeg faktisk gidder å lese — så jeg kan være til stede i samtalen istedet for å notere.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          fireflies.ai
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== INNHOLD & DESIGN ===== -->
+<section class="section" id="innhold">
+  <div class="section-head">
+    <h2 class="section-title">Innhold og <span class="italic">design</span></h2>
+    <div class="section-meta">
+      <span class="section-num">02 / 04</span>
+    </div>
+  </div>
+
+  <div class="tools">
+
+    <a href="https://www.canva.com" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">
+          <img src="https://api.iconify.design/simple-icons:canva.svg?color=%23FBF8F0" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Design uten å være designer</span>
+      </div>
+      <h3 class="tool-name">Canva</h3>
+      <p class="tool-body">Brand-malene mine bor her. Alt fra Instagram-poster til kurspresentasjoner — uten å måtte åpne Figma for å få noe ut av huset.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          canva.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+    <a href="https://riverside.fm" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">RV</div>
+        <span class="tool-tag">Podcast · opptak</span>
+      </div>
+      <h3 class="tool-name">Riverside</h3>
+      <p class="tool-body">The Edit spilles inn her. Lokalt opptak i studio-kvalitet — selv om gjesten sitter med trådløst nett og en MacBook fra 2019.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          riverside.fm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== PLAN & AUTOMASJON ===== -->
+<section class="section" id="plan">
+  <div class="section-head">
+    <h2 class="section-title">Plan og <span class="italic">automasjon</span></h2>
+    <div class="section-meta">
+      <span class="section-num">03 / 04</span>
+    </div>
+  </div>
+
+  <div class="tools">
+
+    <!-- FEATURED · ASANA -->
+    <a href="https://asana.com" class="tool tool--featured" target="_blank" rel="noopener">
+      <div class="featured-inner featured--rust">
+        <div class="featured-side">
+          <div>
+            <span class="featured-tag">Verktøyet jeg elsker mest</span>
+            <div class="featured-icon-big" style="margin-top: 24px;">
+              <img src="https://api.iconify.design/simple-icons:asana.svg?color=%23C5522C" alt="" width="38" height="38" loading="lazy">
+            </div>
+            <h3 class="featured-name">Asana</h3>
+            <p class="featured-tagline">Det er her businessen min holder seg samlet.</p>
+          </div>
+        </div>
+        <div class="featured-main">
+          <p class="featured-quote">
+            Asana er <strong>hjernen utenfor hodet mitt</strong>. Hver eneste idé, oppgave, kunde, kursmodul og lansering bor her — i prosjekter som faktisk gir mening.
+          </p>
+          <p class="featured-body">
+            Jeg har prøvd alt — Notion, Trello, Monday, ClickUp, Todoist, papirbøker. Asana er det eneste verktøyet jeg har holdt på i over tre år uten å hoppe over til det neste skinnende. Strukturen er fleksibel nok til at jeg kan bygge mitt eget system, og rigid nok til at ingenting faller mellom stolene.
+          </p>
+          <div class="featured-foot">
+            <span class="featured-cta">
+              Prøv Asana
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="aff aff--no">Ikke affiliate</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.make.com" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">
+          <img src="https://api.iconify.design/simple-icons:make.svg?color=%23FBF8F0" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Automasjon · visuell</span>
+      </div>
+      <h3 class="tool-name">Make</h3>
+      <p class="tool-body">Der jeg bygger de litt mer avanserte flytene. Visuell logikk, full kontroll — og billigere enn Zapier når det skalerer opp.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          make.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+    <a href="https://zapier.com" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">
+          <img src="https://api.iconify.design/simple-icons:zapier.svg?color=%23FBF8F0" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Automasjon · enkel</span>
+      </div>
+      <h3 class="tool-name">Zapier</h3>
+      <p class="tool-body">Når jeg bare trenger "hvis X, så Y" — og det skal funke uten at jeg gidder å tenke. Klassikeren av en grunn.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          zapier.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== PLATTFORM & INFRASTRUKTUR ===== -->
+<section class="section" id="plattform">
+  <div class="section-head">
+    <h2 class="section-title">Plattform og <span class="italic">infrastruktur</span></h2>
+    <div class="section-meta">
+      <span class="section-num">04 / 04</span>
+    </div>
+  </div>
+
+  <div class="tools">
+
+    <!-- FEATURED · KAJABI (affiliate-lenke) -->
+    <a href="https://app.kajabi.com/r/yqTvH48Z/t/ssrmaokk" class="tool tool--featured" target="_blank" rel="noopener">
+      <div class="featured-inner featured--ink">
+        <div class="featured-side">
+          <div>
+            <span class="featured-tag">Plattformen som holder businessen oppe</span>
+            <div class="featured-icon-big" style="margin-top: 24px;">KJ</div>
+            <h3 class="featured-name">Kajabi <span class="featured-badge">30 dager gratis</span></h3>
+            <p class="featured-tagline">Alt-i-ett for online business — uten å lime sammen syv systemer.</p>
+          </div>
+        </div>
+        <div class="featured-main">
+          <p class="featured-quote">
+            Kajabi er <strong>plattformen jeg drev businessen min på</strong>. Kurs, e-poster, nettside, betalinger — på ett sted, med én innlogging.
+          </p>
+          <p class="featured-body">
+            Det er ikke det peneste verktøyet på markedet. Men det er det eneste jeg har funnet som faktisk gjør alle de kjedelige delene av en online-business på én plattform — uten at jeg må holde styr på integrasjoner mellom Mailchimp, Teachable, Stripe, ConvertKit og fem andre tjenester. Spar deg selv for den hodepinen.
+          </p>
+          <div class="featured-foot">
+            <span class="featured-cta">
+              Start gratis prøveperiode
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="aff aff--yes">Affiliate</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://workspace.google.com" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon" style="background: var(--cream-light); padding: 6px;">
+          <img src="https://api.iconify.design/logos:google-icon.svg" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Workspace · Drive &amp; Gmail</span>
+      </div>
+      <h3 class="tool-name">Google <span class="italic">Workspace</span></h3>
+      <p class="tool-body">Drive, Gmail, Kalender — den usexy infrastrukturen som bare må funke i bakgrunnen. Og det gjør den.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          workspace.google.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+    <a href="https://github.com" class="tool" target="_blank" rel="noopener">
+      <div class="tool-head">
+        <div class="tool-icon">
+          <img src="https://api.iconify.design/simple-icons:github.svg?color=%23FBF8F0" alt="" width="22" height="22" loading="lazy">
+        </div>
+        <span class="tool-tag">Kode · versjonskontroll</span>
+      </div>
+      <h3 class="tool-name">GitHub</h3>
+      <p class="tool-body">Der koden bor — versjonskontroll, kontinuitet og hosting for de småtinga jeg bygger på siden. Også der teknisk gjeld blir synlig.</p>
+      <div class="tool-foot">
+        <span class="tool-link">
+          github.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="aff aff--no">Ikke affiliate</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== DOWNLOAD CTA (email-gated lead magnet) ===== -->
+<section class="download">
+  <div class="download-flip" id="download-flip">
+
+    <!-- FRONT · skjema -->
+    <div class="download-face download-face--front">
+      <div>
+        <div class="download-kicker">Last ned oversikten</div>
+        <h2 class="download-title">Få hele <span class="italic">verktøykista</span> som PDF.</h2>
+        <p class="download-body">
+          Hele lista, pent satt opp som en branded PDF du kan ha på skrivebordet eller printe ut. Du får også workflows fra businessen min i innboksen — uten å fluffe det opp.
+        </p>
+        <div class="download-meta">
+          <span>PDF</span>
+          <span>Gratis</span>
+          <span>Avmelding når som helst</span>
+        </div>
+      </div>
+
+      <form id="download-form" class="download-form" novalidate>
+        <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
+        <input type="email" name="email" placeholder="E-post" required autocomplete="email">
+        <button type="submit" id="download-submit">
+          Send meg PDF-en
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div class="download-form-msg" id="download-form-msg"></div>
+        <p class="download-fineprint">Ved å melde deg på godtar du å motta nyhetsbrevet mitt. Du kan avmelde deg når som helst.</p>
+      </form>
+    </div>
+
+    <!-- BACK · suksess + nedlasting -->
+    <div class="download-face download-face--back" aria-live="polite">
+      <div class="download-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Takk, du er <span class="italic">på listen!</span></h2>
+      <p class="download-body">
+        Klikk under for å laste ned PDF-en med det samme. Du får også første e-post fra meg i innboksen snart.
+      </p>
+      <a href="hege-christine-verktoy.pdf" download class="download-pdf-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Last ned PDF
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Skjult Kajabi-embed (genererer authenticity_token og fungerer som proxy) -->
+  <div id="kajabi-hidden-wrap" style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; pointer-events: none;" aria-hidden="true">
+    <script src="https://www.hegechristine.no/forms/349307/embed.js"></script>
+  </div>
+
+  <!-- Skjult iframe for å fange Kajabi sin response uten å navigere bort -->
+  <iframe name="kajabi-response-frame" style="display: none;" aria-hidden="true"></iframe>
+</section>
+
+<script>
+  (function() {
+    const customForm = document.getElementById('download-form');
+    const msg = document.getElementById('download-form-msg');
+    const btn = document.getElementById('download-submit');
+    const flip = document.getElementById('download-flip');
+
+    function setMsg(text, color) {
+      msg.textContent = text;
+      msg.style.color = color || '';
+    }
+
+    function findKajabiForm() {
+      return document.querySelector('#kajabi-form form, #kajabi-hidden-wrap form');
+    }
+
+    customForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const kajabiForm = findKajabiForm();
+      if (!kajabiForm) {
+        setMsg('Skjemaet laster — prøv igjen om et øyeblikk.', 'var(--rust)');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sender...';
+      setMsg('');
+
+      const userName = customForm.querySelector('input[name="name"]').value.trim();
+      const userEmail = customForm.querySelector('input[name="email"]').value.trim();
+
+      const emailInput = kajabiForm.querySelector('input[type="email"]');
+      if (emailInput) emailInput.value = userEmail;
+
+      const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+      for (let i = 0; i < textInputs.length; i++) {
+        const inp = textInputs[i];
+        if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+          inp.value = userName;
+          break;
+        }
+      }
+
+      kajabiForm.target = 'kajabi-response-frame';
+
+      try {
+        kajabiForm.submit();
+        setTimeout(function() {
+          flip.classList.add('is-flipped');
+          customForm.reset();
+          setMsg('');
+          btn.disabled = false;
+          btn.innerHTML = 'Send meg PDF-en <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+        }, 800);
+      } catch (err) {
+        setMsg('Noe gikk galt. Prøv igjen om litt.', 'var(--rust)');
+        btn.disabled = false;
+        btn.innerHTML = 'Send meg PDF-en <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+      }
+    });
+  })();
+</script>
+
+<!-- ===== AFFILIATE NOTE ===== -->
+<section class="affiliate">
+  <div class="affiliate-inner">
+    <strong>Om transparens og affiliate-lenker:</strong> Hvert verktøy på denne siden er tydelig merket — enten <span class="aff aff--yes" style="font-size:0.55rem;padding:3px 8px;margin:0 2px;vertical-align: 1px;">Affiliate</span> eller <span class="aff aff--no" style="font-size:0.55rem;padding:3px 8px;margin:0 2px;vertical-align: 1px;">Ikke affiliate</span>. Affiliate-lenker betyr at jeg kan motta en provisjon dersom du registrerer deg eller kjøper via lenken — uten ekstra kostnad for deg. Alt jeg anbefaler her bruker jeg selv, uansett om jeg tjener noe på det eller ikke.
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <span class="footer-left">© 2026 Hege Christine</span>
+  <div class="footer-right">
+    <a href="https://www.hegechristine.no/pages/personvern">Personvern</a>
+    <a href="https://www.hegechristine.no/pages/cookieerklaering">Cookies</a>
+  </div>
+</footer>
+
+</body>
+</html>

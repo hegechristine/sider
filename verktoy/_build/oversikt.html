@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<title>Mine favorittverktøy — Hege Christine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #EFE6D4;
+    --cream-light: #F4EFE2;
+    --ink: #2E3230;
+    --rust: #C5522C;
+    --rust-light: #DB835E;
+    --olive: #5E5F4C;
+    --olive-light: #94957A;
+    --sage: #AFBEA0;
+    --sage-light: #CFCFBD;
+    --sand: #F0D9A8;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 20mm 22mm 20mm;
+    @top-center {
+      content: "MINE FAVORITTVERKTØY · HEGE CHRISTINE";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #5E5F4C;
+      font-weight: 600;
+    }
+    @bottom-center {
+      content: "© WWW.HEGECHRISTINE.NO";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #5E5F4C;
+      font-weight: 600;
+    }
+  }
+  @page cover {
+    size: A4;
+    margin: 0;
+    @top-center { content: none; }
+    @bottom-center { content: none; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: white;
+    color: var(--ink);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Archivo', sans-serif;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  h1 { font-weight: 800; font-size: 32pt; letter-spacing: -0.03em; margin-bottom: 0.3em; }
+  h2 { font-weight: 800; font-size: 22pt; letter-spacing: -0.025em; margin-top: 1.4em; margin-bottom: 0.3em; }
+  h3 { font-weight: 700; font-size: 13pt; letter-spacing: -0.015em; margin-top: 1.2em; margin-bottom: 0.4em; }
+  h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+
+  p { margin-bottom: 0.7em; color: var(--ink); max-width: 62ch; }
+  p, li, .quote, .callout, table { orphans: 3; widows: 3; }
+
+  ul { margin: 0.5em 0 1em 1.2em; padding: 0; }
+  li { margin-bottom: 0.35em; max-width: 60ch; line-height: 1.5; }
+  li::marker { color: var(--rust); }
+
+  strong { font-weight: 700; }
+  em { font-style: italic; font-family: 'Newsreader', serif; font-weight: 500; }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 0.4em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--rust);
+  }
+
+  /* COVER */
+  .cover {
+    page: cover;
+    width: 210mm;
+    height: 297mm;
+    background: var(--cream);
+    padding: 28mm 24mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-after: always;
+  }
+  .cover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .cover-logo { display: flex; align-items: center; gap: 12px; }
+  .cover-logo-mark {
+    width: 38px; height: 38px;
+    background: var(--ink); color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 14pt;
+    letter-spacing: -0.02em;
+  }
+  .cover-logo-text {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16pt; font-weight: 700;
+    color: var(--ink);
+  }
+  .cover-logo-text em {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 500;
+  }
+  .cover-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--olive);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .cover-title { margin-top: auto; }
+  .cover-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--olive);
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .cover-pretitle {
+    font-family: 'Archivo', sans-serif;
+    font-size: 24pt; font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1; margin-bottom: 10px;
+  }
+  .cover-main {
+    font-family: 'Archivo', sans-serif;
+    font-size: 96pt; font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.88;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 14ch;
+  }
+  .cover-main em {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .cover-subtitle {
+    font-family: 'Newsreader', serif;
+    font-size: 20pt; font-style: italic; font-weight: 500;
+    color: var(--olive);
+    line-height: 1.3;
+    max-width: 22em;
+  }
+  .cover-subtitle em { color: var(--rust); }
+  .cover-footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-top: 1.5px solid var(--ink);
+    padding-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--olive); font-weight: 600;
+  }
+
+  /* INTRO */
+  .intro { page-break-before: always; page-break-after: always; }
+  .intro-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 50pt;
+    letter-spacing: -0.04em; line-height: 1;
+    margin-bottom: 36px;
+    max-width: 12em;
+  }
+  .intro-title em { color: var(--rust); }
+  .intro-lead {
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 500;
+    font-size: 18pt; line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 24px;
+    max-width: 22em;
+  }
+  .intro-lead em { color: var(--rust); }
+  .intro p {
+    font-size: 11pt; line-height: 1.6;
+    margin-bottom: 0.85em; max-width: 32em;
+  }
+  .intro-sig {
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 500;
+    font-size: 13pt; color: var(--rust);
+    margin-top: 36px;
+  }
+
+  /* TOC */
+  .toc-page { page-break-before: always; page-break-after: always; }
+  .toc-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 50pt;
+    letter-spacing: -0.04em;
+    margin-bottom: 28px;
+  }
+  .toc-title em {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 500;
+  }
+  .toc-section {
+    margin-bottom: 14px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--sage-light);
+  }
+  .toc-section:last-child { border-bottom: none; }
+  .toc-section-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700; font-size: 13pt;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 6px;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .toc-section-title em {
+    color: var(--rust);
+  }
+  .toc-section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--rust); font-weight: 600;
+  }
+  .toc-entries { columns: 2; column-gap: 24px; }
+  .toc-entry {
+    font-family: 'Archivo', sans-serif;
+    font-size: 9.5pt; color: var(--olive);
+    line-height: 1.45; margin-bottom: 4px;
+    break-inside: avoid;
+    display: flex; gap: 8px;
+  }
+  .toc-entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500; color: var(--olive-light);
+    flex-shrink: 0; width: 18px;
+  }
+
+  /* SECTION DIVIDER */
+  .section-divider {
+    page-break-before: always;
+    padding-top: 80mm;
+    padding-bottom: 80mm;
+    background: white;
+  }
+  .section-divider + .content { page-break-before: always; }
+  .section-divider .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--olive); font-weight: 600;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-divider .section-label::before {
+    content: ""; width: 32px; height: 1.5px; background: var(--rust);
+  }
+  .section-divider .section-num {
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 500;
+    font-size: 80pt;
+    color: var(--rust);
+    line-height: 0.9; margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+  .section-divider .section-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 44pt;
+    line-height: 1; letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 20px; max-width: 14em;
+  }
+  .section-divider .section-title em {
+    color: var(--rust);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+  .section-divider .section-desc {
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 400;
+    font-size: 16pt; color: var(--olive);
+    line-height: 1.4; max-width: 28em;
+  }
+
+  /* CONTENT */
+  .content { page-break-before: always; }
+  .content + .content { page-break-before: auto; }
+
+  /* TOOL ENTRY */
+  .tool {
+    page-break-inside: avoid;
+    margin-bottom: 1.8em;
+    padding-bottom: 1.2em;
+    border-bottom: 1px solid var(--sage-light);
+  }
+  .tool:last-child { border-bottom: none; }
+  .tool-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 0.5em;
+    margin-top: 0.3em;
+  }
+  .tool-meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--olive);
+    font-weight: 600;
+  }
+  .tool-meta-item.url { color: var(--ink); }
+  .aff {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 7pt;
+    padding: 3px 9px 3px 7px;
+    border-radius: 99px;
+  }
+  .aff::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .aff--yes { background: var(--rust); color: white; }
+  .aff--no { border: 1px solid var(--sage-light); color: var(--olive); }
+
+  .tool-tagline {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 12pt;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.4em;
+    max-width: 48ch;
+  }
+  .tool-tagline em { color: var(--rust); }
+
+  .tool-desc {
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 0.5em;
+    max-width: 58ch;
+  }
+
+  /* FEATURED TOOL */
+  .tool--featured {
+    background: var(--cream-light);
+    padding: 22px 24px 18px;
+    border-left: 3px solid var(--rust);
+    border-bottom: none;
+    margin: 1em 0 1.5em;
+  }
+  .tool--featured h2 { margin-top: 0; }
+  .tool--featured .featured-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 0.7em;
+  }
+
+  /* CALLOUT (used for affiliate transparency) */
+  .callout {
+    margin: 1.2em 0; padding: 18px 22px;
+    background: var(--sage-light);
+    page-break-inside: avoid; max-width: 62ch;
+  }
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--olive); font-weight: 600;
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .callout-label::before {
+    content: ""; width: 16px; height: 1.5px; background: var(--rust);
+  }
+  .callout p {
+    font-size: 10pt; line-height: 1.5;
+    color: var(--ink); margin-bottom: 0.5em;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* CLOSING */
+  .closing {
+    page-break-before: always;
+    padding-top: 30mm;
+  }
+  .closing h1 { max-width: 14em; margin-bottom: 32px; font-size: 44pt; }
+  .closing h1 em { color: var(--rust); }
+  .closing p { font-size: 12pt; max-width: 32em; line-height: 1.6; }
+  .closing-sig {
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 500;
+    font-size: 13pt; color: var(--rust);
+    margin-top: 48px;
+  }
+  .closing-cta {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--sage-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--olive);
+    font-weight: 600;
+    line-height: 1.8;
+  }
+  .closing-cta a { color: var(--rust); text-decoration: none; }
+
+  .accent { color: var(--rust); }
+  .muted { color: var(--olive); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER PAGE
+     ============================================================ -->
+<div class="cover">
+  <div class="cover-header">
+    <div class="cover-logo">
+      <div class="cover-logo-mark">HC</div>
+      <div class="cover-logo-text">Hege <em>Christine</em></div>
+    </div>
+    <div class="cover-meta">
+      Lead Magnet · Verktøykista<br>
+      Versjon 1.0<br>
+      Mai 2026
+    </div>
+  </div>
+
+  <div class="cover-title">
+    <div class="cover-eyebrow">— Stacken jeg faktisk bruker</div>
+    <div class="cover-pretitle">Mine</div>
+    <div class="cover-main"><em>favoritt</em>verktøy</div>
+    <div class="cover-subtitle">Elleve verktøy, fire kategorier, og <em>ingen</em> Google-klipping. Bare det jeg åpner i nettleseren hver dag.</div>
+  </div>
+
+  <div class="cover-footer">
+    <div>Hege Christine</div>
+    <div>hegechristine.no</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     INNLEDNING
+     ============================================================ -->
+<div class="intro">
+  <div class="eyebrow">Innledning</div>
+  <h1 class="intro-title">Verktøy som <em>driver</em> businessen min.</h1>
+
+  <p class="intro-lead">Hver gang noen spør hvilke verktøy jeg bruker, ender jeg opp med å skrive samme lange e-post. Nå ligger lista her i stedet.</p>
+
+  <p>Dette er ikke en samlet liste over alt som finnes. Det er elleve verktøy jeg faktisk bruker — fra de første tankene en mandag morgen til kursene som selges en lørdag kveld. Hvert verktøy har en grunn til å være på lista.</p>
+
+  <p>Jeg har delt dem inn i fire kategorier: AI, innhold og design, plan og automasjon, og plattform. Du trenger ikke alle. Men noen av disse kan kanskje gjøre uken din litt lettere.</p>
+
+  <p>Et siste ord før du blar videre: jeg er åpen om hva som er affiliate-lenker og ikke. Hvert verktøy er tydelig merket. Jeg anbefaler ingenting jeg ikke selv bruker, uavhengig om jeg tjener provisjon på det eller ikke.</p>
+
+  <div class="intro-sig">//Hege Christine</div>
+</div>
+
+<!-- ============================================================
+     INNHOLDSFORTEGNELSE
+     ============================================================ -->
+<div class="toc-page">
+  <div class="eyebrow">Innhold</div>
+  <h1 class="toc-title">I denne <em>oversikten</em></h1>
+
+  <div class="toc-section">
+    <div class="toc-section-title"><span class="toc-section-num">Del A</span>AI som faktisk <em>hjelper</em></div>
+    <div class="toc-entries">
+      <div class="toc-entry"><span class="toc-entry-num">01</span>Claude</div>
+      <div class="toc-entry"><span class="toc-entry-num">02</span>Perplexity</div>
+      <div class="toc-entry"><span class="toc-entry-num">03</span>Wispr Flow</div>
+      <div class="toc-entry"><span class="toc-entry-num">04</span>Fireflies</div>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-title"><span class="toc-section-num">Del B</span>Innhold og <em>design</em></div>
+    <div class="toc-entries">
+      <div class="toc-entry"><span class="toc-entry-num">05</span>Canva</div>
+      <div class="toc-entry"><span class="toc-entry-num">06</span>Riverside</div>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-title"><span class="toc-section-num">Del C</span>Plan og <em>automasjon</em></div>
+    <div class="toc-entries">
+      <div class="toc-entry"><span class="toc-entry-num">07</span>Asana <span class="muted">· featured</span></div>
+      <div class="toc-entry"><span class="toc-entry-num">08</span>Make</div>
+      <div class="toc-entry"><span class="toc-entry-num">09</span>Zapier</div>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-title"><span class="toc-section-num">Del D</span>Plattform og <em>infrastruktur</em></div>
+    <div class="toc-entries">
+      <div class="toc-entry"><span class="toc-entry-num">10</span>Kajabi <span class="muted">· featured</span></div>
+      <div class="toc-entry"><span class="toc-entry-num">11</span>Google Workspace</div>
+      <div class="toc-entry"><span class="toc-entry-num">12</span>GitHub</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DEL A · AI
+     ============================================================ -->
+<div class="section-divider">
+  <div class="section-label">Del A</div>
+  <div class="section-num">01</div>
+  <div class="section-title">AI som faktisk <em>hjelper</em>.</div>
+  <div class="section-desc">Fire verktøy som har gått fra "morsom novelty" til faste daglige følgesvenner.</div>
+</div>
+
+<div class="content">
+  <div class="eyebrow">Del A · AI som hjelper</div>
+
+  <div class="tool">
+    <h2>Claude</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">claude.ai</span>
+      <span class="tool-meta-item">Sparringspartner</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Den AI-en jeg snakker <em>mest</em> med.</p>
+    <p class="tool-desc">Strategi, tekst, kode — en sparringspartner som faktisk skjønner nyansene og ikke bare gir høflige sammendrag. Jeg bruker Claude både til å lufte tanker, skrive første-utkast og bygge alt fra Asana-prosjekter til nettsider.</p>
+  </div>
+
+  <div class="tool">
+    <h2>Perplexity</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">perplexity.ai</span>
+      <span class="tool-meta-item">Søk med kilder</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Når jeg trenger fakta jeg kan <em>stole på</em>.</p>
+    <p class="tool-desc">Med kildeangivelser. Som Google burde vært, før Google ble en annonseplattform. Bruker den til research før jeg skriver, faktasjekk og når jeg vil komme raskt inn i et nytt felt.</p>
+  </div>
+
+  <div class="tool">
+    <h2>Wispr Flow</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">wisprflow.ai</span>
+      <span class="tool-meta-item">Stemme til tekst</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Jeg snakker raskere enn jeg <em>skriver</em>.</p>
+    <p class="tool-desc">Wispr lar meg diktere overalt i systemet — og tenke mens jeg snakker, uten å bryte flyten. Det har endret hvordan jeg jobber: lange e-poster, Asana-oppgaver og første-utkast tar nå et sekund.</p>
+  </div>
+
+  <div class="tool">
+    <h2>Fireflies</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">fireflies.ai</span>
+      <span class="tool-meta-item">Møtenotater · transkribering</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Min <em>gode venn</em> for møter.</p>
+    <p class="tool-desc">Joiner alle samtalene mine, transkriberer hvert ord og lager sammendrag jeg faktisk gidder å lese — så jeg kan være til stede i samtalen istedet for å notere. Bonus: hele arkivet er søkbart, så jeg finner igjen den ene tingen Maria sa for tre uker siden på fem sekunder.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     DEL B · INNHOLD OG DESIGN
+     ============================================================ -->
+<div class="section-divider">
+  <div class="section-label">Del B</div>
+  <div class="section-num">02</div>
+  <div class="section-title">Innhold og <em>design</em>.</div>
+  <div class="section-desc">Verktøyene jeg bruker for å lage ting folk faktisk får se.</div>
+</div>
+
+<div class="content">
+  <div class="eyebrow">Del B · Innhold og design</div>
+
+  <div class="tool">
+    <h2>Canva</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">canva.com</span>
+      <span class="tool-meta-item">Design uten å være designer</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Brand-malene mine <em>bor</em> her.</p>
+    <p class="tool-desc">Alt fra Instagram-poster til kurspresentasjoner — uten å måtte åpne Figma for å få noe ut av huset. Brand-kit-funksjonen alene er verdt det: jeg slipper å plukke fram fargekoder hver gang.</p>
+  </div>
+
+  <div class="tool">
+    <h2>Riverside</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">riverside.fm</span>
+      <span class="tool-meta-item">Podcast · opptak</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">The Edit spilles inn <em>her</em>.</p>
+    <p class="tool-desc">Lokalt opptak i studio-kvalitet — selv om gjesten sitter med trådløst nett og en MacBook fra 2019. Hver part tas opp lokalt og lastes opp i bakgrunnen, så du slipper å frykte at en dårlig linje ødelegger episoden.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     DEL C · PLAN OG AUTOMASJON
+     ============================================================ -->
+<div class="section-divider">
+  <div class="section-label">Del C</div>
+  <div class="section-num">03</div>
+  <div class="section-title">Plan og <em>automasjon</em>.</div>
+  <div class="section-desc">Systemene som gjør at jeg ikke trenger å holde alt i hodet — eller gjøre det samme to ganger.</div>
+</div>
+
+<div class="content">
+  <div class="eyebrow">Del C · Plan og automasjon</div>
+
+  <div class="tool tool--featured">
+    <div class="featured-label">— Verktøyet jeg elsker mest</div>
+    <h2>Asana</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">asana.com</span>
+      <span class="tool-meta-item">Prosjektstyring</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Hjernen utenfor <em>hodet</em> mitt.</p>
+    <p class="tool-desc">Hver eneste idé, oppgave, kunde, kursmodul og lansering bor i Asana — i prosjekter som faktisk gir mening. Strukturen er fleksibel nok til at jeg kan bygge mitt eget system, og rigid nok til at ingenting faller mellom stolene.</p>
+    <p class="tool-desc">Jeg har prøvd alt: Notion, Trello, Monday, ClickUp, Todoist, papirbøker. Asana er det eneste verktøyet jeg har holdt på i over tre år uten å hoppe over til det neste skinnende. Hvis du bare skal bruke ett verktøy fra denne lista — start her.</p>
+  </div>
+
+  <div class="tool">
+    <h2>Make</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">make.com</span>
+      <span class="tool-meta-item">Automasjon · visuell</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Der jeg bygger de litt mer <em>avanserte</em> flytene.</p>
+    <p class="tool-desc">Visuell logikk, full kontroll — og billigere enn Zapier når det skalerer opp. Hvis du har flere enn et par automasjoner som kjører hver dag, vil du sannsynligvis trives bedre her enn i Zapier.</p>
+  </div>
+
+  <div class="tool">
+    <h2>Zapier</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">zapier.com</span>
+      <span class="tool-meta-item">Automasjon · enkel</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Når jeg bare trenger <em>"hvis X, så Y"</em>.</p>
+    <p class="tool-desc">Og det skal funke uten at jeg gidder å tenke. Klassikeren av en grunn — flest integrasjoner, ryddigst grensesnitt, og enklest å sette opp en rask kobling mellom to systemer.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     DEL D · PLATTFORM OG INFRASTRUKTUR
+     ============================================================ -->
+<div class="section-divider">
+  <div class="section-label">Del D</div>
+  <div class="section-num">04</div>
+  <div class="section-title">Plattform og <em>infrastruktur</em>.</div>
+  <div class="section-desc">Den usexy delen som bare må funke i bakgrunnen — uten å fortelle alle om det.</div>
+</div>
+
+<div class="content">
+  <div class="eyebrow">Del D · Plattform og infrastruktur</div>
+
+  <div class="tool tool--featured">
+    <div class="featured-label">— Plattformen som holder businessen oppe</div>
+    <h2>Kajabi</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">kajabi.com</span>
+      <span class="tool-meta-item">Alt-i-ett · 30 dager gratis</span>
+      <span class="aff aff--yes">Affiliate</span>
+    </div>
+    <p class="tool-tagline">Plattformen jeg drev businessen min <em>på</em>.</p>
+    <p class="tool-desc">Kurs, e-poster, nettside, betalinger — på ett sted, med én innlogging. Det er ikke det peneste verktøyet på markedet. Men det er det eneste jeg har funnet som faktisk gjør alle de kjedelige delene av en online-business på én plattform — uten at jeg må holde styr på integrasjoner mellom Mailchimp, Teachable, Stripe, ConvertKit og fem andre tjenester.</p>
+    <p class="tool-desc">Spar deg selv for den hodepinen. Affiliate-lenken min gir deg 30 dager gratis prøveperiode: <strong>app.kajabi.com/r/yqTvH48Z/t/ssrmaokk</strong></p>
+  </div>
+
+  <div class="tool">
+    <h2>Google Workspace</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">workspace.google.com</span>
+      <span class="tool-meta-item">Drive · Gmail · Kalender</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Den <em>usexy</em> infrastrukturen som bare må funke.</p>
+    <p class="tool-desc">Drive, Gmail, Kalender — og det gjør den. Lite å si her: alt jeg lagrer, alt jeg sender, alt jeg planlegger. Det er ikke gøy å snakke om, men det er fundamentet alt annet hviler på.</p>
+  </div>
+
+  <div class="tool">
+    <h2>GitHub</h2>
+    <div class="tool-meta">
+      <span class="tool-meta-item url">github.com</span>
+      <span class="tool-meta-item">Kode · versjonskontroll</span>
+      <span class="aff aff--no">Ikke affiliate</span>
+    </div>
+    <p class="tool-tagline">Der <em>koden</em> bor.</p>
+    <p class="tool-desc">Versjonskontroll, kontinuitet og hosting for de småtinga jeg bygger på siden. Også der teknisk gjeld blir synlig — som er en feature, ikke en bug.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     CLOSING
+     ============================================================ -->
+<div class="closing">
+  <div class="eyebrow">— Slutt</div>
+  <h1>Et siste <em>ord</em>.</h1>
+
+  <p>Du har nå lista. Det neste — det du faktisk gjør med den — er den vanskelige delen.</p>
+
+  <p>Mitt råd: ikke prøv å adoptere alle ti samtidig. Begynn med Asana. Få ett ekte prosjekt inn der i løpet av en uke. Når det funker, plukker du opp neste verktøy som løser et reelt problem du har akkurat nå.</p>
+
+  <p>Hvis du vil se hvordan jeg faktisk bruker dem — workflowene, prosjektstrukturene, hvordan jeg bygger en lansering fra start til slutt — så holder jeg det i nyhetsbrevet. Du er allerede på listen.</p>
+
+  <div class="closing-sig">//Hege Christine</div>
+
+  <div class="closing-cta">
+    Mer fra meg →&nbsp;&nbsp;<a href="https://www.hegechristine.no">www.hegechristine.no</a><br>
+    Podcast →&nbsp;&nbsp;<a href="https://podcast.hegechristine.no">The Edit</a><br>
+    Instagram →&nbsp;&nbsp;<a href="https://instagram.com/hegechristine.no">@hegechristine.no</a>
+  </div>
+</div>
+
+</body>
+</html>
