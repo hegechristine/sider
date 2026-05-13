@@ -500,11 +500,15 @@ body { padding-top: 80px; }
 .section-head--left { text-align: left; margin-left: auto; margin-right: auto; }
 .section-head--left .section-title { margin-left: 0; margin-right: 0; max-width: none; }
 
-.section-head--w-days     { max-width: 1000px; }
-.section-head--w-who      { max-width: 900px;  }
-.section-head--w-faq      { max-width: 920px;  }
-.section-head--w-transform{ max-width: 980px;  }
-.section-head--w-tiers    { max-width: 1180px; }
+.section-head--left.section-head--w-days     { max-width: 1000px; padding-left: 132px; }
+.section-head--left.section-head--w-who      { max-width: 900px;  }
+.section-head--left.section-head--w-faq      { max-width: 920px;  }
+.section-head--left.section-head--w-transform{ max-width: 980px;  }
+.section-head--left.section-head--w-tiers    { max-width: 1180px; }
+
+@media (max-width: 640px) {
+  .section-head--left.section-head--w-days { padding-left: 0; }
+}
 
 .section-title {
   font-family: 'Archivo', sans-serif;
