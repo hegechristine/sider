@@ -586,6 +586,196 @@ body {
   color: var(--rust);
 }
 
+/* DAYS, TIERS, WHO — kopiert fra hovedsalgssida */
+.section-head--left { text-align: left; margin-left: auto; margin-right: auto; }
+.section-head--left .section-title { margin-left: 0; margin-right: 0; max-width: none; }
+.section-head--w-days     { max-width: 1000px; }
+.section-head--w-who      { max-width: 900px;  }
+.section-head--w-tiers    { max-width: 1180px; }
+
+.bg-ink .section-title { color: var(--cream); }
+
+.day-list { max-width: 1000px; margin: 0 auto; }
+
+.day-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+  align-items: baseline;
+}
+
+.day-item:first-child { border-top: 1px solid var(--line-on-cream); }
+
+.day-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+.day-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.bg-ink .day-item { border-bottom-color: var(--line-on-ink); }
+.bg-ink .day-item:first-child { border-top-color: var(--line-on-ink); }
+.bg-ink .day-title { color: var(--cream); }
+
+@media (max-width: 640px) { .day-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; } }
+
+.tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; max-width: 1180px; margin: 0 auto; padding-right: 12px; padding-bottom: 12px; }
+
+@media (max-width: 880px) { .tier-grid { grid-template-columns: 1fr; max-width: 480px; gap: 28px; } }
+
+.tier {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 40px 32px;
+  display: flex; flex-direction: column;
+  position: relative;
+  box-shadow: 8px 8px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tier:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0 var(--ink); }
+
+.tier-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 20px;
+}
+
+.tier-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 36px;
+  line-height: 1.0; letter-spacing: -0.025em;
+  color: var(--ink); margin-bottom: 12px;
+}
+
+.tier-price {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500; font-size: 18px;
+  color: var(--olive); margin-bottom: 32px;
+}
+
+.tier-price small {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--olive); display: block; margin-top: 4px;
+}
+
+.tier-features { list-style: none; flex: 1; margin-bottom: 36px; }
+
+.tier-features li {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 15px;
+  line-height: 1.5; color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+}
+.tier-features li:last-child { border-bottom: none; }
+
+.tier-features li.off {
+  text-decoration: line-through;
+  text-decoration-color: rgba(46, 50, 48, 0.45);
+  text-decoration-thickness: 1px;
+  opacity: 0.42;
+}
+.tier-vip .tier-features li.off {
+  text-decoration-color: rgba(239, 230, 212, 0.5);
+  opacity: 0.4;
+}
+
+.tier-cta {
+  display: block; width: 100%; text-align: center;
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 14px 18px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 0;
+}
+.tier-cta:hover { background: var(--ink); color: var(--cream); }
+
+.tier-vip { background: var(--ink); color: var(--cream); border-color: var(--ink); box-shadow: 8px 8px 0 var(--rust); }
+.tier-vip:hover { box-shadow: 10px 10px 0 var(--rust); }
+
+.tier-badge {
+  position: absolute;
+  top: -12px; right: 24px;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+}
+.tier-vip .tier-label { color: var(--sand); }
+.tier-vip .tier-name { color: var(--cream); }
+.tier-vip .tier-price { color: var(--sand); }
+.tier-vip .tier-price small { color: var(--sand); opacity: 0.8; }
+.tier-vip .tier-features li { color: var(--cream); border-color: var(--line-on-ink); }
+.tier-vip .tier-cta { background: var(--rust); color: var(--cream); border-color: var(--rust); }
+.tier-vip .tier-cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+.who-list { list-style: none; max-width: 900px; margin: 0 auto; }
+
+.who-list li {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.45;
+  padding: 24px 0 24px 44px;
+  border-top: 1px solid var(--line-on-cream);
+  color: var(--ink);
+  position: relative;
+}
+.who-list li:last-child { border-bottom: 1px solid var(--line-on-cream); }
+
+.who-list li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 36px;
+  width: 9px; height: 9px;
+  background: var(--rust);
+  border-radius: 50%;
+  animation: who-pulse 2.4s ease-in-out infinite;
+}
+
+.who-list li:nth-child(2)::before { animation-delay: 0.3s; }
+.who-list li:nth-child(3)::before { animation-delay: 0.6s; }
+.who-list li:nth-child(4)::before { animation-delay: 0.9s; }
+.who-list li:nth-child(5)::before { animation-delay: 1.2s; }
+
+@keyframes who-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(197, 82, 44, 0.45); }
+  50% { transform: scale(1.25); opacity: 0.85; box-shadow: 0 0 0 6px rgba(197, 82, 44, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-list li::before { animation: none; }
+}
+
 /* TRANSFORM — før/etter rader */
 .transform-section { padding: 88px 0; }
 
@@ -1393,6 +1583,112 @@ body {
         <p class="about-signature">— Hege Christine</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- DAYS -->
+<section class="section bg-ink">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head section-head--left section-head--w-days">
+      <span class="eyebrow">3 dager · Slik henger det sammen</span>
+      <h2 class="section-title">Slik henger det <em>sammen.</em></h2>
+    </div>
+    <div class="day-list">
+      <div class="day-item">
+        <span class="day-num">DAG 01</span>
+        <h3 class="day-title">Den perfekte businessmodellen</h3>
+      </div>
+      <div class="day-item">
+        <span class="day-num">DAG 02</span>
+        <h3 class="day-title">Produktene du kunne tatt 10X for</h3>
+      </div>
+      <div class="day-item">
+        <span class="day-num">DAG 03</span>
+        <h3 class="day-title">Selg og markedsfør på autopilot</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section bg-cream tiers-section">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head section-head--left section-head--w-tiers">
+      <span class="eyebrow">Tre måter å delta på</span>
+      <h2 class="section-title">Velg ditt <em>nivå</em></h2>
+    </div>
+    <div class="tier-grid">
+
+      <article class="tier">
+        <span class="tier-label">Live</span>
+        <h3 class="tier-name">Gratis</h3>
+        <p class="tier-price">0 kr<small>Begrenset antall plasser</small></p>
+        <ul class="tier-features">
+          <li>Live deltakelse alle 3 dager</li>
+          <li>Community-tilgang under challengen</li>
+          <li class="off">Opptak av alle dagene</li>
+          <li class="off">Notater og oppsummeringer</li>
+          <li class="off">30 min 1-1 med Hege Christine</li>
+          <li class="off">Prioritert oppfølging i community</li>
+        </ul>
+        <a href="#signup" class="tier-cta">Sikre min plass</a>
+      </article>
+
+      <article class="tier">
+        <span class="tier-label">Med Opptak</span>
+        <h3 class="tier-name">490 kr</h3>
+        <p class="tier-price">Inkl. mva.<small>For deg som vil ta ting i eget tempo</small></p>
+        <ul class="tier-features">
+          <li>Live deltakelse alle 3 dager</li>
+          <li>Community-tilgang under challengen</li>
+          <li>Opptak av alle dagene</li>
+          <li>Notater og oppsummeringer</li>
+          <li class="off">30 min 1-1 med Hege Christine</li>
+          <li class="off">Prioritert oppfølging i community</li>
+        </ul>
+        <a href="https://www.hegechristine.no/offers/FRcbCd2Q/checkout" class="tier-cta" target="_blank" rel="noopener">Velg Med Opptak</a>
+      </article>
+
+      <article class="tier tier-vip">
+        <span class="tier-badge">Kun 3 plasser</span>
+        <span class="tier-label">VIP</span>
+        <h3 class="tier-name">4 990 kr</h3>
+        <p class="tier-price">Inkl. mva.<small>Kun 3 plasser tilgjengelig</small></p>
+        <ul class="tier-features">
+          <li>Live deltakelse alle 3 dager</li>
+          <li>Community-tilgang under challengen</li>
+          <li>Opptak av alle dagene</li>
+          <li>Notater og oppsummeringer</li>
+          <li>30 min 1-1 med Hege Christine</li>
+          <li>Prioritert oppfølging i community</li>
+        </ul>
+        <a href="https://www.hegechristine.no/offers/MgXwK9xS/checkout" class="tier-cta" target="_blank" rel="noopener">Sikre VIP</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section class="section bg-sage">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head section-head--left section-head--w-who">
+      <span class="eyebrow">Hvem dette er for</span>
+      <h2 class="section-title">Kjenner du deg <em>igjen?</em></h2>
+    </div>
+    <ul class="who-list">
+      <li>Du er ekspert, fagperson, foredragsholder, terapeut eller coach — og vil tjene mer på det du allerede kan.</li>
+      <li>Du selger timene dine i dag, og vet at det ikke skalerer i lengden.</li>
+      <li>Du har en fysisk bedrift og vurderer å bygge en digital sidegren rundt kunnskapen.</li>
+      <li>Du har ikke startet ennå, men vet hva du vil levere — og vil bygge riktig fra start.</li>
+      <li>Du er ferdig med å gjette på neste trekk og vil ha en strategi du faktisk kan stå for.</li>
+    </ul>
   </div>
 </section>
 
