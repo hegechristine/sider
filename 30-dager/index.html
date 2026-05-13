@@ -219,7 +219,78 @@ body {
 /* HERO */
 .hero { padding: 120px 0 100px; text-align: center; position: relative; }
 
-.hero .eyebrow { margin-bottom: 32px; }
+.hero-partner-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px 8px 8px;
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--ink);
+  margin: 0 auto 28px;
+  width: fit-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-partner-chip:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.hero-partner-chip img {
+  height: 28px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.hero-partner-chip-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.hero-partner-chip-text strong {
+  color: var(--rust);
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .hero-partner-chip { padding: 6px 12px 6px 6px; gap: 10px; }
+  .hero-partner-chip img { height: 24px; }
+  .hero-partner-chip-text { font-size: 10px; letter-spacing: 0.1em; white-space: normal; line-height: 1.3; }
+}
+
+.hero .eyebrow { margin-bottom: 24px; }
+
+.hero-tagline-quote {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(17px, 1.9vw, 21px);
+  line-height: 1.4;
+  color: var(--rust);
+  max-width: 540px;
+  margin: 0 auto 44px;
+  letter-spacing: -0.005em;
+}
+
+.hero-tagline-quote .attrib {
+  display: block;
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
 
 .hero h1 {
   font-family: 'Archivo', sans-serif;
@@ -1182,10 +1253,18 @@ body {
   <div class="section-corners"></div>
   <div class="section-corners-bottom"></div>
   <div class="container">
+    <div class="hero-partner-chip">
+      <img src="partner-badge-black.svg" alt="Kajabi Partner-merket" width="523" height="180">
+      <span class="hero-partner-chip-text"><strong>Offisiell partner</strong> · 30 dagers prøveperiode</span>
+    </div>
     <div class="eyebrow">Plattformen jeg bygger businessen min på</div>
     <h1>Én plattform. <em>Hele businessen.</em></h1>
     <p class="hero-lead">
       Kajabi er der jeg samler kurs, e-post, betaling, community og landing pages — uten å lime sammen fem ulike verktøy som hater hverandre. Her er hvorfor jeg anbefaler det, og hvordan du tester det selv.
+    </p>
+    <p class="hero-tagline-quote">
+      «The operating system for human expertise.»
+      <span class="attrib">— slik Kajabi selv kaller det</span>
     </p>
     <a class="cta-primary" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener" id="hero-cta">Start gratis prøveperiode</a>
     <a class="cta-secondary" href="#hvorfor">Les hvorfor først</a>
@@ -1218,6 +1297,21 @@ body {
     </div>
   </div>
 </div>
+
+<!-- WHAT IS KAJABI (bridge) -->
+<section class="section bg-cream" style="padding: 100px 0 80px;">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="narrow">
+    <div class="eyebrow" style="margin-bottom: 28px;">Det heter Kajabi</div>
+    <h2 style="font-family:'Archivo',sans-serif; font-weight:800; font-size: clamp(32px,4vw,46px); line-height:1.0; letter-spacing:-0.025em; color:var(--ink); max-width: 22ch; margin-bottom: 24px;">
+      Hvis ekspertisen din <em style="font-style:normal; color:var(--rust);">er produktet</em> — kurs, coaching, community — er dette systemet jeg lener meg på.
+    </h2>
+    <p style="font-family:'Archivo',sans-serif; font-size: 18px; line-height: 1.65; color: var(--ink); max-width: 620px;">
+      Jeg har drevet digitale businesser i over et tiår, og testet det meste. Kajabi er det første alt-i-ett-systemet jeg ikke leter etter alternativer til. Ikke fordi det er perfekt — men fordi det er bra nok på nok ting til at jeg slipper å være IT-avdeling for min egen business.
+    </p>
+  </div>
+</section>
 
 <!-- STATS -->
 <section class="section bg-sage">
