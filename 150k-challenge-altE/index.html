@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,follow">
 <title>3 dager. Et system. 150K i måneden. — Hege Christine</title>
-<meta name="description" content="Live 3-dagers challenge for digitale gründere. Bygg systemet bak 150K-måneder — uten å selge timene, uten å hoppe fra idé til idé. 26.–28. mai 2026.">
+<meta name="description" content="3-dagers live challenge for digitale gründere, eksperter og fagpersoner. 26.–28. mai 2026.">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,wght@1,500&display=swap"></noscript>
 
 <style>
 :root {
   --cream: #EFE6D4;
   --ink: #2E3230;
   --rust: #C5522C;
-  --sand: #F0D9A8;
   --olive: #5E5F4C;
+  --sage: #AFBEA0;
+  --sand: #F0D9A8;
 
-  --line: rgba(46, 50, 48, 0.16);
-  --line-strong: rgba(46, 50, 48, 0.4);
-  --muted: rgba(46, 50, 48, 0.55);
+  --line-on-cream: rgba(46, 50, 48, 0.16);
+  --line-on-ink: rgba(239, 230, 212, 0.18);
 
+  /* 12-col system inside 1240px container */
   --col-12: 1240px;
   --col-10: 1033px;
   --col-8: 827px;
-  --col-6: 620px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
 body {
   font-family: 'Archivo', sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.45;
   color: var(--ink);
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
@@ -46,799 +46,1467 @@ body {
   padding-top: 80px;
 }
 
-.container { width: min(var(--col-12), calc(100% - 56px)); margin: 0 auto; }
-.container-8 { width: min(var(--col-8), calc(100% - 56px)); margin: 0 auto; }
-.container-10 { width: min(var(--col-10), calc(100% - 56px)); margin: 0 auto; }
+.container { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
 
-img { max-width: 100%; height: auto; display: block; }
+.section { position: relative; padding: 100px 0; }
 
-/* ===== HEADER ===== */
+.section-corners { position: absolute; inset: 32px; pointer-events: none; }
+.section-corners::before, .section-corners::after {
+  content: "+";
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1;
+}
+.section-corners::before { top: 0; left: 0; }
+.section-corners::after  { top: 0; right: 0; }
+
+.section-corners-bottom::before, .section-corners-bottom::after {
+  content: "+";
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1;
+}
+.section-corners-bottom::before { bottom: 0; left: 32px; }
+.section-corners-bottom::after  { bottom: 0; right: 32px; }
+
+.bg-cream {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(rgba(46,50,48,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,50,48,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* HEADER */
 .site-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: var(--cream);
-  border-bottom: 1px solid var(--line);
-  padding: 14px 0;
+  padding: 18px 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(239, 230, 212, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-on-cream);
 }
-.header-row {
-  display: grid; grid-template-columns: auto 1fr auto;
-  align-items: center; gap: 32px;
-}
-.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+.logo { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+
 .logo-mark {
-  width: 34px; height: 34px;
-  border: 1.5px solid var(--ink); border-radius: 50%;
+  width: 36px; height: 36px;
+  background: var(--ink); color: var(--cream);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Newsreader', serif; font-style: italic;
-  font-weight: 600; font-size: 17px; line-height: 1;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 13px; letter-spacing: 0.02em;
 }
+
 .logo-name {
-  font-family: 'Newsreader', serif;
-  font-weight: 500; font-size: 18px; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 17px; letter-spacing: -0.01em;
+  color: var(--ink);
 }
-.logo-name em { font-style: italic; color: var(--rust); font-weight: 500; }
+
+.logo-name em {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  color: var(--rust); margin-left: 6px;
+}
 
 .header-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--muted);
-  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  margin-left: auto; margin-right: auto;
 }
-.header-date-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
+
+.header-date-dot {
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+  animation: header-pulse 2s ease-in-out infinite;
+}
+
+@keyframes header-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-date-dot { animation: none; }
+}
+
+@media (max-width: 880px) {
+  .header-date { display: none; }
+}
 
 .header-cta {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 11px 18px;
-  background: var(--rust); color: var(--cream);
-  border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 13px 22px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-}
-.header-cta:hover { background: var(--ink); transform: translateY(-1px); }
-
-@media (max-width: 760px) {
-  .header-row { gap: 12px; }
-  .header-date { display: none; }
-  .logo-name { font-size: 16px; }
+  border-radius: 3px;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-/* ===== MASTHEAD ===== */
-.masthead {
-  border-bottom: 1px solid var(--line-strong);
-  padding: 18px 0 14px; margin-top: 24px;
-}
-.masthead-grid {
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: baseline; gap: 24px;
-}
-.masthead-edition, .masthead-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-}
-.masthead-date { text-align: right; }
-.masthead-title {
-  font-family: 'Newsreader', serif;
-  font-style: italic; font-weight: 500;
-  font-size: 20px; color: var(--ink); text-align: center;
-}
-@media (max-width: 760px) {
-  .masthead-grid { grid-template-columns: 1fr; gap: 6px; text-align: left; }
-  .masthead-title, .masthead-date { text-align: left; }
+.header-cta:hover { background: var(--rust); transform: translateY(-1px); }
+
+@media (max-width: 480px) {
+  .header-cta { padding: 11px 16px; font-size: 10px; letter-spacing: 0.08em; }
 }
 
-/* ===== SHARED ===== */
-.eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--rust);
-  display: inline-flex; align-items: center; gap: 12px;
-}
-.eyebrow::before {
-  content: ""; width: 36px; height: 1.5px;
-  background: currentColor; display: inline-block;
-}
-.eyebrow.center { justify-content: center; }
-
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 18px 32px;
-  background: var(--rust); color: var(--cream);
-  border: 1.5px solid var(--ink); border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 3px 3px 0 var(--ink);
-  transition: transform 0.15s, box-shadow 0.15s;
-  cursor: pointer;
-}
-.btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
-
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 18px 32px;
-  background: transparent; color: var(--ink);
-  border: 1.5px solid var(--ink); border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-.btn-ghost:hover { background: var(--ink); color: var(--cream); }
-
-/* ===== SECTION BASE ===== */
-.section { padding: 96px 0; }
-.section-head {
-  text-align: center; margin-bottom: 56px;
-  max-width: var(--col-8); margin-left: auto; margin-right: auto;
-}
-.section-title {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(38px, 5.2vw, 64px);
-  line-height: 1.0; letter-spacing: -0.02em;
-  color: var(--ink); max-width: 24ch;
-  margin: 18px auto 0;
-}
-.section-title em { font-style: italic; color: var(--rust); font-weight: 500; }
-.section-sub {
-  font-family: 'Newsreader', serif;
-  font-size: 19px; color: var(--muted);
-  margin-top: 16px;
-}
-
-/* ===== HERO ===== */
-.hero { padding: 56px 0 96px; background: var(--cream); }
-.hero-eyebrow-strip {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 10px 18px;
-  background: var(--ink); color: var(--cream);
-  border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase; font-weight: 600;
-  margin-bottom: 24px;
-}
-.hero-eyebrow-strip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
-
-.hero-headline {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(40px, 6.4vw, 88px);
-  line-height: 0.98; letter-spacing: -0.025em;
-  color: var(--ink); margin-bottom: 28px;
-  max-width: 22ch;
-}
-.hero-headline em { font-style: italic; color: var(--rust); font-weight: 500; }
+/* HERO — split: pitch + form */
+.hero { padding: 48px 0 64px; }
 
 .hero-grid {
-  display: grid; grid-template-columns: 1.1fr 1fr;
-  gap: 64px; align-items: start;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 72px;
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
 }
+
 @media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; max-width: 580px; }
 }
 
-.hero-pitch p {
-  font-family: 'Newsreader', serif;
-  font-weight: 400;
-  font-size: clamp(18px, 1.7vw, 22px);
-  line-height: 1.55;
-  color: var(--ink);
-  max-width: 54ch; margin-bottom: 18px;
-}
-.hero-pitch p:last-of-type { margin-bottom: 28px; }
-.hero-pitch p em { font-style: italic; color: var(--rust); font-weight: 500; }
-.hero-pitch p strong { font-weight: 600; }
+/* LEFT: pitch */
+.hero-pitch { max-width: 540px; }
 
-.hero-actions {
-  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
-  margin-top: 8px;
-}
-.hero-date-line {
-  margin-top: 28px;
+.eyebrow {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--ink);
-  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hero-pitch h1 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  max-width: 20ch;
+}
+
+.hero-pitch h1 .accent { color: var(--rust); }
+
+.hero-lead {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.5vw, 17px);
+  line-height: 1.5;
+  color: var(--olive);
+  margin-bottom: 24px;
+  max-width: 46ch;
+}
+
+.hero-lead strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line-on-cream);
+  border-bottom: 1px solid var(--line-on-cream);
+  margin-bottom: 22px;
+}
+
+.hero-bullets li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: baseline;
+  font-family: 'Archivo', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.hero-bullets li .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--rust);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* INFO-ROW — date / time / location (no card, inline) */
+.info-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-icon {
+  width: 32px; height: 32px;
+  border-radius: 4px;
+  background: var(--rust);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid var(--ink);
+}
+
+.info-icon svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.info-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  line-height: 1;
+}
+
+.info-value {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 14px;
+  line-height: 1.2;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+  .info-row { gap: 18px; }
+}
+
+/* MARQUEE-strip under hero */
+.marquee-strip {
+  background: var(--sand);
+  padding: 18px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 36px;
+  align-items: center;
+  padding-right: 36px;
+  animation: marquee-scroll 38s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-track span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.marquee-track span.dot { opacity: 0.4; color: var(--rust); }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* RIGHT: form card */
+.signup-card {
+  background: #FBF8F0;
   border: 1.5px solid var(--ink);
   border-radius: 4px;
-  display: inline-flex; align-items: center; gap: 12px;
-  background: var(--sand);
-}
-.hero-date-line strong { color: var(--rust); }
-
-.hero-video {
+  padding: 40px 36px 36px;
+  box-shadow: 10px 10px 0 var(--ink);
   position: relative;
-  border: 1.5px solid var(--ink);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 8px 8px 0 var(--rust);
-  aspect-ratio: 4/3;
-  background: var(--ink);
-  display: flex; align-items: center; justify-content: center;
 }
-.hero-video-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(94,95,76,0.92), rgba(46,50,48,0.96));
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+
+@media (max-width: 540px) {
+  .signup-card { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
+}
+
+.signup-flag {
+  position: absolute;
+  top: -14px; left: 24px;
+  background: var(--rust);
   color: var(--cream);
-  padding: 32px; text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
 }
-.video-play-btn {
-  width: 80px; height: 80px;
+
+.signup-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+
+.signup-eyebrow::before {
+  content: "→";
+  font-weight: 700;
+  color: var(--rust);
+}
+
+.signup-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 2.8vw, 30px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 12px;
+  max-width: 20ch;
+}
+
+.signup-title em {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+.signup-lead {
+  font-family: 'Archivo', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--olive);
+  margin-bottom: 26px;
+  max-width: 38ch;
+}
+
+/* FORM */
+.hc-kajabi-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.hc-kajabi-form input[type="text"],
+.hc-kajabi-form input[type="email"] {
+  width: 100%;
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  padding: 14px 16px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hc-kajabi-form input::placeholder { color: rgba(46, 50, 48, 0.5); }
+
+.hc-kajabi-form input:focus {
+  outline: none;
+  border-color: var(--rust);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.hc-kajabi-form button {
+  width: 100%;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  padding: 16px 22px;
+  margin-top: 6px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hc-kajabi-form button:hover:not(:disabled) {
+  background: var(--rust);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.hc-kajabi-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hc-kajabi-form [data-form-message] {
+  min-height: 1em;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hc-kajabi-form [data-form-message][data-state="success"] { color: var(--rust); }
+.hc-kajabi-form [data-form-message][data-state="error"]   { color: #B33A1F; }
+
+.signup-fineprint {
+  margin-top: 18px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--olive);
+  opacity: 0.85;
+}
+
+/* Skjul Kajabi-embed og response-iframe */
+.kajabi-hidden-wrap {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kajabi-response-frame { display: none; }
+
+/* AI-QUOTE — ink banner med pull-quote */
+.ai-quote-section {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--cream);
+  padding: 88px 0;
+  text-align: center;
+}
+
+.ai-quote-section .section-corners::before,
+.ai-quote-section .section-corners::after,
+.ai-quote-section .section-corners-bottom::before,
+.ai-quote-section .section-corners-bottom::after {
+  color: var(--cream);
+}
+
+.ai-quote-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.ai-quote-eyebrow::before,
+.ai-quote-eyebrow::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.ai-quote-text {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+.ai-quote-text em {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+/* DAYS, TIERS, WHO — kopiert fra hovedsalgssida */
+.section-head--left { text-align: left; margin-left: auto; margin-right: auto; }
+.section-head--left .section-title { margin-left: 0; margin-right: 0; max-width: none; }
+.section-head--left.section-head--w-days  { max-width: var(--col-10); }
+
+.bg-ink .days-eyebrow { color: var(--sand); }
+.bg-ink .days-eyebrow::before { background: var(--sand); }
+.section-head--left.section-head--w-who   { max-width: var(--col-8); }
+.section-head--left.section-head--w-tiers { max-width: var(--col-12); }
+
+.bg-ink .section-title { color: var(--cream); }
+
+.day-list { max-width: var(--col-10); margin: 0 auto; }
+
+.day-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+  align-items: baseline;
+}
+
+.day-item:first-child { border-top: 1px solid var(--line-on-cream); }
+
+.day-item {
+  transition: padding-left 0.25s ease;
+}
+
+.day-item:hover {
+  padding-left: 8px;
+}
+
+.day-item:hover .day-num {
+  color: var(--cream);
+}
+
+.day-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+.day-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.day-desc {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: 0.75;
+  margin-top: 10px;
+  max-width: 60ch;
+}
+
+.bg-ink .day-item { border-bottom-color: var(--line-on-ink); }
+.bg-ink .day-item:first-child { border-top-color: var(--line-on-ink); }
+.bg-ink .day-title { color: var(--cream); }
+.bg-ink .day-desc { color: var(--sand); opacity: 0.85; }
+
+@media (max-width: 640px) { .day-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; } }
+
+.tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; max-width: var(--col-12); margin: 0 auto; padding-right: 12px; padding-bottom: 12px; }
+
+@media (max-width: 880px) { .tier-grid { grid-template-columns: 1fr; max-width: 480px; gap: 28px; } }
+
+.tier {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 40px 32px;
+  display: flex; flex-direction: column;
+  position: relative;
+  box-shadow: 8px 8px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tier:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0 var(--ink); }
+
+.tier-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 20px;
+}
+
+.tier-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 36px;
+  line-height: 1.0; letter-spacing: -0.025em;
+  color: var(--ink); margin-bottom: 12px;
+}
+
+.tier-price {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500; font-size: 18px;
+  color: var(--olive); margin-bottom: 32px;
+}
+
+.tier-price small {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--olive); display: block; margin-top: 4px;
+}
+
+.tier-features { list-style: none; flex: 1; margin-bottom: 36px; }
+
+.tier-features li {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 15px;
+  line-height: 1.5; color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+}
+.tier-features li:last-child { border-bottom: none; }
+
+.tier-features li.off {
+  text-decoration: line-through;
+  text-decoration-color: rgba(46, 50, 48, 0.45);
+  text-decoration-thickness: 1px;
+  opacity: 0.42;
+}
+.tier-vip .tier-features li.off {
+  text-decoration-color: rgba(239, 230, 212, 0.5);
+  opacity: 0.4;
+}
+
+.tier-cta {
+  display: block; width: 100%; text-align: center;
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 14px 18px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 0;
+}
+.tier-cta:hover { background: var(--ink); color: var(--cream); }
+
+.tier-vip { background: var(--ink); color: var(--cream); border-color: var(--ink); box-shadow: 8px 8px 0 var(--rust); }
+.tier-vip:hover { box-shadow: 10px 10px 0 var(--rust); }
+
+.tier-badge {
+  position: absolute;
+  top: -12px; right: 24px;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+}
+.tier-vip .tier-label { color: var(--sand); }
+.tier-vip .tier-name { color: var(--cream); }
+.tier-vip .tier-price { color: var(--sand); }
+.tier-vip .tier-price small { color: var(--sand); opacity: 0.8; }
+.tier-vip .tier-features li { color: var(--cream); border-color: var(--line-on-ink); }
+.tier-vip .tier-cta { background: var(--rust); color: var(--cream); border-color: var(--rust); }
+.tier-vip .tier-cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+.who-list { list-style: none; max-width: var(--col-8); margin: 0 auto; }
+
+.who-list li {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.45;
+  padding: 24px 0 24px 44px;
+  border-top: 1px solid var(--line-on-cream);
+  color: var(--ink);
+  position: relative;
+}
+.who-list li:last-child { border-bottom: 1px solid var(--line-on-cream); }
+
+.who-list li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 36px;
+  width: 9px; height: 9px;
+  background: var(--rust);
+  border-radius: 50%;
+  animation: who-pulse 2.4s ease-in-out infinite;
+}
+
+.who-list li:nth-child(2)::before { animation-delay: 0.3s; }
+.who-list li:nth-child(3)::before { animation-delay: 0.6s; }
+.who-list li:nth-child(4)::before { animation-delay: 0.9s; }
+.who-list li:nth-child(5)::before { animation-delay: 1.2s; }
+
+@keyframes who-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(197, 82, 44, 0.45); }
+  50% { transform: scale(1.25); opacity: 0.85; box-shadow: 0 0 0 6px rgba(197, 82, 44, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-list li::before { animation: none; }
+}
+
+/* TRANSFORM — før/etter rader */
+.transform-section { padding: 88px 0; }
+
+.transform-section .section-head {
+  text-align: center;
+  max-width: var(--col-8);
+  margin: 0 auto 56px;
+}
+.transform-section .section-head .section-title { margin-left: auto; margin-right: auto; }
+
+.transform-grid {
+  max-width: var(--col-10);
+  margin: 0 auto;
+}
+
+.transform-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line-on-cream);
+}
+
+.transform-row:first-child { border-top: 1px solid var(--line-on-cream); }
+
+.transform-from {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.4;
+  color: var(--ink);
+  opacity: 0.5;
+  letter-spacing: -0.005em;
+  text-decoration: line-through;
+  text-decoration-color: rgba(46, 50, 48, 0.55);
+  text-decoration-thickness: 1.5px;
+  text-align: right;
+}
+
+.transform-arrow {
+  width: 36px; height: 36px;
   border-radius: 50%;
   background: var(--rust);
-  border: 2px solid var(--cream);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.video-play-btn:hover { transform: scale(1.06); }
-.video-play-btn svg { width: 28px; height: 28px; fill: var(--cream); margin-left: 4px; }
-.video-caption {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-size: 18px;
   color: var(--cream);
-  max-width: 28ch;
-  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
-/* ===== SOCIAL PROOF BAR ===== */
-.social-bar { padding: 26px 0; background: var(--ink); color: var(--cream); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-.social-bar-inner {
-  display: flex; justify-content: center; gap: 36px;
-  flex-wrap: wrap; align-items: center;
-  font-family: 'Newsreader', serif; font-style: italic;
-  font-size: 18px; color: rgba(239,230,212,0.85);
+.transform-row:hover .transform-arrow {
+  transform: translateX(3px);
 }
-.social-bar-inner .dot { color: var(--rust); font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
-.social-bar-inner strong { color: var(--sand); font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; }
 
-/* ===== PROMISE / 3 SHIFTS ===== */
-.promise-section { background: var(--cream); }
-.promise-list {
-  max-width: var(--col-10); margin: 0 auto;
+.transform-to {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 1.9vw, 22px);
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
-.promise-item {
-  display: grid; grid-template-columns: 200px 1fr;
-  gap: 56px; padding: 44px 0;
-  border-top: 1px solid var(--line);
+
+@media (max-width: 640px) {
+  .transform-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px 0;
+  }
+  .transform-from { text-align: left; font-size: 15px; }
+  .transform-arrow {
+    width: 28px; height: 28px;
+    font-size: 13px;
+    justify-self: start;
+    margin: 4px 0;
+  }
+  .transform-to { font-size: 18px; }
+}
+
+.narrow { width: min(820px, calc(100% - 56px)); margin: 0 auto; }
+
+.bg-sage {
+  background-color: var(--sage);
+}
+
+.bg-sand {
+  background-color: var(--sand);
+}
+
+.bg-cream-no-grid {
+  background-color: var(--cream);
+}
+
+/* Scroll fade-in */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ABOUT */
+.about-card {
+  max-width: var(--col-10);
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
   align-items: start;
 }
-.promise-item:last-child { border-bottom: 1px solid var(--line); }
-.promise-num {
-  font-family: 'Newsreader', serif;
-  font-style: italic; font-weight: 500;
-  font-size: clamp(64px, 8vw, 124px);
-  line-height: 0.85;
-  color: var(--rust);
+
+.about-photo {
+  width: 240px;
+  height: 240px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--rust);
+  box-shadow: 8px 8px 0 var(--ink);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.promise-num small {
+
+.about-photo:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+
+.about-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-style: normal; font-size: 11px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted); margin-top: 12px;
-  font-weight: 500;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 16px;
 }
-.promise-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--rust);
-  font-weight: 600;
-  margin-bottom: 12px;
-  display: inline-flex; align-items: center; gap: 8px;
+
+.about-card-meta::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
 }
-.promise-eyebrow::before { content: "→"; font-family: 'Archivo', sans-serif; }
-.promise-title {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.15; letter-spacing: -0.015em;
-  color: var(--ink); margin-bottom: 16px;
-  max-width: 22ch;
-}
-.promise-title em { font-style: italic; color: var(--rust); font-weight: 500; }
-.promise-desc {
+
+.about-card-name {
   font-family: 'Archivo', sans-serif;
-  font-size: 16px; line-height: 1.65;
-  color: var(--ink); max-width: 58ch;
+  font-weight: 800;
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
 }
-.promise-desc strong { font-weight: 600; }
-.promise-outcome {
-  margin-top: 14px;
+
+.about-card-name em {
   font-family: 'Newsreader', serif;
   font-style: italic;
-  font-size: 18px;
+  font-weight: 500;
   color: var(--rust);
 }
-.promise-outcome::before { content: "Du går ut med: "; font-style: normal; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
 
-@media (max-width: 760px) {
-  .promise-item { grid-template-columns: 1fr; gap: 14px; padding: 36px 0; }
-  .promise-num { font-size: 88px; }
-}
-
-/* ===== WALK AWAY ===== */
-.walkaway-section { background: var(--sand); border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
-.walkaway-list {
-  max-width: var(--col-8); margin: 0 auto;
-  display: flex; flex-direction: column;
-  list-style: none;
-}
-.walkaway-list li {
+.about-tagline {
   font-family: 'Newsreader', serif;
-  font-size: clamp(19px, 1.9vw, 23px);
-  line-height: 1.4;
-  color: var(--ink);
-  padding: 22px 0;
-  border-top: 1px solid rgba(46,50,48,0.2);
-  display: grid; grid-template-columns: 36px 1fr;
-  gap: 18px; align-items: baseline;
-}
-.walkaway-list li:last-child { border-bottom: 1px solid rgba(46,50,48,0.2); }
-.walkaway-list li::before {
-  content: "✓";
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 16px; font-weight: 700;
-  color: var(--rust); background: var(--cream);
-  width: 28px; height: 28px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 50%; border: 1.5px solid var(--ink);
-}
-.walkaway-list li em { font-style: italic; color: var(--rust); font-weight: 500; }
-
-/* ===== HOW IT WORKS (olive) ===== */
-.how-section { background: var(--olive); color: var(--cream); }
-.how-section .section-head .eyebrow { color: var(--sand); }
-.how-section .section-head .eyebrow::before { background: var(--sand); }
-.how-section .section-title { color: var(--cream); }
-.how-section .section-title em { color: var(--sand); }
-
-.how-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-  max-width: var(--col-10); margin: 0 auto;
-}
-.how-cell {
-  border-top: 2px solid var(--sand);
-  padding-top: 20px;
-}
-.how-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--sand);
-  margin-bottom: 12px;
-}
-.how-value {
-  font-family: 'Newsreader', serif;
+  font-style: italic;
   font-weight: 500;
-  font-size: clamp(22px, 2.4vw, 28px);
-  line-height: 1.25; letter-spacing: -0.01em;
-  color: var(--cream); margin-bottom: 12px;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.35;
+  color: var(--olive);
+  margin-bottom: 24px;
+  letter-spacing: -0.005em;
 }
-.how-value em { font-style: italic; color: var(--sand); font-weight: 500; }
-.how-detail {
+
+.about-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  padding: 14px 0;
+  border-top: 1px solid var(--line-on-cream);
+  border-bottom: 1px solid var(--line-on-cream);
+  margin-bottom: 28px;
+}
+
+.about-credentials .dot {
+  color: var(--rust);
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.about-content p {
   font-family: 'Archivo', sans-serif;
-  font-size: 14px; line-height: 1.55;
-  color: rgba(239,230,212,0.8);
-}
-@media (max-width: 760px) {
-  .how-grid { grid-template-columns: 1fr; gap: 28px; }
+  font-size: 17px; line-height: 1.6;
+  color: var(--ink); margin-bottom: 18px;
 }
 
-/* ===== SPOTS / URGENCY ===== */
-.spots-section { background: var(--cream); }
-.spots-card {
-  max-width: var(--col-8); margin: 0 auto;
-  background: var(--cream);
-  border: 1.5px solid var(--ink);
-  border-radius: 6px;
-  padding: 48px;
-  box-shadow: 8px 8px 0 var(--rust);
-}
-.spots-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--rust);
-  margin-bottom: 18px;
-  display: inline-flex; align-items: center; gap: 10px;
-}
-.spots-eyebrow::before { content: "🔒"; font-family: 'Archivo', sans-serif; }
-.spots-title {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.6vw, 42px);
-  line-height: 1.1; letter-spacing: -0.015em;
-  color: var(--ink); margin-bottom: 24px;
-}
-.spots-title em { font-style: italic; color: var(--rust); font-weight: 500; }
-.spots-body {
-  font-family: 'Newsreader', serif;
-  font-size: 18px; line-height: 1.6;
-  color: var(--ink); margin-bottom: 14px;
-}
-.spots-body em { font-style: italic; color: var(--rust); font-weight: 500; }
-.spots-body strong { font-weight: 600; }
-.spots-kicker {
-  font-family: 'Newsreader', serif;
-  font-style: italic; font-size: 20px;
-  color: var(--rust);
-  margin: 24px 0;
-  padding: 14px 18px;
-  background: var(--sand);
+.about-content p:last-child { margin-bottom: 0; }
+
+.about-quote {
+  font-family: 'Newsreader', serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  font-size: clamp(22px, 2.6vw, 28px) !important;
+  line-height: 1.35 !important;
+  color: var(--rust) !important;
   border-left: 3px solid var(--rust);
+  padding-left: 28px;
+  margin: 36px 0 !important;
 }
-.countdown {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 16px; margin-top: 28px;
-  max-width: 560px;
+
+.about-signature {
+  margin-top: 24px !important;
+  font-family: 'Newsreader', serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  color: var(--rust) !important;
+  text-align: right;
 }
-.countdown-cell {
-  text-align: center; padding: 14px 8px;
+
+@media (max-width: 720px) {
+  .about-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-photo { width: 160px; height: 160px; box-shadow: 6px 6px 0 var(--ink); }
+}
+
+/* SECTION HEAD (for FAQ + ABOUT) */
+.section-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-head--left {
+  text-align: left;
+  max-width: var(--col-8);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-head .eyebrow { margin-bottom: 18px; }
+
+.section-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 22ch;
+}
+
+.section-title em {
+  font-style: normal;
+  color: var(--rust);
+}
+
+.section-head--left .section-title { margin-left: 0; }
+
+/* FAQ */
+.faq-list {
+  max-width: var(--col-8);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+}
+
+.faq-item {
+  background: #FBF8F0;
   border: 1.5px solid var(--ink);
   border-radius: 4px;
-  background: var(--cream);
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.countdown-num {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1; color: var(--ink);
+
+.faq-item:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 var(--ink);
 }
-.countdown-label {
+
+.faq-item[open] {
+  box-shadow: 5px 5px 0 var(--rust);
+}
+
+.faq-item[open]:hover {
+  box-shadow: 6px 6px 0 var(--rust);
+}
+
+.faq-q {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 18px;
+  line-height: 1.3; letter-spacing: -0.01em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  transition: color 0.2s ease;
+  margin: 0;
+}
+
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::marker { content: ""; }
+
+.faq-q::after {
+  content: "+";
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--muted);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  border: 1.5px solid var(--ink);
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+  transition: transform 0.25s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-q::after {
+  transform: rotate(45deg);
+}
+
+.faq-q:hover { color: var(--rust); }
+.faq-q:hover::after { transform: scale(1.08); }
+.faq-item[open] .faq-q:hover::after { transform: rotate(45deg) scale(1.08); }
+.faq-q:focus-visible { outline: none; color: var(--rust); }
+
+.faq-a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 16px;
+  line-height: 1.55; color: var(--ink);
+  padding: 0 26px 24px 26px;
+  max-width: 70ch;
+  animation: faq-reveal 0.3s ease-out;
+}
+
+@keyframes faq-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 520px) {
+  .faq-q { padding: 20px 20px; font-size: 16px; gap: 14px; }
+  .faq-q::after { width: 28px; height: 28px; font-size: 14px; }
+  .faq-a { padding: 0 20px 20px 20px; }
+  .faq-item { box-shadow: 4px 4px 0 var(--ink); }
+  .faq-item[open] { box-shadow: 4px 4px 0 var(--rust); }
+}
+
+/* FINAL CTA */
+.bg-ink {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(239,230,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,230,212,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--cream);
+}
+
+.bg-ink .section-corners::before,
+.bg-ink .section-corners::after,
+.bg-ink .section-corners-bottom::before,
+.bg-ink .section-corners-bottom::after {
+  color: var(--cream);
+}
+
+.final { text-align: center; padding: 120px 0 100px; }
+
+.final .eyebrow {
+  color: var(--rust);
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.final h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin: 0 auto 48px;
+  max-width: 28ch;
+}
+
+.final h2 em { font-style: normal; color: var(--rust); }
+
+.final .cta-primary {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 20px 40px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.final .cta-primary:hover {
+  background: var(--cream);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.final-meta {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+}
+
+.final-ps {
+  max-width: 56ch;
+  margin: 0 auto 36px;
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.55;
+  color: rgba(239,230,212,0.85);
+}
+.final-ps strong { color: var(--cream); font-weight: 600; }
+.final-ps em { font-style: italic; color: var(--sand); font-weight: 500; }
+.final-ps-label {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.final-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 520px;
+  margin: 32px auto 0;
+}
+.final-countdown-cell {
+  text-align: center;
+  padding: 14px 6px;
+  background: rgba(239,230,212,0.08);
+  border: 1px solid rgba(239,230,212,0.25);
+  border-radius: 4px;
+}
+.final-countdown-num {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(28px, 3.8vw, 40px);
+  line-height: 1;
+  color: var(--cream);
+}
+.final-countdown-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(239,230,212,0.7);
   margin-top: 6px;
 }
 
-/* ===== BONUS ===== */
-.bonus-section { background: var(--ink); color: var(--cream); }
-.bonus-grid {
-  display: grid; grid-template-columns: 280px 1fr;
+/* FOOTER */
+.footer { background: var(--olive); padding: 64px 0 36px; border-top: 1px solid var(--line-on-ink); color: var(--cream); }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 56px;
-  max-width: var(--col-10); margin: 0 auto;
-  align-items: center;
-}
-.bonus-visual {
-  background: var(--sand); color: var(--ink);
-  padding: 32px 24px;
-  border-radius: 6px; text-align: center;
-  border: 1.5px solid var(--cream);
-  box-shadow: 6px 6px 0 var(--rust);
-}
-.bonus-visual-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--rust);
-  margin-bottom: 8px;
-}
-.bonus-visual-amount {
-  font-family: 'Newsreader', serif;
-  font-style: italic; font-weight: 500;
-  font-size: 56px; line-height: 1;
-  color: var(--ink); margin-bottom: 8px;
-}
-.bonus-visual-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--ink);
-}
-.bonus-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--sand);
-  margin-bottom: 16px;
-  display: inline-flex; align-items: center; gap: 10px;
-}
-.bonus-eyebrow::before { content: "🎁"; font-family: 'Archivo', sans-serif; }
-.bonus-title {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.4vw, 40px);
-  line-height: 1.1; letter-spacing: -0.015em;
-  color: var(--cream); margin-bottom: 16px;
-}
-.bonus-title em { font-style: italic; color: var(--sand); font-weight: 500; }
-.bonus-text {
-  font-family: 'Newsreader', serif;
-  font-size: 18px; line-height: 1.6;
-  color: rgba(239,230,212,0.85);
-  margin-bottom: 12px;
-}
-.bonus-text strong { color: var(--cream); font-weight: 600; }
-@media (max-width: 760px) {
-  .bonus-grid { grid-template-columns: 1fr; gap: 32px; }
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line-on-ink);
 }
 
-/* ===== TIERS ===== */
-.tiers-section { background: var(--cream); }
-.tiers-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  max-width: var(--col-10); margin: 0 auto;
+@media (max-width: 720px) {
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
 }
-.tier-card {
-  background: var(--cream);
-  border: 1.5px solid var(--ink);
-  border-radius: 6px;
-  padding: 36px;
-  position: relative;
-  box-shadow: 6px 6px 0 var(--ink);
+
+.footer-brand-name {
+  display: inline-block;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700; font-size: 22px; letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
-.tier-card.featured {
-  background: var(--sand);
-  box-shadow: 6px 6px 0 var(--rust);
-}
-.tier-flag {
-  position: absolute; top: -14px; left: 24px;
-  background: var(--rust); color: var(--cream);
-  padding: 6px 14px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; font-weight: 700;
-  border-radius: 999px;
-}
-.tier-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--rust);
-  margin-bottom: 12px;
-}
-.tier-name {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.4vw, 36px);
-  line-height: 1.05; letter-spacing: -0.02em;
-  color: var(--ink); margin-bottom: 8px;
-}
-.tier-name em { font-style: italic; color: var(--rust); font-weight: 500; }
-.tier-price {
+
+.footer-brand-name em {
   font-family: 'Newsreader', serif;
   font-style: italic; font-weight: 500;
-  font-size: 56px; line-height: 1;
-  color: var(--ink); margin: 16px 0 8px;
+  color: var(--rust); margin-left: 5px;
 }
-.tier-price-detail {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: 24px;
+
+.footer-brand-name:hover { color: var(--rust); }
+
+.footer-tagline {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400; font-size: 14px;
+  line-height: 1.55;
+  color: var(--sand);
+  margin-top: 18px;
+  max-width: 36ch;
 }
-.tier-includes-label {
+
+.footer-col-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--muted);
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 18px;
+}
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.footer-links a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500; font-size: 14px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover { color: var(--rust); }
+
+.footer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+}
+
+.footer-bottom a { color: var(--sand); text-decoration: none; transition: color 0.2s ease; }
+.footer-bottom a:hover { color: var(--cream); }
+
+@media (max-width: 720px) {
+  .footer-bottom { flex-direction: column; text-align: left; align-items: flex-start; }
+}
+
+.footer-disclaimer-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand);
+  text-decoration: underline;
+  text-decoration-color: rgba(240, 217, 168, 0.4);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: color 0.2s ease;
+}
+
+.footer-disclaimer-link:hover {
+  color: var(--rust);
+  text-decoration-color: var(--rust);
+}
+
+/* DISCLAIMER MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 50, 48, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: modal-fade 0.2s ease-out;
+}
+
+.modal-overlay.is-open { display: flex; }
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #FBF8F0;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 var(--ink);
+  max-width: 560px;
+  width: 100%;
+  padding: 40px 40px 36px;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: modal-pop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: translate(-6px, -6px) scale(0.97); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: none; border: none;
+  width: 36px; height: 36px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px; font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modal-close:hover { color: var(--rust); transform: rotate(90deg); }
+
+.modal-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.modal h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.modal p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
   margin-bottom: 14px;
 }
-.tier-list { list-style: none; margin-bottom: 28px; }
-.tier-list li {
-  font-family: 'Archivo', sans-serif;
-  font-size: 15px; line-height: 1.55;
-  padding: 12px 0;
-  border-top: 1px solid rgba(46,50,48,0.18);
-  display: grid; grid-template-columns: 24px 1fr;
-  gap: 12px; align-items: baseline;
-}
-.tier-list li::before {
-  content: "✓";
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700; color: var(--rust);
-}
-.tier-list li strong { font-weight: 600; }
-.tier-cta {
-  display: block; width: 100%;
-  text-align: center; padding: 16px 24px;
-  background: var(--ink); color: var(--cream);
-  border: 1.5px solid var(--ink);
-  border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.tier-cta:hover { background: var(--rust); border-color: var(--rust); }
-.tier-card.featured .tier-cta { background: var(--rust); border-color: var(--rust); }
-.tier-card.featured .tier-cta:hover { background: var(--ink); border-color: var(--ink); }
 
-@media (max-width: 760px) {
-  .tiers-grid { grid-template-columns: 1fr; gap: 28px; }
-}
+.modal p:last-child { margin-bottom: 0; }
 
-/* ===== MENTOR (about) ===== */
-.mentor-section { background: var(--olive); color: var(--cream); }
-.mentor-section .section-head .eyebrow { color: var(--sand); }
-.mentor-section .section-head .eyebrow::before { background: var(--sand); }
-.mentor-section .section-title { color: var(--cream); }
-.mentor-section .section-title em { color: var(--sand); }
-.mentor-grid {
-  display: grid; grid-template-columns: 280px 1fr;
-  gap: 56px;
-  max-width: var(--col-10); margin: 0 auto;
-  align-items: start;
-}
-.mentor-photo img {
-  width: 100%; border-radius: 6px;
-  border: 1.5px solid var(--cream);
-  box-shadow: 6px 6px 0 var(--rust);
-}
-.mentor-content p {
-  font-family: 'Newsreader', serif;
-  font-size: 19px; line-height: 1.65;
-  color: var(--cream); margin-bottom: 18px;
-}
-.mentor-content p:last-child { margin-bottom: 0; }
-.mentor-content p strong { font-weight: 600; color: var(--sand); }
-.mentor-content p em { font-style: italic; color: var(--sand); font-weight: 500; }
-.mentor-content > p:first-of-type::first-letter {
-  font-style: italic;
-  font-size: 4.6em;
-  line-height: 0.85;
-  float: left;
-  padding: 0.06em 0.12em 0 0;
-  color: var(--sand);
-  font-weight: 500;
-}
-@media (max-width: 760px) {
-  .mentor-grid { grid-template-columns: 1fr; gap: 32px; }
-  .mentor-photo { max-width: 240px; }
-}
+.modal p strong { font-weight: 700; }
 
-/* ===== TESTIMONIALS ===== */
-.testimonials-section { background: var(--cream); }
-.testimonials-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  max-width: var(--col-12); margin: 0 auto;
-}
-.testimonial-card {
-  background: var(--cream);
-  border: 1.5px solid var(--ink);
-  border-radius: 6px;
-  padding: 28px;
-  box-shadow: 4px 4px 0 var(--sand);
-  display: flex; flex-direction: column; gap: 18px;
-}
-.testimonial-quote {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-size: 18px; line-height: 1.55;
-  color: var(--ink);
-}
-.testimonial-quote::before {
-  content: "“";
-  font-size: 56px;
-  font-family: 'Newsreader', serif;
-  color: var(--rust);
-  line-height: 0; vertical-align: -16px;
-  margin-right: 4px;
-}
-.testimonial-attr {
-  margin-top: auto;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-.testimonial-attr strong { color: var(--ink); font-weight: 700; display: block; margin-bottom: 4px; }
-@media (max-width: 880px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
-}
-
-/* ===== FAQ ===== */
-.faq-section { background: var(--cream); }
-.faq-list {
-  max-width: var(--col-8); margin: 0 auto;
-}
-.faq-item { border-bottom: 1px solid var(--line); }
-.faq-q {
-  cursor: pointer;
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(19px, 2vw, 23px);
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  padding: 26px 0;
-  list-style: none;
-  display: flex; justify-content: space-between; gap: 24px; align-items: baseline;
-  transition: color 0.2s;
-}
-.faq-q::-webkit-details-marker { display: none; }
-.faq-q:hover { color: var(--rust); }
-.faq-q::after {
-  content: "+";
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700; font-size: 22px;
-  color: var(--rust);
-  transition: transform 0.2s; flex-shrink: 0;
-}
-.faq-item[open] .faq-q::after { transform: rotate(45deg); }
-.faq-a {
-  font-family: 'Archivo', sans-serif;
-  font-size: 16px; line-height: 1.65;
-  color: var(--ink); padding: 0 0 26px;
-  max-width: 65ch;
-}
-
-/* ===== FINAL CTA ===== */
-.final-section {
-  background: var(--rust); color: var(--cream);
-  text-align: center; padding: 120px 0;
-}
-.final-section .eyebrow { color: var(--sand); justify-content: center; }
-.final-section .eyebrow::before { background: var(--sand); }
-.final-headline {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: clamp(40px, 6.5vw, 88px);
-  line-height: 0.98; letter-spacing: -0.02em;
-  color: var(--cream); max-width: 20ch;
-  margin: 24px auto 24px;
-}
-.final-headline em { font-style: italic; color: var(--sand); font-weight: 500; }
-.final-sub {
-  font-family: 'Newsreader', serif;
-  font-size: 19px; line-height: 1.55;
-  color: rgba(239,230,212,0.9);
-  max-width: 56ch; margin: 0 auto 36px;
-}
-.final-sub em { font-style: italic; color: var(--sand); font-weight: 500; }
-.final-cta {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 20px 32px;
-  background: var(--cream); color: var(--ink);
-  border: 1.5px solid var(--ink); border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 3px 3px 0 var(--ink);
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.final-cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
-.final-countdown {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 560px; margin: 40px auto 0;
-}
-.final-countdown .countdown-cell { background: rgba(46,50,48,0.25); border-color: var(--cream); color: var(--cream); }
-.final-countdown .countdown-num { color: var(--cream); }
-.final-countdown .countdown-label { color: rgba(239,230,212,0.7); }
-
-/* ===== FOOTER ===== */
-.footer {
-  padding: 40px 0; background: var(--ink);
-  color: rgba(239,230,212,0.7);
-}
-.footer-row {
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 24px; flex-wrap: wrap;
-}
-.footer-brand {
-  font-family: 'Newsreader', serif;
-  font-style: italic; font-weight: 500;
-  font-size: 18px; color: var(--cream);
-}
-.footer-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.footer-disclaimer {
-  font-family: 'Archivo', sans-serif;
-  font-size: 12px; line-height: 1.5;
-  color: rgba(239,230,212,0.55);
-  margin-top: 18px; max-width: 70ch;
+@media (max-width: 480px) {
+  .modal { padding: 32px 24px 28px; box-shadow: 6px 6px 0 var(--ink); }
+  .modal h2 { font-size: 24px; }
 }
 </style>
 </head>
@@ -848,308 +1516,276 @@ img { max-width: 100%; height: auto; display: block; }
 <header class="site-header">
   <div class="container header-row">
     <a href="/" class="logo">
-      <span class="logo-mark">H<em style="font-style:italic;color:var(--rust);">C</em></span>
-      <span class="logo-name">Hege <em>Christine</em></span>
+      <span class="logo-mark">HC</span>
+      <span class="logo-name">Hege<em>Christine</em></span>
     </a>
     <span class="header-date"><span class="header-date-dot"></span>26.–28. mai 2026 · Live på Zoom</span>
-    <a href="#tiers" class="header-cta">Sikre plassen min →</a>
+    <a href="#signup" class="header-cta">Sikre min plass →</a>
   </div>
 </header>
 
-<!-- MASTHEAD -->
-<div class="container">
-  <div class="masthead">
-    <div class="masthead-grid">
-      <div class="masthead-edition">Utgave Nr. 01 — Mai 2026</div>
-      <div class="masthead-title">3 dager · Et system · 150K i måneden</div>
-      <div class="masthead-date">Live på Zoom · 26.–28. mai</div>
-    </div>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
+<!-- HERO: pitch + form -->
+<section class="section bg-cream hero">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
   <div class="container">
-    <span class="hero-eyebrow-strip"><span class="dot"></span>Live 3-dagers Challenge · 26.–28. mai 2026</span>
-    <h1 class="hero-headline">Den ekte grunnen til at du <em>ikke</em> har 150K-måneder ennå <em>(og hvordan vi fikser det på 3 dager).</em></h1>
-
     <div class="hero-grid">
+
+      <!-- LEFT: pitch -->
       <div class="hero-pitch">
-        <p>De fleste norske gründere som lever av kunnskapen sin tror de bare må <em>jobbe mer</em> for å komme videre. Flere timer, flere klienter, enda et kurs, enda en lansering.</p>
+        <span class="eyebrow">3-dagers live challenge</span>
+        <h1>3 dager. Et system.<br><span class="accent">150K</span> i måneden.</h1>
+        <p class="hero-lead">De fleste coacher, eksperter, fagpersoner og kursskapere tror de bare må jobbe <em>mer</em> for å komme videre. Flere klienter, flere produkter, flere timer i kalenderen.</p>
+        <p class="hero-lead"><strong>Sannheten?</strong> Du kan tjene mye mer — uten å brenne ut — ved å bygge ett system rundt den kunnskapen du allerede har. På 3 dager gjør vi det sammen. Live, gratis, og med AI som tar 80 prosent av jobben.</p>
 
-        <p><strong>Sannheten?</strong> Det er ikke kunnskapen din det er noe feil med. Det er <em>businessmodellen</em> rundt den.</p>
+        <ul class="hero-bullets">
+          <li><span class="num">Dag 01</span><span>Den perfekte businessmodellen</span></li>
+          <li><span class="num">Dag 02</span><span>Produktene du kunne tatt 10X for</span></li>
+          <li><span class="num">Dag 03</span><span>Selg og markedsfør på autopilot</span></li>
+        </ul>
 
-        <p>På 3 dager bygger vi sammen systemet som tar deg fra "jeg selger timene mine" til "businessen min lønner seg" — uten å brenne ut, uten å hoppe fra idé til idé, og med AI som gjør 80 prosent av jobben.</p>
-
-        <div class="hero-actions">
-          <a href="#tiers" class="btn-primary">Sikre min gratis plass →</a>
-          <a href="#promise" class="btn-ghost">Se hva vi gjør</a>
+        <div class="info-row" role="group" aria-label="Praktisk informasjon">
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Dato</span>
+              <span class="info-value">26.–28. mai</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Tid</span>
+              <span class="info-value">19–20</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><polygon points="16 9 22 6 22 18 16 15 16 9" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Sted</span>
+              <span class="info-value">Live på Zoom</span>
+            </div>
+          </div>
         </div>
-
-        <span class="hero-date-line"><strong>📅 Dato:</strong> 26.–28. mai 2026 · 19–21 hver kveld</span>
       </div>
 
-      <div class="hero-video" aria-hidden="true">
-        <div class="hero-video-placeholder">
-          <button class="video-play-btn" aria-label="Spill av introduksjonsvideo" type="button">
-            <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20"/></svg>
-          </button>
-          <p class="video-caption">3 minutter med Hege Christine om hva som faktisk skaper 150K-måneder.</p>
+      <!-- RIGHT: signup form -->
+      <aside class="signup-card" id="signup" aria-labelledby="signup-title">
+        <span class="signup-flag">Gratis</span>
+        <span class="signup-eyebrow">Siste steg</span>
+        <h2 class="signup-title" id="signup-title">Sikre din <em>gratis</em> plass.</h2>
+        <p class="signup-lead">Sjekk at navn og e-postadresse stemmer og trykk på knappen under, så vil du motta bekreftelse og lenken til alle livesendingene på e-post.</p>
+
+        <form id="signup-form" class="hc-kajabi-form"
+              data-kajabi-form-id="2149575768"
+              data-redirect-url="/150k-takk-altB/">
+          <input type="text" name="name" placeholder="Fornavn" required autocomplete="given-name">
+          <input type="email" name="email" placeholder="E-post" required autocomplete="email">
+          <button type="submit">Sikre plassen min →</button>
+          <div class="form-message" data-form-message></div>
+        </form>
+
+        <p class="signup-fineprint">Ved å melde deg på godtar du å motta e-post om challengen og relatert innhold. Du kan melde deg av når som helst.</p>
+
+        <!-- Skjult Kajabi-embed (genererer authenticity_token) -->
+        <div class="kajabi-hidden-wrap" aria-hidden="true">
+          <script src="https://www.hegechristine.no/forms/2149575768/embed.js"></script>
+        </div>
+
+        <!-- Skjult iframe for response -->
+        <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee-strip" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Coacher</span><span class="dot">+</span>
+      <span>Eksperter</span><span class="dot">+</span>
+      <span>Fagpersoner</span><span class="dot">+</span>
+      <span>Foredragsholdere</span><span class="dot">+</span>
+      <span>Kursskapere</span><span class="dot">+</span>
+      <span>Terapeuter</span><span class="dot">+</span>
+      <span>Coacher</span><span class="dot">+</span>
+      <span>Eksperter</span><span class="dot">+</span>
+      <span>Fagpersoner</span><span class="dot">+</span>
+      <span>Foredragsholdere</span><span class="dot">+</span>
+      <span>Kursskapere</span><span class="dot">+</span>
+      <span>Terapeuter</span><span class="dot">+</span>
+    </div>
+  </div>
+</section>
+
+<!-- AI-QUOTE — pull-quote banner -->
+<section class="section ai-quote-section">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="narrow">
+    <span class="ai-quote-eyebrow">80/20-metoden</span>
+    <p class="ai-quote-text">La AI ta 80 prosent av jobben. De 20 som teller — <em>strategien, valgene, stemmen</em> — er dine.</p>
+  </div>
+</section>
+
+<!-- TRANSFORM — før/etter -->
+<section class="section bg-cream transform-section">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Forskjellen</span>
+      <h2 class="section-title">Når strukturen er på <em>plass.</em></h2>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-from">Jakter leads</div>
+        <div class="transform-arrow">&rarr;</div>
+        <div class="transform-to">Bygger kundeliste</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Hopper fra idé til idé</div>
+        <div class="transform-arrow">&rarr;</div>
+        <div class="transform-to">Ett klart system</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Selger kunnskap</div>
+        <div class="transform-arrow">&rarr;</div>
+        <div class="transform-to">Selger transformasjon</div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-from">Hustler alene</div>
+        <div class="transform-arrow">&rarr;</div>
+        <div class="transform-to">AI gjør 80%, du gjør 20%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section bg-cream">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="about-card">
+      <div class="about-photo">
+        <img src="hege-portrait.webp" alt="Hege Christine" width="220" height="220" loading="lazy">
+      </div>
+      <div class="about-content">
+        <div class="about-card-meta">Møt kursholderen din</div>
+        <h3 class="about-card-name">Hege <em>Christine</em></h3>
+        <p class="about-tagline">Hjelper digitale gründere med å bygge smartere businesser.</p>
+
+<p>Er det én ting jeg ser hos nesten alle som ikke får til å skalere kunnskapsbusinessen sin, så er det at de prøver å gjøre mer av det samme. De låser seg fast. Jobber i businessen fremfor på den. Levere flere timer. Ta inn flere klienter. Lage flere produkter. Bygge enda et kurs. Prøve å nå alle. Og ender opp utbrente og fortvilte.</p>
+
+        <p>I seks år har jeg jobbet med <strong>hundrevis av norske gründere</strong> — fra dem som så vidt har startet, til dem som omsetter for flere millioner. Det som skiller dem som lykkes fra dem som ikke gjør det, er ikke hvor lenge de har holdt på. Det er ikke engang hvor mye de kan. Det er hvordan de har bygget businessen rundt kunnskapen sin.</p>
+
+        <p>Og i 2026 ser det annerledes ut enn det gjorde for et par år siden. AI er en gave til oss som lever av å selge kunnskap. La AI ta 80 prosent — research, struktur, utkast, sparring. Du tar de 20 som faktisk krever deg: strategien, valgene, stemmen. Den tankegangen tar vi med oss inn i challengen.</p>
+
+        <p class="about-quote">Det er ikke kunnskapen din det er noe feil med. Det er businessmodellen.</p>
+
+        <p>Det er det vi fikser på 3 dager.</p>
+
+        <p class="about-signature">— Hege Christine</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAYS -->
+<section class="section bg-ink">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="section-head section-head--left section-head--w-days">
+      <span class="eyebrow days-eyebrow">3 dager</span>
+    </div>
+    <div class="day-list">
+      <div class="day-item">
+        <span class="day-num">DAG 01</span>
+        <div>
+          <h3 class="day-title">Den perfekte businessmodellen</h3>
+          <p class="day-desc">Vi avdekker tallene og prinsippene som faktisk skaper 150K-måneder — også når publikumet ditt er lite. Du går ut av dagen med klarhet i hvilken business du faktisk vil drive, og hvem du vil bygge den rundt.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">DAG 02</span>
+        <div>
+          <h3 class="day-title">Produktene du kunne tatt 10X for</h3>
+          <p class="day-desc">Du oppdager hvorfor de fleste underpriser — og hvordan du pakker tilbudet ditt slik at det speiler transformasjonen du faktisk leverer, ikke timene. Du går ut av dagen med en ærlig vurdering av hva tilbudene dine egentlig er verdt, og hvilke produkter som skal bære businessen videre.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">DAG 03</span>
+        <div>
+          <h3 class="day-title">Selg og markedsfør på autopilot</h3>
+          <p class="day-desc">Du ser nøyaktig hvordan AI kan ta 80 prosent av jobben med salg, markedsføring og innholdsproduksjon — så du står igjen med de 20 som faktisk krever deg. Du går ut av dagen med en plan klar til å implementere mandagen etter.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF BAR -->
-<section class="social-bar" aria-label="Hvem dette er for">
-  <div class="container social-bar-inner">
-    <span>Coacher</span><span class="dot">+</span>
-    <span>eksperter</span><span class="dot">+</span>
-    <span>fagpersoner</span><span class="dot">+</span>
-    <span>kursskapere</span><span class="dot">+</span>
-    <span>terapeuter</span><span class="dot">+</span>
-    <span>foredragsholdere</span>
-  </div>
-</section>
-
-<!-- 3 SHIFTS / PROMISE -->
-<section class="section promise-section" id="promise">
-  <div class="section-head">
-    <span class="eyebrow center">— Slik bygger vi systemet —</span>
-    <h2 class="section-title">3 dager. 3 <em>skift</em>. 1 system.</h2>
-  </div>
+<!-- WALKAWAY — Dette går du ut med -->
+<section class="section bg-sand">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
   <div class="container">
-    <div class="promise-list">
-
-      <article class="promise-item">
-        <div class="promise-num">01<small>Dag 1 · 26. mai · 19–21</small></div>
-        <div>
-          <span class="promise-eyebrow">Skift 01 · Den perfekte businessmodellen</span>
-          <h3 class="promise-title">Slutt å gjette på <em>hva</em> businessen din egentlig skal være.</h3>
-          <p class="promise-desc">Vi rydder bort all støy. Du går fra "jeg gjør litt av alt" til klarhet om <strong>hvilken business du faktisk vil eie</strong> — og hvilken kunde businessen er bygget for. Det er forskjellen mellom konstant jobbing og et system som vokser.</p>
-          <p class="promise-outcome">Forretningsmodellen tegnet ned på ett ark.</p>
-        </div>
-      </article>
-
-      <article class="promise-item">
-        <div class="promise-num">02<small>Dag 2 · 27. mai · 19–21</small></div>
-        <div>
-          <span class="promise-eyebrow">Skift 02 · Produktene du kunne tatt 10X for</span>
-          <h3 class="promise-title">Pris og pakk tilbudet ditt så det <em>speiler verdien</em> du leverer.</h3>
-          <p class="promise-desc">De fleste underpriser fordi de selger kunnskap — ikke transformasjon. Vi går gjennom <strong>hva du faktisk skal ta betalt</strong>, hvordan du pakker det, og hvilket av produktene dine som skal bære businessen videre. Inkludert AI-promptene som gjør jobben enklere.</p>
-          <p class="promise-outcome">Et premium-tilbud klar til å selges.</p>
-        </div>
-      </article>
-
-      <article class="promise-item">
-        <div class="promise-num">03<small>Dag 3 · 28. mai · 19–21</small></div>
-        <div>
-          <span class="promise-eyebrow">Skift 03 · Selg og markedsfør på autopilot</span>
-          <h3 class="promise-title">Bygg salget så det <em>går av seg selv</em> — også når du ikke er på.</h3>
-          <p class="promise-desc">Salg og markedsføring trenger ikke være endeløst innholdsproduksjon. Vi setter opp <strong>flyten som driver businessen din</strong> mens du gjør det du faktisk er der for. La AI ta de 80 prosentene — du tar de 20 som teller.</p>
-          <p class="promise-outcome">En plan for autopilot-salg du kan starte mandag morgen.</p>
-        </div>
-      </article>
-
+    <div class="section-head section-head--left section-head--w-who">
+      <span class="eyebrow">Dette går du ut med</span>
+      <h2 class="section-title">Etter 3 dager <em>har du.</em></h2>
     </div>
-  </div>
-</section>
-
-<!-- WALK AWAY -->
-<section class="section walkaway-section">
-  <div class="section-head">
-    <span class="eyebrow center">— Dette går du ut med —</span>
-    <h2 class="section-title">Etter 3 dager <em>har du.</em></h2>
-  </div>
-  <div class="container">
-    <ul class="walkaway-list">
-      <li><span>En <em>forretningsmodell</em> du faktisk vil eie — tegnet ned så du ser hele bildet.</span></li>
-      <li><span>Klarhet i hva du skal ta betalt — og <em>selvtilliten</em> til å gjøre det.</span></li>
-      <li><span>Et premium-tilbud pakket og prissatt, klart til å selge.</span></li>
-      <li><span>En enkel plan for salg på autopilot — med AI som gjør 80 % av jobben.</span></li>
-      <li><span>En tankegang som lar deg <em>skalere uten å brenne ut</em>.</span></li>
+    <ul class="who-list">
+      <li>En <strong>forretningsmodell</strong> tegnet ned — så du vet hvilken business du faktisk vil drive.</li>
+      <li>Et <strong>tilbud priset og pakket</strong> så det speiler verdien du leverer, ikke timene du legger ned.</li>
+      <li>En enkel <strong>plan for salg og markedsføring på autopilot</strong> — som du kan starte mandag morgen.</li>
+      <li>Konkret bruk av <strong>AI som hevarm</strong> i alle ledd, så de 80 prosent som er repetitive ikke lenger tar tiden din.</li>
+      <li>Selvtilliten til å <strong>skalere uten å brenne ut</strong>, basert på en strategi du faktisk kan stå for.</li>
     </ul>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section how-section">
-  <div class="section-head">
-    <span class="eyebrow center">— Slik funker det —</span>
-    <h2 class="section-title">Det <em>praktiske.</em></h2>
-  </div>
+<!-- WHO IS THIS FOR -->
+<section class="section bg-sage">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
   <div class="container">
-    <div class="how-grid">
-      <div class="how-cell">
-        <div class="how-label">Når</div>
-        <div class="how-value"><em>26.–28. mai 2026</em></div>
-        <p class="how-detail">Live tirsdag til torsdag, kl. 19–21 norsk tid. Du kan delta hver kveld — eller se opptak hvis du har VIP.</p>
-      </div>
-      <div class="how-cell">
-        <div class="how-label">Hvor</div>
-        <div class="how-value">Live på <em>Zoom</em></div>
-        <p class="how-detail">Hjemmefra, med kaffekoppen og notatboka klar. Lenke kommer på e-post når du har sikret plassen.</p>
-      </div>
-      <div class="how-cell">
-        <div class="how-label">For hvem</div>
-        <div class="how-value">Du som <em>lever av kunnskapen din</em></div>
-        <p class="how-detail">Coacher, eksperter, fagpersoner, terapeuter, kursskapere — etablert eller akkurat i gang. Du vil bygge smartere, ikke bare hardere.</p>
-      </div>
+    <div class="section-head section-head--left section-head--w-who">
+      <span class="eyebrow">Hvem dette er for</span>
+      <h2 class="section-title">Kjenner du deg <em>igjen?</em></h2>
     </div>
-  </div>
-</section>
-
-<!-- SPOTS -->
-<section class="section spots-section">
-  <div class="container">
-    <div class="spots-card">
-      <span class="spots-eyebrow">VIP-plassene er begrensede</span>
-      <h2 class="spots-title">Bare <em>50 VIP-plasser</em> — og når de er tatt, er de tatt.</h2>
-      <p class="spots-body">Gratis-plassene er åpne for alle. Men hvis du vil ha <strong>opptak for alltid</strong>, <strong>min premium-tilbud-mal</strong> og <strong>en lukket Q&amp;A med meg</strong> før hver kveld, må du sikre en VIP-plass.</p>
-      <p class="spots-body">VIP-plassene er begrenset til <em>50</em>, fordi jeg vil ha rom til å svare ordentlig på alle spørsmål i Q&amp;A-rundene. Førstemann-til-mølla.</p>
-      <p class="spots-kicker">Når VIP-plassene er borte, er de borte. Sist gang gikk de på under to dager.</p>
-
-      <div class="countdown" role="timer" aria-label="Nedtelling til challengen starter">
-        <div class="countdown-cell"><div class="countdown-num" data-cd="days">25</div><div class="countdown-label">Dager</div></div>
-        <div class="countdown-cell"><div class="countdown-num" data-cd="hours">18</div><div class="countdown-label">Timer</div></div>
-        <div class="countdown-cell"><div class="countdown-num" data-cd="mins">52</div><div class="countdown-label">Min</div></div>
-        <div class="countdown-cell"><div class="countdown-num" data-cd="secs">33</div><div class="countdown-label">Sek</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BONUS -->
-<section class="section bonus-section">
-  <div class="container">
-    <div class="bonus-grid">
-      <div class="bonus-visual">
-        <div class="bonus-visual-eyebrow">VIP-Bonus</div>
-        <div class="bonus-visual-amount">500K</div>
-        <div class="bonus-visual-label">Tilbudsmal</div>
-      </div>
-      <div>
-        <span class="bonus-eyebrow">Inkludert for VIP-deltakere</span>
-        <h2 class="bonus-title">Min <em>500 000 kr-tilbudsmal.</em></h2>
-        <p class="bonus-text">Som takk for at du sikrer en VIP-plass, får du <strong>nøyaktig den malen jeg selv har brukt</strong> for å lande premium-tilbud på over 500 000 kr — pluss en videotrening der jeg bryter ned psykologien bak hvert eneste ord.</p>
-        <p class="bonus-text">Du kan tilpasse den til ditt eget tilbud allerede uka etter challengen er ferdig.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TIERS -->
-<section class="section tiers-section" id="tiers">
-  <div class="section-head">
-    <span class="eyebrow center">— Velg ditt nivå —</span>
-    <h2 class="section-title">To måter å være <em>med.</em></h2>
-    <p class="section-sub">Gratis-plassen er alt du trenger for å være med live. VIP er for deg som vil ha mer.</p>
-  </div>
-  <div class="container">
-    <div class="tiers-grid">
-
-      <article class="tier-card">
-        <span class="tier-eyebrow">General Admission</span>
-        <h3 class="tier-name">Live med <em>resten av oss.</em></h3>
-        <div class="tier-price">Gratis</div>
-        <div class="tier-price-detail">Engangs-påmelding · Ingen skjulte kostnader</div>
-
-        <div class="tier-includes-label">Inkluderer:</div>
-        <ul class="tier-list">
-          <li><span>Alle <strong>3 dager live</strong> på Zoom.</span></li>
-          <li><span>Live chat-community under challengen.</span></li>
-          <li><span>Opptak tilgjengelig i <strong>24 timer</strong> etter hver kveld.</span></li>
-          <li><span>Hege Christines arbeidsbok i PDF.</span></li>
-        </ul>
-
-        <a href="#" class="tier-cta">Sikre gratisplass →</a>
-      </article>
-
-      <article class="tier-card featured">
-        <span class="tier-flag">Mest valgt</span>
-        <span class="tier-eyebrow">VIP Experience · Kun 50 plasser</span>
-        <h3 class="tier-name">Med ekstra tid <em>én-til-én.</em></h3>
-        <div class="tier-price">497 kr</div>
-        <div class="tier-price-detail">Engangskjøp · MVA inkludert</div>
-
-        <div class="tier-includes-label">Alt i Gratis — pluss:</div>
-        <ul class="tier-list">
-          <li><span><strong>Lukket Q&amp;A med Hege Christine</strong> én time før hver kveld (verdi 25 000 kr).</span></li>
-          <li><span>Opptak <strong>for alltid</strong> — inkl. backup om du må gå glipp av en kveld.</span></li>
-          <li><span>Min <strong>500K Tilbudsmal</strong> + videotrening (Bonus).</span></li>
-          <li><span>Live chat-community + privat VIP-tråd.</span></li>
-          <li><span>Arbeidsbok i PDF + ekstra promptbibliotek for AI.</span></li>
-        </ul>
-
-        <a href="#" class="tier-cta">Sikre VIP-plass →</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- MENTOR -->
-<section class="section mentor-section">
-  <div class="section-head">
-    <span class="eyebrow center">— Møt mentoren din —</span>
-    <h2 class="section-title">Hege <em>Christine.</em></h2>
-    <p class="section-sub" style="color: rgba(239,230,212,0.85);">Online business strategist og mentor for digitale gründere.</p>
-  </div>
-  <div class="container">
-    <div class="mentor-grid">
-      <div class="mentor-photo">
-        <img src="hege-portrait.webp" alt="Hege Christine" width="280" height="280" loading="lazy">
-      </div>
-      <div class="mentor-content">
-        <p>I seks år har jeg jobbet med <strong>hundrevis av norske gründere</strong> — fra de som så vidt har startet, til de som omsetter for flere millioner. Det jeg har sett om og om igjen er ikke at det handler om hvor mye du kan, eller hvor lenge du har holdt på. Det handler om <em>hvordan</em> du har bygget businessen din rundt kunnskapen.</p>
-
-        <p>De fleste prøver å gjøre mer av det samme: flere timer, flere klienter, enda et kurs. Det er den raskeste veien til utbrenthet — og den tregeste veien til 150K-måneder.</p>
-
-        <p>I 2026 ser det annerledes ut. <strong>AI er en gave til oss som lever av å selge kunnskap.</strong> La AI ta 80 prosent — research, struktur, utkast, sparring. Du tar de 20 som faktisk krever deg: strategien, valgene, stemmen.</p>
-
-        <p>Det er den tankegangen jeg tar med meg inn i disse tre dagene. Og det er den som flytter businessen din videre.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section testimonials-section">
-  <div class="section-head">
-    <span class="eyebrow center">— Hva tidligere deltakere sier —</span>
-    <h2 class="section-title">De som har <em>gått</em> turen før.</h2>
-  </div>
-  <div class="container">
-    <div class="testimonials-grid">
-      <article class="testimonial-card">
-        <p class="testimonial-quote">Jeg gikk inn for å lære om markedsføring, og kom ut med en helt ny forretningsmodell. Tre måneder senere passerte jeg 150K på en måned for første gang.</p>
-        <div class="testimonial-attr"><strong>Maria Lund</strong>Coach · Oslo</div>
-      </article>
-      <article class="testimonial-card">
-        <p class="testimonial-quote">Det jeg slet mest med var prising. Etter dag 2 hadde jeg pakket om hele tilbudet mitt og tredoblet prisen — uten å miste én eneste kunde.</p>
-        <div class="testimonial-attr"><strong>Andreas Berg</strong>Ekspert · Bergen</div>
-      </article>
-      <article class="testimonial-card">
-        <p class="testimonial-quote">Hege Christine er den eneste jeg har hørt snakke om AI som faktisk bruker det. Etter challengen jobber jeg tre dager i uka og tjener mer enn jeg gjorde på fem.</p>
-        <div class="testimonial-attr"><strong>Linn Solheim</strong>Terapeut · Trondheim</div>
-      </article>
-    </div>
+    <ul class="who-list">
+      <li>Du er ekspert, fagperson, foredragsholder, terapeut eller coach — og vil tjene mer på det du allerede kan.</li>
+      <li>Du selger timene dine i dag, og vet at det ikke skalerer i lengden.</li>
+      <li>Du har en fysisk bedrift og vurderer å bygge en digital sidegren rundt kunnskapen.</li>
+      <li>Du har ikke startet ennå, men vet hva du vil levere — og vil bygge riktig fra start.</li>
+      <li>Du er ferdig med å gjette på neste trekk og vil ha en strategi du faktisk kan stå for.</li>
+    </ul>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section faq-section">
-  <div class="section-head">
-    <span class="eyebrow center">— Det du lurer på —</span>
-    <h2 class="section-title">Spørsmål som pleier å <em>komme.</em></h2>
-  </div>
+<section class="section bg-sage">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
   <div class="container">
+    <div class="section-head section-head--left">
+      <span class="eyebrow">Spørsmål du kanskje har</span>
+      <h2 class="section-title">Det du <em>lurer</em> på</h2>
+    </div>
     <div class="faq-list">
 
       <details class="faq-item">
         <summary class="faq-q">Funker dette uansett om jeg er ny eller etablert?</summary>
-        <p class="faq-a">Ja. De fleste jeg jobber med har en etablert business som har vokst gradvis og nå sliter med å skalere fordi strukturen ikke henger sammen lenger — der går vi rett inn i hva som holder businessen tilbake. For deg som akkurat har startet, er det enklere å bygge riktig fra start enn å rydde opp senere.</p>
+        <p class="faq-a">Ja. De fleste jeg jobber med har en etablert business som har vokst gradvis og nå sliter med å skalere fordi strukturen ikke henger sammen lenger — der går vi rett inn i hva som holder businessen tilbake. For deg som akkurat har startet, er det enklere å bygge riktig fra start enn å rydde opp senere. Vi tegner opp hele bildet før du begynner å levere.</p>
       </details>
 
       <details class="faq-item">
@@ -1158,32 +1794,32 @@ img { max-width: 100%; height: auto; display: block; }
       </details>
 
       <details class="faq-item">
+        <summary class="faq-q">Jeg har vært på lignende ting før, og det førte ingen vei. Hva er annerledes her?</summary>
+        <p class="faq-a">Forskjellen er at vi ikke jobber med inspirasjon. De tre dagene er strukturert som et arbeidsmøte med deg selv og businessen din — du går ut med tilbud, produkter og en plan tegnet ned, ikke en notatblokk full av ideer. Det betyr at du faktisk har noe å gjøre når mandagen kommer.</p>
+      </details>
+
+      <details class="faq-item">
         <summary class="faq-q">Må jeg være god på AI for å delta?</summary>
         <p class="faq-a">Nei. Vi snakker ikke teknisk om AI, og det er ikke et AI-kurs. Det vi gjør er å bygge en businessmodell som faktisk funker — og bruker AI der det gjør jobben enklere. Har du brukt et AI-verktøy noen få ganger, er det mer enn nok.</p>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">Hva er forskjellen på Gratis og VIP?</summary>
-        <p class="faq-a">Gratis gir deg full live-tilgang til alle tre dagene og opptak i 24 timer etter hver kveld. VIP gir deg opptak for alltid, min 500K Tilbudsmal, og en lukket én-times Q&amp;A med meg før hver av de tre dagene — der jeg svarer på akkurat dine spørsmål om din business.</p>
+        <summary class="faq-q">Hva hvis jeg ikke kan delta fullt ut?</summary>
+        <p class="faq-a">Det viktigste er at du møter opp live — det er der grunnarbeidet skjer. Det du gjør mellom dagene forsterker, men er ikke et krav. Hvis du ikke kan være på live i det hele tatt, kan du oppgradere til opptak rett etter at du har registrert deg og jobbe i ditt eget tempo etterpå.</p>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">Hva hvis jeg ikke kan delta fullt ut live?</summary>
-        <p class="faq-a">Det viktigste er at du møter opp live — det er der grunnarbeidet skjer. Hvis du ikke kan være på live i det hele tatt, gir VIP-billetten deg opptak for alltid så du kan jobbe i ditt eget tempo etterpå.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">Hvor mange VIP-plasser er det igjen?</summary>
-        <p class="faq-a">Det er kun 50 VIP-plasser hver challenge, og de fordeles førstemann-til-mølla. Sist gang gikk de på under to dager. Når de er borte, må du vente til neste runde.</p>
+        <summary class="faq-q">Hvorfor er denne challengen gratis?</summary>
+        <p class="faq-a">Fordi jeg vil at flere skal lykkes med å bygge businessen sin rundt det de allerede kan. Det jeg lærer deg her har jeg sett funke hos hundrevis av norske gründere — og det er for verdifullt til å holde for meg selv. Du betaler ikke i kroner. Du betaler i tid og innsats.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">Kan du garantere 150K i måneden etter challengen?</summary>
-        <p class="faq-a">Nei. Et tall kan ingen garantere. Du får et rammeverk og strategier som funker — men jobben må du gjøre. 150K er et eksempel på hva som er mulig, ikke et løfte til hver deltaker. Gjør du jobben, er det meste mulig.</p>
+        <p class="faq-a">Nei. Et tall kan ingen garantere. Du får et rammeverk og strategier som funker — men jobben må du gjøre. Challengen er gratis, men å sette det ut i livet koster tid og innsats. Gjør du jobben, er det meste mulig.</p>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">Hvem passer denne challengen ikke for?</summary>
+        <summary class="faq-q">Hvem passer ikke denne challengen for?</summary>
         <p class="faq-a">For deg som ikke har lyst til å se nærmere på hva som faktisk holder businessen din tilbake. For deg som leter etter en snarvei. Og for deg som tror at det å jobbe mer er svaret på alt. Da har vi ikke det samme målet — og det er helt greit.</p>
       </details>
 
@@ -1192,18 +1828,21 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-section">
+<section class="section bg-ink final">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
   <div class="container">
-    <span class="eyebrow center">— Slutt å la pengene ligge på bordet —</span>
-    <h2 class="final-headline">3 dager nå. <em>Hele 2026</em> annerledes.</h2>
-    <p class="final-sub">Hver måned du blir sittende fast i den gamle modellen koster deg tid, energi og <em>de pengene du allerede har gjort jobben for.</em> Tre kvelder er alt det tar å skifte retning.</p>
-    <a href="#tiers" class="final-cta">Sikre min plass nå →</a>
+    <span class="eyebrow">Siste sjanse</span>
+    <h2>3 dager. Et system.<br><em>En business som lønner seg.</em></h2>
+    <p class="final-ps"><span class="final-ps-label">P.S.</span>Hver måned du blir sittende i den gamle modellen koster deg <em>tid og energi du aldri får igjen</em>. Tre kvelder er alt det tar å snu kursen.</p>
+    <a href="#signup" class="cta-primary">Sikre min plass</a>
+    <div class="final-meta">26.–28. mai 2026 · Live på Zoom</div>
 
-    <div class="final-countdown countdown" role="timer" aria-label="Nedtelling til challengen starter">
-      <div class="countdown-cell"><div class="countdown-num" data-cd="days">25</div><div class="countdown-label">Dager</div></div>
-      <div class="countdown-cell"><div class="countdown-num" data-cd="hours">18</div><div class="countdown-label">Timer</div></div>
-      <div class="countdown-cell"><div class="countdown-num" data-cd="mins">52</div><div class="countdown-label">Min</div></div>
-      <div class="countdown-cell"><div class="countdown-num" data-cd="secs">33</div><div class="countdown-label">Sek</div></div>
+    <div class="final-countdown" role="timer" aria-label="Nedtelling til challengen starter">
+      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="days">25</div><div class="final-countdown-label">Dager</div></div>
+      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="hours">18</div><div class="final-countdown-label">Timer</div></div>
+      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="mins">52</div><div class="final-countdown-label">Min</div></div>
+      <div class="final-countdown-cell"><div class="final-countdown-num" data-cd="secs">33</div><div class="final-countdown-label">Sek</div></div>
     </div>
   </div>
 </section>
@@ -1211,13 +1850,202 @@ img { max-width: 100%; height: auto; display: block; }
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-row">
-      <span class="footer-brand">Hege Christine</span>
-      <span class="footer-meta">© 2026 — 150K Challenge</span>
+    <div class="footer-top">
+      <div>
+        <a href="https://www.hegechristine.no/" class="footer-brand-name">Hege<em>Christine</em></a>
+        <p class="footer-tagline">Online business strategist og mentor for digitale grundere. Hjelper deg bygge en smart, kunnskapsbasert business du lever godt av og med.</p>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Følg meg</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/hegechristine.no" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hegechristine.no" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.linkedin.com/in/hegechristine/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Info</div>
+        <ul class="footer-links">
+          <li><a href="https://www.hegechristine.no/pages/personvern" target="_blank" rel="noopener">Personvernpolicy</a></li>
+          <li><a href="https://www.hegechristine.no/pages/cookieerklaering" target="_blank" rel="noopener">Cookieerklæring</a></li>
+          <li><a href="https://www.hegechristine.no/pages/salgsbetingelser" target="_blank" rel="noopener">Salgsbetingelser</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="footer-disclaimer">Dette programmet gir deg konkrete steg for å bygge eller skalere en kunnskapsbasert business. Resultater er ikke garanterte. 150K-tallet er et eksempel på hva som er mulig — ikke et løfte til hver deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
+
+    <div class="footer-bottom">
+      <span>© 2026 Hege Christine</span>
+      <a href="#" id="disclaimer-trigger" class="footer-disclaimer-link">Inntektsforbehold</a>
+    </div>
   </div>
 </footer>
+
+<!-- DISCLAIMER MODAL -->
+<div class="modal-overlay" id="disclaimer-modal" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" aria-hidden="true">
+  <div class="modal">
+    <button class="modal-close" id="disclaimer-close" aria-label="Lukk">×</button>
+    <div class="modal-eyebrow">Inntektsforbehold</div>
+    <h2 id="disclaimer-title">Du får <em style="font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--rust);">oppskriften.</em> Resultatet er opp til deg.</h2>
+    <p>Det du får i denne challengen er <strong>et komplett system</strong> — oppskriften på hvordan du bygger en business som faktisk lønner seg rundt kunnskapen din. Den funker.</p>
+    <p>Men jeg jobber ikke for deg. Jeg gir ingen garantier på spesifikke inntektsnivåer, fordi det avhenger av hva du gjør med det jeg viser deg.</p>
+    <p>150K-tallet er et eksempel på hva som er mulig — ikke et løfte til hver enkelt deltaker. Hvor langt du kommer styres av innsatsen din, businessen din og markedet ditt.</p>
+    <p>Du tar dine egne forretningsbeslutninger på eget ansvar.</p>
+  </div>
+</div>
+
+<!-- KAJABI FORM-INTEGRASJON -->
+<script>
+(function() {
+  const forms = document.querySelectorAll('.hc-kajabi-form');
+  forms.forEach(initKajabiForm);
+
+  function initKajabiForm(customForm) {
+    const button = customForm.querySelector('button[type="submit"]');
+    const message = customForm.querySelector('[data-form-message]');
+    const originalButtonText = button.textContent;
+    const redirectUrl = customForm.getAttribute('data-redirect-url');
+    const successMessage = customForm.getAttribute('data-success-message')
+      || '✓ Takk! Du er på listen.';
+
+    // Forhåndsutfyll fra URL-params (?name=...&email=...) hvis brukeren kom fra opt-in
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const prefName = params.get('name');
+      const prefEmail = params.get('email');
+      if (prefName) {
+        const nameField = customForm.querySelector('input[name="name"]');
+        if (nameField && !nameField.value) nameField.value = prefName;
+      }
+      if (prefEmail) {
+        const emailField = customForm.querySelector('input[name="email"]');
+        if (emailField && !emailField.value) emailField.value = prefEmail;
+      }
+    } catch (e) { /* ignore */ }
+
+    function setMessage(text, state) {
+      if (!message) return;
+      message.textContent = text;
+      message.setAttribute('data-state', state || '');
+    }
+
+    function findKajabiForm() {
+      return document.querySelector('#kajabi-form form, .kajabi-hidden-wrap form');
+    }
+
+    customForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const kajabiForm = findKajabiForm();
+
+      if (!kajabiForm) {
+        setMessage('Skjemaet laster fortsatt — prøv igjen om et øyeblikk.', 'error');
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sender...';
+      setMessage('');
+
+      const nameInput = customForm.querySelector('input[name="name"]');
+      const userName = nameInput ? nameInput.value.trim() : '';
+      const userEmail = customForm.querySelector('input[name="email"]').value.trim();
+
+      const emailInput = kajabiForm.querySelector('input[type="email"]');
+      if (emailInput) emailInput.value = userEmail;
+
+      if (userName) {
+        const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+        for (let i = 0; i < textInputs.length; i++) {
+          const inp = textInputs[i];
+          if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+            inp.value = userName;
+            break;
+          }
+        }
+      }
+
+      kajabiForm.target = 'kajabi-response-frame';
+
+      try {
+        kajabiForm.submit();
+
+        setTimeout(function() {
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+          } else {
+            setMessage(successMessage, 'success');
+            customForm.reset();
+            button.disabled = false;
+            button.textContent = originalButtonText;
+          }
+        }, 800);
+      } catch (err) {
+        setMessage('Noe gikk galt. Prøv igjen om litt.', 'error');
+        button.disabled = false;
+        button.textContent = originalButtonText;
+      }
+    });
+  }
+})();
+</script>
+
+<!-- DISCLAIMER MODAL-LOGIKK -->
+<script>
+  (function() {
+    const trigger = document.getElementById('disclaimer-trigger');
+    const modal = document.getElementById('disclaimer-modal');
+    const closeBtn = document.getElementById('disclaimer-close');
+
+    function open(e) {
+      if (e) e.preventDefault();
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) close();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  })();
+</script>
+
+<!-- SCROLL FADE-IN -->
+<script>
+  (function() {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Marker alle seksjoner under hero som .reveal
+    const sections = document.querySelectorAll('section.section:not(.hero), .marquee-strip');
+    sections.forEach(s => s.classList.add('reveal'));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    sections.forEach(s => io.observe(s));
+  })();
+</script>
 
 <!-- COUNTDOWN -->
 <script>
