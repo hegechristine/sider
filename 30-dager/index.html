@@ -723,16 +723,15 @@ body {
 /* PRICING */
 .tier-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1240px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1080px;
   margin: 0 auto;
   padding-right: 8px;
   padding-bottom: 8px;
 }
 
-@media (max-width: 1080px) { .tier-grid { grid-template-columns: repeat(2, 1fr); max-width: 720px; } }
-@media (max-width: 540px) { .tier-grid { grid-template-columns: 1fr; max-width: 400px; } }
+@media (max-width: 900px) { .tier-grid { grid-template-columns: 1fr; max-width: 420px; gap: 32px; } }
 
 .tier {
   background: #FBF8F0;
@@ -1268,7 +1267,7 @@ body {
     </p>
     <a class="cta-primary" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener" id="hero-cta">Start gratis prøveperiode</a>
     <a class="cta-secondary" href="#hvorfor">Les hvorfor først</a>
-    <div class="hero-meta">30 dager gratis · Ingen kort nødvendig · Du eier dataene dine</div>
+    <div class="hero-meta">30 dager gratis · Transparent prising · Ingen revenue-share</div>
   </div>
 </section>
 
@@ -1506,6 +1505,111 @@ body {
   </div>
 </section>
 
+<!-- COFOUNDER -->
+<section class="section bg-ink" style="padding: 100px 0;">
+  <div class="section-corners"></div>
+  <div class="section-corners-bottom"></div>
+  <div class="container">
+    <div class="cofounder-grid">
+      <div class="cofounder-art">
+        <div class="cofounder-bubble s-1"></div>
+        <div class="cofounder-bubble s-2"></div>
+        <div class="cofounder-bubble s-3"></div>
+        <div class="cofounder-art-label">AI</div>
+      </div>
+      <div class="cofounder-content">
+        <div class="eyebrow" style="color: var(--sand); margin-bottom: 24px;">Inkludert i alle planer</div>
+        <h2 class="section-title" style="text-align: left; max-width: 18ch; margin: 0 0 24px;">
+          Cofounder — AI-en som <em style="font-style:normal; color: var(--rust);">tenker med deg.</em>
+        </h2>
+        <p style="font-family:'Archivo',sans-serif; font-size: 18px; line-height: 1.6; color: var(--sand); max-width: 580px; margin-bottom: 20px;">
+          Kajabi Cofounder er ikke ChatGPT. Den kjenner businessen din — hva du selger, hvem du selger til, hva som faktisk konverterer — og hjelper deg å bestemme hva du skal lage neste, skrive marketing-copy i din stemme, og prise produktene basert på data.
+        </p>
+        <p style="font-family:'Newsreader',serif; font-style: italic; font-weight: 500; font-size: 19px; line-height: 1.4; color: var(--rust); max-width: 540px;">
+          «It thinks with you, plans with you, and helps you make decisions based on what's actually working.»
+        </p>
+        <p style="font-family:'JetBrains Mono',monospace; font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); margin-top: 14px; opacity: 0.7;">
+          Ingen oppgradering. Ingen ekstra fee. Med fra Basic og opp.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.cofounder-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cofounder-art {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--olive);
+  border: 1.5px solid var(--cream);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--rust);
+}
+
+.cofounder-bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid var(--cream);
+}
+
+.cofounder-bubble.s-1 {
+  width: 60%;
+  height: 60%;
+  top: 8%;
+  right: 8%;
+  background: var(--rust);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.cofounder-bubble.s-2 {
+  width: 38%;
+  height: 38%;
+  bottom: 10%;
+  left: 12%;
+  background: var(--sand);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.cofounder-bubble.s-3 {
+  width: 22%;
+  height: 22%;
+  bottom: 18%;
+  right: 22%;
+  background: var(--sage);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.cofounder-art-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 96px;
+  letter-spacing: -0.04em;
+  color: var(--cream);
+  z-index: 2;
+  mix-blend-mode: difference;
+  line-height: 1;
+}
+
+@media (max-width: 880px) {
+  .cofounder-grid { grid-template-columns: 1fr; gap: 36px; max-width: 560px; }
+  .cofounder-art { max-width: 240px; }
+}
+</style>
+
 <!-- WHY ME -->
 <section class="section bg-cream">
   <div class="section-corners"></div>
@@ -1519,7 +1623,7 @@ body {
       <li><strong>Jeg bruker det selv hver dag.</strong> Kursene, listene, checkouten, automasjonene mine ligger her. Jeg anbefaler ikke ting jeg ikke faktisk lener meg på.</li>
       <li><strong>Det fjerner heller enn å legge til.</strong> Når du går fra fem abonnementer til ett, sparer du både kroner og kognitivt overskudd. Begge deler matter.</li>
       <li><strong>Norske gründere kan bruke det.</strong> Stripe og PayPal som betalingsleverandører, MVA håndteres med tredjepartsverktøy, og du kan kjøre alt på norsk hvis du vil.</li>
-      <li><strong>De selger ikke dataene dine.</strong> Du eier kundene, listen og kursene. Ingen algoritme bestemmer hvem som ser deg.</li>
+      <li><strong>Du kan flytte hvis du vil.</strong> Kursinnhold, kontaktliste og abonnementsdata kan eksporteres. Du blir ikke låst inne — og det er nettopp derfor jeg tør anbefale det.</li>
       <li><strong>Ekte support, 24/7.</strong> Mennesker, ikke bare chatbot. Når noe ryker fredag kveld før lansering, betyr det alt.</li>
     </ul>
   </div>
@@ -1546,7 +1650,7 @@ body {
         </p>
         <div class="partner-badge-row">
           <img class="partner-badge-img" src="partner-badge-black.svg" alt="Kajabi Partner — offisielt utstedt merke" width="523" height="180">
-          <div class="partner-badge-note">Offisiell partner siden 2024 · Merket er utstedt av Kajabi</div>
+          <div class="partner-badge-note">Offisiell Kajabi-partner siden 2020</div>
         </div>
       </div>
     </div>
@@ -1561,57 +1665,41 @@ body {
     <div class="section-head">
       <div class="eyebrow">Priser</div>
       <h2 class="section-title">Velg planen som <em>passer fasen din.</em></h2>
-      <p class="section-lead">Alle priser i USD per måned ved årlig fakturering. Du får 30 dager gratis uten kortinfo først.</p>
+      <p class="section-lead">Alle priser i USD per måned ved årlig fakturering. Transparent prising — ingen skjulte gebyrer, ingen revenue-share.</p>
     </div>
     <div class="tier-grid">
 
       <div class="tier">
-        <div class="tier-label">For å komme i gang</div>
-        <div class="tier-name">Starter</div>
-        <div class="tier-price">$71<span>/mnd</span></div>
-        <div class="tier-price-sub">Årlig · $89/mnd månedlig</div>
-        <ul class="tier-features">
-          <li><strong>1</strong> produkt</li>
-          <li><strong>250</strong> kontakter</li>
-          <li>2 admin-brukere</li>
-          <li>1 nettside</li>
-          <li>1 community</li>
-          <li>Ubegrenset epost-utsending</li>
-        </ul>
-        <a class="tier-cta" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener">Start gratis</a>
-      </div>
-
-      <div class="tier tier-featured">
-        <div class="tier-badge">Mest valgt</div>
-        <div class="tier-label">Når du selger flere ting</div>
+        <div class="tier-label">Når du starter</div>
         <div class="tier-name">Basic</div>
         <div class="tier-price">$143<span>/mnd</span></div>
         <div class="tier-price-sub">Årlig · $179/mnd månedlig</div>
         <ul class="tier-features">
-          <li><strong>5</strong> produkter</li>
+          <li><strong>3</strong> produkter</li>
           <li><strong>2 500</strong> kontakter</li>
           <li>2 admin-brukere</li>
-          <li>Ubegrenset funnels & landing pages</li>
-          <li>1 community</li>
-          <li>Avansert automasjon</li>
+          <li>1 nettside · 1 community</li>
+          <li>Ubegrenset funnels &amp; landing pages</li>
+          <li>AI Cofounder inkludert</li>
         </ul>
         <a class="tier-cta" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener">Prøv 30 dager gratis</a>
       </div>
 
-      <div class="tier">
-        <div class="tier-label">Voksende business</div>
+      <div class="tier tier-featured">
+        <div class="tier-badge">Mest valgt</div>
+        <div class="tier-label">For deg som vokser</div>
         <div class="tier-name">Growth</div>
         <div class="tier-price">$199<span>/mnd</span></div>
         <div class="tier-price-sub">Årlig · $249/mnd månedlig</div>
         <ul class="tier-features">
           <li><strong>50</strong> produkter</li>
           <li><strong>25 000</strong> kontakter</li>
-          <li>11 admin-brukere</li>
-          <li>Branded mobil-app</li>
-          <li>Affiliate-program</li>
-          <li>Avansert automasjon</li>
+          <li>7 admin-brukere</li>
+          <li>1 nettside · 1 community</li>
+          <li>Branded mobil-app · Affiliate-program</li>
+          <li>AI Cofounder inkludert</li>
         </ul>
-        <a class="tier-cta" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener">Start gratis</a>
+        <a class="tier-cta" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener">Prøv 30 dager gratis</a>
       </div>
 
       <div class="tier">
@@ -1622,12 +1710,12 @@ body {
         <ul class="tier-features">
           <li><strong>Ubegrenset</strong> produkter</li>
           <li><strong>100 000</strong> kontakter</li>
-          <li>26 admin-brukere</li>
-          <li>3 nettsteder & communities</li>
-          <li>Dedikert support</li>
-          <li>Custom kode-redigering</li>
+          <li>25 admin-brukere</li>
+          <li>5 nettsider · 3 communities</li>
+          <li>Dedikert support · Custom kode</li>
+          <li>AI Cofounder inkludert</li>
         </ul>
-        <a class="tier-cta" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener">Start gratis</a>
+        <a class="tier-cta" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener">Prøv 30 dager gratis</a>
       </div>
 
     </div>
@@ -1656,7 +1744,7 @@ body {
       <details class="faq-item">
         <summary class="faq-q">Hvor mye koster det egentlig?</summary>
         <div class="faq-a">
-          Starter er $71/mnd ved årlig betaling ($89 månedlig). De fleste seriøse gründere lander på Basic ($143/mnd årlig) eller Growth ($199/mnd årlig). Alle planer har 30 dager gratis prøvetid uten kortinfo. <strong>Sjekk siste pris hos Kajabi før kjøp</strong> — de kjører jevnlige kampanjer med 50% rabatt de første 12 månedene.
+          Basic er $143/mnd ved årlig betaling ($179 månedlig). De fleste lander på Growth ($199/mnd årlig) når de selger flere produkter eller bygger større liste. Pro ($399/mnd årlig) er for team og stor skala. Alle planer har 30 dagers gratis prøvetid via min partner-link, og <strong>Cofounder-AI</strong> er inkludert i alle tre. <strong>Sjekk siste pris hos Kajabi før kjøp</strong> — de kjører jevnlige kampanjer.
         </div>
       </details>
 
@@ -1677,7 +1765,7 @@ body {
       <details class="faq-item">
         <summary class="faq-q">Er det en gratisversjon?</summary>
         <div class="faq-a">
-          Nei, men 30 dager gratis prøvetid — uten kortinfo. Det er nok til å sette opp ett kurs eller én checkout og se om plattformen funker for deg. Min anbefaling: <strong>sett av en helg</strong>, bygg én ting, og bestem deg basert på hvordan det føles å jobbe i det.
+          Nei, men 30 dagers prøveperiode via min partner-link. Du trenger å registrere med kortinformasjon (Kajabi krever det), men du blir ikke belastet før prøveperioden er over og du eventuelt går videre. Min anbefaling: <strong>sett av en helg</strong>, bygg én ting, og bestem deg basert på hvordan det føles å jobbe i det.
         </div>
       </details>
 
@@ -1706,7 +1794,7 @@ body {
   <div class="container">
     <h2>Test det i 30 dager. <em>Behold det du bruker.</em></h2>
     <p class="final-lead">
-      Ingen kortinfo. Ingen forpliktelse. Bygg én ting, se om det er noe for deg, og bestem deg etter det.
+      Du registrerer med kort (Kajabi krever det), men du blir ikke belastet før prøveperioden er over. Bygg én ting, se om det er noe for deg, og bestem deg etter det.
     </p>
     <a class="cta-primary" href="https://app.kajabi.com/r/yqTvH48Z" target="_blank" rel="sponsored noopener" id="final-cta">Start gratis prøveperiode →</a>
     <div class="final-meta">Affiliate-lenke · Samme pris som direkte</div>
