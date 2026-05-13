@@ -625,9 +625,21 @@ body {
   color: var(--ink);
 }
 
+.day-desc {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: 0.75;
+  margin-top: 10px;
+  max-width: 60ch;
+}
+
 .bg-ink .day-item { border-bottom-color: var(--line-on-ink); }
 .bg-ink .day-item:first-child { border-top-color: var(--line-on-ink); }
 .bg-ink .day-title { color: var(--cream); }
+.bg-ink .day-desc { color: var(--sand); opacity: 0.85; }
 
 @media (max-width: 640px) { .day-item { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; } }
 
@@ -1598,15 +1610,24 @@ body {
     <div class="day-list">
       <div class="day-item">
         <span class="day-num">DAG 01</span>
-        <h3 class="day-title">Den perfekte businessmodellen</h3>
+        <div>
+          <h3 class="day-title">Den perfekte businessmodellen</h3>
+          <p class="day-desc">Du går ut av dagen med klarhet i hvilken business du faktisk vil eie — og hvem du vil bygge den rundt.</p>
+        </div>
       </div>
       <div class="day-item">
         <span class="day-num">DAG 02</span>
-        <h3 class="day-title">Produktene du kunne tatt 10X for</h3>
+        <div>
+          <h3 class="day-title">Produktene du kunne tatt 10X for</h3>
+          <p class="day-desc">Du går ut av dagen med en ærlig vurdering av hva tilbudene dine egentlig er verdt — og hvilke produkter som skal bære businessen videre.</p>
+        </div>
       </div>
       <div class="day-item">
         <span class="day-num">DAG 03</span>
-        <h3 class="day-title">Selg og markedsfør på autopilot</h3>
+        <div>
+          <h3 class="day-title">Selg og markedsfør på autopilot</h3>
+          <p class="day-desc">Du går ut av dagen med en plan for hvordan salg og markedsføring kan gå av seg selv — uten at du må være på hele tiden.</p>
+        </div>
       </div>
     </div>
   </div>
