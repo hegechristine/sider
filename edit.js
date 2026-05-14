@@ -257,13 +257,18 @@
     saveSectionState();
   }
 
-  // ===== PIN-MODE / ANNOTATIONS =====
-  let pinMode = false;
+  // ===== PIN ANNOTATIONS — one-shot placement =====
+  let placingPin = false;
+  let pinBanner = null;
   let pins = JSON.parse(localStorage.getItem(PINS_KEY) || '[]');
 
   function savePins() {
     localStorage.setItem(PINS_KEY, JSON.stringify(pins));
     updateStatus();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   }
 
   function pinAnchor(target) {
@@ -287,17 +292,23 @@
     return sectionPart ? sectionPart + ' → ' + elPart : elPart;
   }
 
-  function renderPin(pin) {
+  function refreshPins() {
+    document.querySelectorAll('.edit-pin').forEach(n => n.remove());
+    pins.forEach((p, i) => renderPin(p, i + 1));
+  }
+
+  function renderPin(pin, num) {
     const el = document.createElement('div');
     el.className = 'edit-pin';
     el.dataset.pinId = pin.id;
     el.style.left = pin.pageX + 'px';
     el.style.top  = pin.pageY + 'px';
     el.contentEditable = 'false';
-    el.innerHTML = '<span class="edit-pin-num">' + pin.id.replace('p','') + '</span>' +
+    el.innerHTML = '<span class="edit-pin-num">' + num + '</span>' +
                    '<div class="edit-pin-tooltip">' + escapeHtml(pin.note || '(tom notat)') + '</div>';
     el.addEventListener('click', e => {
       e.stopPropagation();
+      e.preventDefault();
       openPinPopup(pin, el);
     });
     document.body.appendChild(el);
@@ -309,10 +320,13 @@
     pop.className = 'edit-pin-popup';
     pop.contentEditable = 'false';
     const rect = anchorEl.getBoundingClientRect();
-    pop.style.left = (window.scrollX + rect.left + 24) + 'px';
-    pop.style.top  = (window.scrollY + rect.top) + 'px';
+    const left = Math.max(8, Math.min(window.innerWidth - 360, window.scrollX + rect.left + 24));
+    const top  = Math.max(window.scrollY + 8, window.scrollY + rect.top);
+    pop.style.left = left + 'px';
+    pop.style.top  = top + 'px';
+    const num = pins.findIndex(p => p.id === pin.id) + 1;
     pop.innerHTML =
-      '<div class="edit-pin-popup-header">Pin #' + pin.id.replace('p','') + ' — ' + escapeHtml(pin.anchor || '') + '</div>' +
+      '<div class="edit-pin-popup-header">Pin #' + num + ' — ' + escapeHtml(pin.anchor || '') + '</div>' +
       '<textarea class="edit-pin-popup-input" placeholder="Skriv notat...">' + escapeHtml(pin.note || '') + '</textarea>' +
       '<div class="edit-pin-popup-row">' +
         '<button class="edit-pin-save">Lagre</button>' +
@@ -322,6 +336,7 @@
     document.body.appendChild(pop);
     const ta = pop.querySelector('textarea');
     ta.focus();
+    ta.select();
     pop.querySelector('.edit-pin-save').addEventListener('click', () => {
       pin.note = ta.value;
       savePins();
@@ -331,7 +346,7 @@
     pop.querySelector('.edit-pin-delete').addEventListener('click', () => {
       pins = pins.filter(p => p.id !== pin.id);
       savePins();
-      anchorEl.remove();
+      refreshPins();
       closePinPopup();
     });
     pop.querySelector('.edit-pin-cancel').addEventListener('click', closePinPopup);
@@ -341,54 +356,53 @@
     document.querySelectorAll('.edit-pin-popup').forEach(p => p.remove());
   }
 
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function enterPinPlacement() {
+    placingPin = true;
+    document.body.classList.add('edit-placing-pin');
+    pinBanner = document.createElement('div');
+    pinBanner.className = 'edit-pin-mode-banner';
+    pinBanner.contentEditable = 'false';
+    pinBanner.textContent = 'Klikk hvor du vil legge en pin · Esc for å avbryte';
+    document.body.appendChild(pinBanner);
+  }
+
+  function exitPinPlacement() {
+    placingPin = false;
+    document.body.classList.remove('edit-placing-pin');
+    if (pinBanner) { pinBanner.remove(); pinBanner = null; }
   }
 
   // Restore existing pins
-  pins.forEach(renderPin);
+  refreshPins();
 
-  // Click handler for pin-mode
+  // Click handler for placement (capture phase, one-shot)
   document.addEventListener('click', e => {
-    if (!pinMode) return;
+    if (!placingPin) return;
     if (e.target.closest('.edit-toolbar, .edit-section-toolbar, .edit-pin, .edit-pin-popup, .edit-pin-mode-banner')) return;
     e.preventDefault();
     e.stopPropagation();
 
     const newPin = {
-      id: 'p' + (Date.now()),
+      id: 'p' + Date.now(),
       pageX: e.pageX,
       pageY: e.pageY,
       anchor: pinAnchor(e.target),
       note: '',
       time: new Date().toISOString().slice(0,16).replace('T',' ')
     };
-    // Use sequential numbering for display
     pins.push(newPin);
-    // Re-number after push: easiest is to keep original ID and display index = position in array
-    // But we use Date-based IDs for uniqueness. Display number = index+1 will be computed at render time.
-    // Simpler approach: re-render all pins
-    document.querySelectorAll('.edit-pin').forEach(n => n.remove());
-    pins.forEach((p, i) => {
-      // Override displayed number to be sequential
-      p._displayNum = i + 1;
-      renderPin(p);
-    });
-    // Rewrite num spans
-    document.querySelectorAll('.edit-pin').forEach((n, i) => {
-      const span = n.querySelector('.edit-pin-num');
-      if (span) span.textContent = String(i + 1);
-    });
     savePins();
-    // Open the popup for the new pin
+    refreshPins();
+    exitPinPlacement();
+
+    // Auto-open popup for the new pin
     const newEl = document.querySelector('[data-pin-id="' + newPin.id + '"]');
     if (newEl) openPinPopup(newPin, newEl);
   }, true);
 
-  // Re-render existing pins with sequential numbers
-  document.querySelectorAll('.edit-pin').forEach((n, i) => {
-    const span = n.querySelector('.edit-pin-num');
-    if (span) span.textContent = String(i + 1);
+  // Esc cancels placement
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && placingPin) exitPinPlacement();
   });
 
   // ===== STYLES =====
@@ -400,10 +414,8 @@
 
     .edit-section-hidden { display: none !important; }
 
-    body.edit-pin-mode * { cursor: crosshair !important; }
-    body.edit-pin-mode .edit-toolbar, body.edit-pin-mode .edit-toolbar * { cursor: default !important; }
-    body.edit-pin-mode .edit-section-toolbar, body.edit-pin-mode .edit-section-toolbar * { cursor: pointer !important; }
-    body.edit-pin-mode [contenteditable="true"] { pointer-events: none; }
+    body.edit-placing-pin { cursor: crosshair; }
+    body.edit-placing-pin [contenteditable="true"] { pointer-events: none; }
 
     /* SECTION TOOLBAR */
     .edit-section-toolbar {
@@ -457,18 +469,19 @@
     /* PINS */
     .edit-pin {
       position: absolute; z-index: 99997;
-      width: 28px; height: 28px;
-      background: #C5522C; color: #EFE6D4;
+      width: 22px; height: 22px;
+      background: rgba(197,82,44,0.92); color: #EFE6D4;
       border: 2px solid #EFE6D4; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       transform: translate(-50%, -50%);
-      transition: transform 0.15s ease;
+      transition: transform 0.15s ease, background 0.15s ease;
+      opacity: 0.85;
     }
-    .edit-pin:hover { transform: translate(-50%, -50%) scale(1.15); }
+    .edit-pin:hover { transform: translate(-50%, -50%) scale(1.2); opacity: 1; background: #C5522C; }
     .edit-pin-num {
       font-family: 'JetBrains Mono', monospace;
-      font-weight: 700; font-size: 12px; letter-spacing: 0.02em;
+      font-weight: 700; font-size: 11px; line-height: 1;
     }
     .edit-pin-tooltip {
       position: absolute; left: 24px; top: -8px;
@@ -593,7 +606,7 @@
     <div class="edit-toolbar-status" id="edit-status"></div>
     <div class="edit-toolbar-row">
       <button class="edit-btn" id="edit-copy">Kopier endringer</button>
-      <button class="edit-btn edit-btn-secondary" id="edit-pin-toggle">📍 Pin-modus</button>
+      <button class="edit-btn edit-btn-secondary" id="edit-pin-toggle">📍 Legg til pin</button>
     </div>
     <div class="edit-toolbar-row" style="margin-top: 8px;">
       <button class="edit-btn edit-btn-secondary" id="edit-reset">Tilbakestill alt</button>
@@ -631,22 +644,11 @@
   }
   updateStatus();
 
-  // ===== PIN TOGGLE BUTTON =====
-  let pinBanner = null;
+  // ===== PIN BUTTON =====
   const pinBtn = document.getElementById('edit-pin-toggle');
   pinBtn.addEventListener('click', () => {
-    pinMode = !pinMode;
-    pinBtn.classList.toggle('is-active', pinMode);
-    document.body.classList.toggle('edit-pin-mode', pinMode);
-    if (pinMode) {
-      pinBanner = document.createElement('div');
-      pinBanner.className = 'edit-pin-mode-banner';
-      pinBanner.textContent = 'Pin-modus · Klikk hvor som helst for å legge igjen et notat';
-      document.body.appendChild(pinBanner);
-    } else if (pinBanner) {
-      pinBanner.remove();
-      pinBanner = null;
-    }
+    if (placingPin) exitPinPlacement();
+    else enterPinPlacement();
   });
 
   // ===== EXPORT =====
