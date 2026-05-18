@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kajabi 2026 · Aktiver bonusene · Hege Christine</title>
+<meta name="description" content="Du har sikret deg Kajabi til halv pris i 12 måneder. Aktiver Kickstart-kurset, community-tilgangen og strategimøtene.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sider.hegechristine.no/kajabi-bonus/">
+<meta property="og:title" content="Kajabi 2026 · Fem lanseringer. Seksten dager.">
+<meta property="og:description" content="Én komplett gjennomgang av det nye Kajabi — live mellom 18. mai og 2. juni. 50% rabatt i 12 mnd, alle planer.">
+<meta property="og:image" content="https://sider.hegechristine.no/kajabi-bonus/og-image.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:locale" content="nb_NO">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kajabi 2026 · Fem lanseringer. Seksten dager.">
+<meta name="twitter:description" content="Én komplett gjennomgang av det nye Kajabi — live mellom 18. mai og 2. juni.">
+<meta name="twitter:image" content="https://sider.hegechristine.no/kajabi-bonus/og-image.jpg">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=Newsreader:ital,wght@1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #EFE6D4;
+    --ink: #2E3230;
+    --rust: #C55220;
+    --sand: #F0D994;
+    --sage: #AFBEA0;
+    --cream-soft: rgba(239,230,212,0.7);
+    --cream-dim: rgba(239,230,212,0.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Archivo', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden; /* lock to viewport on desktop */
+  }
+  .grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(239,230,212,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239,230,212,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* ============ LEFT PANEL (brand, matches covers) ============ */
+  .left {
+    background: var(--rust);
+    background-image:
+      linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hc-mono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid var(--cream);
+    color: var(--cream);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+  .wm {
+    margin-top: 1.25rem;
+  }
+  .wm-top {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .wm-year {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.9rem);
+    line-height: 1;
+    color: var(--sand);
+    margin-top: 0.2rem;
+  }
+  .wm-rule {
+    width: 100px;
+    height: 1px;
+    background: rgba(239,230,212,0.5);
+    margin: 1rem 0 0.9rem;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+
+  .status {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .status-eb { color: rgba(239,230,212,0.65); }
+  .status-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: clamp(5rem, 11vw, 8.5rem);
+    line-height: 0.85;
+    color: var(--cream);
+    letter-spacing: -0.04em;
+  }
+  .status-label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+  }
+  .vert-eb { display: block; margin-bottom: 0.3rem; }
+  .vert {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--cream);
+  }
+  .vert em {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sand);
+  }
+  .partner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0.35rem 0.7rem;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+  }
+  .partner::before {
+    content: '';
+    width: 12px; height: 12px;
+    background: var(--ink);
+    transform: skew(-12deg);
+  }
+
+  /* ============ RIGHT PANEL (form + headline) ============ */
+  .right {
+    padding: 2.5rem clamp(2rem, 5vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+  }
+  .right-eb {
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-bottom: 1.25rem;
+  }
+  .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--rust);
+    box-shadow: 0 0 0 0 rgba(197,82,44,0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(197,82,44,0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(197,82,44,0); }
+    100% { box-shadow: 0 0 0 0 rgba(197,82,44,0); }
+  }
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+  h1 em {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust);
+  }
+  .lede {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.4;
+    color: var(--sand);
+    max-width: 580px;
+    margin-bottom: 1.5rem;
+  }
+  .bonus-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    margin-bottom: 1.5rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(239,230,212,0.15);
+    background: rgba(239,230,212,0.04);
+    display: inline-block;
+  }
+  .bonus-line strong { color: var(--sand); font-weight: 600; }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    max-width: 720px;
+  }
+  .field-full { grid-column: 1 / -1; }
+  label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 0.35rem;
+  }
+  input, select {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    background: rgba(239,230,212,0.06);
+    border: 1px solid rgba(239,230,212,0.2);
+    color: var(--cream);
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    transition: border 0.15s;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--sand);
+    background: rgba(239,230,212,0.1);
+  }
+  input::placeholder { color: rgba(239,230,212,0.4); }
+  select {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    background: rgba(239,230,212,0.06);
+    border: 1px solid rgba(239,230,212,0.2);
+    color: var(--cream);
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    appearance: none;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--cream-soft) 50%), linear-gradient(135deg, var(--cream-soft) 50%, transparent 50%);
+    background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 2.2rem;
+  }
+  select:focus {
+    outline: none;
+    border-color: var(--sand);
+    background-color: rgba(239,230,212,0.1);
+  }
+  select option { background: var(--ink); color: var(--cream); }
+
+  button[type="submit"] {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    background: var(--rust);
+    color: var(--cream);
+    border: none;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 0.4rem;
+    transition: background 0.15s, transform 0.1s;
+  }
+  button[type="submit"]:hover { background: #B0481A; }
+  button[type="submit"]:active { transform: translateY(1px); }
+
+  .fine {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+    line-height: 1.45;
+    max-width: 680px;
+  }
+  .fine em {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  /* ============ KAJABI-EMBED (skjult) ============ */
+  .kajabi-hidden-wrap {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .kajabi-response-frame {
+    display: none;
+  }
+  button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  [data-form-message] {
+    grid-column: 1 / -1;
+    min-height: 1em;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    margin-top: 0.5rem;
+  }
+  [data-form-message][data-state="success"] { color: var(--sand); }
+  [data-form-message][data-state="error"] { color: var(--rust); }
+
+  /* ============ FOOTER ============ */
+  .page-foot {
+    position: relative;
+    z-index: 2;
+    background: var(--ink);
+    border-top: 1px solid rgba(239,230,212,0.1);
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  a.kicker:hover { color: var(--sand); }
+  .page-foot-right { display: flex; gap: 1.5rem; }
+
+  /* Adjust .page to fit with footer */
+  .page { height: auto; min-height: calc(100vh - 50px); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    body { overflow-y: auto; }
+    .page {
+      grid-template-columns: 1fr;
+      height: auto;
+      min-height: 100vh;
+    }
+    .left {
+      padding: 1.5rem;
+      min-height: auto;
+      gap: 1.5rem;
+    }
+    .wm-top { font-size: 2.4rem; }
+    .wm-year { font-size: 2rem; }
+    .status { flex-direction: row; align-items: center; gap: 1rem; }
+    .status-num { font-size: 4rem; }
+    .right { padding: 2rem 1.5rem; }
+    h1 { font-size: 2rem; }
+    .lede { font-size: 1rem; }
+    form { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid"></div>
+
+<div class="page">
+
+  <!-- LEFT: Brand panel -->
+  <aside class="left">
+    <div>
+      <div class="hc-mono">HC</div>
+      <div class="wm">
+        <div class="wm-top">KAJABI</div>
+        <div class="wm-year">2026</div>
+      </div>
+      <div class="wm-rule"></div>
+      <div class="eyebrow">Bonus-aktivering</div>
+    </div>
+
+    <div class="status">
+      <span class="eyebrow status-eb">STEG</span>
+      <div class="status-num">02</div>
+      <span class="status-label">Aktiver bonusene</span>
+    </div>
+
+    <div class="foot">
+      <div>
+        <span class="eyebrow vert-eb">VERT</span>
+        <span class="vert">Hege <em>Christine</em></span>
+      </div>
+      <span class="partner">Partner</span>
+    </div>
+  </aside>
+
+  <!-- RIGHT: Headline + form -->
+  <main class="right">
+
+    <div class="right-eb">
+      <span class="dot"></span>
+      <span class="eyebrow">VELKOMMEN OMBORD</span>
+    </div>
+
+    <h1>Du <em>er inne.</em> Aktiver bonusene.</h1>
+    <p class="lede">Du har sikret deg Kajabi til halv pris. Nå låser vi opp Kickstart-kurset, community-tilgang og strategimøtene.</p>
+
+    <div class="bonus-line">3 bonuser låst opp · samlet verdi <strong>21 740 kr</strong></div>
+
+    <form id="opt-in-form" class="hc-kajabi-form"
+          data-kajabi-form-id="2149583517"
+          data-redirect-url="https://hegechristine.mykajabi.com/login">
+      <div class="field-full">
+        <label for="name">Fullt navn</label>
+        <input type="text" id="name" name="name" placeholder="Hege Christine" required autocomplete="name">
+      </div>
+
+      <div class="field-full">
+        <label for="email">E-post (samme som på Kajabi)</label>
+        <input type="email" id="email" name="email" placeholder="navn@domene.no" required autocomplete="email">
+      </div>
+
+      <button type="submit">Aktiver bonusene mine →</button>
+      <div class="form-message" data-form-message></div>
+    </form>
+
+    <!-- Skjult Kajabi-embed (genererer authenticity_token) -->
+    <div class="kajabi-hidden-wrap" aria-hidden="true">
+      <script src="https://www.hegechristine.no/forms/2149583517/embed.js"></script>
+    </div>
+
+    <!-- Skjult iframe for response -->
+    <iframe name="kajabi-response-frame" class="kajabi-response-frame" aria-hidden="true"></iframe>
+
+    <p class="fine">Ved å sende inn samtykker du til at navn og e-post lagres for å levere bonusene. Du kan melde deg av når som helst. <em>Disclaimer:</em> Uavhengig Kajabi-partner. Provisjon ved bestilling via lenke. Ikke ansatt, agent eller representant for Kajabi, LLC.</p>
+
+  </main>
+
+</div>
+
+<footer class="page-foot">
+  <span class="kicker">© 2026 @hegechristine.no</span>
+  <div class="page-foot-right">
+    <a href="https://www.hegechristine.no/pages/personvern" class="kicker">PERSONVERN</a>
+    <a href="https://www.hegechristine.no/pages/cookieerklaering" class="kicker">COOKIES</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const forms = document.querySelectorAll('.hc-kajabi-form');
+  forms.forEach(initKajabiForm);
+
+  function initKajabiForm(customForm) {
+    const button = customForm.querySelector('button[type="submit"]');
+    const message = customForm.querySelector('[data-form-message]');
+    const originalButtonText = button.textContent;
+    const redirectUrl = customForm.getAttribute('data-redirect-url');
+    const successMessage = customForm.getAttribute('data-success-message')
+      || '✓ Takk! Du er på listen.';
+
+    function setMessage(text, state) {
+      if (!message) return;
+      message.textContent = text;
+      message.setAttribute('data-state', state || '');
+    }
+
+    function findKajabiForm() {
+      return document.querySelector('.kajabi-hidden-wrap form');
+    }
+
+    customForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const kajabiForm = findKajabiForm();
+
+      if (!kajabiForm) {
+        setMessage('Skjemaet laster fortsatt — prøv igjen om et øyeblikk.', 'error');
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sender...';
+      setMessage('');
+
+      const userName = customForm.querySelector('input[name="name"]').value.trim();
+      const userEmail = customForm.querySelector('input[name="email"]').value.trim();
+      const planSelect = customForm.querySelector('select[name="plan"]');
+      const userPlan = planSelect ? planSelect.value : '';
+
+      const emailInput = kajabiForm.querySelector('input[type="email"]');
+      if (emailInput) emailInput.value = userEmail;
+
+      const textInputs = kajabiForm.querySelectorAll('input[type="text"]');
+      for (let i = 0; i < textInputs.length; i++) {
+        const inp = textInputs[i];
+        if (inp.name && inp.name.toLowerCase().indexOf('name') !== -1) {
+          inp.value = userName;
+          break;
+        }
+      }
+
+      // Map plan to Kajabi field (looks for text input or select containing "plan" in name)
+      if (userPlan) {
+        const kajabiInputs = kajabiForm.querySelectorAll('input[type="text"], select');
+        for (let i = 0; i < kajabiInputs.length; i++) {
+          const inp = kajabiInputs[i];
+          if (inp.name && inp.name.toLowerCase().indexOf('plan') !== -1) {
+            inp.value = userPlan;
+            break;
+          }
+        }
+      }
+
+      kajabiForm.target = 'kajabi-response-frame';
+
+      try {
+        kajabiForm.submit();
+        setTimeout(function() {
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+          } else {
+            setMessage(successMessage, 'success');
+            customForm.reset();
+            button.disabled = false;
+            button.textContent = originalButtonText;
+          }
+        }, 800);
+      } catch (err) {
+        setMessage('Noe gikk galt. Prøv igjen om litt.', 'error');
+        button.disabled = false;
+        button.textContent = originalButtonText;
+      }
+    });
+  }
+})();
+</script>
+
+<script defer src="/edit.js"></script>
+</body>
+</html>
